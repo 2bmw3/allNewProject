@@ -1,8 +1,5 @@
 package org.won.web;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -69,5 +66,15 @@ public class LoginController {
 	public @ResponseBody String idCheck(String adminid) throws Exception {
 		return service.idCheck(adminid);
 	}
+	
+	@GetMapping("/addressSample")
+	public void addressSample(){
+		
+	}
+	@GetMapping("/addressPopup")
+	public void addressPopup(){
+		
+	}
+	
 
 }
