@@ -26,7 +26,7 @@
 		<i id="idCheck" class="fa fa-check-square-o"></i>
 		<input type="password" id="adminpw" name="adminpw" placeholder="Password" /> 
 		<input type="password" id="adminpwCheck" placeholder="Confirm password" /> 
-		<input type="button" name="next" class="next action-button" value="Next" />
+		<input type="button" id="firstNextBtn" name="next" class="action-button" value="Next" />
 	</fieldset>
 
 	<fieldset>
@@ -47,8 +47,8 @@
 
 	<fieldset>
 		<h2 class="fs-title">Choose your favorite theme</h2>
-		<h3 class="fs-subtitle"></h3>
-		<img src="/resources/indexImg/index1.png" class="thmeaImg" name="1"> 
+		<h3 class="fs-subtitle">4 Themes</h3>
+		<img src="/resources/indexImg/index1.png" class="thmeaImg" name="1" > 
 		<img src="/resources/indexImg/index2.png" class="thmeaImg" name="2"> 
 		<img src="/resources/indexImg/index3.png" class="thmeaImg" name="3"> 
 		<img src="/resources/indexImg/index4.png" class="thmeaImg" name="4">
@@ -117,8 +117,13 @@
 	
 	//테마선택 이벤트
 	$(".thmeaImg").on("click", function(){
+		var images = $("img");
 		swal("해당 테마로 선택되었습니다!");
 		$("#thema").val($(this)[0].name);
+		for(var i = 0 ; i < images.length; i ++ ){
+			images[i].className = "thmeaImg";			
+		}
+		$(this)[0].className="thmeaImgChoose";
 	});
 	
 	// enter key 방지
@@ -157,9 +162,55 @@
 			}// end success
 		});// end ajax
 	});// end idCeheck function
-	//
 	
 	
+	//start pwCheck event
+	$("#firstNextBtn").on("click", function(){
+		animating = false;
+		var adminpw = $("#adminpw");
+		var adminpwCheck = $("#adminpwCheck");
+		
+		if(idCheckResult == "F" ){
+			swal("아이디 중복체크를 해주세요!","", "error");
+		} else if(adminpw.val() == "" || adminpwCheck.val()=="" ){
+			swal("비밀번호를 입력해주세요!","", "error");
+		} else if ( adminpw.val() == adminpwCheck.val() ) {
+			swal("비밀번호가 일치합니다 !", "", "success");
+			
+			 if(animating) return false;
+			    animating = true;
 	
+			    current_fs = $(this).parent();
+			    next_fs = $(this).parent().next();
+	
+			    $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
+	
+			    next_fs.show();
+			    current_fs.animate({opacity: 0}, {
+			        step: function(now, mx) {
+			            scale = 1 - (1 - now) * 0.2;
+			            left = (now * 50)+"%";
+			            opacity = 1 - now;
+			            current_fs.css({
+			                'transform': 'scale('+scale+')',
+			                'position': 'absolute'
+			            });
+			            next_fs.css({'left': left, 'opacity': opacity});
+			        },
+			        duration: 800,
+			        complete: function(){
+			            current_fs.hide();
+			            animating = false;
+			        },
+			        easing: 'easeInOutBack'
+			    });
+		} else {
+			swal("비밀번호를 확인해주세요!","", "error");
+			adminpw.val("");
+			adminpwCheck.val("");
+		}
+	});// end pwCheck event
+	
+
 </script>
 </html>
