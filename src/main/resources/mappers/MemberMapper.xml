@@ -7,12 +7,19 @@
 
 <mapper namespace="org.won.dao.MemberMapper">
 
-   <select id="memberRead" resultType="productsVO">
-      select tbl_pphotos.pno,
-      pname,pgender,adminid,pkind,ptitlephoto,pcontent,price,pphoto,sellcnt,pregdate
-      from tbl_products,tbl_pphotos
-      where tbl_pphotos.pno = tbl_products.pno
-      and tbl_pphotos.pno = #{pno}
-   </select>
-   
+	<select id="memberRead" resultType="productsVO">
+		select tbl_pphotos.pno,
+		pname,pgender,adminid,pkind,ptitlephoto,pcontent,price,pphoto,sellcnt,pregdate
+		from tbl_products,tbl_pphotos
+		where tbl_pphotos.pno = tbl_products.pno
+		and tbl_pphotos.pno = #{pno}
+	</select>
+
+	<select id="create">
+		insert into tbl_member
+		(userid,userpw,uname,uaddress,uemail,uphonenumber,ubirth,ugender)
+		value(#{userid},#{userpw},#{uname},#{uaddress},#{uemail},#{uphonenumber},#{ubirth},#{ugender})
+
+	</select>
+
 </mapper>
