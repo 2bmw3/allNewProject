@@ -277,8 +277,6 @@ public class AdminController {
 		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress());
 		
 		
-//		logger.info(pservice.list(vo).toString());
-
 		for(int i = 0 ; i < pservice.list(vo).size() ; i++){
 			vo.setPno(pservice.list(vo).get(i).getPno());
 			
