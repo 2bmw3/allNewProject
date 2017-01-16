@@ -22,9 +22,9 @@
 		<h2 class="fs-title">Welcome!</h2>
 		<h3 class="fs-subtitle">Please write</h3>
 		<input type="text" name="userid" placeholder="ID" /> 
-		<input type="password" name="userpw" placeholder="Password" /> 
-		<!-- <input type="password" placeholder="Check Password" />  -->
+		<input type="password" id="userpw" name="userpw" placeholder="Password" /> 
 		<input type="text" name="uname" placeholder="Name" /> 
+		<input type="text" name="uphonenumber" placeholder="Phonenumber" /> 
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
 	<fieldset>
@@ -32,9 +32,12 @@
 		<h3 class="fs-subtitle">please write</h3>
 		<input type="text" name="uaddress" placeholder="Address" /> 
 		<input type="email" name="uemail" placeholder="Email" /> 
-		<input type="text" name="uphonenumber" placeholder="Phonenumber" />  
 		<input type="date" name="ubirth" placeholder="Birth" /> 
-		<input type="text" name="ugender" placeholder="Gender" />
+		<select name="ugender">
+		  <option >----------</option>
+		  <option value="Male">Male</option>
+		  <option value="Female">Female</option>
+		</select>
 		<input type="button" name="previous" class="previous action-button" value="Previous" /> 
 		<button id='formSubmit' class="action-button">Join us</button>
 	</fieldset>
