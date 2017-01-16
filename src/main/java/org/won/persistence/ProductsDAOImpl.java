@@ -1,0 +1,150 @@
+package org.won.persistence;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Repository;
+import org.won.domain.AnswerVO;
+import org.won.domain.PinfoVO;
+import org.won.domain.PphotosVO;
+import org.won.domain.ProductsVO;
+import org.won.domain.QuestionVO;
+import org.won.domain.SearchVO;
+
+@Repository
+public class ProductsDAOImpl implements ProductsDAO {
+
+	@Inject
+	protected SqlSession sqlSession;
+
+	protected String NAME = "org.won.dao.ProductsMapper";
+
+	@Override
+	public void productsWrite(ProductsVO vo) throws Exception {
+		sqlSession.insert(NAME + ".productsWrite", vo);
+	}
+
+	@Override
+	public void productsDetailWrite(PinfoVO vo) throws Exception {
+		sqlSession.insert(NAME + ".productsDetailWrite", vo);
+	}
+
+	@Override
+	public void productsPhotoWrite(String photo) throws Exception {
+		sqlSession.insert(NAME + ".productsPhotoWrite", photo);
+	}
+
+	@Override
+	public List<ProductsVO> read(int pno) throws Exception {
+
+		return sqlSession.selectList(NAME + ".adminRead", pno);
+
+	}
+
+	@Override
+	public void productsDelete(int pno) throws Exception {
+		sqlSession.delete(NAME + ".productsDelete", pno);
+	}
+
+	@Override
+	public void pinfoDelete(int pno) throws Exception {
+		sqlSession.delete(NAME + ".pinfoDelete", pno);
+	}
+
+	@Override
+	public void pphotosDelete(int pno) throws Exception {
+		sqlSession.delete(NAME + ".pphotosDelete", pno);
+	}
+
+	@Override
+	public List<ProductsVO> list(ProductsVO vo) throws Exception {
+		return sqlSession.selectList(NAME + ".list", vo);
+	}
+
+	@Override
+	public List<PinfoVO> info(int pno) throws Exception {
+
+		return sqlSession.selectList(NAME + ".info", pno);
+	}
+
+	@Override
+	public List<QuestionVO> question(int pno) throws Exception { //
+		return sqlSession.selectList(NAME + ".question", pno);
+	}
+
+	@Override
+	public void answer(AnswerVO vo) throws Exception {
+		sqlSession.insert(NAME + ".answer", vo);
+
+	}
+
+	@Override
+	public List<AnswerVO> answerRead(int pno) throws Exception {
+		return sqlSession.selectList(NAME + ".answerRead", pno);
+	}
+
+	@Override
+	public List<ProductsVO> adminListSearch(SearchVO search) throws Exception {
+		return sqlSession.selectList(NAME + ".adminListSearch", search);
+	}
+
+	@Override
+	public int total(String adminid) throws Exception {
+		return sqlSession.selectOne(NAME + ".total", adminid);
+	}
+
+	@Override
+	public int searchTotal(SearchVO search) throws Exception {
+
+		return sqlSession.selectOne(NAME + ".searchTotal", search);
+	}
+
+	@Override
+	public List<ProductsVO> lastPnoRead() throws Exception {
+		return sqlSession.selectList(NAME + ".lastPnoRead");
+	}
+
+	@Override
+	public List<PphotosVO> pphotosRead(int pno) throws Exception {
+		return sqlSession.selectList(NAME + ".pphotosRead", pno);
+
+	}
+
+	@Override
+	public List<ProductsVO> updateProductsRead(int pno) throws Exception {
+		return sqlSession.selectList(NAME + ".updateProductsRead", pno);
+
+	}
+
+	@Override
+	public List<PinfoVO> updateInfoRead(int pno) throws Exception {
+		return sqlSession.selectList(NAME + ".updateInfoRead", pno);
+	}
+
+	@Override
+	public void productsDetailWritePno(PinfoVO vo) throws Exception {
+		sqlSession.insert(NAME + ".productsDetailWritePno", vo);
+
+	}
+
+	@Override
+	public void productsPhotoWritePno(PphotosVO vo) throws Exception {
+		sqlSession.insert(NAME + ".productsPhotoWritePno", vo);
+
+	}
+
+	@Override
+	public void update(ProductsVO vo) throws Exception {
+		sqlSession.delete(NAME + ".update", vo);
+
+	}
+
+	@Override
+	public void qstatus(int qno) throws Exception {
+		sqlSession.update(NAME + ".qstatus", qno);
+
+	}
+
+}
