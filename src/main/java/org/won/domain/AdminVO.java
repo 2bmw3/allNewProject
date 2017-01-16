@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class AdminVO {
 
-	private String adminid, adminpw, aname, aaddress, aemail, aphonenumber, shopname, businessnum, shoplogo;
+	private String adminid, adminpw, aname, aaddress, aemail, aphonenumber, shopname, businessnum, shoplogo, thema;
 	private Date aregdate;
 
 	public String getAdminid() {
@@ -79,6 +79,14 @@ public class AdminVO {
 		this.shoplogo = shoplogo;
 	}
 
+	public String getThema() {
+		return thema;
+	}
+
+	public void setThema(String thema) {
+		this.thema = thema;
+	}
+
 	public Date getAregdate() {
 		return aregdate;
 	}
@@ -91,7 +99,7 @@ public class AdminVO {
 	public String toString() {
 		return "AdminVO [adminid=" + adminid + ", adminpw=" + adminpw + ", aname=" + aname + ", aaddress=" + aaddress
 				+ ", aemail=" + aemail + ", aphonenumber=" + aphonenumber + ", shopname=" + shopname + ", businessnum="
-				+ businessnum + ", shoplogo=" + shoplogo + ", aregdate=" + aregdate + "]";
+				+ businessnum + ", shoplogo=" + shoplogo + ", thema=" + thema + ", aregdate=" + aregdate + "]";
 	}
 
 }

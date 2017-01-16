@@ -10,9 +10,9 @@
 	<insert id="create">
 		insert into tbl_admin (adminid, adminpw, aname,
 		aaddress, aemail, aphonenumber, shopname, businessnum,
-		shoplogo)
+		shoplogo, thema)
 		values(#{adminid}, #{adminpw}, #{aname}, #{aaddress}, #{aemail},
-		#{aphonenumber}, #{shopname}, #{businessnum}, #{shoplogo})
+		#{aphonenumber}, #{shopname}, #{businessnum}, #{shoplogo},#{thema} )
 	</insert>
 	
 	<select id="shopTotal" parameterType="String" resultType="AdminVO">

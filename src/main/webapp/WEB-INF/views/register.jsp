@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form id="msform" method="post" action="/registerAction">
+<form id="msform" method="post" action="/registerAction" >
 
 	<ul id="progressbar">
 		<li class="active">기본 입력사항</li>
@@ -32,7 +32,7 @@
 		<h2 class="fs-title">상세 정보</h2>
 		<h3 class="fs-subtitle">고객님의 상세 정보를 입력해주세요</h3>
 		<input type="text" name="aname" placeholder="이름" /> 
-		<input type="email" name="aemail" placeholder="이메일" /> 
+		<input type="text" name="aemail" placeholder="이메일" /> 
 		<input type="text" name="aphonenumber" placeholder="전화번호" /> 
 		<input type="text" name="shopname" placeholder="가게 이름" /> 
 		<input type="text" name="aaddress" placeholder="가게 주소" /> 
@@ -53,7 +53,7 @@
 		<img src="/resources/indexImg/index4.png" class="thmeaImg" name="4">
 		<input type="hidden" id='thema' name="thema">
 		<input type="button" name="previous" class="previous action-button"	value="Previous" /> 
-		<input type="submit" id='formSubmit' name="submit" class="submit action-button" value="Submit" />
+		<button id='formSubmit' class="action-button">회원가입</button>
 	</fieldset>
 </form>
 
@@ -89,11 +89,11 @@
 	var storage = firebase.storage();
 	var storageRef = storage.ref();
 	
-	// register submit
-	$("#formSubmit").on("click", function() {
-		swal("회원가입 성공!");
-		$("#msform").submit();
-	});
+// 	// register submit => 왜 .submit()이 안먹히지?
+// 	$("#formSubmit").on("click", function(event) {
+// 		event.preventDefault();
+// 		$("#msform").submit();
+// 	});
 
 	// 2번째 페이지 작성 완료하면 shoplogo firebase upload
 	$("#secondNextBtn").on("click", function() {
@@ -117,5 +117,12 @@
 		$("#thema").val($(this)[0].name);
 	});
 	
+	// enter key 방지
+	$(function() {
+		$("input:text").keydown(function(evt) {
+			if (evt.keyCode == 13)
+				return false;
+		});
+	});
 </script>
 </html>
