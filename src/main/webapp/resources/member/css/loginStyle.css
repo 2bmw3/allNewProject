@@ -9,6 +9,7 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
+  margin: 7%;
 }
 body ::-webkit-input-placeholder {
   /* WebKit browsers */

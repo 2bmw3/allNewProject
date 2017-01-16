@@ -87,8 +87,8 @@
 						</div>
 						<div class="col-sm-5">
 							<ul class="fh5co-social-icons">
-								<li><a href="#"><i class="material-icons">lock</i></a></li>
-								<li><a href="#"><i class="material-icons">group_add</i></a></li>
+								<li><a href="/member/login"><i class="material-icons">lock</i></a></li>
+								<li><a href="/member/register"><i class="material-icons">group_add</i></a></li>
 								<li><a href="#"><i class="material-icons">photo_camera</i></a></li>
 							</ul>
 						</div>

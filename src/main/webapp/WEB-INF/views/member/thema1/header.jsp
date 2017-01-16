@@ -64,8 +64,8 @@
                            <li><a href="account">My Account</a></li>
                            <li><a href="cart">My Cart</a></li>
                            <li><a href="checkout">Checkout</a></li>
-                           <li><a href="" data-toggle="modal"
-                              data-target="#login-modal">Login</a></li>
+                           <li><a href="/member/login">Login</a></li>
+                            <li><a href="/member/register">Join Us</a></li>
                         </ul>
                      </div>
                   </div>

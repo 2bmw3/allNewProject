@@ -61,6 +61,8 @@ function hideURLbar() {
                 <li class="grid"><a href="#">PhotoSearch</a></li>
                 <li class="grid"><a href="order">Order</a></li>
                 <li class="grid"><a href="cart">Cart</a></li>
+                   <li class="grid"><a href="/member/login">Login</a></li>
+                      <li class="grid"><a href="/member/register">Join Us</a></li>
             </ul>
         </div>
         <div class="clearfix"></div>

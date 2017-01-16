@@ -10,20 +10,16 @@
 <style>
 #video { 
      position: absolute;
-     top: 0px;
-     left: 0px;
-     min-width: 100%;
-     min-height: 100%;
-/*      max-width: 100%;  */
-/*      max-height: 100%;  */
-     width: auto;
+	 top: 0px;
+     left: 0px; 
+     max-width: 100%;
+     width: 100%;
      height: auto;
      z-index: -1;
      overflow: hidden;
 }
 
 </style>
-
 </head>
 <body>
 <div class="wrapper">
@@ -38,12 +34,8 @@
     </div>
 </div>
 <video id="video" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0">
-      <source src="/resources/member/video/sample.mp4">
-
+      <source src="/resources/member/video/sm.mp4">
 </video>
-
-
-
 </body>
 <script src="/resources/member/js/loginJs.js"></script>
 </html>
