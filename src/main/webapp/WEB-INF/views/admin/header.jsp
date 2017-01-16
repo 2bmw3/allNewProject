@@ -130,6 +130,9 @@
                     <li>
                         <a href="write"><i class="fa fa-edit fa-fw"></i>상품 등록</a>
                     </li>
+                    <li>
+                        <a href="cardEdit">&nbsp;<i class="fa fa-id-badge"></i>&nbsp;카드 제작</a>
+                    </li>
                 </ul>
             </div>
             <!-- /.sidebar-collapse -->
