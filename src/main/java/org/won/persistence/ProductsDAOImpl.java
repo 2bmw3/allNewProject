@@ -153,4 +153,11 @@ public class ProductsDAOImpl implements ProductsDAO {
 		return sqlSession.selectList(NAME + ".memberRead", pno);
 
 	}
+
+	
+	//thema번호 가져오는 함수
+	@Override
+	public int themaGet(int pno) throws Exception {
+		return sqlSession.selectOne(NAME + ".themaGet",pno);
+	}
 }

@@ -228,11 +228,18 @@
 	            showConfirmButton: false,
 	            showLoaderOnConfirm: true,
 	          });
+	     	 
+	         $.ajax({
+	             url:'/themaGet',
+	             type:'get',
+	             datatype: 'json',
+	             data:"pno="+pno,
+	             success:function(data){
 	                  setTimeout(() => {
-	                self.location = "http://localhost:8081/admin/view?pno="
-	                          + pno
-	                          + "&pageNum=1&jspName=/list&sType=&keyword=";               
-	              }, 1);    
+	  	                self.location = data;               
+	  	              }, 1);  
+	             }
+	         });
 	    }
 </script>
 </html>

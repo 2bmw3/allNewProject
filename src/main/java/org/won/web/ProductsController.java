@@ -111,7 +111,11 @@ public class ProductsController {
 
 	}
 
-	
+	@GetMapping("/themaGet")
+	public @ResponseBody String themaGet(int pno) throws Exception{
+		String str = "http://localhost:8081/member/thema"+ service.themaGet(pno) +"/view?pno="+ pno;
+		return str;
+	}
 
 	
 

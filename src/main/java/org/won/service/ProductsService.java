@@ -47,4 +47,7 @@ public interface ProductsService {
 	
 	
 	public List<ProductsVO> memberRead(int pno) throws Exception;
+	
+	//thema 번호 가져오는 함수
+	public int themaGet(int pno)throws Exception;
 }

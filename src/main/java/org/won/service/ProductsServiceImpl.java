@@ -209,4 +209,9 @@ public class ProductsServiceImpl implements ProductsService {
 		return dao.read(pno);
 	}
 
+	// thema번호 가져오는 함수
+	@Override
+	public int themaGet(int pno) throws Exception {
+		return dao.themaGet(pno);
+	}
 }

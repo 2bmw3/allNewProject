@@ -174,5 +174,10 @@
       pcontent=#{pcontent}, ptitlephoto=#{ptitlephoto}
       WHERE pno=#{pno}
    </update>
+   
+   <select id="themaGet" resultType="java.lang.Integer">
+    select thema from bit88.tbl_admin
+	where adminid = (select adminid from bit88.tbl_products where pno=#{pno})
+   </select>
 
 </mapper>
