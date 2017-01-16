@@ -58,7 +58,7 @@ public class AdminController {
 
 	}
 	
-	// admin 회원 가입
+	// admin 회원 가입 화면
 	@GetMapping("/register")
 	public void adminRegister(){
 		
