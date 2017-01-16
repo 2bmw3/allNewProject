@@ -58,7 +58,7 @@
 										WHERE	a.pno = tbl_products.pno	AND adminid = #{adminid}) a,
 												tbl_member	
 									WHERE a.userid = tbl_member.userid ORDER BY ono DESC
-																						LIMIT 0 , 5;
+																						LIMIT 0 , 5
 
 	</select>
 
@@ -82,7 +82,7 @@
 												AND adminid = #{adminid}) a,
 									tbl_member
 									WHERE a.userid = tbl_member.userid
-									ORDER BY ono DESC	LIMIT #{page} , 5;
+									ORDER BY ono DESC	LIMIT #{page} , 5
 
 	</select>
 

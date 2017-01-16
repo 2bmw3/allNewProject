@@ -109,7 +109,7 @@
    <update id="qstatus">
     update tbl_question
 	SET qstatus='Y'
-	WHERE qno=#{ano} 
+	WHERE qno=#{ano}
    </update>
 
    <select id="answerRead" resultType="AnswerVO">
@@ -117,7 +117,7 @@
       ano,qna.qno,acontent,awriter,aregdate from tbl_answer,(select qno
       from
       tbl_question where pno=#{pno}) qna
-      where tbl_answer.qno=qna.qno;
+      where tbl_answer.qno=qna.qno
    </select>
 
    <select id="info" resultType="PinfoVO">
