@@ -9,20 +9,23 @@
 }
 .cardBackground .titleImg{
 	position:absolute;
-	left:190px;
+	left:210px;
 	top:20px;	
 	
 }
 .cardBackground .logoImg{
 	position:absolute;
-	left:35px;
-	top:150px;	
+	left:40px;
+	top:125px;	
 	border-radius: 70px;
 }
 .cardBackground .editText{
 	position:absolute;
-	left:35px;
-	top:200px;	
+ 	left:40px; 
+	text-align: left;
+	top:210px;
+	width: 130px;
+	font-size: 10px;
 }
 </style>
 <%@include file="header.jsp"%>
@@ -113,8 +116,8 @@
 											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 										</div>
 										<div class='editText'>
-<%--  												${shop.aphonenumber} --%>
-<%-- 											<p>${shop.aaddress}</p> --%>
+ 											<p>Tel . ${phonenumber}</p>
+											<p>Address . ${shopaddress}</p>
 										</div>
 										<div>
 											<input type="hidden" value="${vo.pno}"> 

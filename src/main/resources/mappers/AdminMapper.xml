@@ -14,8 +14,8 @@
 		values(#{adminid}, #{adminpw}, #{aname}, #{aaddress}, #{aemail},
 		#{aphonenumber}, #{shopname}, #{businessnum}, #{shoplogo})
 	</insert>
-
-	<select id="shopTotal" parameterType="String" resultType="String">
+	
+	<select id="shopTotal" parameterType="String" resultType="AdminVO">
 		select * from tbl_admin where adminid = #{adminid}
 	</select>
 

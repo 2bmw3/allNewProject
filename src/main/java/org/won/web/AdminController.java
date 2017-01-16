@@ -266,8 +266,10 @@ public class AdminController {
 
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
-		model.addAttribute("shopTotal", service.shopTotal(username));
-		logger.info(service.shopTotal(username).toString());
+		model.addAttribute("shoplogo", service.shopTotal(username).get(0).getShoplogo());
+		model.addAttribute("phonenumber", service.shopTotal(username).get(0).getAphonenumber());
+		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress().split("\t")[1]);
+//		logger.info("getAddress ::::"+service.shopTotal(username).get(0).getAaddress().split("\t")[1]);
 	}
 
 }
