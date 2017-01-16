@@ -259,9 +259,13 @@ public class AdminController {
 	
 	//admin card 제작
 	@GetMapping("/cardEdit")
-	public void cardEdit(){
-		
+	public void cardEdit(Model model,HttpServletRequest request) throws Exception {
+		String username = cookieUtil.cookieUtil(request);
+		int totalData = pservice.total(username);
+		ProductsVO vo = new ProductsVO();
+
+		vo.setAdminid(username);
+		model.addAttribute("list", pservice.list(vo));
 	}
-	
 
 }
