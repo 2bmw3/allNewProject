@@ -11,29 +11,29 @@
 }
 .cardBackground .titleImg{
 	position:absolute;
-	left:300px;
-	top:20px;	
+	left:60%;
+	top:8%;	
 	
 }
 .cardBackground .logoImg{
 	position:absolute;
-	left:120px;
-	top:125px;	
+	left:22%;
+	top:40%;	
 	border-radius: 70px;
 }
 .cardBackground .editText{
 	position:absolute;
- 	left:110px; 
+ 	left:23%; 
 	text-align: left;
-	top:210px;
+	top:70%;
 	width: 130px;
 	font-size: 10px;
 }
 .cardBackground .productInfo{
 	position:absolute;
-	left:290px;
+	left:55%;
 	text-align: center;
-	top:150px;
+	top:50%;
 	width: 130px;
 	font-size: 10px;
 }

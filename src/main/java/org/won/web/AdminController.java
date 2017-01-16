@@ -280,7 +280,6 @@ public class AdminController {
 		for(int i = 0 ; i < pservice.list(vo).size() ; i++){
 			vo.setPno(pservice.list(vo).get(i).getPno());
 			
-			logger.info("pinfo "+(i)+"toString :::::"+service.infoEdit(vo).toString());
 			colorCnt = 0;
 			sizeCnt = 0;
 			for(int j = 0 ; j < service.infoEdit(vo).size() ; j++){
