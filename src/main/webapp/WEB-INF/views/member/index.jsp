@@ -11,9 +11,14 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="/resources/member/css/index.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>	
+
+<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
+<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
+<!-- 구글 비젼에 데이터 요청 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 <body>
 <div id="background">
-	<div id="gallery">
+	<div id="gallery" style="margin-left:20%;">
 		<figure class="pic1"> 
 			<a href="thema1/index"> 
 			<img src="/resources/indexImg/index1.png" />
@@ -21,7 +26,7 @@
 			<figcaption>Haerin's shop</figcaption> 
 		</figure>
 		
-		<figure class="pic2"> 
+		<figure class="pic7"> 
 			<a href="thema2/index"> 
 				<img src="/resources/indexImg/index2.png" />
 			</a> 
@@ -49,7 +54,7 @@
 			<figcaption>Shopping mall</figcaption> 
 		</figure>
 		
-		<figure class="pic6" style="width: 320px; height: 178px"> 
+		<figure class="pic10 camera" style="width: 320px; height: 178px"> 
 			<a href='#' id="myBtn" class='btn-example'> 
 				<i class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> 
@@ -96,80 +101,138 @@
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
-
   <!-- Modal content -->
-  <div class="modal-content">
+  <div class="modal-content" style="width:40%; height:80%;">
     <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>webcam</h2>
+      <span class="close" id="webCamClose">&times;</span>
+      <h2>Please put the card on the camera.</h2>
     </div>
-    <div class="modal-body">
     
-     <video id="video" width="100%" height="100%" autoplay></video>
+    <div class="modal-body">
+     <video id="video" width="100%" height="80%" autoplay></video>
   	 <canvas id="canvas"></canvas>
    	 <br/>
   	 <div id="ViewTimer"></div>
-   	 <br/>
-            
     </div>
     <div class="modal-footer">
-      <h3>won-piece</h3>
+      <h3>won - piece</h3>
     </div>
   </div>
-
 </div>
 </body>
 
 <script>
-
-	var modal = document.getElementById('myModal');
-	
-	var btn = document.getElementById("myBtn");
-	
-	var span = document.getElementsByClassName("close")[0];
-	
-	btn.onclick = function() {
-	    modal.style.display = "block";
-	}
-	
-	span.onclick = function() {
-	    modal.style.display = "none";
-	}
-	
-	window.onclick = function(event) {
-	    if (event.target == modal) {
-	        modal.style.display = "none";
-	    }
-	}
-
-	var video = document.getElementById('video');
-	
-	if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-	   navigator.mediaDevices.getUserMedia({
-	      video : true
-	   }).then(function(stream) {
-	      video.src = window.URL.createObjectURL(stream);
-	      video.play();
-	   });
-	}
-	 
-	 var canvas = document.getElementById('canvas');
-	 var context = canvas.getContext('2d');
-	 var video = document.getElementById('video');
 		
-	 $("#canvas").hide();
-	
-	 document.getElementById("video").addEventListener("click", function() {
-	 	
-	 	var videoHeight = $("#video")[0].offsetHeight;
-	 	var videoWidth = $("#video")[0].offsetWidth;
-	 	
-	 	$("#canvas").show();
-	 	canvas.height = videoHeight;
-	 	canvas.width = videoWidth;
-	  	$('#video').hide();
-	    context.drawImage(video, 0, 0,videoWidth,videoHeight);
-	 });
+		var modal = document.getElementById('myModal');	
+		var btn = document.getElementById("myBtn");
+		var span = document.getElementsByClassName("close")[0];
+		var video = document.getElementById('video');
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext('2d');
+		var video = document.getElementById('video');
+		var videoJQ = $("#video");
+		var canvasJQ = $("#canvas");
+		var cameraBtn = $("#myBtn");
+		var cameraDiv = $(".camera");
+		
+		btn.onclick = function() {
+		    modal.style.display = "block";
+		}
+		
+		span.onclick = function() {
+			modal.style.display = "none";
+			canvasJQ.attr("heigth","0");
+			canvasJQ.attr("width","0");
+		    cameraDiv.show();
+		}
+		
+		window.onclick = function(event) {
+		    if (event.target == modal) {
+		        modal.style.display = "none";
+		    }
+		}
 
+		
+		// 웹캠을 클릭시 활성화
+		cameraBtn.on("click",function(){
+			canvasJQ.hide();
+			if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+				navigator.mediaDevices.getUserMedia({
+					video : true
+				}).then(function(stream) {
+				    video.src = window.URL.createObjectURL(stream);
+				    videoJQ.show();
+				    video.play();
+				    cameraDiv.hide();
+				});
+			}
+		});
+		 
+
+			
+		 
+		
+		 document.getElementById("video").addEventListener("click", function() {
+		 	var videoHeight = videoJQ[0].offsetHeight;
+		 	var videoWidth = videoJQ[0].offsetWidth;
+		 	
+		 	canvasJQ.show(); 
+		 	canvas.height = videoHeight;
+		 	canvas.width = videoWidth;
+	        videoJQ.hide();
+	        
+	        context.drawImage(video, 0, 0,videoWidth,videoHeight);
+	        var base64 = canvas.toDataURL("image/jpeg");
+	        sendFileToCloudVision(base64.replace('data:image/jpeg;base64,', ''));      
+	  });
+	    
+	    
+	    function sendFileToCloudVision (content) {
+	     	  var type = "TEXT_DETECTION";
+
+	     	  // Strip out the file prefix when you convert to json.
+	     	  var request = {
+	     	    requests: [{
+	     	      image: {
+	     	        content: content
+	     	      },
+	     	      features: [{
+	     	        type: type,
+	     	        maxResults: 200
+	     	      }]
+	     	    }]
+	     	  };
+
+	     	  $.post({
+	     	    url:'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDZVLNTpGmVooQatMslQnPYKyNAMKhOuOo',
+	     	    data: JSON.stringify(request),
+	     	    contentType: 'application/json'
+	     	  }).fail(function (jqXHR, textStatus, errorThrown) {
+	     	    $('#results').text('ERRORS: ' + textStatus + ' ' + errorThrown);
+	     	  }).done(displayJSON);
+	     	}
+
+	     	/**
+	     	 * Displays the results.
+	     	 */
+	     	function displayJSON (data) {
+	     	  var contents = JSON.stringify(data.responses[0].textAnnotations[0].description.split("#")[1].split(" ")[0]);
+	     	 
+	     	  var pno = parseInt(contents.split('"')[1]);
+	     	
+	     	 swal({
+	            title: "맘에 드셨어요?",
+	            text:  "해당 상품으로 이동합니다.",
+	            type: "info",
+	            closeOnConfirm: false,
+	            showConfirmButton: false,
+	            showLoaderOnConfirm: true,
+	          });
+	                  setTimeout(() => {
+	                self.location = "http://localhost:8081/admin/view?pno="
+	                          + pno
+	                          + "&pageNum=1&jspName=/list&sType=&keyword=";               
+	              }, 1);    
+	    }
 </script>
 </html>
