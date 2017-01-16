@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<!-- card Edit style -->
 <style>
 
 .cardBackground{
@@ -9,25 +11,39 @@
 }
 .cardBackground .titleImg{
 	position:absolute;
-	left:210px;
+	left:300px;
 	top:20px;	
 	
 }
 .cardBackground .logoImg{
 	position:absolute;
-	left:40px;
+	left:120px;
 	top:125px;	
 	border-radius: 70px;
 }
 .cardBackground .editText{
 	position:absolute;
- 	left:40px; 
+ 	left:110px; 
 	text-align: left;
 	top:210px;
 	width: 130px;
 	font-size: 10px;
 }
+.cardBackground .productInfo{
+	position:absolute;
+	left:290px;
+	text-align: center;
+	top:150px;
+	width: 130px;
+	font-size: 10px;
+}
+ .cardBackground .productInfo p{
+	margin-top: 5px;
+	margin-bottom: 0;
+}
 </style>
+
+
 <%@include file="header.jsp"%>
 
 
@@ -97,19 +113,19 @@
 					<!-- 상품 1개 -->
 
 					<br> <br>
-					<div class="single-products" style="margin-top: 2%">
+					<div class="single-products col-md-12" style="margin-top: 2%">
 						<div class="productinfo text-center">
 
 
 							<c:if test="${'[null]' ne list}">
-								<c:forEach items="${list}" var="vo">
-
-									<div class="col-md-4 cardBackground">
-										<img style = 'width:300px; height:300px;' src='/resources/admin/images/card/cardSample.jpg'>
+								<c:forEach items="${list}" var="vo" varStatus="status">
+								
+									<div class="col-md-6 cardBackground">
+										<img style = 'width:350px; height:300px;' src='/resources/admin/images/card/cardSample.jpg'>
 										<div class='logoImg'>
 											<img style='width:100px;height:100px;'
 <%-- 											src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo.shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'/> --%>
-												src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2Fc480f8e9-728a-dc66-249d-dde279ba807e_logo.gif?alt=media&token=303a7418-ab40-40df-947c-15f4d1a25591'/>
+												src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2Fc480f8e9-728a-dc66-249d-dde279ba807e_logo.gif?alt=media&token=303a7418-ab40-40df-947c-15f4d1a25591'>
 										</div>
 										<div class='titleImg'>
 											<img style='width: 100px; height: 120px;'
@@ -118,6 +134,13 @@
 										<div class='editText'>
  											<p>Tel . ${phonenumber}</p>
 											<p>Address . ${shopaddress}</p>
+										</div>
+										<div class='productInfo'>
+											<p>${vo.pname}</p>
+											<p>￦  ${vo.price}</p>
+											<p>${colorCnt[status.count - 1]} color / ${sizeCnt[status.count - 1]} size</p>
+											<hr/>
+											<p style='margin-top: 0px;'>#${vo.pno}&nbsp;&nbsp;${shopname}</p>
 										</div>
 										<div>
 											<input type="hidden" value="${vo.pno}"> 
@@ -131,6 +154,8 @@
 										</div>
 									</div>
 								</c:forEach>
+								</div>
+								
 							</c:if>
 						</div>
 					</div>

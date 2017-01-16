@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.won.domain.AdminVO;
+import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
 import org.won.domain.QuestionVO;
 
@@ -45,6 +46,12 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<AdminVO> shopTotal(String adminid) throws Exception {
 
 		return sqlSession.selectList(NAME + ".shopTotal", adminid);
+	}
+
+	@Override
+	public List<PinfoVO> infoEdit(ProductsVO pvo) throws Exception {
+
+		return sqlSession.selectList(NAME + ".infoEdit", pvo);
 	}
 
 	@Override

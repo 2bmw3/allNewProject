@@ -14,9 +14,16 @@
 		values(#{adminid}, #{adminpw}, #{aname}, #{aaddress}, #{aemail},
 		#{aphonenumber}, #{shopname}, #{businessnum}, #{shoplogo},#{thema} )
 	</insert>
-	
+
 	<select id="shopTotal" parameterType="String" resultType="AdminVO">
-		select * from tbl_admin where adminid = #{adminid}
+		select
+		* from tbl_admin where adminid = #{adminid}
+	</select>
+	<select id="infoEdit" parameterType="ProductsVO" resultType="PinfoVO">
+		select tbl_pinfo.pno pno, count(distinct pisize) pisize,
+		count(distinct picolor) picolor
+		from tbl_pinfo, tbl_products
+		where tbl_pinfo.pno = #{pno} and tbl_products.adminid = #{adminid}
 	</select>
 
 	<select id="categorySearch" resultType="ProductsVO"
@@ -38,10 +45,13 @@
 	</select>
 
 	<select id="latter" resultType="QuestionVO">
-		select tbl_question.pno, pname, ptitlephoto from tbl_question, tbl_products
-		where tbl_question.pno = tbl_products.pno and qstatus = 'N' and
+		select tbl_question.pno, pname,
+		ptitlephoto from tbl_question, tbl_products
+		where tbl_question.pno =
+		tbl_products.pno and qstatus = 'N' and
 		adminid=#{adminid}
-		order by qno desc
+		order by qno
+		desc
 	</select>
 
 </mapper>

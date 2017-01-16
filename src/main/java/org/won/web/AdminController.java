@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.FileOutputStream;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -261,14 +262,44 @@ public class AdminController {
 	@GetMapping("/cardEdit")
 	public void cardEdit(Model model,HttpServletRequest request) throws Exception {
 		String username = cookieUtil.cookieUtil(request);
-		int totalData = pservice.total(username);
+//		int totalData = pservice.total(username);
 		ProductsVO vo = new ProductsVO();
-
+		int colorCnt = 0;
+		int sizeCnt = 0;
+		List<Integer> colorList = new ArrayList<>();
+		List<Integer> sizeList = new ArrayList<>();
+		
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
 		model.addAttribute("shoplogo", service.shopTotal(username).get(0).getShoplogo());
+		model.addAttribute("shopname", service.shopTotal(username).get(0).getShopname());
 		model.addAttribute("phonenumber", service.shopTotal(username).get(0).getAphonenumber());
 		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress().split("\t")[1]);
+		
+		
+//		logger.info(pservice.list(vo).toString());
+
+		for(int i = 0 ; i < pservice.list(vo).size() ; i++){
+			vo.setPno(pservice.list(vo).get(i).getPno());
+			
+			logger.info("pinfo "+(i)+"toString :::::"+service.infoEdit(vo).toString());
+			colorCnt = 0;
+			sizeCnt = 0;
+			for(int j = 0 ; j < service.infoEdit(vo).size() ; j++){
+				logger.info("pinfo Color ::::: "+service.infoEdit(vo).get(j).getPicolor());
+				colorCnt += Integer.parseInt(service.infoEdit(vo).get(j).getPicolor());
+				sizeCnt += Integer.parseInt(service.infoEdit(vo).get(j).getPisize());
+			}
+			colorList.add(colorCnt);
+			sizeList.add(sizeCnt);
+		}
+		model.addAttribute("colorCnt", colorList);
+		model.addAttribute("sizeCnt", sizeList);
+		
+		logger.info("colorCnt :::: "+colorCnt);
+		logger.info("colorList :::::" + colorList);
+		logger.info("sizeCnt :::: "+sizeCnt);
+		logger.info("sizeList :::: "+sizeList);
 	}
 
 }

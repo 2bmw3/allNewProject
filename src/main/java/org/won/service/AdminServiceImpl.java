@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 import org.won.domain.AdminVO;
+import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
 import org.won.domain.QuestionVO;
 import org.won.persistence.AdminDAO;
@@ -38,6 +39,12 @@ public class AdminServiceImpl implements AdminService {
 	public List<AdminVO> shopTotal(String adminid) throws Exception {
 
 		return dao.shopTotal(adminid);
+	}
+	
+	@Override
+	public List<PinfoVO> infoEdit(ProductsVO pvo) throws Exception{
+		
+		return dao.infoEdit(pvo);
 	}
 
 	@Override
