@@ -30,7 +30,7 @@ public class LoginController {
 	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
  
 	/* admin 회원가입 */
-	@GetMapping("/admin_register")
+	@GetMapping("/register")
 	public void adminRegister() {
  
 	}
