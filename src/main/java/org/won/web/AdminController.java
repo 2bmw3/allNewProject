@@ -256,5 +256,11 @@ public class AdminController {
 		return testPno;
 	}
 	
+	//admin card 제작
+	@GetMapping("/cardEdit")
+	public void cardEdit(){
+		
+	}
+	
 
 }
