@@ -21,11 +21,12 @@
     <form action="login" method="post">
         <input type="text" name="username" placeholder="ID">
         <input type="password" name="password" placeholder="Password">
+        <input id = "remember_me" name ="_spring_security_remember_me" type = "checkbox"/>Remember me
         <input type="submit" name="login" class="login login-submit" value="login">
     </form>
 
     <div class="login-help">
-        <a href="#">Register</a> • <a href="#">Forgot Password</a>
+        <a href="register">Register</a> • <a href="#">Forgot Password</a>
     </div>
 </div>
 
