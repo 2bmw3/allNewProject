@@ -59,7 +59,7 @@ public class AdminController {
 	}
 	
 
-	// 주문 관리
+	// 주문 관리 page
 	@GetMapping("/order")
 	public void adminOrder(String adminid, Model model,HttpServletRequest request) throws Exception {
 		
