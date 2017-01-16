@@ -41,11 +41,11 @@ public class AdminDAOImpl implements AdminDAO {
 
 	}
 
-/*	@Override
+	@Override
 	public String shoplogo(String adminid) throws Exception {
 
 		return sqlSession.selectOne(NAME + ".shoplogo", adminid);
-	}*/
+	}
 
 	@Override
 	public List<ProductsVO> categorySearch(ProductsVO pvo) throws Exception {
