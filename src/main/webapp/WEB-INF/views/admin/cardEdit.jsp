@@ -1,6 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+
+.cardBackground{
+	position:relative;
+	float:left;
+}
+.cardBackground .titleImg{
+	position:absolute;
+	left:200px;
+	top:20px;	
+	
+}
+</style>
 <%@include file="header.jsp"%>
 
 
@@ -77,10 +90,12 @@
 							<c:if test="${'[null]' ne list}">
 								<c:forEach items="${list}" var="vo">
 
-									<div class="col-md-4">
-										<img style='width: 250px; height: 250px;'
-										src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
-
+									<div class="col-md-4 cardBackground">
+										<img style = 'width:300px; height:300px;' src='/resources/admin/images/card/cardSample.jpg'>
+										<div class='titleImg'>
+											<img style='width: 100px; height: 120px;'
+											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
+										</div>			
 										<div>
 											<input type="hidden" value="${vo.pno}"> 
 											<a href="#" class="btn btn-default add-to-cart updateBtn"> 
