@@ -8,6 +8,7 @@
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet" />
 <link rel="stylesheet" href="/resources/admin/css/register.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/resources/admin/css/magnific-popup.css"> 
 </head>
 <body>
 
@@ -46,12 +47,19 @@
 	</fieldset>
 
 	<fieldset>
-		<h2 class="fs-title">Choose your favorite theme</h2>
-		<h3 class="fs-subtitle">4 Themes</h3>
-		<img src="/resources/indexImg/index1.png" class="thmeaImg" name="1" > 
-		<img src="/resources/indexImg/index2.png" class="thmeaImg" name="2"> 
-		<img src="/resources/indexImg/index3.png" class="thmeaImg" name="3"> 
-		<img src="/resources/indexImg/index4.png" class="thmeaImg" name="4">
+		<h2 class="fs-title">Choose your favorite themes</h2>
+		<h3 id="themaText" class="fs-subtitle">You choose Thema : </h3>
+		<div class="popup-gallery">
+			<a href="/resources/indexImg/index1.png" title="Thema1">
+			<img src="/resources/indexImg/index1.png" class="thmeaImg" name="1"></a>
+			<a href="/resources/indexImg/index2.png" title="Thema2">
+			<img src="/resources/indexImg/index2.png" class="thmeaImg" name="2"></a>
+			<a href="/resources/indexImg/index3.png" title="Thema3">
+			<img src="/resources/indexImg/index3.png" class="thmeaImg" name="3"></a>
+			<a href="/resources/indexImg/index4.png" title="Thema4">
+			<img src="/resources/indexImg/index4.png" class="thmeaImg" name="4"></a>
+		</div>
+
 		<input type="hidden" id='thema' name="thema">
 		<input type="button" name="previous" class="previous action-button"	value="Previous" /> 
 		<button id='formSubmit' class="action-button">Join us</button>
@@ -63,6 +71,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/resources/admin/js/register.js"></script>
+<script src="/resources/admin/js/jquery.magnific-popup.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
 
 <script>
@@ -70,17 +79,7 @@
 	// id 중복체크 여부 확인
 	var idCheckResult = "F";
 
-	//uuid
-	function guid() {
-		function s4() {
-			return ((1 + Math.random()) * 0x10000 | 0).toString(16)
-					.substring(1);
-		}
-		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
-				+ s4() + s4();
-	}// end guid
-
-	//for firebase upload
+	/* for firebase upload */
 	var config = {
 		apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
 		authDomain : "project-26bd6.firebaseapp.com",
@@ -92,12 +91,27 @@
 	firebase.initializeApp(config);
 	var storage = firebase.storage();
 	var storageRef = storage.ref();
+	/* for firebase upload */
 	
-// 	// register submit => 왜 .submit()이 안먹히지?
-// 	$("#formSubmit").on("click", function(event) {
-// 		event.preventDefault();
-// 		$("#msform").submit();
-// 	});
+	//uuid create
+	function guid() {
+		function s4() { 
+			return ((1 + Math.random()) * 0x10000 | 0).toString(16)
+					.substring(1);
+		}
+		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
+				+ s4() + s4();
+	}// end uuid create
+	
+	
+	// start prevent Enter key
+	$(function() {
+		$("input:text").keydown(function(evt) {
+			if (evt.keyCode == 13)
+				return false;
+		});
+	});// end prevent Enter key
+	
 
 	// 2번째 페이지 작성 완료하면 shoplogo firebase upload
 	$("#secondNextBtn").on("click", function() {
@@ -113,28 +127,36 @@
         }, function() {
             var downloadURL = uploadTask.snapshot.downloadURL;
         });
-	});// end secondNextBtn event
+	});// end shoplogo firebase upload
 	
-	//테마선택 이벤트
+	
+	//start choice themaEvent
 	$(".thmeaImg").on("click", function(){
 		var images = $("img");
-		swal("해당 테마로 선택되었습니다!");
-		$("#thema").val($(this)[0].name);
+		var themaNumber = $(this)[0].name;
+		$('.popup-gallery').magnificPopup({
+			delegate: 'a',
+			type: 'image',
+			tLoading: 'Loading image #%curr%...',
+			mainClass: 'mfp-img-mobile',
+			gallery: {
+				enabled: true,
+				navigateByImgClick: true,
+				preload: [0,1] 
+			},
+			image: {
+				tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+			}
+		});
+		$("#thema").val(themaNumber);
 		for(var i = 0 ; i < images.length; i ++ ){
 			images[i].className = "thmeaImg";			
 		}
 		$(this)[0].className="thmeaImgChoose";
-	});
+		$("#themaText")[0].innerHTML = "You choose Thema : <b>Thema " + themaNumber + "<b>";
+	});// end choice themaEvent
 	
-	// enter key 방지
-	$(function() {
-		$("input:text").keydown(function(evt) {
-			if (evt.keyCode == 13)
-				return false;
-		});
-	});
 	
-
 	// 아이디 중복체크
 	$("#idCheck").on("click", function() {
 
@@ -162,6 +184,7 @@
 			}// end success
 		});// end ajax
 	});// end idCeheck function
+	
 	
 	
 	//start pwCheck event
