@@ -4,8 +4,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-   rel="stylesheet">
 <%@include file="header.jsp"%>
 
 <!-- product category -->
@@ -61,6 +59,7 @@
                   <div class="col-md-7 col-sm-7 col-xs-12">
                      <div class="aa-product-view-content">
                         <div class="product-information">
+
                            <!--/product-information-->
                            <h2>${view[0].pname}</h2>
                            <p>${view[0].pgender}</p>
@@ -74,33 +73,34 @@
                         </div>
                         <h4>Size</h4>
                         <div class="aa-prod-view-size">
-                           <a href="#">S</a> <a href="#">M</a> <a href="#">L</a> <a
-                              href="#">XL</a>
-                        </div>
-                        <h4>Color</h4>
-                        <div class="aa-color-tag">
-                           <a href="#" class="aa-color-green"></a> <a href="#"
-                              class="aa-color-yellow"></a> <a href="#" class="aa-color-pink"></a>
-                           <a href="#" class="aa-color-black"></a> <a href="#"
-                              class="aa-color-white"></a>
-                        </div>
-                        <c:forEach items="${info}" var="pinfo">
-                           <div class="col-sm-10">
-                              <h5>색상: ${pinfo.picolor} 사이즈: ${pinfo.pisize} 재고량:
-                                 ${pinfo.pistock}</h5>
-                           </div>
-                        </c:forEach>
-                        <div class="aa-prod-quantity">
                            <form action="">
                               <select id="" name="">
-                                 <option selected="1" value="0">1</option>
-                                 <option value="1">2</option>
-                                 <option value="2">3</option>
-                                 <option value="3">4</option>
-                                 <option value="4">5</option>
-                                 <option value="5">6</option>
+                                 <option selected="1" value="0">------------------------------------</option>
+                                 <option>
+                                    <c:forEach items="${info}" var="pinfo">
+                                       <h5>색상: ${pinfo.picolor} 사이즈: ${pinfo.pisize} 재고량:
+                                          ${pinfo.pistock}</h5>
+                                    </c:forEach>
+                                 </option>
                               </select>
                            </form>
+                        </div>
+                        <br>
+
+                        <div class="input-group col-md-3">
+                              <span class="input-group-btn">
+                                 <button type="button" class="btn btn-danger btn-number"
+                                    data-type="minus" data-field="quant[2]">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                 </button>
+                              </span> <input type="text" name="quant[2]"
+                                 class="form-control input-number" value="1" min="1" max="100">
+                              <span class="input-group-btn">
+                                 <button type="button" class="btn btn-success btn-number"
+                                    data-type="plus" data-field="quant[2]">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                 </button>
+                              </span>
                         </div>
                         <div class="aa-prod-view-bottom">
                            <a class="aa-add-to-cart-btn" href="#" id='addCart'>Add To
@@ -160,6 +160,7 @@
                                           RE : ${avo.acontent}</li>
                                     </c:if>
                                  </c:forEach>
+
                               </ul>
                            </div>
                         </c:forEach>
@@ -170,7 +171,6 @@
                   <!-- review start -->
                   <div class="tab-pane fade " id="review">
                      <div class="aa-product-review-area">
-                        <h4>2 Reviews for T-Shirt</h4>
                         <ul class="aa-review-nav">
                            <li>
                               <div class="media">

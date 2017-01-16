@@ -1,5 +1,8 @@
 package org.won.web;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -32,21 +35,16 @@ public class LoginController {
 	}
 
 	/* member 회원가입 */
-	@GetMapping("/memberRegister")
+	@GetMapping("/member/register")
 	public void memberRegister() {
 	}
 
 	@PostMapping("/memberRegisterAction")
-	public String memberRegisterAction(MemberVO vo) throws Exception {
-		
-		logger.info("memberRegisterAction called...: " + vo);
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		String encodeAdminpw = passwordEncoder.encode(vo.getUserpw());
-		vo.setUserpw(encodeAdminpw);
+	public String memberRegisterAction(MemberVO mvo) throws Exception{
+	
 
-		mservice.create(vo);
+		mservice.create(mvo);
 		return "redirect:/member/login";
-
 	}
 
 	@PostMapping("/registerAction")

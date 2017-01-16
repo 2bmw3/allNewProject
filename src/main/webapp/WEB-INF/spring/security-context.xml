@@ -29,12 +29,10 @@
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
 				users-by-username-query="select * from (
-									select adminid username, adminpw password, true enable from tbl_admin union
-									select userid username,userpw password,true enable  from tbl_member) as id where id.username = ?"
+									select adminid username, adminpw password, true enable from tbl_admin) as id where id.username = ?"
 				authorities-by-username-query="
                select * from (
-					select adminid username, 'ROLE_ADMIN' authority from tbl_admin union
-					select userid username, 'ROLE_MEMBER' authority from tbl_member) as id where id.username = ?" />
+					select adminid username, 'ROLE_ADMIN' authority from tbl_admin) as id where id.username = ?" />
 			<security:password-encoder ref="bcryptEncoder" />
 		</security:authentication-provider>
 	</security:authentication-manager>

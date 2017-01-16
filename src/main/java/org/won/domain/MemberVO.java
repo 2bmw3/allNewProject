@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class MemberVO {
 
-	private String userid, userpw, uname, uaddress, uemail, uphonenumber, ugender;
-	private Date uregdate, ubirth;
+	private String userid, ubirth, userpw, uname, uaddress, uemail, uphonenumber, ugender;
+	private Date uregdate;
 
 	public String getUserid() {
 		return userid;
@@ -71,19 +71,14 @@ public class MemberVO {
 		this.uregdate = uregdate;
 	}
 
-	public Date getUbirth() {
+	public String getUbirth() {
 		return ubirth;
 	}
 
-	public void setUbirth(Date ubirth) {
+	public void setUbirth(String ubirth) {
 		this.ubirth = ubirth;
 	}
 
-	@Override
-	public String toString() {
-		return "MemberVO [userid=" + userid + ", userpw=" + userpw + ", uname=" + uname + ", uaddress=" + uaddress
-				+ ", uemail=" + uemail + ", uphonenumber=" + uphonenumber + ", ugender=" + ugender + ", uregdate="
-				+ uregdate + ", ubirth=" + ubirth + "]";
-	}
+
 
 }

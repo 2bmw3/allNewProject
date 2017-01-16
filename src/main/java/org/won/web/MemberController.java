@@ -38,8 +38,6 @@ public class MemberController {
 	public void login() {
 	}
 
-
-
 	@GetMapping("/cart")
 	public void cart() {
 	}

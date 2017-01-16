@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<form id="msform" method="post" action="memberRegisterAction">
+<form id="msform" method="post" action="/memberRegisterAction">
 
 	<ul id="progressbar">
 		<li class="active" style="padding-left: 17%">Basic</li>
@@ -23,7 +23,7 @@
 		<h3 class="fs-subtitle">Please write</h3>
 		<input type="text" name="userid" placeholder="ID" /> 
 		<input type="password" name="userpw" placeholder="Password" /> 
-		<input type="password" placeholder="Check Password" /> 
+		<!-- <input type="password" placeholder="Check Password" />  -->
 		<input type="text" name="uname" placeholder="Name" /> 
 		<input type="button" name="next" class="next action-button" value="Next" />
 	</fieldset>
@@ -45,11 +45,4 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script src="/resources/admin/js/register.js"></script>
-
-<!-- <script> -->
-<!-- // 	$("#formSubmit").click(function () { -->
-<!-- // 		$("#msform").submit(); -->
-		
-<!-- // 	}); -->
-<!-- </script> -->
 </html>
