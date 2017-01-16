@@ -15,9 +15,8 @@
 		#{aphonenumber}, #{shopname}, #{businessnum}, #{shoplogo})
 	</insert>
 
-	<select id="shoplogo" parameterType="String" resultType="String">
-		select
-		shoplogo, shopname from tbl_admin where adminid = #{adminid}
+	<select id="shopTotal" parameterType="String" resultType="String">
+		select * from tbl_admin where adminid = #{adminid}
 	</select>
 
 	<select id="categorySearch" resultType="ProductsVO"

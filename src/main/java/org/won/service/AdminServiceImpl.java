@@ -35,9 +35,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public String shoplogo(String adminid) throws Exception {
+	public List<AdminVO> shopTotal(String adminid) throws Exception {
 
-		return dao.shoplogo(adminid);
+		return dao.shopTotal(adminid);
 	}
 
 	@Override

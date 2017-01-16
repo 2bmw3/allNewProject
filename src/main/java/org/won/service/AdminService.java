@@ -14,7 +14,7 @@ public interface AdminService {
 
 	public void delete(String adminid) throws Exception;
 
-	public String shoplogo(String adminid) throws Exception;
+	public List<AdminVO> shopTotal(String adminid) throws Exception;
 
 	public List<ProductsVO> categorySearch(ProductsVO pvo) throws Exception;
 

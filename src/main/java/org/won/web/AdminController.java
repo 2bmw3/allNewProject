@@ -266,7 +266,8 @@ public class AdminController {
 
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
-		model.addAttribute("shoplogo", service.shoplogo(username));
+		model.addAttribute("shopTotal", service.shopTotal(username));
+		logger.info(service.shopTotal(username).toString());
 	}
 
 }

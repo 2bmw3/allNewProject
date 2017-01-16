@@ -42,9 +42,9 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public String shoplogo(String adminid) throws Exception {
+	public List<AdminVO> shopTotal(String adminid) throws Exception {
 
-		return sqlSession.selectOne(NAME + ".shoplogo", adminid);
+		return sqlSession.selectList(NAME + ".shopTotal", adminid);
 	}
 
 	@Override
