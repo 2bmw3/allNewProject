@@ -17,7 +17,7 @@
 
 	<select id="shoplogo" parameterType="String" resultType="String">
 		select
-		shoplogo from tbl_admin where adminid = #{adminid}
+		shoplogo, shopname from tbl_admin where adminid = #{adminid}
 	</select>
 
 	<select id="categorySearch" resultType="ProductsVO"
