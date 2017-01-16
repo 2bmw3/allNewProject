@@ -153,6 +153,7 @@ body {
     cursor: pointer;
 }
 
+/* idcheck*/
 #idCheck{
 	width: 10%; font-size: 24px; cursor: pointer; margin-top: 10px;
 }
