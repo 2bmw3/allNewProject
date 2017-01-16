@@ -5,13 +5,13 @@
       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<security:http auto-config="true" use-expressions="false">
-		<security:form-login login-page="/admin/login"
-			login-processing-url="/admin/login" authentication-failure-handler-ref="LoginFailHandler"
+		<security:form-login login-page="/login"
+			login-processing-url="/login" authentication-failure-handler-ref="LoginFailHandler"
 			authentication-success-handler-ref="LoginSuccessHandler" />
 
 		<security:session-management>
 			<security:concurrency-control
-				max-sessions="1" expired-url="/admin/login" />
+				max-sessions="1" expired-url="/login" />
 		</security:session-management>
 
 		<security:logout delete-cookies="username"
