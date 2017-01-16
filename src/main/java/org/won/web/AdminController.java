@@ -294,10 +294,6 @@ public class AdminController {
 		model.addAttribute("colorCnt", colorList);
 		model.addAttribute("sizeCnt", sizeList);
 		
-		logger.info("colorCnt :::: "+colorCnt);
-		logger.info("colorList :::::" + colorList);
-		logger.info("sizeCnt :::: "+sizeCnt);
-		logger.info("sizeList :::: "+sizeList);
 	}
 
 }
