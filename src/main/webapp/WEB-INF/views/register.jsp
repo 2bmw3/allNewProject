@@ -13,7 +13,7 @@
 <body>
 
 <form id="msform" method="post" action="/registerAction">
-	<!-- progressbar -->
+
 	<ul id="progressbar">
 		<li class="active">기본 입력사항</li>
 		<li>상세 입력사항</li>

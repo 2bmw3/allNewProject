@@ -1,6 +1,3 @@
-/**
- * Created by 2bmw3 on 2017-01-16.
- */
 
 //jQuery time
 var current_fs, next_fs, previous_fs; //fieldsets
