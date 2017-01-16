@@ -274,7 +274,7 @@ public class AdminController {
 		model.addAttribute("shoplogo", service.shopTotal(username).get(0).getShoplogo());
 		model.addAttribute("shopname", service.shopTotal(username).get(0).getShopname());
 		model.addAttribute("phonenumber", service.shopTotal(username).get(0).getAphonenumber());
-		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress().split("\t")[1]);
+		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress());
 		
 		
 //		logger.info(pservice.list(vo).toString());
