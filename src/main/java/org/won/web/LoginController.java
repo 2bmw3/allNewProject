@@ -39,11 +39,11 @@ public class LoginController {
 	@PostMapping("/memberRegisterAction")
 	public String memberRegisterAction(MemberVO vo) throws Exception {
 		
+		logger.info("memberRegisterAction called...: " + vo);
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodeAdminpw = passwordEncoder.encode(vo.getUserpw());
 		vo.setUserpw(encodeAdminpw);
 
-		logger.info("ss" + vo);
 		mservice.create(vo);
 		return "redirect:/member/login";
 
