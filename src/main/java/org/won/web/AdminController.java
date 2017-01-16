@@ -58,12 +58,6 @@ public class AdminController {
 
 	}
 	
-	// admin 회원 가입 화면
-	@GetMapping("/register")
-	public void adminRegister(){
-		
-	}
-	
 
 	// 주문 관리
 	@GetMapping("/order")
