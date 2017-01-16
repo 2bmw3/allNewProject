@@ -29,8 +29,7 @@
 		<security:authentication-provider>
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
-				users-by-username-query="select * from(
-               select adminid username, adminpw password, true enable from tbl_admin  where username = ?"
+				users-by-username-query="select adminid username, adminpw password, true enable from tbl_admin  where username = ?"
 				authorities-by-username-query="
                select adminid username, 'ROLE_ADMIN' authority from tbl_admin where username = ?" />
 			<security:password-encoder ref="bcryptEncoder" />
