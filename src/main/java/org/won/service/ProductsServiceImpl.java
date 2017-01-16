@@ -203,4 +203,10 @@ public class ProductsServiceImpl implements ProductsService {
 
 	}
 
+	
+	@Override
+	public List<ProductsVO> memberRead(int pno) throws Exception {
+		return dao.read(pno);
+	}
+
 }

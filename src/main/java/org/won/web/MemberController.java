@@ -1,17 +1,27 @@
 package org.won.web;
 
+import javax.inject.Inject;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.won.service.BoardService;
+import org.won.service.ProductsService;
 
 @RequestMapping("/member/*")
 @Controller
 public class MemberController {
 
+	@Inject
+	private ProductsService pservice;
+	@Inject
+	private BoardService bservice;
+
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
+
 
 	@GetMapping("/index")
 	public void index() {
@@ -60,7 +70,12 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/view")
-	public void thema1View() {
+	public void thema1View(int pno, Model model) throws Exception {
+		model.addAttribute("view", pservice.read(pno));
+		model.addAttribute("review", bservice.reviewRead(pno));
+		model.addAttribute("qna", pservice.question(pno));
+		model.addAttribute("answer", pservice.answerRead(pno));
+		model.addAttribute("info", pservice.info(pno));
 	}
 
 	@GetMapping("/thema1/faq")

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="org.won.dao.MemberMapper">
+
+   <select id="memberRead" resultType="productsVO">
+      select tbl_pphotos.pno,
+      pname,pgender,adminid,pkind,ptitlephoto,pcontent,price,pphoto,sellcnt,pregdate
+      from tbl_products,tbl_pphotos
+      where tbl_pphotos.pno = tbl_products.pno
+      and tbl_pphotos.pno = #{pno}
+   </select>
+   
+</mapper>

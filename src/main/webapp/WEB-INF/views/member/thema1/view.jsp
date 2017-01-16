@@ -1,448 +1,365 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <%@include file="header.jsp"%>
 
-  <!-- product category -->
-  <section id="aa-product-details">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="aa-product-details-area">
-            <div class="aa-product-details-content">
-              <div class="row">
-                <!-- Modal view slider -->
-                <div class="col-md-5 col-sm-5 col-xs-12">                              
-                  <div class="aa-product-view-slider">                                
-                    <div id="demo-1" class="simpleLens-gallery-container">
-                      <div class="simpleLens-container">
-                        <div class="simpleLens-big-image-container"><a data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png" class="simpleLens-lens-image"><img src="/resources/themes/thema1/img/view-slider/medium/girl-1.png" class="simpleLens-big-image"></a></div>
-                      </div>
-                      <div class="simpleLens-thumbnails-container">
-                          <a data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png" data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png" class="simpleLens-thumbnail-wrapper" href="#">
-                            <img src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
-                          </a>                                    
-                          <a data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png" data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png" class="simpleLens-thumbnail-wrapper" href="#">
-                            <img src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
-                          </a>
-                          <a data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png" data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png" class="simpleLens-thumbnail-wrapper" href="#">
-                            <img src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
-                          </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Modal view content -->
-                <div class="col-md-7 col-sm-7 col-xs-12">
-                  <div class="aa-product-view-content">
-                    <h3>T-Shirt</h3>
-                    <div class="aa-price-block">
-                      <span class="aa-product-view-price">$34.99</span>
-                      <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
-                    <h4>Size</h4>
-                    <div class="aa-prod-view-size">
-                      <a href="#">S</a>
-                      <a href="#">M</a>
-                      <a href="#">L</a>
-                      <a href="#">XL</a>
-                    </div>
-                    <h4>Color</h4>
-                    <div class="aa-color-tag">
-                      <a href="#" class="aa-color-green"></a>
-                      <a href="#" class="aa-color-yellow"></a>
-                      <a href="#" class="aa-color-pink"></a>                      
-                      <a href="#" class="aa-color-black"></a>
-                      <a href="#" class="aa-color-white"></a>                      
-                    </div>
-                    <div class="aa-prod-quantity">
-                      <form action="">
-                        <select id="" name="">
-                          <option selected="1" value="0">1</option>
-                          <option value="1">2</option>
-                          <option value="2">3</option>
-                          <option value="3">4</option>
-                          <option value="4">5</option>
-                          <option value="5">6</option>
-                        </select>
-                      </form>
-                      <p class="aa-prod-category">
-                        Category: <a href="#">Top</a>
-                      </p>
-                    </div>
-                    <div class="aa-prod-view-bottom">
-                      <a class="aa-add-to-cart-btn" href="#"  id = 'addCart'>Add To Cart</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="aa-product-details-bottom">
-              <ul class="nav nav-tabs" id="myTab2">
-                <li><a href="#detailView" data-toggle="tab">Detail View</a></li>
-                <li><a href="#qna" data-toggle="tab">QnA</a></li>
-                <li><a href="#review" data-toggle="tab">Reviews</a></li>                
-              </ul>
+<!-- product category -->
+<section id="aa-product-details">
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="aa-product-details-area">
+				<div class="aa-product-details-content">
+					<div class="row">
+						<!-- Modal view slider -->
+						<div class="col-md-5 col-sm-5 col-xs-12">
+							<div class="aa-product-view-slider">
+								<div id="demo-1" class="simpleLens-gallery-container">
+									<div class="simpleLens-container">
+										<div class="simpleLens-big-image-container">
+											<a
+												data-lens-image="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
+												class="simpleLens-lens-image"><img
+												style="width: 600px; height: 400px"
+												src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
+												class="simpleLens-big-image"></a>
+										</div>
+									</div>
+									<div class="simpleLens-thumbnails-container">
+										<div class="item active" style="margin-left: 28px;">
+											<c:set var="viewtotal">${fn.length(view) }</c:set>
 
-              <!-- Tab panes -->
-              <div class="tab-content">
-                <div class="tab-pane fade in active" id="detailView">
-                  <h2>CONTENT</h2>
-                  <ul>
-                    <li>Content page</li>
-                   
-                  </ul>
-                </div>
+											<c:set var="count">5</c:set>
+											<c:forEach items="${view}" var="vo" varStatus="status">
+												<c:if test="${status.count==count}">
+										</div>
+										<div class="item" style="margin-left: 28px;">
+											<c:set var="count">${count+4 }</c:set>
+											</c:if>
+											<a
+												data-big-image="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
+												data-lens-image="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
+												class="simpleLens-thumbnail-wrapper" href="#"> <img
+												style='width: 75px; height: 75px;'
+												src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
+											</a>
 
-                <div class="tab-pane fade" id="qna">
-                  <h2>QnA</h2>
-                  <ul>
-                  	<li><p>QnA page</p></li>
-                  </ul>
-                    <form action="" class="aa-review-form">
-                      <div class="form-group">
-                        <label for="qContent">Question</label>
-                        <textarea class="form-control" rows="3" id="qContent" style='max-width:100%;'></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="qName">Name</label>
-                        <input type="text" class="form-control" id="qName" placeholder="Name">
-                      </div>  
-                      <div class="form-group">
-                        <label for="qPassword">Password</label>
-                        <input type="password" class="form-control" id="qPassword" maxLength='4' placeholder="password(max length : 4)">
-                      </div>  
-                      <button type="submit" class="btn btn-default aa-review-submit" id='qBtn'>Submit</button>
-                   </form>
-               	</div>
-                                
-                
-                <!-- review start -->
-                <div class="tab-pane fade " id="review">
-                 <div class="aa-product-review-area">
-                   <h4>2 Reviews for T-Shirt</h4> 
-                   <ul class="aa-review-nav">
-                     <li>
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="#">
-                              <img class="media-object" src="/resources/themes/thema1/img/women/girl-1.png" alt="girl image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span></h4>
-                            <div class="aa-product-rating">
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star-o"></span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media">
-                          <div class="media-left">
-                            <a href="#">
-                              <img class="media-object" src="/resources/themes/thema1/img/women/girl-1.png" alt="girl image">
-                            </a>
-                          </div>
-                          <div class="media-body">
-                            <h4 class="media-heading"><strong>Marla Jobs</strong> - <span>March 26, 2016</span></h4>
-                            <div class="aa-product-rating">
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star"></span>
-                              <span class="fa fa-star-o"></span>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                          </div>
-                        </div>
-                      </li>
-                   </ul>
-                   <h4>Add a review</h4>
-                   <div class="aa-your-rating">
-<!--                      <p>Your Rating</p> -->
-<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-						<input type="radio" id="mark_0_0" name="score_1" value="1">
-							<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
-						<input type="radio" id="mark_0_1" name="score_1" value="2">
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
-						<input type="radio" id="mark_0_2" name="score_1" value="3">
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
-						<input type="radio" id="mark_0_3" name="score_1" value="4">
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
-						<input type="radio" id="mark_0_4" name="score_1" checked="checked" value="5">
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>
-							<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
-                   </div>
-                   <!-- review form -->
-                   <form action="" class="aa-review-form">
-                      <div class="form-group">
-                        <label for="message">Your Review</label>
-                        <textarea class="form-control" rows="3" id="message"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" class="form-control" id="name" placeholder="Name">
-                      </div>  
-                      <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="example@gmail.com">
-                      </div>
-                      <button type="submit" class="btn btn-default aa-review-submit">Submit</button>
-                   </form>
-                 </div>
-                </div>            
-              </div>
-            </div>
-            <!-- Related product -->
-            <div class="aa-product-related-item">
-              <h3>Related Products</h3>
-              <ul class="aa-product-catg aa-related-item-slider">
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-1.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn" href=""><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                     <figcaption>
-                      <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                    </figcaption>
-                  </figure>                     
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
-                  </div>
-                  <!-- product badge -->
-                  <span class="aa-badge aa-sale" href="#">SALE!</span>
-                </li>
-                 <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-1.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                    <figcaption>
-                      <h4 class="aa-product-title"><a href="#">Lorem ipsum doller</a></h4>
-                      <span class="aa-product-price">$45.50</span>
-                    </figcaption>
-                  </figure>                      
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                  </div>
-                  <!-- product badge -->
-                   <span class="aa-badge aa-sold-out" href="#">Sold Out!</span>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-2.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                  </figure>
-                  <figcaption>
-                    <h4 class="aa-product-title"><a href="#">T-Shirt</a></h4>
-                    <span class="aa-product-price">$45.50</span>
-                  </figcaption>
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                  </div>
-                  <!-- product badge -->
-                   <span class="aa-badge aa-hot" href="#">HOT!</span>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-3.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                     <figcaption>
-                      <h4 class="aa-product-title"><a href="#">Lorem ipsum doller</a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                    </figcaption>
-                  </figure>                     
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                  </div>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-4.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                    <figcaption>
-                      <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                    </figcaption>
-                  </figure>                      
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                  </div>
-                </li>
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-5.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                    <figcaption>
-                      <h4 class="aa-product-title"><a href="#">Lorem ipsum doller</a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                    </figcaption>
-                  </figure>                     
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                  </div>
-                  <!-- product badge -->
-                  <span class="aa-badge aa-sold-out" href="#">Sold Out!</span>
-                </li>    
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-6.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                     <figcaption>
-                      <h4 class="aa-product-title"><a href="#">Polo T-Shirt</a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                    </figcaption>
-                  </figure>                     
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
-                  </div>
-                  <!-- product badge -->
-                  <span class="aa-badge aa-hot" href="#">HOT!</span>
-                </li> 
-                <!-- start single product item -->
-                <li>
-                  <figure>
-                    <a class="aa-product-img" href="#"><img src="/resources/themes/thema1/img/women/girl-7.png" alt="polo shirt img"></a>
-                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                     <figcaption>
-                      <h4 class="aa-product-title"><a href="#">This is Title</a></h4>
-                      <span class="aa-product-price">$45.50</span><span class="aa-product-price"><del>$65.50</del></span>
-                    </figcaption>
-                  </figure>                     
-                  <div class="aa-product-hvr-content">
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
-                    <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><span class="fa fa-exchange"></span></a>
-                    <a href="#" data-toggle2="tooltip" data-placement="top" title="Quick View" data-toggle="modal" data-target="#quick-view-modal"><span class="fa fa-search"></span></a>                            
-                  </div>
-                  <!-- product badge -->
-                  <span class="aa-badge aa-sale" href="#">SALE!</span>
-                </li>                                                                                   
-              </ul>
-              <!-- quick view modal -->                  
-              <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                  <div class="modal-content">                      
-                    <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                      <div class="row">
-                        <!-- Modal view slider -->
-                        <div class="col-md-6 col-sm-6 col-xs-12">                              
-                          <div class="aa-product-view-slider">                                
-                            <div class="simpleLens-gallery-container" id="demo-1">
-                              <div class="simpleLens-container">
-                                  <div class="simpleLens-big-image-container">
-                                      <a class="simpleLens-lens-image" data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png">
-                                          <img src="/resources/themes/thema1/img/view-slider/medium/girl-1.png" class="simpleLens-big-image">
-                                      </a>
-                                  </div>
-                              </div>
-                              <div class="simpleLens-thumbnails-container">
-                                  <a href="#" class="simpleLens-thumbnail-wrapper"
-                                     data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png"
-                                     data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png">
-                                      <img src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
-                                  </a>                                    
+											<c:if test="${status.count == viewtotal}">
+											</c:if>
+											</c:forEach>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- Modal view content -->
+						<div class="col-md-7 col-sm-7 col-xs-12">
+							<div class="aa-product-view-content">
+								<div class="product-information">
+									<!--/product-information-->
+									<h2>${view[0].pname}</h2>
+									<p>${view[0].pgender}</p>
+									<p>￦${view[0].price}</p>
+									<p>
+										<b>종류:</b> ${view[0].pkind}
+									</p>
+									<p>
+										<b>판매량:</b> ${view[0].sellcnt}
+									</p>
+								</div>
+								<c:forEach items="${info}" var="pinfo">
+									<div class="col-sm-10">
+										<h5>색상: ${pinfo.picolor} 사이즈: ${pinfo.pisize} 재고량:
+											${pinfo.pistock}</h5>
+									</div>
+								</c:forEach>
+								<div class="aa-prod-quantity">
+									<form action="">
+										<select id="" name="">
+											<option selected="1" value="0">1</option>
+											<option value="1">2</option>
+											<option value="2">3</option>
+											<option value="3">4</option>
+											<option value="4">5</option>
+											<option value="5">6</option>
+										</select>
+									</form>
+								</div>
+								<div class="aa-prod-view-bottom">
+									<a class="aa-add-to-cart-btn" href="#" id='addCart'>Add To
+										Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="aa-product-details-bottom">
+					<ul class="nav nav-tabs" id="myTab2">
+						<li><a href="#detailView" data-toggle="tab">Detail View</a></li>
+						<li><a href="#qna" data-toggle="tab">QnA</a></li>
+						<li><a href="#review" data-toggle="tab">Reviews</a></li>
+					</ul>
 
-                                  <a href="#" class="simpleLens-thumbnail-wrapper"
-                                     data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png"
-                                     data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png">
-                                      <img src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
-                                  </a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- Modal view content -->
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <div class="aa-product-view-content">
-                            <h3>T-Shirt</h3>
-                            <div class="aa-price-block">
-                              <span class="aa-product-view-price">$34.99</span>
-                              <p class="aa-product-avilability">Avilability: <span>In stock</span></p>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis animi, veritatis quae repudiandae quod nulla porro quidem, itaque quis quaerat!</p>
-                            <h4>Size</h4>
-                            <div class="aa-prod-view-size">
-                              <a href="#">S</a>
-                              <a href="#">M</a>
-                              <a href="#">L</a>
-                              <a href="#">XL</a>
-                            </div>
-                            <div class="aa-prod-quantity">
-                              <form action="">
-                                <select name="" id="">
-                                  <option value="0" selected="1">1</option>
-                                  <option value="1">2</option>
-                                  <option value="2">3</option>
-                                  <option value="3">4</option>
-                                  <option value="4">5</option>
-                                  <option value="5">6</option>
-                                </select>
-                              </form>
-                              <p class="aa-prod-category">
-                                Category: <a href="#">Polo T-Shirt</a>
-                              </p>
-                            </div>
-                            <div class="aa-prod-view-bottom">
-                              <a href="#" class="aa-add-to-cart-btn"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
-                              <a href="#" class="aa-add-to-cart-btn">View Details</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>                        
-                  </div><!-- /.modal-content -->
-                </div><!-- /.modal-dialog -->
-              </div>
-              <!-- / quick view modal -->   
-            </div>  
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- / product category -->
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div class="tab-pane fade in active" id="detailView">
+							<div class="pcontent" style="margin-left: 4%; margin-top: 5%">
+								<div class="col-sm-12">${view[0].pcontent}</div>
+							</div>
+						</div>
+
+						<div class="tab-pane fade" id="qna">
+							<h2>QnA</h2>
+							<ul>
+								<li><p>QnA page</p></li>
+							</ul>
+							<form action="" class="aa-review-form">
+								<div class="form-group">
+									<label for="qContent">Question</label>
+									<textarea class="form-control" rows="3" id="qContent"
+										style='max-width: 100%;'></textarea>
+								</div>
+								<div class="form-group">
+									<label for="qName">Name</label> <input type="text"
+										class="form-control" id="qName" placeholder="Name">
+								</div>
+								<div class="form-group">
+									<label for="qPassword">Password</label> <input type="password"
+										class="form-control" id="qPassword" maxLength='4'
+										placeholder="password(max length : 4)">
+								</div>
+								<button type="submit" class="btn btn-default aa-review-submit"
+									id='qBtn'>Submit</button>
+								<c:forEach items="${qna}" var="qvo">
+									<!-- QnA 1개 -->
+									<div class="col-sm-10 showQnA">
+										<ul style="background-color: white;">
+											<li><h3>${qvo.qwriter}</h3>
+												<h6>${qvo.qregdate}</h6></li>
+											<li id='c${qvo.qno}'><h5>${qvo.qcontent}</h5></li>
+											<c:forEach items="${answer}" var="avo">
+												<c:if test="${qvo.qno == avo.qno }">
+													<li><i class="material-icons">subdirectory_arrow_right</i>
+														RE : ${avo.acontent}</li>
+												</c:if>
+											</c:forEach>
+											<input type='text' id='${qvo.qno}' name='acontent'
+												placeholder='댓글을 입력하세요' class='col-sm-10' />
+											<a href='' class='review' value='${qvo.qno}'
+												style='margin-left: 800px' data-toggle="tab">댓글쓰기</a>
+											</li>
+											<br>
+										</ul>
+									</div>
+								</c:forEach>
+							</form>
+						</div>
+
+
+						<!-- review start -->
+						<div class="tab-pane fade " id="review">
+							<div class="aa-product-review-area">
+								<h4>2 Reviews for T-Shirt</h4>
+								<ul class="aa-review-nav">
+									<li>
+										<div class="media">
+											<div class="media-left">
+												<a href="#"> <img class="media-object"
+													src="/resources/themes/thema1/img/women/girl-1.png"
+													alt="girl image">
+												</a>
+											</div>
+											<div class="media-body">
+												<c:forEach items="${review}" var="rvo">
+													<!-- review display -->
+													<div class="col-sm-10 showReview">
+														<ul style="background-color: white;">
+															<li><h3>${rvo.userid}(${rvo.rgrade}점)</h3></li>
+															<li><h5>${rvo.rcontent}</h5>
+																<h5>${rvo.rregdate}</h5></li>
+															<br>
+														</ul>
+													</div>
+													<!-- review display end-->
+												</c:forEach>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<h4>Add a review</h4>
+								<div class="aa-your-rating">
+									<!--                      <p>Your Rating</p> -->
+									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
+									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
+									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
+									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
+									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
+									<input type="radio" id="mark_0_0" name="score_1" value="1">
+									<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
+									<input type="radio" id="mark_0_1" name="score_1" value="2">
+									<span class="fa fa-star" style='color: #ff6600;'></span> <span
+										class="fa fa-star" style='color: #ff6600;'></span>&nbsp; <input
+										type="radio" id="mark_0_2" name="score_1" value="3"> <span
+										class="fa fa-star" style='color: #ff6600;'></span> <span
+										class="fa fa-star" style='color: #ff6600;'></span> <span
+										class="fa fa-star" style='color: #ff6600;'></span>&nbsp; <input
+										type="radio" id="mark_0_3" name="score_1" value="4"> <span
+										class="fa fa-star" style='color: #ff6600;'></span> <span
+										class="fa fa-star" style='color: #ff6600;'></span> <span
+										class="fa fa-star" style='color: #ff6600;'></span> <span
+										class="fa fa-star" style='color: #ff6600;'></span>&nbsp; <input
+										type="radio" id="mark_0_4" name="score_1" checked="checked"
+										value="5"> <span class="fa fa-star"
+										style='color: #ff6600;'></span> <span class="fa fa-star"
+										style='color: #ff6600;'></span> <span class="fa fa-star"
+										style='color: #ff6600;'></span> <span class="fa fa-star"
+										style='color: #ff6600;'></span> <span class="fa fa-star"
+										style='color: #ff6600;'></span>&nbsp;
+								</div>
+								<!-- review form -->
+								<form action="" class="aa-review-form">
+									<div class="form-group">
+										<label for="message">Your Review</label>
+										<textarea class="form-control" rows="3" id="message"></textarea>
+									</div>
+									<div class="form-group">
+										<label for="name">Name</label> <input type="text"
+											class="form-control" id="name" placeholder="Name">
+									</div>
+									<div class="form-group">
+										<label for="email">Email</label> <input type="email"
+											class="form-control" id="email"
+											placeholder="example@gmail.com">
+									</div>
+									<button type="submit" class="btn btn-default aa-review-submit">Submit</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Related product -->
+				<div class="aa-product-related-item">
+					<h3>Related Products</h3>
+					<ul class="aa-product-catg aa-related-item-slider">
+
+						<!-- start single product item -->
+						<li><figure> <a class="aa-product-img" href="#"><img
+								src="/resources/themes/thema1/img/women/girl-7.png"
+								alt="polo shirt img"></a> <a class="aa-add-card-btn" href="#"><span
+								class="fa fa-shopping-cart"></span>Add To Cart</a> <figcaption>
+							<h4 class="aa-product-title">
+								<a href="#">This is Title</a>
+							</h4>
+							<span class="aa-product-price">$45.50</span> <span
+								class="aa-product-price"><del>$65.50</del></span> </figcaption> </figure>
+							<div class="aa-product-hvr-content">
+								<a href="#" data-toggle="tooltip" data-placement="top"
+									title="Add to Wishlist"><span class="fa fa-heart-o"></span></a>
+								<a href="#" data-toggle="tooltip" data-placement="top"
+									title="Compare"><span class="fa fa-exchange"></span></a> <a
+									href="#" data-toggle2="tooltip" data-placement="top"
+									title="Quick View" data-toggle="modal"
+									data-target="#quick-view-modal"><span class="fa fa-search"></span></a>
+							</div> <!-- product badge --> <span class="aa-badge aa-sale" href="#">SALE!</span>
+						</li>
+					</ul>
+					<!-- quick view modal -->
+					<div class="modal fade" id="quick-view-modal" tabindex="-1"
+						role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-body">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">&times;</button>
+									<div class="row">
+										<!-- Modal view slider -->
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<div class="aa-product-view-slider">
+												<div class="simpleLens-gallery-container" id="demo-1">
+													<div class="simpleLens-container">
+														<div class="simpleLens-big-image-container">
+															<a class="simpleLens-lens-image"
+																data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png">
+																<img
+																src="/resources/themes/thema1/img/view-slider/medium/girl-1.png"
+																class="simpleLens-big-image">
+															</a>
+														</div>
+													</div>
+													<div class="simpleLens-thumbnails-container">
+														<a href="#" class="simpleLens-thumbnail-wrapper"
+															data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png"
+															data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png">
+															<img
+															src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
+														</a> <a href="#" class="simpleLens-thumbnail-wrapper"
+															data-lens-image="/resources/themes/thema1/img/view-slider/large/girl-1.png"
+															data-big-image="/resources/themes/thema1/img/view-slider/medium/girl-1.png">
+															<img
+															src="/resources/themes/thema1/img/view-slider/thumbnail/girl-1.png">
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
+										<!-- Modal view content -->
+										<div class="col-md-6 col-sm-6 col-xs-12">
+											<div class="aa-product-view-content">
+												<h3>T-Shirt</h3>
+												<div class="aa-price-block">
+													<span class="aa-product-view-price">$34.99</span>
+													<p class="aa-product-avilability">
+														Avilability: <span>In stock</span>
+													</p>
+												</div>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+													elit. Officiis animi, veritatis quae repudiandae quod nulla
+													porro quidem, itaque quis quaerat!</p>
+												<h4>Size</h4>
+												<div class="aa-prod-view-size">
+													<a href="#">S</a> <a href="#">M</a> <a href="#">L</a> <a
+														href="#">XL</a>
+												</div>
+												<div class="aa-prod-quantity">
+													<form action="">
+														<select name="" id="">
+															<option value="0" selected="1">1</option>
+															<option value="1">2</option>
+															<option value="2">3</option>
+															<option value="3">4</option>
+															<option value="4">5</option>
+															<option value="5">6</option>
+														</select>
+													</form>
+													<p class="aa-prod-category">
+														Category: <a href="#">Polo T-Shirt</a>
+													</p>
+												</div>
+												<div class="aa-prod-view-bottom">
+													<a href="#" class="aa-add-to-cart-btn"><span
+														class="fa fa-shopping-cart"></span>Add To Cart</a> <a href="#"
+														class="aa-add-to-cart-btn">View Details</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!— /.modal-content —>
+						</div>
+						<!— /.modal-dialog —>
+					</div>
+					<!— / quick view modal —>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+<!— / product category —>
 
 <%@include file="footer.jsp"%>
 

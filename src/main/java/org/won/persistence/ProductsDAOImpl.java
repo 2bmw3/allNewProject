@@ -147,4 +147,10 @@ public class ProductsDAOImpl implements ProductsDAO {
 
 	}
 
+	@Override
+	public List<ProductsVO> memberRead(int pno) throws Exception {
+
+		return sqlSession.selectList(NAME + ".memberRead", pno);
+
+	}
 }

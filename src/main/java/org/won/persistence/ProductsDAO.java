@@ -60,4 +60,7 @@ public interface ProductsDAO {
 	public List<ProductsVO> read(int pno) throws Exception;
 
 	public void update(ProductsVO vo) throws Exception;
+	
+	//
+	public List<ProductsVO> memberRead(int pno)throws Exception;
 }

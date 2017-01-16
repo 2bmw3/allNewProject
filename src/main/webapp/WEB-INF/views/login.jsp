@@ -24,8 +24,8 @@
 		<br>
 
 		<form action="login" method="post">
-			<input type="text" name="username" placeholder="ID"> <input
-				type="password" name="password" placeholder="Password">
+			<input type="text" name="username" placeholder="ID"> 
+			<input type="password" name="password" placeholder="Password">
 			<div class="checks">
 				<input type="checkbox" id="ex_chk" name="remember-me"> <label
 					for="ex_chk">Remember Me</label>

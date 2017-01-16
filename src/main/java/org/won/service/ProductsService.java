@@ -44,4 +44,7 @@ public interface ProductsService {
 	public List<PphotosVO> pphotoRead(int pno) throws Exception;
 
 	public void qstatus(int qno) throws Exception;
+	
+	
+	public List<ProductsVO> memberRead(int pno) throws Exception;
 }
