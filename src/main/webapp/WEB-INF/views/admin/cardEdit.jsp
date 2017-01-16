@@ -11,7 +11,7 @@
 }
 .cardBackground .titleImg{
 	position:absolute;
-	left:60%;
+	left:57%;
 	top:8%;	
 	
 }
