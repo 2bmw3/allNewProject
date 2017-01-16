@@ -9,9 +9,20 @@
 }
 .cardBackground .titleImg{
 	position:absolute;
-	left:200px;
+	left:190px;
 	top:20px;	
 	
+}
+.cardBackground .logoImg{
+	position:absolute;
+	left:35px;
+	top:150px;	
+	border-radius: 70px;
+}
+.cardBackground .editText{
+	position:absolute;
+	left:35px;
+	top:300px;	
 }
 </style>
 <%@include file="header.jsp"%>
@@ -92,10 +103,18 @@
 
 									<div class="col-md-4 cardBackground">
 										<img style = 'width:300px; height:300px;' src='/resources/admin/images/card/cardSample.jpg'>
+										<div class='logoImg'>
+											<img style='width:100px;height:100px;'
+<%-- 											src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F${shoplogo}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'/> --%>
+												src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2Fc480f8e9-728a-dc66-249d-dde279ba807e_logo.gif?alt=media&token=303a7418-ab40-40df-947c-15f4d1a25591'/>
+										</div>
 										<div class='titleImg'>
 											<img style='width: 100px; height: 120px;'
 											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
-										</div>			
+										</div>
+										<div class='editText'>
+											<p></p>
+										</div>
 										<div>
 											<input type="hidden" value="${vo.pno}"> 
 											<a href="#" class="btn btn-default add-to-cart updateBtn"> 

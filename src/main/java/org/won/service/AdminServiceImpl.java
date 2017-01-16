@@ -33,13 +33,13 @@ public class AdminServiceImpl implements AdminService {
 		// TODO Auto-generated method stub
 
 	}
-/*
+
 	@Override
 	public String shoplogo(String adminid) throws Exception {
 
 		return dao.shoplogo(adminid);
 	}
-*/
+
 	@Override
 	public List<ProductsVO> categorySearch(ProductsVO pvo) throws Exception {
 		return dao.categorySearch(pvo);

@@ -14,7 +14,7 @@ public interface AdminDAO {
 
 	public void delete(String adminid) throws Exception;
 
-/*	public String shoplogo(String adminid) throws Exception;*/
+	public String shoplogo(String adminid) throws Exception;
 
 	public List<ProductsVO> categorySearch(ProductsVO pvo) throws Exception;
 
