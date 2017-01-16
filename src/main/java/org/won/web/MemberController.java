@@ -7,8 +7,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.won.domain.MemberVO;
 import org.won.service.BoardService;
+import org.won.service.MemberService;
 import org.won.service.ProductsService;
 
 @RequestMapping("/member/*")
@@ -20,8 +23,8 @@ public class MemberController {
 	@Inject
 	private BoardService bservice;
 
-	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
+	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 
 	@GetMapping("/index")
 	public void index() {
@@ -35,12 +38,10 @@ public class MemberController {
 	public void login() {
 	}
 
+
+
 	@GetMapping("/cart")
 	public void cart() {
-	}
-
-	@GetMapping("/member_register")
-	public void member_register() {
 	}
 
 	@GetMapping("/brand")
