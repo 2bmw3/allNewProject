@@ -14,15 +14,14 @@
 				max-sessions="1" expired-url="/login" />
 		</security:session-management>
 
-		<security:logout delete-cookies="username"
+		<security:logout delete-cookies="username,SPRING_SECURITY_REMEMBER_ME_COOKIE"
 			invalidate-session="true" logout-url="/logout" />
 
 		<security:intercept-url pattern="/admin/**"
 			access="ROLE_ADMIN" />
 
 		<security:csrf disabled="true" />
-		<security:remember-me key="wmoskey"
-			token-validity-seconds="2419200" />
+		<security:remember-me key="wmoskey" token-validity-seconds="2419200" />
 	</security:http>
 
 	<security:authentication-manager>
