@@ -36,8 +36,6 @@
 		</security:authentication-provider>
 	</security:authentication-manager>
 
-
-
 	<bean id="LoginSuccessHandler" class="org.won.security.LoginSuccessHandler">
 		<property name="alwaysUseDefaultTargetUrl" value="true" />
 	</bean>
