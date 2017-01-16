@@ -1,77 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script type="text/javascript"
-	src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.2.js"
-	charset="utf-8"></script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-
-<link rel='stylesheet prefetch'
-	href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="">
-<title>Shopping mall</title>
-<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-<link
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/css/font-awesome.min.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/css/prettyPhoto.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/css/price-range.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/css/animate.css"
-	rel="stylesheet">
-<link href="${pageContext.request.contextPath}/resources/css/main.css"
-	rel="stylesheet">
-<link
-	href="${pageContext.request.contextPath}/resources/css/responsive.css"
-	rel="stylesheet">
-
-<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css"
-	rel="stylesheet" />
-<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
-<link rel="stylesheet"
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<div class="header-middle">
-	<div class="container">
-		<div class="row">
-			<!-- 로고 아이콘 -->
-			<div class="col-sm-4">
-				<div class="logo pull-left">
-					<a href="/member/index"><img
-						src="${pageContext.request.contextPath}/resources/images/home/logo.png"
-						alt="" /></a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-
-<title>Shopping mall</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<section id="form" style="margin-top:-50px"><!--form-->
+<section id="form" style="margin-top:-50px"><!--form-->
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
@@ -178,11 +114,5 @@
 
 	</section>
 
-
-	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-	<script src="${pageContext.request.contextPath}/resources/js/index.js"></script>
-
-	<%@include file="member/footer.jsp"%>
 </body>
-</html>S
+</html>
