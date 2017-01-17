@@ -161,4 +161,14 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public AdminVO themaGet(int pno) throws Exception {
 		return sqlSession.selectOne(NAME + ".themaGet",pno);
 	}
+
+	@Override
+	public List<PinfoVO> infoColor(int pno) throws Exception {
+		return sqlSession.selectList(NAME + ".infoColor", pno);
+	}
+
+	@Override
+	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception {
+		return sqlSession.selectList(NAME + ".infoSize", vo);
+	}
 }

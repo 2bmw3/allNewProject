@@ -215,4 +215,14 @@ public class ProductsServiceImpl implements ProductsService {
 	public AdminVO themaGet(int pno) throws Exception {
 		return dao.themaGet(pno);
 	}
+
+	@Override
+	public List<PinfoVO> infoColor(int pno) throws Exception {
+		return dao.infoColor(pno);
+	}
+
+	@Override
+	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception {
+		return dao.infoSize(vo);
+	}
 }

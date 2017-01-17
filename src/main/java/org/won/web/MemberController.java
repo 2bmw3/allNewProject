@@ -148,7 +148,7 @@ public class MemberController {
 	@GetMapping("/thema2/view")
 	public void thema2View(int pno, Model model) throws Exception {
 		model.addAttribute("view", pservice.read(pno));
-		model.addAttribute("info", pservice.info(pno));
+		model.addAttribute("infoColor", pservice.infoColor(pno));
 	}
 
 	@GetMapping("/thema2/cart")

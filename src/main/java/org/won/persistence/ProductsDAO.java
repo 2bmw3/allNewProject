@@ -31,6 +31,10 @@ public interface ProductsDAO {
 	public List<ProductsVO> list(ProductsVO vo) throws Exception;
 
 	public List<PinfoVO> info(int pno) throws Exception;
+	
+	public List<PinfoVO> infoColor(int pno) throws Exception;
+	
+	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception;
 
 	public List<QuestionVO> question(int pno) throws Exception;
 

@@ -124,6 +124,14 @@
       select * from tbl_pinfo where pno =
       #{pno}
    </select>
+	
+   <select id="infoColor" resultType="PinfoVO">
+	  select DISTINCT(picolor) from bit88.tbl_pinfo where pno=#{pno}	      
+   </select>   
+   
+   <select id="infoSize" resultType="PinfoVO">
+	  select DISTINCT(pisize) from bit88.tbl_pinfo where pno=#{pno} and picolor = #{picolor}	      
+   </select>   
 
 
    <select id="adminListSearch" resultType="productsVO">

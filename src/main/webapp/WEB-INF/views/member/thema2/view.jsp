@@ -23,54 +23,38 @@
 								<ul class="slides">
 								<c:forEach items="${view}" var="vo" varStatus="status">
 									<li data-thumb="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
-									<img
-										src="/resources/themes/thema2/images/s1.jpg" /></li>
-									<li data-thumb="/resources/themes/thema2/images/s2.jpg"><img
-										src="/resources/themes/thema2/images/s2.jpg" /></li>
-									<li data-thumb="/resources/themes/thema2/images/s3.jpg"><img
-										src="/resources/themes/thema2/images/s3.jpg" /></li>
-									<li data-thumb="/resources/themes/thema2/images/s4.jpg"><img
-										src="/resources/themes/thema2/images/s4.jpg" /></li>
+									<img src= "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" /></li>
 								</c:forEach>
 								</ul>
 							</div>
 						</div>
 						<div class="col-md-7 single-top-right">
 							<div class="details-left-info simpleCart_shelfItem">
-								<h3>Accessories Latest</h3>
+								<h3>${view[0].pname}</h3>
 								<p class="availability">
-									Availability: <span class="color">In stock</span>
+									Kind: <span class="color">${view[0].pkind}</span>
 								</p>
 								<div class="price_single">
-									<span class="reducedfrom">$800.00</span> <span
-										class="actual item_price">$600.00</span><a href="#">click
-										for offer</a>
+									<span class="reducedfrom">${view[0].price+7000}원</span> <span
+										class="actual item_price">${view[0].price}원</span>
 								</div>
-								<h2 class="quick">Quick Overview:</h2>
-								<p class="quick_desc">Nam liber tempor cum soluta nobis
-									eleifend option congue nihil imperdiet doming id quod mazim
-									placerat facer possim assum. Typi non habent claritatem
-									insitam; es</p>
 								<ul class="product-colors">
 									<h3>available Colors ::</h3>
-									<li><a class="color1" href="#"><span> </span></a></li>
-									<li><a class="color2" href="#"><span> </span></a></li>
-									<li><a class="color3" href="#"><span> </span></a></li>
-									<li><a class="color4" href="#"><span> </span></a></li>
-									<li><a class="color5" href="#"><span> </span></a></li>
-									<li><a class="color6" href="#"><span> </span></a></li>
-									<li><a class="color7" href="#"><span> </span></a></li>
-									<li><a class="color8" href="#"><span> </span></a></li>
+									<c:forEach items="${infoColor}" var="vo" varStatus="status">
+										<image style="border-width : 1px; border-style : solid;" src='/resources/admin/images/color_info/${vo.picolor}.jpg' class='colorInfo' id='${vo.picolor}'/>
+									</c:forEach>
 									<div class="clear"></div>
 								</ul>
+								</br>
+								<h3>SIZE</h3>
 								<ul class="size">
-									<h3>Length</h3>
-									<li><a href="#">7</a></li>
-									<li><a href="#">6</a></li>
+								
+									<li><a href="#">색상을 골라주세요</a></li>
+									
 								</ul>
 								<div class="quantity_box">
 									<ul class="product-qty">
-										<span>Quantity:</span>
+										<h3>Quantity:</h3>
 										<select>
 											<option>1</option>
 											<option>2</option>
@@ -92,16 +76,9 @@
 					</div>
 
 					<!-- Editor content view -->
-					<div style="width:70%;">
-						${view[0].pcontent}	
-					</div>
+					${view[0].pcontent}	
 					
-					<img src="/resources/themes/thema2/images/editor1.jpg"
-						style="width: 100%;" /> <img
-						src="/resources/themes/thema2/images/editor2.jpg"
-						style="width: 100%;" /> <img
-						src="/resources/themes/thema2/images/editor3.jpg"
-						style="width: 100%;" />
+
 
 				</div>
 				<div class="clearfix"></div>
@@ -126,5 +103,7 @@
 				controlNav : "thumbnails"
 			});
 		});
+		
+		$(".product-colors")
 	</script>
 </html>
