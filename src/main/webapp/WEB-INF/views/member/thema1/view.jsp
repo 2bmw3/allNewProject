@@ -22,12 +22,11 @@
                               <div class="simpleLens-big-image-container">
                                  <a
                                     data-lens-image="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
-                                    class="simpleLens-lens-image">
-                                 <img
+                                    class="simpleLens-lens-image"> <img
                                     style="width: 600px; height: 400px"
                                     src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
                                     class="simpleLens-big-image">
-                                    </a>
+                                 </a>
                               </div>
                            </div>
                            <div class="simpleLens-thumbnails-container">
@@ -75,34 +74,32 @@
                         </div>
                         <h4>Size</h4>
                         <div class="aa-prod-view-size">
-                           <form action="">
-                              <select id="" name="">
-                                 <option selected="1" value="0">------------------------------------</option>
-                                 <option>
-                                    <c:forEach items="${info}" var="pinfo">
-                                       <h5>색상: ${pinfo.picolor} 사이즈: ${pinfo.pisize} 재고량:
-                                          ${pinfo.pistock}</h5>
-                                    </c:forEach>
-                                 </option>
-                              </select>
-                           </form>
+                           <a href="#">S</a> <a href="#">M</a> <a href="#">L</a> <a
+                              href="#">XL</a>
+                        </div>
+                        <h4>Color</h4>
+                        <div class="aa-color-tag">
+                           <a href="#" class="aa-color-green"></a> <a href="#"
+                              class="aa-color-yellow"></a> <a href="#" class="aa-color-pink"></a>
+                           <a href="#" class="aa-color-black"></a> <a href="#"
+                              class="aa-color-white"></a>
                         </div>
                         <br>
 
                         <div class="input-group col-md-3">
-                              <span class="input-group-btn">
-                                 <button type="button" class="btn btn-danger btn-number"
-                                    data-type="minus" data-field="quant[2]">
-                                    <span class="glyphicon glyphicon-minus"></span>
-                                 </button>
-                              </span> <input type="text" name="quant[2]"
-                                 class="form-control input-number" value="1" min="1" max="100">
-                              <span class="input-group-btn">
-                                 <button type="button" class="btn btn-success btn-number"
-                                    data-type="plus" data-field="quant[2]">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                 </button>
-                              </span>
+                           <span class="input-group-btn">
+                              <button type="button" class="btn btn-danger btn-number"
+                                 data-type="minus" data-field="quant[2]">
+                                 <span class="glyphicon glyphicon-minus"></span>
+                              </button>
+                           </span> <input type="text" name="quant[2]"
+                              class="form-control input-number" value="1" min="1" max="100">
+                           <span class="input-group-btn">
+                              <button type="button" class="btn btn-success btn-number"
+                                 data-type="plus" data-field="quant[2]">
+                                 <span class="glyphicon glyphicon-plus"></span>
+                              </button>
+                           </span>
                         </div>
                         <div class="aa-prod-view-bottom">
                            <a class="aa-add-to-cart-btn" href="#" id='addCart'>Add To
@@ -118,7 +115,7 @@
                   <li><a href="#qna" data-toggle="tab">QnA</a></li>
                   <li><a href="#review" data-toggle="tab">Reviews</a></li>
                </ul>
-               
+
 
                <!-- Tab panes -->
                <div class="tab-content">
@@ -252,13 +249,13 @@
                   </div>
                </div>
             </div>
-            
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
+
             <!-- Related product -->
             <div class="aa-product-related-item">
                <h3>Related Products</h3>
@@ -294,7 +291,7 @@
                            <button type="button" class="close" data-dismiss="modal"
                               aria-hidden="true">&times;</button>
                            <div class="row">
-                           
+
                               <!-- Modal view slider -->
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                  <div class="aa-product-view-slider">

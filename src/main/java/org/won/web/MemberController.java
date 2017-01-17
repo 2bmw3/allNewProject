@@ -194,10 +194,15 @@ public class MemberController {
 
 	}
 
-	@GetMapping("/thema4/view")
-	public void thema4View() {
-
-	}
+	   //thema4 view
+	   @GetMapping("/thema4/view")
+	   public void thema4View(int pno, Model model) throws Exception {
+	      model.addAttribute("view", pservice.read(pno));
+	      model.addAttribute("review", bservice.reviewRead(pno));
+	      model.addAttribute("qna", pservice.question(pno));
+	      model.addAttribute("answer", pservice.answerRead(pno));
+	      model.addAttribute("info", pservice.info(pno));
+	   }
 
 	@GetMapping("/thema4/index")
 	public void thema4Index() {

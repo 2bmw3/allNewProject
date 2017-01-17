@@ -63,6 +63,10 @@
       select * from tbl_products where adminid = #{adminid} order by
       pno desc limit #{page},9
    </select>
+	    
+	<select id='pkindList' resultType='productsVO'>
+		select * from tbl_products where adminid = #{adminid} and pkind = #{pkind}
+	</select>
 
    <select id="total" resultType="java.lang.Integer">
       select count(*) from tbl_products where adminid=#{adminid}
