@@ -66,7 +66,7 @@ public class MemberController {
 	public void order() {
 	}
 
-	// thema1 start!
+	// thema1 start
 	@GetMapping("/thema1/index")
 	public void thema1Index(String adminid) {
 
