@@ -119,11 +119,11 @@
 						<!-- Left nav -->
 						<ul class="nav navbar-nav">
 							<li><a href="/member/index">Home</a></li>
-							<li><a href="topList">TOP</a></li>
-							<li><a href="bottomList">BOTTOM</a></li>
-							<li><a href="outerList">OUTER</a></li>
-							<li><a href="footWeareAccList">FOOTWEARE & ACC</a></li>
-							<li><a href="etcList">ETC</a></li>
+							<li><a href="topList?pageNum=1">TOP</a></li>
+							<li><a href="bottomList?pageNum=1">BOTTOM</a></li>
+							<li><a href="outerList?pageNum=1">OUTER</a></li>
+							<li><a href="footWeareAccList?pageNum=1">FOOTWEARE & ACC</a></li>
+							<li><a href="etcList?pageNum=1">ETC</a></li>
 							<li><a href="#">SEARCH <span class="caret"></span></a>
 								<ul class="dropdown-menu" style='width: 0;'>
 									<li style='float: left;'>

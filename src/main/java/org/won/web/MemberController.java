@@ -1,18 +1,19 @@
 package org.won.web;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.won.domain.MemberVO;
+import org.won.domain.ProductsVO;
 import org.won.service.BoardService;
-import org.won.service.MemberService;
 import org.won.service.ProductsService;
+import org.won.util.CookieUtil;
+import org.won.util.PageingUtil;
 
 @RequestMapping("/member/*")
 @Controller
@@ -23,9 +24,10 @@ public class MemberController {
 	@Inject
 	private BoardService bservice;
 
-
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
+	private CookieUtil cookieUtil = new CookieUtil();
+	
+	
 	@GetMapping("/index")
 	public void index() {
 	}
@@ -65,17 +67,34 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/topList")
-	public void thema1topList() {
+	public void thema1topList(int pageNum, Model model, HttpServletRequest request) throws Exception {
+		String username = cookieUtil.cookieUtil(request);
+		int totalData = pservice.total(username);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+		ProductsVO vo = new ProductsVO();
+
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(username);
+		model.addAttribute("list", pservice.list(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "list");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
+
 	@GetMapping("/thema1/bottomList")
 	public void thema1bottomList() {
 	}
+
 	@GetMapping("/thema1/outerList")
 	public void thema1outerList() {
 	}
+
 	@GetMapping("/thema1/footWeareAccList")
 	public void thema1footWeareAccList() {
 	}
+
 	@GetMapping("/thema1/etcList")
 	public void thema1etcList() {
 	}
