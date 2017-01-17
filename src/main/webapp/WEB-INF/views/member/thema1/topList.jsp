@@ -52,7 +52,7 @@
 	                <li>
 	                  <figure>
 	                    <a class="aa-product-img" href="view?pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}">
-	                    	<img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="polo shirt img"></a>
+	                    	<img style = 'width:100%;height:300px;'src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="polo shirt img"></a>
 	                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
 	                    <figcaption>
 	                      <h4 class="aa-product-title"><a>${vo.pname}</a></h4>
