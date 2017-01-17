@@ -83,7 +83,7 @@ public class MemberController {
 		vo.setAdminid(adminid);
 
 		vo.setPkind(pkind);
-		URLEncoder.encode(pkind, "UTF-8");	//이게 뭘까
+		URLEncoder.encode(pkind, "UTF-8");
 
 		logger.info(pservice.pkindList(vo).toString());
 		model.addAttribute("list", pservice.pkindList(vo));
