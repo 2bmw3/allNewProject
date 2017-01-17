@@ -104,6 +104,6 @@
 			});
 		});
 		
-		$(".product-colors")
+		// dhk
 	</script>
 </html>
