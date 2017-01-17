@@ -39,6 +39,12 @@
 	width: 130px;
 	margin-left: -15%;
 }
+
+.cardBackground .guide {
+	margin-top: 0%; margin-left : -35%;
+	position: absolute;
+	width: 160px;
+}
 </style>
 
 
@@ -136,6 +142,9 @@
 									</div>
 
 									<div class='titleImg' style="margin-left: 5%;">
+										<div class="guide">
+											<p style="font-size: 8px; margin-top: -10%;">※카드를 가이드라인에 맞춰주세요!!</p>
+										</div>
 										<img style='width: 100px; height: 120px;'
 											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 										<div class="productInfo">
