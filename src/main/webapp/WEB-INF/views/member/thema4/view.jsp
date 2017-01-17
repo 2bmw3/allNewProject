@@ -227,19 +227,17 @@
 									<div class="product-color-size-area">
 										<div class="color-area">
 											<h2 class="saider-bar-title">Color</h2>
-											<div class="color">
-												<c:forEach items="${info}" var="vo" varStatus="status">
-													<image style="border-width : 1px; border-style : solid;"
-														src='/resources/admin/images/color_info/${vo.picolor}.jpg'
-														class='colorInfo' id='${vo.picolor}' />
-												</c:forEach>
-											</div>
+											<c:forEach items="${infoColor}" var="vo" varStatus="status">
+												<image style="border-width : 1px; margin-top:1%; border-style : solid;"
+													src='/resources/admin/images/color_info/${vo.picolor}.jpg'
+													class='colorInfo' id='${vo.picolor}' />
+											</c:forEach>
 										</div>
 										<div class="size-area">
 											<h2 class="saider-bar-title">Size</h2>
 											<div class="size">
 												<ul>
-													<c:forEach items="${info}" var="vo" varStatus="status">
+													<c:forEach items="${infoSize}" var="vo" varStatus="status">
 														<li><a href="#">${vo.pisize}</a></li>
 													</c:forEach>
 												</ul>
