@@ -68,20 +68,21 @@ public class MemberController {
 
 	// thema1 start
 	@GetMapping("/thema1/index")
-	public void thema1Index() {
-
+	public void thema1Index(HttpServletRequest request) {
+		String adminId = request.getParameter("adminid");
+		
 	}
 
 	@GetMapping("/thema1/topList")
 	public void thema1topList(int pageNum, Model model, HttpServletRequest request) throws Exception {
-		String username = cookieUtil.cookieUtil(request);
-		int totalData = pservice.total(username);
+		String adminId = request.getParameter("adminid");
+		int totalData = pservice.total(adminId);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
 
 		int page = (pageNum - 1) * 9;
 		vo.setPage(page);
-		vo.setAdminid(username);
+		vo.setAdminid(adminId);
 		model.addAttribute("list", pservice.list(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "list");

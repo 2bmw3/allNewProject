@@ -84,7 +84,7 @@
                      <!-- logo  -->
                      <div class="aa-logo">
                         <!-- Text based logo -->
-                        <a href="/member/thema1/index"> <span
+                        <a href="/member/thema1/index?adminid=${param.adminid}"> <span
                            class="fa fa-shopping-cart"></span>
                            <p>
                               sm<strong>Shop</strong> <span>Your Shopping Partner</span>
@@ -119,11 +119,11 @@
 						<!-- Left nav -->
 						<ul class="nav navbar-nav">
 							<li><a href="/member/index">Home</a></li>
-							<li><a href="topList?pageNum=1">TOP</a></li>
-							<li><a href="bottomList?pageNum=1">BOTTOM</a></li>
-							<li><a href="outerList?pageNum=1">OUTER</a></li>
-							<li><a href="footWeareAccList?pageNum=1">FOOTWEARE & ACC</a></li>
-							<li><a href="etcList?pageNum=1">ETC</a></li>
+							<li><a href="topList?adminid=${param.adminid}&pageNum=1">TOP</a></li>
+							<li><a href="bottomList?adminid=${param.adminid}&pageNum=1">BOTTOM</a></li>
+							<li><a href="outerList?adminid=${param.adminid}&pageNum=1">OUTER</a></li>
+							<li><a href="footWeareAccList?adminid=${param.adminid}&pageNum=1">FOOTWEARE & ACC</a></li>
+							<li><a href="etcList?adminid=${param.adminid}&pageNum=1">ETC</a></li>
 							<li><a href="#">SEARCH <span class="caret"></span></a>
 								<ul class="dropdown-menu" style='width: 0;'>
 									<li style='float: left;'>
