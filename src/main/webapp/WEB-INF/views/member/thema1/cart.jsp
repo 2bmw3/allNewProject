@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="header.jsp"%>
 
 
@@ -26,38 +27,23 @@
                       </tr>
                     </thead>
                     <tbody>
+                     <c:forEach items="${cart}" var="vo">
                       <tr>
                         <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="/resources/themes/thema1/img/women/girl-2.png" alt="img"></a></td>
+                        <td><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></td>
                         <td>
-                        	<a class="aa-cart-title">one piece</a>
-                        	<a> / red / F</a>
+                        	<a class="aa-cart-title">${vo.pname}</a>
+                        	<a> / ${vo.picolor} / ${vo.pisize}</a>
                         </td>
-                        <td>$250</td>
-                        <td><input class="aa-cart-quantity" type="number" value="0" min='0'></td>
-                        <td>$250</td>
+                        <td>$ ${vo.price}</td>
+                        <td><input class="aa-cart-quantity" type="number" value='${vo.ccnt}' min='0'></td>
+                        <td>$ ${vo.price}</td>
                       </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="/resources/themes/thema1/img/women/girl-3.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title">Polo T-Shirt</a></td>
-                        <td>$150</td>
-                        <td><input class="aa-cart-quantity" type="number" value="0" min='0'></td>
-                        <td>$150</td>
-                      </tr>
-                      <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
-                        <td><a href="#"><img src="/resources/themes/thema1/img/women/girl-7.png" alt="img"></a></td>
-                        <td><a class="aa-cart-title">Polo T-Shirt</a></td>
-                        <td>$50</td>
-                        <td><input class="aa-cart-quantity" type="number" value="0" min='0'></td>
-                        <td>$50</td>
-                      </tr>
+                      </c:forEach>
                       </tbody>
                   </table>
                 </div>
              </form>
-             
              <!-- Cart Total view -->
              <div class="cart-view-total">
                <h4>Cart Totals</h4>
@@ -71,8 +57,6 @@
                </table>
                <a href="checkout" class="aa-cart-view-btn">Proced to Checkout</a>
              </div>
-             
-             
            </div>
          </div>
        </div>
@@ -80,6 +64,24 @@
    </div>
  </section>
  <!-- / Cart view section -->
+ <script>
+ /* firebase script */
+ var config = {
+    apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
+    authDomain : "project-26bd6.firebaseapp.com",
+    databaseURL : "https://project-26bd6.firebaseio.com",
+    storageBucket : "project-26bd6.appspot.com",
+    messagingSenderId : "544848311496"
+ };
+ firebase.initializeApp(config);
+
+ // Get a reference to the storage service, which is used to create
+	// references in your storage bucket
+ var storage = firebase.storage();
+
+ // Create a storage reference from our storage service
+ var storageRef = storage.ref();
+ </script>
 
 <%@include file="footer.jsp"%>
 

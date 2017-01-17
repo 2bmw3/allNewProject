@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.won.domain.ProductsVO;
 import org.won.service.BoardService;
+import org.won.service.OrderService;
 import org.won.service.ProductsService;
 import org.won.util.CookieUtil;
 import org.won.util.PageingUtil;
@@ -23,11 +24,12 @@ public class MemberController {
 	private ProductsService pservice;
 	@Inject
 	private BoardService bservice;
+	@Inject
+	private OrderService oservice;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private CookieUtil cookieUtil = new CookieUtil();
-	
-	
+
 	@GetMapping("/index")
 	public void index() {
 	}
@@ -38,10 +40,6 @@ public class MemberController {
 
 	@GetMapping("/login")
 	public void login() {
-	}
-
-	@GetMapping("/cart")
-	public void cart() {
 	}
 
 	@GetMapping("/brand")
@@ -117,7 +115,9 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/cart")
-	public void thema1Cart() {
+	public void thema1Cart(String userid, Model model) throws Exception {
+
+		model.addAttribute("cart", oservice.cartList("test"));
 	}
 
 	@GetMapping("/thema1/checkout")
@@ -137,7 +137,7 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema2/view")
-	public void thema2View(int pno, Model model) throws Exception{
+	public void thema2View(int pno, Model model) throws Exception {
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("info", pservice.info(pno));
 	}
@@ -154,7 +154,7 @@ public class MemberController {
 	// thema3 start
 	@GetMapping("/thema3/index")
 	public void thema3Index() {
-		
+
 	}
 
 	@GetMapping("/thema3/list")

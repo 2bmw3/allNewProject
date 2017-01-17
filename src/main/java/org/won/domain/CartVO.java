@@ -2,37 +2,70 @@ package org.won.domain;
 
 public class CartVO {
 
-	private int cno;
-	private int tno;
-	private String userid;
-
+	private int cno,pino,ccnt;
+	private String userid,ptitlephoto, pname, pisize, picolor,price;
 	public int getCno() {
 		return cno;
 	}
-
 	public void setCno(int cno) {
 		this.cno = cno;
 	}
-
-	public int getTno() {
-		return tno;
+	public int getPino() {
+		return pino;
 	}
-
-	public void setTno(int tno) {
-		this.tno = tno;
+	public void setPino(int pino) {
+		this.pino = pino;
 	}
-
+	public int getCcnt() {
+		return ccnt;
+	}
+	public void setCcnt(int ccnt) {
+		this.ccnt = ccnt;
+	}
 	public String getUserid() {
 		return userid;
 	}
-
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-
+	public String getPtitlephoto() {
+		return ptitlephoto;
+	}
+	public void setPtitlephoto(String ptitlephoto) {
+		this.ptitlephoto = ptitlephoto;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getPisize() {
+		return pisize;
+	}
+	public void setPisize(String pisize) {
+		this.pisize = pisize;
+	}
+	public String getPicolor() {
+		return picolor;
+	}
+	public void setPicolor(String picolor) {
+		this.picolor = picolor;
+	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
 	@Override
 	public String toString() {
-		return "CartVO [cno=" + cno + ", tno=" + tno + ", userid=" + userid + "]";
+		return "CartVO [cno=" + cno + ", pino=" + pino + ", ccnt=" + ccnt + ", userid=" + userid + ", ptitlephoto="
+				+ ptitlephoto + ", pname=" + pname + ", pisize=" + pisize + ", picolor=" + picolor + ", price=" + price
+				+ "]";
 	}
+
+	
+	
 
 }
