@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -19,6 +19,15 @@
 <body>
 <div id="background">
 	<div id="gallery" style="margin-left:20%;">
+	
+	<c:forEach items="${indexList}" var="vo" varStatus="status">
+		<figure class="pic${status.count + 1}"> 
+			<a href="thema1/index?${vo.adminid}"> 
+				<img src="${vo.titleimg}" />
+			</a> 
+			<figcaption>Haerin's shop</figcaption> 
+		</figure>
+	</c:forEach>
 		<figure class="pic1"> 
 			<a href="thema1/index"> 
 				<img src="/resources/indexImg/index1.png" />

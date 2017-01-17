@@ -1,5 +1,7 @@
 package org.won.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,8 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.won.domain.AdminVO;
 import org.won.domain.ProductsVO;
 import org.won.service.BoardService;
+import org.won.service.MemberService;
 import org.won.service.OrderService;
 import org.won.service.ProductsService;
 import org.won.util.CookieUtil;
@@ -26,12 +30,16 @@ public class MemberController {
 	private BoardService bservice;
 	@Inject
 	private OrderService oservice;
+	@Inject
+	private MemberService mservice;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private CookieUtil cookieUtil = new CookieUtil();
 
 	@GetMapping("/index")
-	public void index() {
+	public String index(Model model) throws Exception {
+		model.addAttribute("indexList", mservice.indexList());
+		return "/member/index";
 	}
 
 	@GetMapping("/view")
