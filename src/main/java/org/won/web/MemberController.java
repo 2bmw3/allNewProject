@@ -1,6 +1,6 @@
 package org.won.web;
 
-import java.util.List;
+import java.net.URLEncoder;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.won.domain.AdminVO;
 import org.won.domain.ProductsVO;
 import org.won.service.BoardService;
 import org.won.service.MemberService;
@@ -74,16 +73,21 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/topList")
-	public void thema1topList(int pageNum, Model model, HttpServletRequest request) throws Exception {
-		String adminId = request.getParameter("adminid");
-		int totalData = pservice.total(adminId);
+	public void thema1topList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+		int totalData = pservice.total(adminid);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
 
 		int page = (pageNum - 1) * 9;
 		vo.setPage(page);
-		vo.setAdminid(adminId);
-		model.addAttribute("list", pservice.list(vo));
+		vo.setAdminid(adminid);
+		
+		
+		vo.setPkind(pkind);
+		URLEncoder.encode(pkind, "UTF-8");
+		
+		logger.info(pservice.pkindList(vo).toString());
+		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "list");
 		model.addAttribute("total", totalData);
@@ -91,19 +95,71 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/bottomList")
-	public void thema1bottomList() {
+	public void thema1bottomList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+		int totalData = pservice.total(adminid);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+		ProductsVO vo = new ProductsVO();
+
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "list");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
 
 	@GetMapping("/thema1/outerList")
-	public void thema1outerList() {
+	public void thema1outerList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+		int totalData = pservice.total(adminid);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+		ProductsVO vo = new ProductsVO();
+
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "list");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
 
 	@GetMapping("/thema1/footWeareAccList")
-	public void thema1footWeareAccList() {
+	public void thema1footWeareAccList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+		int totalData = pservice.total(adminid);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+		ProductsVO vo = new ProductsVO();
+
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "list");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
 
 	@GetMapping("/thema1/etcList")
-	public void thema1etcList() {
+	public void thema1etcList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+		int totalData = pservice.total(adminid);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+		ProductsVO vo = new ProductsVO();
+
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "list");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
 
 	@GetMapping("/thema1/view")
