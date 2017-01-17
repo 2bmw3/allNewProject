@@ -81,11 +81,8 @@ public class MemberController {
 		int page = (pageNum - 1) * 9;
 		vo.setPage(page);
 		vo.setAdminid(adminid);
-
 		vo.setPkind(pkind);
-		URLEncoder.encode(pkind, "UTF-8");
-
-		logger.info(pservice.pkindList(vo).toString());
+		
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
 		model.addAttribute("actionName", "list");
