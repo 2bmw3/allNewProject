@@ -1,11 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
+
 <!-- Favicon  -->
 <link rel="shortcut icon" type="image/x-icon" href="/resources/themes/thema4/favicon.ico">
 <!-- Google Fonts -->
@@ -20,7 +13,6 @@
 <link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/bootstrap.min.css">
 
 <!-- font-awesome & simple line icons CSS -->
-<link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/font-awesome.css" media="all">
 <link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/simple-line-icons.css" media="all">
 
 <!-- owl.carousel CSS -->
@@ -35,7 +27,6 @@
 
 <!-- slider CSS  -->
 <link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/slit-slider.css">
-
 
 <!-- style CSS -->
 <link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/style.css" media="all">
