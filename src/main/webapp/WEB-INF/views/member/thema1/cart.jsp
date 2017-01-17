@@ -6,6 +6,7 @@
 <%@include file="header.jsp"%>
 
 
+
  <!-- Cart view section -->
  <section id="cart-view">
    <div class="container">
