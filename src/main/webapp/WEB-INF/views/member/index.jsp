@@ -22,7 +22,7 @@
 	
 	<c:forEach items="${indexList}" var="vo" varStatus="status">
 		<figure class="pic${status.count + 1}"> 
-			<a href="thema${vo.thema}/index?${vo.adminid}"> 
+			<a href="thema${vo.thema}/index?adminid=${vo.adminid}"> 
 				<img src="${vo.titleimg}" />
 			</a> 
 			<figcaption>${vo.shopname}</figcaption> 
@@ -64,12 +64,12 @@
 <!-- 			<figcaption>Shopping mall</figcaption>  -->
 <!-- 		</figure> -->
 		
-<!-- 		<figure class="pic10 camera" style="width: 320px; height: 178px">  -->
-<!-- 			<a href='#' id="myBtn" class='btn-example'>  -->
-<!-- 				<i class="fa fa-camera-retro" style="font-size: 150px;"></i> -->
-<!-- 			</a>  -->
-<!-- 			<figcaption>Search Camera</figcaption>  -->
-<!-- 		</figure> -->
+		<figure class="pic10 camera" style="width: 320px; height: 178px"> 
+			<a href='#' id="myBtn" class='btn-example'> 
+				<i class="fa fa-camera-retro" style="font-size: 150px;"></i>
+			</a> 
+			<figcaption>Search Camera</figcaption> 
+		</figure>
 		
 <!-- 		<figure class="pic7"> -->
 <!-- 			<a href="#">  -->
