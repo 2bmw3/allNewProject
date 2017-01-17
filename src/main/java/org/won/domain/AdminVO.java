@@ -4,10 +4,8 @@ import java.util.Date;
 
 public class AdminVO {
 
-	private String adminid, adminpw, aname, aaddress, aemail, aphonenumber, shopname, businessnum, shoplogo, thema, titleImg;
+	private String adminid, adminpw, aname, aaddress, aemail, aphonenumber, shopname, businessnum, shoplogo, thema, titleimg;
 	private Date aregdate;
-	
-	
 	public String getAdminid() {
 		return adminid;
 	}
@@ -68,11 +66,11 @@ public class AdminVO {
 	public void setThema(String thema) {
 		this.thema = thema;
 	}
-	public String getTitleImg() {
-		return titleImg;
+	public String getTitleimg() {
+		return titleimg;
 	}
-	public void setTitleImg(String titleImg) {
-		this.titleImg = titleImg;
+	public void setTitleimg(String titleimg) {
+		this.titleimg = titleimg;
 	}
 	public Date getAregdate() {
 		return aregdate;
@@ -84,8 +82,13 @@ public class AdminVO {
 	public String toString() {
 		return "AdminVO [adminid=" + adminid + ", adminpw=" + adminpw + ", aname=" + aname + ", aaddress=" + aaddress
 				+ ", aemail=" + aemail + ", aphonenumber=" + aphonenumber + ", shopname=" + shopname + ", businessnum="
-				+ businessnum + ", shoplogo=" + shoplogo + ", thema=" + thema + ", titleImg=" + titleImg + ", aregdate="
-				+ aregdate + "]";
+				+ businessnum + ", shoplogo=" + shoplogo + ", thema=" + thema + ", titleimg=" + titleimg + ", aregdate="
+				+ aregdate + ", getAdminid()=" + getAdminid() + ", getAdminpw()=" + getAdminpw() + ", getAname()="
+				+ getAname() + ", getAaddress()=" + getAaddress() + ", getAemail()=" + getAemail()
+				+ ", getAphonenumber()=" + getAphonenumber() + ", getShopname()=" + getShopname()
+				+ ", getBusinessnum()=" + getBusinessnum() + ", getShoplogo()=" + getShoplogo() + ", getThema()="
+				+ getThema() + ", getTitleimg()=" + getTitleimg() + ", getAregdate()=" + getAregdate() + ", getClass()="
+				+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 	
 	
