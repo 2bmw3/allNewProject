@@ -66,10 +66,10 @@ public class MemberController {
 	public void order() {
 	}
 
-	// thema1 start
+	// thema1 start!
 	@GetMapping("/thema1/index")
-	public void thema1Index(HttpServletRequest request) {
-		String adminId = request.getParameter("adminid");
+	public void thema1Index(String adminid) {
+		
 		
 	}
 
@@ -197,8 +197,8 @@ public class MemberController {
 
 	// thema2 start
 	@GetMapping("/thema2/index")
-	public void thema2Index() {
-
+	public void thema2Index(String adminid) {
+		
 	}
 
 	@GetMapping("/thema2/list")
