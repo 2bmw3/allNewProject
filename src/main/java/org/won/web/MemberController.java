@@ -69,8 +69,7 @@ public class MemberController {
 	// thema1 start!
 	@GetMapping("/thema1/index")
 	public void thema1Index(String adminid) {
-		
-		
+
 	}
 
 	@GetMapping("/thema1/topList")
@@ -82,11 +81,10 @@ public class MemberController {
 		int page = (pageNum - 1) * 9;
 		vo.setPage(page);
 		vo.setAdminid(adminid);
-		
-		
+
 		vo.setPkind(pkind);
 		URLEncoder.encode(pkind, "UTF-8");
-		
+
 		logger.info(pservice.pkindList(vo).toString());
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
@@ -180,15 +178,15 @@ public class MemberController {
 	public void thema1Account() {
 	}
 
-	   @GetMapping("/thema1/cart")
-	   public void thema1Cart(String adminid, Model model) throws Exception {
-	      
-	      CartVO vo = new CartVO();
-	      vo.setAdminid(adminid);
-	      vo.setUserid("test");
-	      
-	      model.addAttribute("cart", oservice.cartList(vo));
-	   }
+	@GetMapping("/thema1/cart")
+	public void thema1Cart(String adminid, Model model) throws Exception {
+
+		CartVO vo = new CartVO();
+		vo.setAdminid(adminid);
+		vo.setUserid("test");
+
+		model.addAttribute("cart", oservice.cartList(vo));
+	}
 
 	@GetMapping("/thema1/checkout")
 	public void thema1Checkout() {
@@ -198,7 +196,7 @@ public class MemberController {
 	// thema2 start
 	@GetMapping("/thema2/index")
 	public void thema2Index(String adminid) {
-		
+
 	}
 
 	@GetMapping("/thema2/list")
@@ -255,15 +253,15 @@ public class MemberController {
 
 	}
 
-	   //thema4 view
-	   @GetMapping("/thema4/view")
-	   public void thema4View(int pno, Model model) throws Exception {
-	      model.addAttribute("view", pservice.read(pno));
-	      model.addAttribute("review", bservice.reviewRead(pno));
-	      model.addAttribute("qna", pservice.question(pno));
-	      model.addAttribute("answer", pservice.answerRead(pno));
-	      model.addAttribute("infoColor", pservice.infoColor(pno));
-	   }
+	// thema4 view
+	@GetMapping("/thema4/view")
+	public void thema4View(int pno, Model model) throws Exception {
+		model.addAttribute("view", pservice.read(pno));
+		model.addAttribute("review", bservice.reviewRead(pno));
+		model.addAttribute("qna", pservice.question(pno));
+		model.addAttribute("answer", pservice.answerRead(pno));
+		model.addAttribute("infoColor", pservice.infoColor(pno));
+	}
 
 	@GetMapping("/thema4/index")
 	public void thema4Index() {
