@@ -101,7 +101,7 @@
                             <div class="aa-promo-right">
                             
                             <!-- 하나 끝! -->
-                            <c:forEach items="${index}" var="vo" varStatus="status">
+<%--                             <c:forEach items="${index}" var="vo" varStatus="status"> --%>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner"> 
                                         <img src="/resources/themes/thema1/img/promo-banner-3.jpg" alt="img">
@@ -111,7 +111,7 @@
                                         </div>
                                     </div>
                                 </div>
-                             </c:forEach>
+<%--                              </c:forEach> --%>
                             </div>
                         </div>
                          <!-- promo right -->

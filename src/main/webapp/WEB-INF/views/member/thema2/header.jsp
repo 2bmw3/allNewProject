@@ -43,7 +43,7 @@ function hideURLbar() {
     <div class="container">
         <div class="top-header-main">
             <div class="col-md-4 top-header-middle">
-                <a href="thema2_index"><img src="/resources/themes/thema2/images/logo-4.png" alt=""/></a>
+                <a href="index"><img src="/resources/themes/thema2/images/logo-4.png" alt=""/></a>
             </div>
             <div class="clearfix"></div>
         </div>
