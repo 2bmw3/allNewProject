@@ -118,7 +118,9 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema2/view")
-	public void thema2View() {
+	public void thema2View(int pno, Model model) throws Exception{
+		model.addAttribute("view", pservice.read(pno));
+		model.addAttribute("info", pservice.info(pno));
 	}
 
 	@GetMapping("/thema2/cart")
@@ -133,7 +135,7 @@ public class MemberController {
 	// thema3 start
 	@GetMapping("/thema3/index")
 	public void thema3Index() {
-
+		
 	}
 
 	@GetMapping("/thema3/list")
