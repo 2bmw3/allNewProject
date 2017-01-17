@@ -124,9 +124,9 @@ $("#uploadBtn").on("click",function(){
          
          var str = "<img src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/editor%2F"
                   + uuidFileName 
-                  +"?alt=media&token=8e92d83a-28b9-4bbb-8418-b86219abbe64' style='cursor:pointer;' class='editImg' name='"
+                  +"?alt=media&token=8e92d83a-28b9-4bbb-8418-b86219abbe64' style='cursor:pointer; width:100%;' class='editImg' name='"
                   + uuidFileName
-                  + "'>";
+                  +  '>";
          $(".nicEdit-main")[0].innerHTML += str; 
          $('#pcontent').val($(".nicEdit-main")[0].innerHTML);
          str="";

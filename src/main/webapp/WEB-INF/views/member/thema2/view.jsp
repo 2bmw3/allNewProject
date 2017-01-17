@@ -21,7 +21,9 @@
 						<div class="col-md-5 single-top-left">
 							<div class="flexslider">
 								<ul class="slides">
-									<li data-thumb="/resources/themes/thema2/images/s1.jpg"><img
+								<c:forEach items="${view}" var="vo" varStatus="status">
+									<li data-thumb="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
+									<img
 										src="/resources/themes/thema2/images/s1.jpg" /></li>
 									<li data-thumb="/resources/themes/thema2/images/s2.jpg"><img
 										src="/resources/themes/thema2/images/s2.jpg" /></li>
@@ -29,6 +31,7 @@
 										src="/resources/themes/thema2/images/s3.jpg" /></li>
 									<li data-thumb="/resources/themes/thema2/images/s4.jpg"><img
 										src="/resources/themes/thema2/images/s4.jpg" /></li>
+								</c:forEach>
 								</ul>
 							</div>
 						</div>
@@ -89,6 +92,10 @@
 					</div>
 
 					<!-- Editor content view -->
+					<div style="width:70%;">
+						${view[0].pcontent}	
+					</div>
+					
 					<img src="/resources/themes/thema2/images/editor1.jpg"
 						style="width: 100%;" /> <img
 						src="/resources/themes/thema2/images/editor2.jpg"
