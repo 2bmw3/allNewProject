@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+import org.won.domain.AdminVO;
 import org.won.domain.AnswerVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.PphotosVO;
@@ -157,7 +158,7 @@ public class ProductsDAOImpl implements ProductsDAO {
 	
 	//thema번호 가져오는 함수
 	@Override
-	public int themaGet(int pno) throws Exception {
+	public AdminVO themaGet(int pno) throws Exception {
 		return sqlSession.selectOne(NAME + ".themaGet",pno);
 	}
 }

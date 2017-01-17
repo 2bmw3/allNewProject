@@ -206,9 +206,8 @@
 	     	  $.post({
 	     	    url:'https://vision.googleapis.com/v1/images:annotate?key=AIzaSyDZVLNTpGmVooQatMslQnPYKyNAMKhOuOo',
 	     	    data: JSON.stringify(request),
-	     	    contentType: 'application/json'
-	     	  }).fail(function (jqXHR, textStatus, errorThrown) {
-	     	    $('#results').text('ERRORS: ' + textStatus + ' ' + errorThrown);
+	     	    contentType: 'application/json',
+	     	  }).fail(function (jqXHR, textStatus, errorThrown){
 	     	  }).done(displayJSON);
 	     	}
 
@@ -216,28 +215,51 @@
 	     	 * Displays the results.
 	     	 */
 	     	function displayJSON (data) {
-	     	  var contents = JSON.stringify(data.responses[0].textAnnotations[0].description.split("#")[1].split(" ")[0]);
-	     	 
-	     	  var pno = parseInt(contents.split('"')[1]);
-	     	
-	     	 swal({
-	            title: "맘에 드셨어요?",
-	            text:  "해당 상품으로 이동합니다.",
-	            type: "info",
-	            closeOnConfirm: false,
-	            showConfirmButton: false,
-	            showLoaderOnConfirm: true,
-	          });
-	     	 
+	     	  if(data.responses[0].textAnnotations==null || data.responses[0].textAnnotations[0].description.split("#")[1]==null){
+	     		swal({
+	     			  title: "인식에 실패 하였습니다.",
+	     			  text: "다시 시도해주세요.",
+	     			  type: "error",
+	     			  timer: 1000,
+	     			  showConfirmButton: false
+	     			});
+	     		cameraBtn.trigger("click");	
+	     	  }
+     		  var contents = JSON.stringify(data.responses[0].textAnnotations[0].description.split("#")[1].split(" ")[0]);
+     		  var pno = parseInt(contents.split('"')[1]);
+	     	  
 	         $.ajax({
 	             url:'/themaGet',
 	             type:'get',
 	             datatype: 'json',
 	             data:"pno="+pno,
 	             success:function(data){
-	                  setTimeout(() => {
-	  	                self.location = data;               
-	  	              }, 1);  
+	            	 console.log("====="+data.shoplogo);
+	            	 console.log("====="+data.thema);
+	            	 if(data.thema!="fail"){
+	        	     	 swal({
+	        		            title: "해당 상품으로 이동합니다.",
+	        		            text:  "",
+	        		            imageUrl: data.shoplogo,
+	        		            closeOnConfirm: false,
+	        		            showConfirmButton: false,
+	        		            showLoaderOnConfirm: true,
+	        		          });
+		                  setTimeout(() => {
+			  	                self.location = data.thema;               
+			  	              }, 2000);  
+	            	 }else{
+		     	     	swal({
+			  	     			title: "해당 상품이 존재 하지 않습니다.",
+			  	     	 		text: "다시 시도해주세요.",
+			  	     			type: "error",
+			  	     			timer: 1500,
+			  	     			showConfirmButton: false
+			  	     		});
+			  	     	cameraBtn.trigger("click");	
+	            	 }
+	            	 
+
 	             }
 	         });
 	    }

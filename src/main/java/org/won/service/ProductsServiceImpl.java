@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.won.domain.AdminVO;
 import org.won.domain.AnswerVO;
 import org.won.domain.EphotosVO;
 import org.won.domain.PinfoVO;
@@ -211,7 +212,7 @@ public class ProductsServiceImpl implements ProductsService {
 
 	// thema번호 가져오는 함수
 	@Override
-	public int themaGet(int pno) throws Exception {
+	public AdminVO themaGet(int pno) throws Exception {
 		return dao.themaGet(pno);
 	}
 }

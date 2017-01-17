@@ -2,6 +2,7 @@ package org.won.persistence;
 
 import java.util.List;
 
+import org.won.domain.AdminVO;
 import org.won.domain.AnswerVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.PphotosVO;
@@ -65,5 +66,5 @@ public interface ProductsDAO {
 	public List<ProductsVO> memberRead(int pno)throws Exception;
 	
 	//thema 번호 가져오는 함수
-	public int themaGet(int pno)throws Exception;
+	public AdminVO themaGet(int pno)throws Exception;
 }

@@ -175,8 +175,8 @@
       WHERE pno=#{pno}
    </update>
    
-   <select id="themaGet" resultType="java.lang.Integer">
-    select thema from bit88.tbl_admin
+   <select id="themaGet" resultType="AdminVO">
+    select thema,(select shoplogo from bit88.tbl_products where pno=#{pno}) shoplogo from bit88.tbl_admin
 	where adminid = (select adminid from bit88.tbl_products where pno=#{pno})
    </select>
 

@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.won.domain.AdminVO;
 import org.won.domain.ParamVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.PphotosVO;
@@ -112,9 +113,23 @@ public class ProductsController {
 	}
 
 	@GetMapping("/themaGet")
-	public @ResponseBody String themaGet(int pno) throws Exception{
-		String str = "http://localhost:8081/member/thema"+ service.themaGet(pno) +"/view?pno="+ pno;
-		return str;
+	public @ResponseBody AdminVO themaGet(int pno) throws Exception{
+		AdminVO adminVO = new AdminVO();
+		String shoplogo = null;
+		String str = null;
+		try{
+			adminVO = service.themaGet(pno);
+			shoplogo = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F"
+					+ adminVO.getShoplogo()
+					+ "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e";
+			str = "http://localhost:8081/member/thema"+ adminVO.getThema() +"/view?pno="+ pno;
+			adminVO.setShoplogo(shoplogo);
+			adminVO.setThema(str);
+		}catch(Exception e){
+			str = "fail";
+			adminVO.setThema(str);
+		}
+		return adminVO;
 	}
 
 	
