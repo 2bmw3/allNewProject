@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id="indexList" resultType="adminVO">
-		select adminid, thema, titleimg from tbl_admin where titleimg is not null
+		select adminid, thema, titleimg, shopname from tbl_admin where titleimg is not null
 	</select>
 
 </mapper>

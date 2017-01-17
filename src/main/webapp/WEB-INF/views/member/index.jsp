@@ -22,88 +22,89 @@
 	
 	<c:forEach items="${indexList}" var="vo" varStatus="status">
 		<figure class="pic${status.count + 1}"> 
-			<a href="thema1/index?${vo.adminid}"> 
+			<a href="thema${vo.thema}/index?${vo.adminid}"> 
 				<img src="${vo.titleimg}" />
 			</a> 
-			<figcaption>Haerin's shop</figcaption> 
+			<figcaption>${vo.shopname}</figcaption> 
 		</figure>
 	</c:forEach>
-		<figure class="pic1"> 
-			<a href="thema1/index"> 
-				<img src="/resources/indexImg/index1.png" />
-			</a> 
-			<figcaption>Haerin's shop</figcaption> 
-		</figure>
+	
+<!-- 		<figure class="pic1">  -->
+<!-- 			<a href="thema1/index">  -->
+<!-- 				<img src="/resources/indexImg/index1.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Haerin's shop</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic7"> 
-			<a href="thema2/index"> 
-				<img src="/resources/indexImg/index2.png" />
-			</a> 
-			<figcaption>Jinsu's shop</figcaption> 
-		</figure>
+<!-- 		<figure class="pic7">  -->
+<!-- 			<a href="thema2/index">  -->
+<!-- 				<img src="/resources/indexImg/index2.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Jinsu's shop</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic3"> 
-			<a href="thema3/index"> 
-				<img src="/resources/indexImg/index3.png" />
-			</a> 
-			<figcaption>Jungmin's shop</figcaption>
-		</figure>
+<!-- 		<figure class="pic3">  -->
+<!-- 			<a href="thema3/index">  -->
+<!-- 				<img src="/resources/indexImg/index3.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Jungmin's shop</figcaption> -->
+<!-- 		</figure> -->
 		
-		<figure class="pic4"> 
-			<a href="thema4/index"> 
-				<img src="/resources/indexImg/index4.png" />
-			</a> 
-		<figcaption>Youngmin's shop</figcaption> 
-		</figure>
+<!-- 		<figure class="pic4">  -->
+<!-- 			<a href="thema4/index">  -->
+<!-- 				<img src="/resources/indexImg/index4.png" /> -->
+<!-- 			</a>  -->
+<!-- 		<figcaption>Youngmin's shop</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic5"> 
-			<a href="#"> 
-				<img src="/resources/indexImg/index5.png" />
-			</a> 
-			<figcaption>Shopping mall</figcaption> 
-		</figure>
+<!-- 		<figure class="pic5">  -->
+<!-- 			<a href="#">  -->
+<!-- 				<img src="/resources/indexImg/index5.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Shopping mall</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic10 camera" style="width: 320px; height: 178px"> 
-			<a href='#' id="myBtn" class='btn-example'> 
-				<i class="fa fa-camera-retro" style="font-size: 150px;"></i>
-			</a> 
-			<figcaption>Search Camera</figcaption> 
-		</figure>
+<!-- 		<figure class="pic10 camera" style="width: 320px; height: 178px">  -->
+<!-- 			<a href='#' id="myBtn" class='btn-example'>  -->
+<!-- 				<i class="fa fa-camera-retro" style="font-size: 150px;"></i> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Search Camera</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic7">
-			<a href="#"> 
-				<img src="/resources/indexImg/index6.png" />
-			</a> 
-			<figcaption>Shopping mall</figcaption> 
-		</figure>
+<!-- 		<figure class="pic7"> -->
+<!-- 			<a href="#">  -->
+<!-- 				<img src="/resources/indexImg/index6.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Shopping mall</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic8"> 
-			<a href="#"> 
-				<img src="/resources/indexImg/index7.png" />
-			</a> 
-			<figcaption>Shopping mall</figcaption> 
-		</figure>
+<!-- 		<figure class="pic8">  -->
+<!-- 			<a href="#">  -->
+<!-- 				<img src="/resources/indexImg/index7.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Shopping mall</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic9"> 
-			<a href="#"> 
-				<img src="/resources/indexImg/index3.png" />
-			</a> 
-			<figcaption>Shopping mall</figcaption> 
-		</figure>
+<!-- 		<figure class="pic9">  -->
+<!-- 			<a href="#">  -->
+<!-- 				<img src="/resources/indexImg/index3.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Shopping mall</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic10"> 
-			<a href="#"> 
-				<img src="/resources/indexImg/index2.png" />
-			</a> 
-			<figcaption>Shopping mall</figcaption> 
-		</figure>
+<!-- 		<figure class="pic10">  -->
+<!-- 			<a href="#">  -->
+<!-- 				<img src="/resources/indexImg/index2.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Shopping mall</figcaption>  -->
+<!-- 		</figure> -->
 		
-		<figure class="pic11"> 
-			<a href="#"> 
-				<img src="/resources/indexImg/index1.png" />
-			</a> 
-			<figcaption>Shopping mall</figcaption> 
-		</figure>
+<!-- 		<figure class="pic11">  -->
+<!-- 			<a href="#">  -->
+<!-- 				<img src="/resources/indexImg/index1.png" /> -->
+<!-- 			</a>  -->
+<!-- 			<figcaption>Shopping mall</figcaption>  -->
+<!-- 		</figure> -->
 	</div>
 
 </div>
