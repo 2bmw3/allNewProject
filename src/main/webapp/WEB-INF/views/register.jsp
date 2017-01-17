@@ -61,6 +61,7 @@
 		</div>
 
 		<input type="hidden" id='thema' name="thema">
+		<input type="hidden" id='titleimg' name='titleimg'>
 		<input type="button" name="previous" class="previous action-button"	value="Previous" /> 
 		<button id='formSubmit' class="action-button">Join us</button>
 	</fieldset>
@@ -149,6 +150,9 @@
 			}
 		});
 		$("#thema").val(themaNumber);
+		var titleImgURL = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/titleimg%2Findex"
+							+ themaNumber + ".png?alt=media&token=0fed3241-3d4b-496d-9cf9-75ef18af1beb";
+		$("#titleimg").val(titleImgURL);
 		for(var i = 0 ; i < images.length; i ++ ){
 			images[i].className = "thmeaImg";			
 		}

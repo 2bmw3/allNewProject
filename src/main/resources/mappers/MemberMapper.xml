@@ -21,5 +21,9 @@
 		value(#{userid},#{userpw},#{uname},#{uaddress},#{uemail},#{uphonenumber},#{ubirth},#{ugender})
 
 	</select>
+	
+	<select id="indexList" resultType="adminVO">
+		select adminid, thema, titleimg from tbl_admin where titleimg is not null
+	</select>
 
 </mapper>

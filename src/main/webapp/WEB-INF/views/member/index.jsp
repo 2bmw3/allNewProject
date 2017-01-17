@@ -21,7 +21,7 @@
 	<div id="gallery" style="margin-left:20%;">
 		<figure class="pic1"> 
 			<a href="thema1/index"> 
-			<img src="/resources/indexImg/index1.png" />
+				<img src="/resources/indexImg/index1.png" />
 			</a> 
 			<figcaption>Haerin's shop</figcaption> 
 		</figure>
