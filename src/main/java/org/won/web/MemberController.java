@@ -83,7 +83,7 @@ public class MemberController {
 		vo.setAdminid(adminid);
 
 		vo.setPkind(pkind);
-		URLEncoder.encode(pkind, "UTF-8");
+		URLEncoder.encode(pkind, "UTF-8");	//이게 뭘까
 
 		logger.info(pservice.pkindList(vo).toString());
 		model.addAttribute("list", pservice.pkindList(vo));
@@ -192,6 +192,8 @@ public class MemberController {
 	public void thema1Checkout() {
 	}
 	// thema1 end
+	
+	
 
 	// thema2 start
 	@GetMapping("/thema2/index")
