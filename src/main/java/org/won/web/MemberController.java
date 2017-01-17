@@ -64,8 +64,20 @@ public class MemberController {
 
 	}
 
-	@GetMapping("/thema1/products")
-	public void thema1Products() {
+	@GetMapping("/thema1/topList")
+	public void thema1topList() {
+	}
+	@GetMapping("/thema1/bottomList")
+	public void thema1bottomList() {
+	}
+	@GetMapping("/thema1/outerList")
+	public void thema1outerList() {
+	}
+	@GetMapping("/thema1/footWeareAccList")
+	public void thema1footWeareAccList() {
+	}
+	@GetMapping("/thema1/etcList")
+	public void thema1etcList() {
 	}
 
 	@GetMapping("/thema1/view")
