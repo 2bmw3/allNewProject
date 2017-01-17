@@ -126,7 +126,7 @@ $("#uploadBtn").on("click",function(){
                   + uuidFileName 
                   +"?alt=media&token=8e92d83a-28b9-4bbb-8418-b86219abbe64' style='cursor:pointer; width:100%;' class='editImg' name='"
                   + uuidFileName
-                  +  '>";
+                  +  "'>";
          $(".nicEdit-main")[0].innerHTML += str; 
          $('#pcontent').val($(".nicEdit-main")[0].innerHTML);
          str="";
