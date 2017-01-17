@@ -138,6 +138,7 @@ public class MemberController {
 
 	@GetMapping("/thema2/view")
 	public void thema2View(int pno, Model model) throws Exception{
+		//d
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("info", pservice.info(pno));
 	}
