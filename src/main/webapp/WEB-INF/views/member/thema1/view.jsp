@@ -22,10 +22,12 @@
                               <div class="simpleLens-big-image-container">
                                  <a
                                     data-lens-image="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
-                                    class="simpleLens-lens-image"><img
+                                    class="simpleLens-lens-image">
+                                 <img
                                     style="width: 600px; height: 400px"
                                     src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
-                                    class="simpleLens-big-image"></a>
+                                    class="simpleLens-big-image">
+                                    </a>
                               </div>
                            </div>
                            <div class="simpleLens-thumbnails-container">
@@ -116,6 +118,7 @@
                   <li><a href="#qna" data-toggle="tab">QnA</a></li>
                   <li><a href="#review" data-toggle="tab">Reviews</a></li>
                </ul>
+               
 
                <!-- Tab panes -->
                <div class="tab-content">
@@ -166,6 +169,7 @@
                         </c:forEach>
                      </form>
                   </div>
+
 
 
                   <!-- review start -->
@@ -248,6 +252,13 @@
                   </div>
                </div>
             </div>
+            
+            
+            
+            
+            
+            
+            
             <!-- Related product -->
             <div class="aa-product-related-item">
                <h3>Related Products</h3>
@@ -283,6 +294,7 @@
                            <button type="button" class="close" data-dismiss="modal"
                               aria-hidden="true">&times;</button>
                            <div class="row">
+                           
                               <!-- Modal view slider -->
                               <div class="col-md-6 col-sm-6 col-xs-12">
                                  <div class="aa-product-view-slider">
