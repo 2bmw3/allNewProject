@@ -1,3 +1,4 @@
+
 package org.won.persistence;
 
 import java.util.List;
@@ -44,9 +45,9 @@ public class OrderDAOImpl implements OrderDAO {
 	}
 
 	@Override
-	public List<CartVO> cartList(String userid) throws Exception {
+	public List<CartVO> cartList(CartVO vo) throws Exception {
 
-		return sqlSession.selectList(NAME + ".cartList", userid);
+		return sqlSession.selectList(NAME + ".cartList", vo);
 	}
 
 }

@@ -62,7 +62,7 @@
                         <ul class="aa-head-top-nav-right">
                            <li><a href="faq">F.A.Q</a></li>
                            <li><a href="account">My Account</a></li>
-                           <li><a href="cart">My Cart</a></li>
+                           <li><a href="cart?adminid=${param.adminid}">My Cart</a></li>
                            <li><a href="checkout">Checkout</a></li>
                            <li><a href="/member/login">Login</a></li>
                             <li><a href="/member/register">Join Us</a></li>
