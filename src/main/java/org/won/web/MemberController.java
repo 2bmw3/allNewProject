@@ -1,7 +1,5 @@
 package org.won.web;
 
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.won.domain.AdminVO;
+import org.won.domain.CartVO;
 import org.won.domain.ProductsVO;
 import org.won.service.BoardService;
 import org.won.service.MemberService;
@@ -112,7 +110,7 @@ public class MemberController {
 		model.addAttribute("review", bservice.reviewRead(pno));
 		model.addAttribute("qna", pservice.question(pno));
 		model.addAttribute("answer", pservice.answerRead(pno));
-		model.addAttribute("info", pservice.info(pno));
+		model.addAttribute("infoColor", pservice.infoColor(pno));
 	}
 
 	@GetMapping("/thema1/faq")
@@ -123,11 +121,15 @@ public class MemberController {
 	public void thema1Account() {
 	}
 
-	@GetMapping("/thema1/cart")
-	public void thema1Cart(String userid, Model model) throws Exception {
-
-		model.addAttribute("cart", oservice.cartList("test"));
-	}
+	   @GetMapping("/thema1/cart")
+	   public void thema1Cart(String adminid, Model model) throws Exception {
+	      
+	      CartVO vo = new CartVO();
+	      vo.setAdminid(adminid);
+	      vo.setUserid("test");
+	      
+	      model.addAttribute("cart", oservice.cartList(vo));
+	   }
 
 	@GetMapping("/thema1/checkout")
 	public void thema1Checkout() {
@@ -201,7 +203,7 @@ public class MemberController {
 	      model.addAttribute("review", bservice.reviewRead(pno));
 	      model.addAttribute("qna", pservice.question(pno));
 	      model.addAttribute("answer", pservice.answerRead(pno));
-	      model.addAttribute("info", pservice.info(pno));
+	      model.addAttribute("infoColor", pservice.infoColor(pno));
 	   }
 
 	@GetMapping("/thema4/index")

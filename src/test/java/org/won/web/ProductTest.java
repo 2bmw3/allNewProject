@@ -19,19 +19,6 @@ public class ProductTest {
 
 	@Inject
 	private OrderService service;
-	
 
-
-	@Test
-	public void adminReadTest() throws Exception {
-		
-		System.out.println(service.cartList("test"));
-		
-		
-		logger.info("testtesttesttesttesttesttesttesttesttesttesttesttesttest"+service.cartList("test"));
-		
-		
-	
-	}
 
 }

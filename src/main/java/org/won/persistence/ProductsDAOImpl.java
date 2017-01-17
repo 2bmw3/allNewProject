@@ -171,4 +171,9 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception {
 		return sqlSession.selectList(NAME + ".infoSize", vo);
 	}
+
+	@Override
+	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception {
+		return sqlSession.selectList(NAME +".pkindList", vo);
+	}
 }

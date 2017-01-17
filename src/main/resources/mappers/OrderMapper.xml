@@ -47,21 +47,30 @@
 		ocnt, uaddress, price, ostatus, ptitlephoto,
 		pino, odno, shopname,orderdate FROM (SELECT
 		ono,pino,userid,ocnt,ostatus,pname,
-		ptitlephoto,pisize, picolor,pistock,
+		ptitlephoto,pisize,
+		picolor,pistock,
 		price, odno, shopname,orderdate FROM
-		(SELECT a.ono, a.pino, shopname, userid,
+		(SELECT a.ono,
+		a.pino, shopname, userid,
 		ocnt, ostatus,pno,pisize, picolor,
-		pistock, odno, orderdate FROM (SELECT DISTINCT
-		tbl_orderdetail.ono, tbl_orderdetail.shopname,
-		tbl_orderdetail.ostatus, tbl_orderdetail.pino,
+		pistock,
+		odno, orderdate FROM (SELECT DISTINCT
+		tbl_orderdetail.ono,
+		tbl_orderdetail.shopname,
+		tbl_orderdetail.ostatus,
+		tbl_orderdetail.pino,
 		tbl_orderdetail.ocnt, tbl_order.userid,
 		tbl_orderdetail.odno, tbl_order.orderdate
-		FROM tbl_orderdetail, tbl_order
+		FROM tbl_orderdetail,
+		tbl_order
 		WHERE tbl_orderdetail.ono = tbl_order.ono) a, tbl_pinfo
-		WHERE a.pino = tbl_pinfo.pino) a, tbl_products
-		WHERE a.pno = tbl_products.pno AND adminid = #{adminid}) a,
+		WHERE
+		a.pino = tbl_pinfo.pino) a, tbl_products
+		WHERE a.pno = tbl_products.pno
+		AND adminid = #{adminid}) a,
 		tbl_member
-		WHERE a.userid = tbl_member.userid ORDER BY ono DESC
+		WHERE a.userid =
+		tbl_member.userid ORDER BY ono DESC
 		LIMIT 0 , 5
 
 	</select>
@@ -75,30 +84,34 @@
 		(SELECT
 		ono,pino,userid,ocnt,ostatus,pname,ptitlephoto,pisize,picolor,
 		pistock,price,odno, shopname,orderdate FROM (SELECT a.ono,
-		a.pino, shopname,userid,ocnt,ostatus,pno,pisize,
+		a.pino,
+		shopname,userid,ocnt,ostatus,pno,pisize,
 		picolor,pistock,odno,orderdate FROM (SELECT DISTINCT
 		tbl_orderdetail.ono,tbl_orderdetail.shopname,
 		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
 		tbl_orderdetail.ocnt,tbl_order.userid,
 		tbl_orderdetail.odno,tbl_order.orderdate
-		FROM tbl_orderdetail, tbl_order
+		FROM tbl_orderdetail,
+		tbl_order
 		WHERE tbl_orderdetail.ono = tbl_order.ono) a, tbl_pinfo
-		WHERE a.pino = tbl_pinfo.pino) a, tbl_products
+		WHERE
+		a.pino = tbl_pinfo.pino) a, tbl_products
 		WHERE a.pno = tbl_products.pno
 		AND adminid = #{adminid}) a,
 		tbl_member
-		WHERE a.userid = tbl_member.userid
+		WHERE a.userid =
+		tbl_member.userid
 		ORDER BY ono DESC LIMIT #{page} , 5
 
 	</select>
 
 	<select id="cartList" resultType="CartVO">
-		select
-		cno,tbl_cart.pino,picolor,pisize,ccnt,ptitlephoto,pname,price,userid from
-		(select tbl_pinfo.pno,pino,picolor,pisize,pistock,ptitlephoto,pname,price from
+        select
+		cno,tbl_cart.pino,picolor,pisize,ccnt,ptitlephoto,pname,price, product.adminid from
+		(select tbl_pinfo.pno,pino,picolor,pisize,pistock,ptitlephoto,pname,price,adminid from
 		tbl_products,tbl_pinfo where tbl_products.pno = tbl_pinfo.pno)
-		pno,tbl_cart
-		where pno.pino = tbl_cart.pino and userid = #{userid}
+		as product,tbl_cart
+		where product.pino = tbl_cart.pino and userid = #{userid} and product.adminid = #{adminid}
 	</select>
 
 

@@ -1,3 +1,4 @@
+
 package org.won.service;
 
 import java.util.List;
@@ -40,9 +41,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public List<CartVO> cartList(String userid) throws Exception {
+	public List<CartVO> cartList(CartVO vo) throws Exception {
 		
-		return dao.cartList(userid);
+		return dao.cartList(vo);
 	}
 
 }

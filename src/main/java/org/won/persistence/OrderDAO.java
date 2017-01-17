@@ -15,5 +15,6 @@ public interface OrderDAO {
 
    public List<OrderVO> adminOrderMoreList(OrderVO vo) throws Exception;
 
-   public List<CartVO> cartList(String userid) throws Exception;
+   public List<CartVO> cartList(CartVO vo) throws Exception;
+   
 }

@@ -55,4 +55,7 @@ public interface ProductsService {
 	
 	//thema 번호 가져오는 함수
 	public AdminVO themaGet(int pno)throws Exception;
+	
+	//pkindList
+	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception;
 }
