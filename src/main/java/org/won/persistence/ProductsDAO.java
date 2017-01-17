@@ -19,7 +19,6 @@ public interface ProductsDAO {
 
 	public void productsPhotoWrite(String photo) throws Exception;
 
-
 	/* delete */
 	public void productsDelete(int pno) throws Exception;
 
@@ -27,13 +26,12 @@ public interface ProductsDAO {
 
 	public void pphotosDelete(int pno) throws Exception;
 
-
 	public List<ProductsVO> list(ProductsVO vo) throws Exception;
 
 	public List<PinfoVO> info(int pno) throws Exception;
-	
+
 	public List<PinfoVO> infoColor(int pno) throws Exception;
-	
+
 	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception;
 
 	public List<QuestionVO> question(int pno) throws Exception;
@@ -65,10 +63,13 @@ public interface ProductsDAO {
 	public List<ProductsVO> read(int pno) throws Exception;
 
 	public void update(ProductsVO vo) throws Exception;
-	
+
 	//
-	public List<ProductsVO> memberRead(int pno)throws Exception;
-	
-	//thema 번호 가져오는 함수
-	public AdminVO themaGet(int pno)throws Exception;
+	public List<ProductsVO> memberRead(int pno) throws Exception;
+
+	// thema 번호 가져오는 함수
+	public AdminVO themaGet(int pno) throws Exception;
+
+	// pkindList
+	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception;
 }

@@ -225,4 +225,9 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<PinfoVO> infoSize(PinfoVO vo) throws Exception {
 		return dao.infoSize(vo);
 	}
+
+	@Override
+	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception {
+		return dao.pkindList(vo);
+	}
 }
