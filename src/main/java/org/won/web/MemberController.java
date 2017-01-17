@@ -136,8 +136,8 @@ public class MemberController {
 
 	// thema2 start
 	@GetMapping("/thema2/index")
-	public void thema2Index(HttpServletRequest request) {
-		String adminId = request.getParameter("adminid");
+	public void thema2Index() {
+
 	}
 
 	@GetMapping("/thema2/list")
@@ -162,8 +162,8 @@ public class MemberController {
 
 	// thema3 start
 	@GetMapping("/thema3/index")
-	public void thema3Index(HttpServletRequest request) {
-		String adminId = request.getParameter("adminid");
+	public void thema3Index() {
+
 	}
 
 	@GetMapping("/thema3/list")
@@ -200,8 +200,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema4/index")
-	public void thema4Index(HttpServletRequest request) {
-		String adminId = request.getParameter("adminid");
+	public void thema4Index() {
+
 	}
 	// thema4 end
 
