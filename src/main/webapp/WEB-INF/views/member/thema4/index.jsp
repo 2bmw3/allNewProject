@@ -51,14 +51,14 @@
 					<!-- Single Product Box -->
 					<div class="single-product-box">
 						<div class="product-box-img">
-							<a href="list">
+							<a href="view?shopname=${param.shopname}&pno=${newItem[0].pno}">
 							<img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[0].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164"
-							 alt="product" ></a>							
+							 alt="product" style=" max-width: 640px; max-width: 640px; width: 100%; height: 30em;"></a>							
 						</div>
 						<div class="product-box-content">				
 							<h2>${newItem[0].pname}</h2>
 							<p>￦${newItem[0].price}</p>
-							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[0].pno}">Quick view!</a>
+							<a href="view?shopname=${param.shopname}&pno=${newItem[0].pno}">Quick view!</a>
 						</div>
 					</div>
 					
@@ -67,23 +67,23 @@
 						<div class="product-box-content">				
 							<h2>${newItem[1].pname}</h2>
 							<p>￦${newItem[1].price}</p>
-							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[1].pno}">Quick view!</a>
+							<a href="view?shopname=${param.shopname}&pno=${newItem[1].pno}">Quick view!</a>
 						</div>
 						<div class="product-box-img">
-							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[1].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-							alt="product" ></a>							
+							<a href="view?shopname=${param.shopname}&pno=${newItem[1].pno}"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[1].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" style=" max-width: 640px; max-width: 640px; width: 100%; height: 30em;"></a>							
 						</div>
 					</div>
 					<!-- Single Product Box -->
 					<div class="single-product-box single-product-box-three">
 						<div class="product-box-img">
-							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[2].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-							alt="product" ></a>							
+							<a href="view?shopname=${param.shopname}&pno=${newItem[2].pno}"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[2].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" style=" max-width: 640px; max-width: 640px; width: 100%; height: 30em;"></a>							
 						</div>
 						<div class="product-box-content">				
 							<h2>${newItem[2].pname}</h2>
 							<p>￦${newItem[2].price}</p>
-							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[2].pno}">Quick view!</a>
+							<a href="view?shopname=${param.shopname}&pno=${newItem[2].pno}">Quick view!</a>
 						</div>
 					</div>
 				</div><!-- End Product Box -->
@@ -94,13 +94,13 @@
 					<!-- Single Product Box -->
 					<div class="single-product-box">
 						<div class="product-box-img">
-							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[3].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-							alt="product"></a>							
+							<a href="view?shopname=${param.shopname}&pno=${newItem[3].pno}"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[3].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" style=" max-width: 640px; max-width: 640px; width: 100%; height: 30em;"></a>							
 						</div>
 						<div class="product-box-content">				
 							<h2>${newItem[3].pname}</h2>
 							<p>￦${newItem[3].price}</p>
-							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[3].pno}">Quick view!</a>
+							<a href="view?shopname=${param.shopname}&pno=${newItem[3].pno}">Quick view!</a>
 						</div>
 					</div>
 					<!-- Single Product Box -->
@@ -108,23 +108,23 @@
 						<div class="product-box-content">				
 							<h2>${newItem[4].pname}</h2>
 							<p>￦${newItem[4].price}</p>
-							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[4].pno}">Quick view!</a>
+							<a href="view?shopname=${param.shopname}&pno=${newItem[4].pno}">Quick view!</a>
 						</div>
 						<div class="product-box-img">
-							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[4].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-							alt="product"></a>							
+							<a href="view?shopname=${param.shopname}&pno=${newItem[4].pno}"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[4].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" style=" max-width: 640px; max-width: 640px; width: 100%; height: 30em;"></a>							
 						</div>
 					</div>
 					<!-- Single Product Box -->
 					<div class="single-product-box single-product-box-three">
 						<div class="product-box-img">
-							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[5].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-							alt="product"></a>							
+							<a href="view?shopname=${param.shopname}&pno=${newItem[5].pno}"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[5].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" style=" max-width: 640px; max-width: 640px; width: 100%; height: 30em;"></a>							
 						</div>
 						<div class="product-box-content">				
 							<h2>${newItem[5].pname}</h2>
 							<p>￦${newItem[5].price}</p>
-							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[5].pno}">Quick view!</a>
+							<a href="view?shopname=${param.shopname}&pno=${newItem[5].pno}">Quick view!</a>
 						</div>
 					</div>
 				</div><!-- End Product Box -->
