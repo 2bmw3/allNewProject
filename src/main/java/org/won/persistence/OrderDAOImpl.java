@@ -56,4 +56,10 @@ public class OrderDAOImpl implements OrderDAO {
 		
 	}
 
+	@Override
+	public void cartAdd(CartVO vo) throws Exception {
+		sqlSession.insert(NAME + ".cartAdd",vo);
+		
+	}
+
 }

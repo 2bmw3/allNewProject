@@ -420,10 +420,16 @@ public class MemberController {
 		oservice.cartDelete(cno);
 	} 
 	
+	@PostMapping("/cartAdd")
+	public void cartAdd(CartVO vo) throws Exception {
+		vo.setUserid("test");
+		oservice.cartAdd(vo);
+	} 
+	
 	@GetMapping("/infoSize")
 	public @ResponseBody List<PinfoVO> infoSize(PinfoVO vo) throws Exception{
 		List<PinfoVO> list = pservice.infoSize(vo);
 		return list;
 	}
-
+	
 }

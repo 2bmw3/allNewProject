@@ -53,4 +53,10 @@ public class OrderServiceImpl implements OrderService {
 		
 	}
 
+	@Override
+	public void cartAdd(CartVO vo) throws Exception {
+		dao.cartAdd(vo);
+		
+	}
+
 }
