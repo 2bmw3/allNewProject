@@ -98,7 +98,7 @@
         dataType : "JSON",
         type : "post",
         complete : function() {
-        	$("#cartList").remove();
+        	$(".cartList").remove();
         }
 	});		
  });
