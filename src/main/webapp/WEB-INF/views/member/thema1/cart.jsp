@@ -86,7 +86,7 @@
  </script>
  <script>
  $("#remove").click(function(event){ 
-	 var cno = ($("#remove").val());
+	 var cno = ($("#remove").val(s));
 	 console.log(cno);
 	 var formData = {"cno" : cno}
 	 $.ajax({	      
