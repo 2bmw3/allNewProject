@@ -121,4 +121,12 @@
 			delete from tbl_cart where cno = #{cno}
 	</select>
 
+	<insert id="cartAdd" parameterType="CartVO">
+	insert into bit88.tbl_cart (pino, shopname, ccnt,userid) 
+	value ( (select pino from bit88.tbl_pinfo where pno=#{pno} and picolor = #{picolor} and pisize = #{pisize}),
+		    (select shopname from bit88.tbl_admin where adminid = #{adminid}),
+		    #{ccnt},
+            #{userid})
+	</insert>
+	
 </mapper>

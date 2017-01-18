@@ -224,7 +224,7 @@ public class MemberController {
 	@GetMapping("/thema1/checkout")
 	public void thema1Checkout() {
 	}
-	// thema1 end
+	// thema1 end!
 
 	// thema2 start
 	@GetMapping("/thema2/index")
@@ -531,6 +531,12 @@ public class MemberController {
 
 		System.out.println(cno);
 		oservice.cartDelete(cno);
+	}
+
+	@PostMapping("/cartAdd")
+	public void cartAdd(CartVO vo) throws Exception {
+		vo.setUserid("test");
+		oservice.cartAdd(vo);
 	}
 
 	@GetMapping("/infoSize")

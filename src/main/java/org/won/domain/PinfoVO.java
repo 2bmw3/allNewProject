@@ -66,4 +66,5 @@ public class PinfoVO {
 				+ pistock + ", list=" + list + "]";
 	}
 
+
 }

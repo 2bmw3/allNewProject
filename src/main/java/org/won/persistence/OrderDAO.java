@@ -19,4 +19,6 @@ public interface OrderDAO {
    
    public void cartDelete(int cno) throws Exception;
    
+   public void cartAdd(CartVO vo) throws Exception;
+   
 }

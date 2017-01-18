@@ -7,9 +7,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <script defer src="/resources/themes/thema2/js/jquery.flexslider.js"></script>
-<link rel="stylesheet"
-	href="/resources/themes/thema2/css/flexslider.css" type="text/css"
-	media="screen" />
+<link rel="stylesheet" href="/resources/themes/thema2/css/flexslider.css" type="text/css" media="screen" />
+
 <body>
 	<%@include file="header.jsp"%>
 
@@ -41,7 +40,7 @@
 								<ul class="product-colors" id="product-colors">
 									<h3>available Colors ::</h3>
 									<c:forEach items="${infoColor}" var="vo" varStatus="status">
-										<image style="border-width : 1px; border-style : solid;" src='/resources/admin/images/color_info/${vo.picolor}.jpg' class='colorInfo' name='${vo.picolor}'></image>
+										<image style="border-width : 1px; border-style :solid;" src='/resources/admin/images/color_info/${vo.picolor}.jpg' class='colorInfo' name='${vo.picolor}'></image>
 									</c:forEach>
 									<div class="clear"></div>
 								</ul>
@@ -67,8 +66,8 @@
 								</div>
 								<div class="clearfix"></div>
 								<div class="single-but item_add">
-									<input type="submit" value="Add to cart" /> <input
-										type="submit" value="Order now" />
+									<input type="submit" id='order' value="Add to cart" />
+									 <input type="submit" value="Order now" />
 								</div>
 							</div>
 						</div>
@@ -110,11 +109,57 @@
 				controlNav : "thumbnails"
 			});
 		});
+
+		$("#order").on("click",function(){
+			ccnt = $("#quantity").val();
+			var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+			if(ccnt==null || color==null || size==null){
+     	     	swal({
+  	     			title: "상품 상세 정보를 선택해주세요.",
+  	     	 		text: "",
+  	     			type: "error",
+  	     			timer: 1500,
+  	     			showConfirmButton: false
+  	     		});
+			}else{
+				swal({
+					  title: "카트에 추가 하시겠습니까?",
+					  text: "",
+					  type: "info",
+					  showCancelButton: true,
+					  closeOnConfirm: false,
+					  showLoaderOnConfirm: true,
+					},
+					function(){
+					  setTimeout(function(){
+						    $.ajax({      
+						    	url: "/member/cartAdd", 
+						        data: formData, 
+						        dataType: "json",
+						        type:"post",
+						        complete:function(){   
+					     	     	swal({
+					  	     			title: "해당 상품을 카드에 추가 하였습니다.",
+					  	     	 		text: "",
+					  	     			type: "success",
+					  	     			timer: 1500,
+					  	     			showConfirmButton: false
+					  	     		});
+						        }
+						    }); 
+						    //ajax end
+					  }, 1000);
+					});
+ 
+			}//End else
+		});
 		
-		//수량 체크시 값 담기
-		
+		//사이즈 체크시 값 담기
 		$(document).on("click",".pisize",function(){
-			console.log($(this).attr('name'));
+			var thisSize = $(this); 
+			size = thisSize.attr('name');
+			$(".pisize").css("background-color","");
+			thisSize.css("background-color","#922C2C");
 		});
 
 		
