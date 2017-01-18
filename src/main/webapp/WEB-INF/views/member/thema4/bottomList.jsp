@@ -14,7 +14,7 @@
 	<div class="main-container col2-right-layout">
 		<div class="container">
 			<div class="row">
-				<div class="col-main col-sm-9">
+				<div class="col-main col-sm-12">
 					<div class="page-title">
 						<h2>TOP</h2>
 						<hr />
