@@ -38,10 +38,10 @@
 									<span class="reducedfrom">${view[0].price+7000}원</span> <span
 										class="actual item_price">${view[0].price}원</span>
 								</div>
-								<ul class="product-colors">
+								<ul class="product-colors" id="product-colors">
 									<h3>available Colors ::</h3>
 									<c:forEach items="${infoColor}" var="vo" varStatus="status">
-										<image style="border-width : 1px; border-style : solid;" src='/resources/admin/images/color_info/${vo.picolor}.jpg' class='colorInfo' id='${vo.picolor}'/>
+										<image style="border-width : 1px; border-style : solid;" src='/resources/admin/images/color_info/${vo.picolor}.jpg' class='colorInfo' name='${vo.picolor}'></image>
 									</c:forEach>
 									<div class="clear"></div>
 								</ul>
@@ -104,6 +104,22 @@
 			});
 		});
 		
-		// dhk
+		$(".colorInfo").on("click",function(event){
+			$(".colorInfo").css("border-width","1px");
+			$(this).css("border-width","5px");
+			var color = $(this).attr("name");
+			var pno = ${view[0].pno};
+			
+		    $.ajax({      
+		        type:"POST",  
+		        url:url,      
+		        data:params,      
+		        success:function(args){   
+		            $("#result").html(args);      
+		        }
+		    });  
+			
+		});
+
 	</script>
 </html>
