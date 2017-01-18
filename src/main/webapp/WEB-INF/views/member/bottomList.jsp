@@ -107,7 +107,7 @@
 				<c:if test="${'[null]' ne list}">
 					<c:forEach items="${list}" var="vo">
 						<figure class="white" style='min-height: 400px; max-height: 400px;'> 
-						<a href="view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}"> 
+						<a href="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}"> 
 						<img style='max-width: 300px;min-height:300px;max-height: 300px;'
 							src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
 							<dl>

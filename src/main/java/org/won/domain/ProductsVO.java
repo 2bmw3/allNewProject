@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class ProductsVO {
 
-	private int pno, sellcnt, price, pino, page;
+	private int pno, sellcnt, price, pino, page, thema;
 	private String pname, pgender, adminid, pkind, ptitlephoto, pcontent, pphoto, shopname;
 	private Date pregdate;
 
@@ -46,6 +46,14 @@ public class ProductsVO {
 
 	public void setPino(int pino) {
 		this.pino = pino;
+	}
+
+	public int getThema() {
+		return thema;
+	}
+
+	public void setThema(int thema) {
+		this.thema = thema;
 	}
 
 	public String getPname() {
@@ -123,10 +131,12 @@ public class ProductsVO {
 	@Override
 	public String toString() {
 		return "ProductsVO [pno=" + pno + ", sellcnt=" + sellcnt + ", price=" + price + ", pino=" + pino + ", page="
-				+ page + ", pname=" + pname + ", pgender=" + pgender + ", adminid=" + adminid + ", pkind=" + pkind
-				+ ", ptitlephoto=" + ptitlephoto + ", pcontent=" + pcontent + ", pphoto=" + pphoto + ", shopname="
-				+ shopname + ", pregdate=" + pregdate + "]";
+				+ page + ", thema=" + thema + ", pname=" + pname + ", pgender=" + pgender + ", adminid=" + adminid
+				+ ", pkind=" + pkind + ", ptitlephoto=" + ptitlephoto + ", pcontent=" + pcontent + ", pphoto=" + pphoto
+				+ ", shopname=" + shopname + ", pregdate=" + pregdate + "]";
 	}
+
+	
 	
 	
 
