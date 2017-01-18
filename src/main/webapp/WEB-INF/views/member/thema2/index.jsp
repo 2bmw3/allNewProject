@@ -50,7 +50,7 @@
                     </div>
                     <div class="bnr-right">
                         <img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${hitItem[0].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-                        alt="" style="width: 100%; height: 100%;"/>
+                        alt="" style="width: 100%; max-height: 255px;"/>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="bnr-right">
                        <img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${hitItem[1].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
-                       alt="" style="width: 100%; height: 100%;"/>
+                       alt="" style="width: 100%; max-height: 255px;"/>
                     </div>
                     <div class="clearfix"></div>
                 </div>

@@ -67,7 +67,7 @@
 							<div class="title text-center">
 								<span class="category">${vo.pkind}</span>
 							</div>
-							<a href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}""><img class="img-responsive"
+							<a href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}"><img class="img-responsive"
 								src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt=""
 								style="width: 400px; height: 400px;"></a>
 							<div class="blog-text text-center">
