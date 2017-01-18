@@ -34,7 +34,7 @@
                     <a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1"><span class="label label-primary">Outer</span></a>
                     <a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1"><span class="label label-success">Top</span></a>
                     <a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1"><span class="label label-info">Bottom</span></a>
-                    <a href="shoseAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1"><span class="label label-warning">Shoes and Acc</span></a>
+                    <a href="shoesAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1"><span class="label label-warning">Shoes and Acc</span></a>
                     <a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1"><span class="label label-danger">Etc</span></a>
                     <a href="#"><span class="fa fa-search" style="float: right;"></span></a>
                 </h3>

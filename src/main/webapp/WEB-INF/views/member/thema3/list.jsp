@@ -2,47 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<style>
-ul.pagination {
-	display: table;
-	margin-left: auto;
-	margin-right: auto;
-	padding: 0;
-}
 
-ul.pagination li {
-	display: inline;
-}
-
-ul.pagination li a {
-	color: black;
-	float: left;
-	padding: 8px 16px;
-	text-decoration: none;
-	transition: background-color .3s;
-	border: 1px solid #ddd;
-}
-
-.pagination li:first-child a {
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-}
-
-.pagination li:last-child a {
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-}
-
-ul.pagination li a.active {
-	background-color: lightpink;
-	color: white;
-	border: 1px solid lightpink;
-}
-
-ul.pagination li a:hover:not (.active ) {
-	background-color: #ddd;
-}
-</style>
 <body>
 	<div class="container">
 		<div class="row animate-box">
