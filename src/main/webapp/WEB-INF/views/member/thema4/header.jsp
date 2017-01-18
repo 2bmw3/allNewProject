@@ -122,28 +122,28 @@
             </li>
             
             <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">
+              <div class="mt-root-item"><a href="categoryList?shopname=${param.shopname}&pkind=상의&pageNum=1">
                 <div class="title title_font"><span class="title-text">Top</span></div>
                 </a></div>
             </li>
             
             <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">
+              <div class="mt-root-item"><a href="categoryList?shopname=${param.shopname}&pkind=하의&pageNum=1">
                 <div class="title title_font"><span class="title-text">Bottom</span></div>
                 </a></div>
             </li>
             <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">
+              <div class="mt-root-item"><a href="categoryList?shopname=${param.shopname}&pkind=아우터&pageNum=1">
                 <div class="title title_font"><span class="title-text">Outer</span></div>
                 </a></div>
             </li>
             <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="shoesAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">
+              <div class="mt-root-item"><a href="categoryList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">
                 <div class="title title_font"><span class="title-text">Shoes & Acc</span></div>
                 </a></div>
             </li>
             <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1">
+              <div class="mt-root-item"><a href="categoryList?shopname=${param.shopname}&pkind=기타&pageNum=1">
                 <div class="title title_font"><span class="title-text">Etc</span></div>
                 </a></div>
             </li>
