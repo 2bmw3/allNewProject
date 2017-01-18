@@ -63,7 +63,11 @@
       <ul>
         <li><a href="list" class="">Accessories</a>
           <ul>
-            <li><a href="list">Cocktail</a></li>
+            <li><a href="topList">Top</a></li>
+            <li><a href="bottomList">Bottom</a></li>
+            <li><a href="outerList">Outer</a></li>
+            <li><a href="shoesAccList">Shoes & Acc</a></li>
+            <li><a href="etcList">Etc</a></li>
           </ul>
         </li>
       </ul>
