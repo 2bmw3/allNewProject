@@ -70,7 +70,7 @@
         </div>
     </div>
 </section>
-<!-- / slider -->
+<!-- / slider! -->
 
 
 <!-- Start Promo section -->
