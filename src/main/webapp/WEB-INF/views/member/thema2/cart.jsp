@@ -24,18 +24,42 @@
 						<li><span>Stock Status</span></li>
 						<div class="clearfix"></div>
 					</ul>
-					<c:forEach items="${cart}" var="vo">
+					
 					<ul class="cart-header">
-						<li class="ring-in"><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></li>
-						<li><span>${vo.pname}</span></li>
-						<li><span>￦ ${vo.price}</span></li>
-						<li><span>${vo.ccnt}</span></li>
+						<li class="ring-in"><a href="#"><img
+								src="/resources/themes/thema2/images/s-1.jpg" class="img-responsive" alt=""></a></li>
+						<li><span>Woo Dress</span></li>
+						<li><span>$ 290.00</span></li>
+						<li><span>In Stock</span></li>
 						<li><a href="#" class="add-cart cart-check">ADD
 								TO CART</a></li>
 						<div class="close1"></div>
 						<div class="clearfix"></div>
 					</ul>
-					</c:forEach>
+					
+					<ul class=" cart-header1">
+						<li class="ring-in"><a href="#"><img
+								src="/resources/themes/thema2/images/s-2.jpg" class="img-responsive" alt=""></a></li>
+						<li><span>Elliot Shoes</span></li>
+						<li><span>$ 300.00</span></li>
+						<li><span>In Stock</span></li>
+						<li><a href="#" class="add-cart cart-check">ADD
+								TO CART</a></li>
+						<div class="close2"></div>
+						<div class="clearfix"></div>
+					</ul>
+					
+					<ul class="cart-header2">
+						<li class="ring-in"><a href="#"><img
+								src="/resources/themes/thema2/images/s-4.jpg" class="img-responsive" alt=""></a></li>
+						<li><span>Woo Dress</span></li>
+						<li><span>$ 360.00</span></li>
+						<li><span>In Stock</span></li>
+						<li><a href="#" class="add-cart cart-check">ADD
+								TO CART</a></li>
+						<div class="close3"></div>
+						<div class="clearfix"></div>
+					</ul>
 					
 				</div>
 			</div>
@@ -46,7 +70,6 @@
 <%@include file="footer.jsp"%>
 </body>
 <script>
-//삭제
 	$(document).ready(function(c) {
 		$('.close1').on('click', function(c) {
 			$('.cart-header').fadeOut('slow', function(c) {
@@ -54,6 +77,19 @@
 			});
 		});
 	});
-
+	$(document).ready(function(c) {
+		$('.close2').on('click', function(c) {
+			$('.cart-header1').fadeOut('slow', function(c) {
+				$('.cart-header1').remove();
+			});
+		});
+	});
+	$(document).ready(function(c) {
+		$('.close3').on('click', function(c) {
+			$('.cart-header2').fadeOut('slow', function(c) {
+				$('.cart-header2').remove();
+			});
+		});
+	});
 </script>
 </html>

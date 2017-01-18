@@ -29,17 +29,17 @@
                     </thead>
                     <tbody>
                      <c:forEach items="${cart}" var="vo">
-                      <tr class="cartList">  		
-                        <td><a class="remove"href="#"><fa class="fa fa-close"></fa><input type="hidden"  value = '${vo.cno}'  id="cno"></a></td>
-                        
+                      <tr>
+                      		
+                        <td><a class="remove"  href="#"><fa class="fa fa-close" id="remove" value = '${vo.cno}'></fa></a></td>
                         <td><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></td>
                         <td>
                         	<a class="aa-cart-title">${vo.pname}</a>
                         	<a> / ${vo.picolor} / ${vo.pisize}</a>
                         </td>
-                        <td>￦ ${vo.price}</td>
-                        <td class="ccnt"><input id="count" class="aa-cart-quantity" type="number" value='${vo.ccnt}' min='0'><input type="hidden"  value='${vo.price}'></td>
-                        <td >￦  ${vo.price * vo.ccnt}</td>
+                        <td>$ ${vo.price}</td>
+                        <td><input class="aa-cart-quantity" type="number" value='${vo.ccnt}' min='0'></td>
+                        <td>$ ${vo.price}</td>
                       </tr>
                       </c:forEach>
                       </tbody>
@@ -52,12 +52,8 @@
                <table class="aa-totals-table" style='max-width: 100%;'>
                  <tbody>
                    <tr>
-                   <c:set var = "sum" value = "0" />
-                    <c:forEach items="${cart}" var="vo">
-                  <c:set var= "sum" value="${sum +vo.price * vo.ccnt}"/> 
-                    </c:forEach>
                      <th>Total</th>
-                     <td class="total">￦ <c:out value="${sum}"/></td>
+                     <td>$450</td>
                    </tr>
                  </tbody>
                </table>
@@ -82,41 +78,27 @@
  firebase.initializeApp(config);
 
  // Get a reference to the storage service, which is used to create
-	
+	// references in your storage bucket
  var storage = firebase.storage();
 
- // Create a storage reference from our storage servic
+ // Create a storage reference from our storage service
  var storageRef = storage.ref();
  </script>
  <script>
- //cart 삭제
- $(".remove").on('click', function(){
-	var cno = $(this)[0].childNodes[1].value;
-	$.ajax({
-        url : "/member/cartDelete",
-        data : {"cno":cno},
-        dataType : "JSON",
-        type : "post"
-	});		
-        $(this)[0].parentNode.parentNode.remove();
- });
- //수량 계산
- $(".cartList").on("click",function(){
-	var count = $(this)[0].childNodes[9].childNodes[0].value;
-	var price =  $(this)[0].childNodes[9].childNodes[1].value;
-	var total = count*price;
- 	$(this)[0].childNodes[11].innerHTML = "￦ "+ total;
- 	var totalP = 0;
- 	for(var i =0; i<$(".cartList").length; i++){
- 		var priceTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[1].value);
- 		var countTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[0].value);
- 		totalP += priceTotal*countTotal;	
- 	}
- 	
- 	$(".total")[0].innerHTML= "￦ " + totalP;
- });
- 
- 
+ $("#remove").click(function(event){ 
+	 var cno = ($("#remove").val(s));
+	 console.log(cno);
+	 var formData = {"cno" : cno}
+	 $.ajax({	      
+	        type : 'post',
+	        url : "cartDelete",	      
+	        data : formData,
+            dataType : "JSON",	      
+            complete : function () {
+	           	alert("ss");
+	            }             
+	    });
+});
  </script>
 
 <%@include file="footer.jsp"%>
