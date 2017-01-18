@@ -499,9 +499,99 @@ public class MemberController {
 	// thema3 end
 
 	// thema4 strat
-	@GetMapping("/thema4/list")
-	public void thema4List() {
+	@GetMapping("/thema4/topList")
+	public void thema4topList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
 
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "topList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	@GetMapping("/thema4/bottomList")
+	public void thema4bottomList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "bottomList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	@GetMapping("/thema4/outerList")
+	public void thema4outerList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "outerList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	@GetMapping("/thema4/shoesAccList")
+	public void thema4shoseAccList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "shoesAccList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	@GetMapping("/thema4/etcList")
+	public void thema4etcList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "etcList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
 
 	@GetMapping("/thema4/cart")

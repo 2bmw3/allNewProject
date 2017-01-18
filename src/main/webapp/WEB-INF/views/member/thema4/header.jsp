@@ -67,37 +67,7 @@
 </div>
 <!-- end mobile menu -->
 <div id="page"> 
-  <!-- newsletter popup -->
-  <div class="newsletter-popup" style="display:none;">
-    <div class="newsletter-bg newsletter-ready"></div>
-    <div class="newsletter-wrap newsletter-close-btn-in">
-      <div class="newsletter-container">
-        <div class="newsletter-content">
-          <div class="news-inner">
-            <div class="news-popup">
-              <div class="popup-title">
-                <h2>Newsletter <span class="text-main">Popup</span></h2>
-                <div class="divider divider-icon divider-md">&#x268A;&#x268A; &#x2756; &#x268A;&#x268A;</div>
-                <p class="notice">Sign up to our email newsletter to be the first to hear about great offers &amp; more</p>
-              </div>
-              <form class="form-subscribe">
-                <input placeholder="Sign up your email..." type="text">
-                <button class="button"><i class="fa fa-envelope"></i> SUBSCRIBE</button>
-              </form>
-              <div class="checkbox">
-                <label>
-                  <input value="" type="checkbox">
-                  DONâT SHOW THIS POPUP AGAIN</label>
-              </div>
-            </div>
-            <button title="Close (Esc)" type="button" class="newsletter-close">Ã</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
   
-  <!-- end newsletter popup --> 
   <!-- Header -->
   <header>
     <div class="header-container">
@@ -137,40 +107,42 @@
         <div class="mtmegamenu">
           <ul>
             <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="index">
-                <div class="title title_font"><span class="title-text">Home</span></div>
+              <div class="mt-root-item"><a href="/member/index">
+                <div class="title title_font"><span class="title-text">Main</span></div>
                 </a></div>
             </li>
 
-            <li class="mt-root">
-              <div class="mt-root-item"><a href="list">
-                <div class="title title_font"><span class="title-text">Women</span></div>
+            <li class="mt-root demo_custom_link_cms">
+              <div class="mt-root-item"><a href="index?shopname=${param.shopname}">
+                <div class="title title_font"><span class="title-text">Home</span></div>
                 </a></div>
-              <ul class="menu-items col-xs-12">
-                <li class="menu-item depth-1 menucol-1-5 ">
-                  <div class="title title_font"> <a href="list"> Accessories </a></div>
-                  <ul class="submenu">
-                    <li class="menu-item">
-                      <div class="title"> <a href="list"> Cocktail </a></div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
             </li>
-            <li class="mt-root">
-              <div class="mt-root-item"><a href="list">
-                <div class="title title_font"><span class="title-text">Men</span></div>
+            
+            <li class="mt-root demo_custom_link_cms">
+              <div class="mt-root-item"><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">
+                <div class="title title_font"><span class="title-text">Top</span></div>
                 </a></div>
-              <ul class="menu-items col-md-9 col-xs-12">
-                <li class="menu-item depth-1 category menucol-1-4 ">
-                  <div class="title title_font"> <a href="list"> Clothing </a></div>
-                  <ul class="submenu">
-                    <li class="menu-item">
-                      <div class="title"> <a href="list"> Coats &amp; Jackets </a></div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+            </li>
+            
+            <li class="mt-root demo_custom_link_cms">
+              <div class="mt-root-item"><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">
+                <div class="title title_font"><span class="title-text">Bottom</span></div>
+                </a></div>
+            </li>
+            <li class="mt-root demo_custom_link_cms">
+              <div class="mt-root-item"><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">
+                <div class="title title_font"><span class="title-text">Outer</span></div>
+                </a></div>
+            </li>
+            <li class="mt-root demo_custom_link_cms">
+              <div class="mt-root-item"><a href="shoesAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">
+                <div class="title title_font"><span class="title-text">Shoes & Acc</span></div>
+                </a></div>
+            </li>
+            <li class="mt-root demo_custom_link_cms">
+              <div class="mt-root-item"><a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1">
+                <div class="title title_font"><span class="title-text">Etc</span></div>
+                </a></div>
             </li>
           </ul>
         </div>
