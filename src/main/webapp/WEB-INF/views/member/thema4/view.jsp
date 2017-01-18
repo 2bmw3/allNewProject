@@ -10,7 +10,8 @@
 <%@include file="header.jsp"%>
 
 <body class="product-page">
-
+	
+		<!-- Main Containerd -->
 		<div class="main-container col2-right-layout">
 			<div class="container">
 				<div class="row">
