@@ -11,7 +11,7 @@
 
 <body class="product-page">
 	
-		<!-- Main Container -->
+		<!-- Main Containerddd -->
 		<div class="main-container col2-right-layout">
 			<div class="container">
 				<div class="row">
