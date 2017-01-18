@@ -423,7 +423,6 @@ public class MemberController {
 	@GetMapping("/infoSize")
 	public @ResponseBody List<PinfoVO> infoSize(PinfoVO vo) throws Exception{
 		List<PinfoVO> list = pservice.infoSize(vo);
-		Gson gson = new Gson();
 		return list;
 	}
 
