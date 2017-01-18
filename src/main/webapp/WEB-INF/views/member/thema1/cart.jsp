@@ -4,8 +4,8 @@
 <html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@include file="header.jsp"%>
-
-
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>  
 
  <!-- Cart view section -->
  <section id="cart-view">
@@ -30,7 +30,8 @@
                     <tbody>
                      <c:forEach items="${cart}" var="vo">
                       <tr>
-                        <td><a class="remove" href="#"><fa class="fa fa-close"></fa></a></td>
+                      		
+                        <td><a class="remove"  href="#"><fa class="fa fa-close" id="remove" value = '${vo.cno}'></fa></a></td>
                         <td><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></td>
                         <td>
                         	<a class="aa-cart-title">${vo.pname}</a>
@@ -82,6 +83,22 @@
 
  // Create a storage reference from our storage service
  var storageRef = storage.ref();
+ </script>
+ <script>
+ $("#remove").click(function(event){ 
+	 var cno = ($("#remove").val(s));
+	 console.log(cno);
+	 var formData = {"cno" : cno}
+	 $.ajax({	      
+	        type : 'post',
+	        url : "cartDelete",	      
+	        data : formData,
+            dataType : "JSON",	      
+            complete : function () {
+	           	alert("ss");
+	            }             
+	    });
+});
  </script>
 
 <%@include file="footer.jsp"%>

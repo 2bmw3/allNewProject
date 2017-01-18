@@ -181,4 +181,14 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception {
 		return sqlSession.selectList(NAME +".pkindList", vo);
 	}
+
+	@Override
+	public List<ProductsVO> hitItem(AdminVO vo) throws Exception {
+		return sqlSession.selectList(NAME + ".hitItem", vo);
+	}
+
+	@Override
+	public List<ProductsVO> newItem(AdminVO vo) throws Exception {
+		return sqlSession.selectList(NAME + ".newItem", vo);
+	}
 }

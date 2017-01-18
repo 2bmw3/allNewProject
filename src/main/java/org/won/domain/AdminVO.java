@@ -8,6 +8,8 @@ public class AdminVO {
 			titleimg;
 	private Date aregdate;
 
+	private int limitnum;
+
 	public String getAdminid() {
 		return adminid;
 	}
@@ -104,12 +106,20 @@ public class AdminVO {
 		this.aregdate = aregdate;
 	}
 
+	public int getLimitnum() {
+		return limitnum;
+	}
+
+	public void setLimitnum(int limitnum) {
+		this.limitnum = limitnum;
+	}
+
 	@Override
 	public String toString() {
 		return "AdminVO [adminid=" + adminid + ", adminpw=" + adminpw + ", aname=" + aname + ", aaddress=" + aaddress
 				+ ", aemail=" + aemail + ", aphonenumber=" + aphonenumber + ", shopname=" + shopname + ", businessnum="
 				+ businessnum + ", shoplogo=" + shoplogo + ", thema=" + thema + ", titleimg=" + titleimg + ", aregdate="
-				+ aregdate + "]";
+				+ aregdate + ", limitnum=" + limitnum + "]";
 	}
 
 }

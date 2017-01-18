@@ -235,4 +235,14 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception {
 		return dao.pkindList(vo);
 	}
+
+	@Override
+	public List<ProductsVO> hitItem(AdminVO vo) throws Exception {
+		return dao.hitItem(vo);
+	}
+
+	@Override
+	public List<ProductsVO> newItem(AdminVO vo) throws Exception {
+		return dao.newItem(vo);
+	}
 }
