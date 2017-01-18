@@ -295,7 +295,6 @@ public class MemberController {
 	public @ResponseBody List<PinfoVO> infoSize(PinfoVO vo) throws Exception{
 		List<PinfoVO> list = pservice.infoSize(vo);
 		Gson gson = new Gson();
-		System.out.println("hello");
 		return list;
 	}
 

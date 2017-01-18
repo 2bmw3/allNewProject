@@ -55,7 +55,7 @@
 								<div class="quantity_box">
 									<ul class="product-qty">
 										<h3>Quantity:</h3>
-										<select>
+										<select id='quantity'>
 											<option>1</option>
 											<option>2</option>
 											<option>3</option>
@@ -96,7 +96,14 @@
 	</div>
 
 	<%@include file="footer.jsp"%>
-	<script>
+	<script>	
+	
+	var ccnt = null;
+	var color = null;
+	var pno = ${view[0].pno};
+	var size = null;
+	var adminid = "${view[0].adminid}";
+	
 		$(window).load(function() {
 			$('.flexslider').flexslider({
 				animation : "slide",
@@ -104,24 +111,34 @@
 			});
 		});
 		
+		//수량 체크시 값 담기
+		
+		$(document).on("click",".pisize",function(){
+			console.log($(this).attr('name'));
+		});
+
+		
+		// 색상 클릭시 해당 색상의 사이즈 별로 출력
 		$(".colorInfo").on("click",function(event){
 			$(".colorInfo").css("border-width","1px");
 			$(this).css("border-width","5px");
 			
-			var color = $(this).attr("name");
-			var pno = ${view[0].pno};
+			color = $(this).attr("name");
 			var formData = {"pno":pno, "picolor":color};
-			console.log(formData);
+			var str="";
 		    $.ajax({      
 		    	url: "/member/infoSize", 
 		        data: formData, 
 		        dataType: "json",
 		        type:"get",
 		        success:function(data){   
-		            console.log("=========");      
+		        	$(".size").empty() ;
+		            $.each(data, function(index) {
+		                str += "<li><button class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button></li>";
+		            });
+		            $(".size").append(str);
 		        }
 		    });  
-			
 		});
 
 	</script>
