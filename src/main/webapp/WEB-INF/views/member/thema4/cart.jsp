@@ -1,128 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Insert title here</title>
 <%@include file="header.jsp"%>
 
 <body class="shopping_cart_page">
-<!-- mobile menu -->
-<div id="mobile-menu">
-  <ul>
-    <li><a href="index" class="home1">Home</a>
-    </li>
-    <li><a href="list">Women</a>
-      <ul>
-        <li><a href="list" class="">Accessories</a>
-
-        </li>
-        <li><a href="list">Dresses</a>
-
-        </li>
-        <li> <a href="list">Shoes</a>
-
-        </li>
-        <li> <a href="list">Jwellery</a>
-
-        </li>
-        <li> <a href="list">Dresses</a>
-
-        </li>
-        <li> <a href="list">Swimwear</a>
-
-        </li>
-      </ul>
-    </li>
-    <li><a href="list">Men</a>
-      <ul>
-        <li> <a href="list" class="">Clothing</a>
-          <ul class="level1">
-            <li class="level2 nav-6-1-1"> <a href="list">Coats &amp; Jackets</a> </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-<!-- end mobile menu -->
-<div id="page"> 
-  <!-- Header -->
-  <header>
-    <div class="header-container">
-      <div class="header-top">
-        <div class="container">
-          <div class="row">
-            <!-- top links -->
-            <div class="headerlinkmenu col-lg-8 col-md-7 col-sm-7 col-xs-6">
-              <div class="links">
-                <div class="myaccount"><a title="My Account" href="/memberthema4_login"><i class="fa fa-user"></i><span class="hidden-xs">My Account</span></a></div>
-                <div class="login"><a href="/memberthema4_login"><i class="fa fa-unlock-alt"></i><span class="hidden-xs">Log In</span></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3 col-xs-12"> 
-            <!-- Header Logo -->
-            <div class="logo"><a title="e-commerce" href="index"><img alt="e-commerce" src="/resources/themes/thema4/images/logo.png"></a> </div>
-            <!-- End Header Logo --> 
-          </div>  <!--support client-->
-        </div>
-      </div>
-    </div>
-  </header>
-  <!-- end header --> 
-  
-  <!-- Navbar -->
-  <nav>
-    <div class="stick-logo"><a title="e-commerce" href="index"><img alt="logo" src="/resources/themes/thema4/images/stick-logo.png"></a> </div>
-    <div class="container">
-      <div class="row">
-        <div class="mtmegamenu">
-          <ul>
-            <li class="mt-root demo_custom_link_cms">
-              <div class="mt-root-item"><a href="index">
-                <div class="title title_font"><span class="title-text">Home</span></div>
-                </a></div>
-            </li>
-
-            <li class="mt-root">
-              <div class="mt-root-item"><a href="list">
-                <div class="title title_font"><span class="title-text">Women</span></div>
-                </a></div>
-              <ul class="menu-items col-xs-12">
-                <li class="menu-item depth-1 menucol-1-5 ">
-                  <div class="title title_font"> <a href="list"> Accessories </a></div>
-                  <ul class="submenu">
-                    <li class="menu-item">
-                      <div class="title"> <a href="list"> Cocktail </a></div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="mt-root">
-              <div class="mt-root-item"><a href="list">
-                <div class="title title_font"><span class="title-text">Men</span></div>
-                </a></div>
-              <ul class="menu-items col-md-9 col-xs-12">
-                <li class="menu-item depth-1 category menucol-1-4 ">
-                  <div class="title title_font"> <a href="list"> Clothing </a></div>
-                  <ul class="submenu">
-                    <li class="menu-item">
-                      <div class="title"> <a href="list"> Coats &amp; Jackets </a></div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li class="mt-root">
-
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- end nav --> 
 
   <!-- Main Container -->
   <section class="main-container col1-layout wow bounceInUp animated">
