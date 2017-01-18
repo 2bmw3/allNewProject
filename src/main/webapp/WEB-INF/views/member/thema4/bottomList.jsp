@@ -24,8 +24,7 @@
 							<c:if test="${'[null]' ne list}">
 								<c:forEach items="${list}" var="vo">
 									<!-- 상품 한개 시작! -->
-									<li
-										class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 wow fadeInUp">
+									<li class="item col-lg-4 col-md-4 col-sm-6 col-xs-6 wow fadeInUp">
 										<div class="product-item">
 											<div class="item-inner">
 												<div class="product-thumbnail">
