@@ -48,11 +48,13 @@ public class MemberController {
 		model.addAttribute("indexList", mservice.indexList());
 	}
 
+	/* 멤버 전체 리스트 */
 	@GetMapping("/list")
 	public void list(Model model) throws Exception {
 
 		model.addAttribute("list", pservice.mTotalList());
 	}
+
 	@GetMapping("/maleList")
 	public void maleList(Model model, String pgender) throws Exception {
 
@@ -404,7 +406,7 @@ public class MemberController {
 		AdminVO vo = new AdminVO();
 		vo.setAdminid(adminid);
 		vo.setLimitnum(6);
-				
+
 		model.addAttribute("hitItem", pservice.hitItem(vo));
 	}
 
