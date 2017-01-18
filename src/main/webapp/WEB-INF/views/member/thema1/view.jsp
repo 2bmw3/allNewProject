@@ -58,7 +58,7 @@
 						</div>
 						<!-- Modal view content -->
 						<div class="col-md-7 col-sm-7 col-xs-12" >
-							<div class="aa-product-view-content" style="margin-left:10%;">
+							<div class="aa-product-view-content" style="margin-left:5%;">
 								<div class="product-information" >
 
 									<!--/product-information-->
@@ -89,14 +89,14 @@
 								&nbsp;
 								<div class="input-group col-md-3">
 									<span class="input-group-btn">
-										<button type="button" class="btn btn-danger btn-number"
+										<button type="button" class="btn btn-danger btn-number minus"
 											data-type="minus" data-field="quant[2]">
 											<span class="glyphicon glyphicon-minus"></span>
 										</button>
 									</span> <input type="text" name="quant[2]" id="quantity"
 										class="form-control input-number" value="1" min="1" max="10">
 									<span class="input-group-btn">
-										<button type="button" class="btn btn-success btn-number"
+										<button type="button" class="btn btn-success btn-number plus"
 											data-type="plus" data-field="quant[2]">
 											<span class="glyphicon glyphicon-plus"></span>
 										</button>
@@ -416,7 +416,7 @@
 					        type:"post",
 					        complete:function(){   
 				     	     	swal({
-				  	     			title: "해당 상품을 카드에 추가 하였습니다.",
+				  	     			title: "해당 상품을 카트에 추가 하였습니다.",
 				  	     	 		text: "",
 				  	     			type: "success",
 				  	     			timer: 1500,
@@ -461,6 +461,24 @@
 	            $(".size").append(str);
 	        }
 	    });  
+	});
+	
+	
+	
+	// 수량 증가 감소
+	$(".minus").on("click",function(){
+		var qty = $("#quantity").val();
+		if(qty>0){
+			var cnt = parseInt(qty) - 1; 
+			$("#quantity").val(cnt);
+		}
+	});
+	$(".plus").on("click",function(){
+		var qty = $("#quantity").val();
+		if(qty<10){
+			var cnt = parseInt(qty) + 1; 
+			$("#quantity").val(cnt);	
+		}
 	});
 	</script>
 
