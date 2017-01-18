@@ -66,5 +66,11 @@ public interface ProductsService {
 
 	//최신상품
 	public List<ProductsVO> newItem(AdminVO vo) throws Exception;
+	
+	// 멤버 성별 전체 상품
+	public List<ProductsVO> mGenderList(String pgender) throws Exception;
+
+	// 멤버 종류별 전체 상품
+	public List<ProductsVO> mPkindList(String pkind) throws Exception;
 
 }

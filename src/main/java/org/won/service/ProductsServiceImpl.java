@@ -245,4 +245,14 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<ProductsVO> newItem(AdminVO vo) throws Exception {
 		return dao.newItem(vo);
 	}
+
+	@Override
+	public List<ProductsVO> mGenderList(String pgender) throws Exception {
+		return dao.mGenderList(pgender);
+	}
+
+	@Override
+	public List<ProductsVO> mPkindList(String pkind) throws Exception {
+		return dao.mPkindList(pkind);
+	}
 }

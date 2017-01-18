@@ -205,5 +205,12 @@
   	select *  from  (select * from tbl_products where adminid=#{adminid} limit 0, #{limitnum}) t order by pregdate desc
    </select>
    
+   <select id="mGenderList" resultType="ProductsVO">
+   	select * from tbl_products where pgender = #{pgender} order by pregdate desc
+   </select>
+   
+   <select id="mPkindList" resultType="ProductsVO">
+   	select * from tbl_products where pgender = #{pkind} order by pregdate desc
+   </select>
 
 </mapper>

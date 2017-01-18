@@ -95,7 +95,7 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public int total(String adminid) throws Exception {
 		return sqlSession.selectOne(NAME + ".total", adminid);
 	}
-	
+
 	@Override
 	public int pkindTotal(ProductsVO vo) throws Exception {
 		return sqlSession.selectOne(NAME + ".pkindTotal", vo);
@@ -160,11 +160,10 @@ public class ProductsDAOImpl implements ProductsDAO {
 
 	}
 
-	
-	//thema번호 가져오는 함수
+	// thema번호 가져오는 함수
 	@Override
 	public AdminVO themaGet(int pno) throws Exception {
-		return sqlSession.selectOne(NAME + ".themaGet",pno);
+		return sqlSession.selectOne(NAME + ".themaGet", pno);
 	}
 
 	@Override
@@ -179,7 +178,7 @@ public class ProductsDAOImpl implements ProductsDAO {
 
 	@Override
 	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception {
-		return sqlSession.selectList(NAME +".pkindList", vo);
+		return sqlSession.selectList(NAME + ".pkindList", vo);
 	}
 
 	@Override
@@ -190,5 +189,15 @@ public class ProductsDAOImpl implements ProductsDAO {
 	@Override
 	public List<ProductsVO> newItem(AdminVO vo) throws Exception {
 		return sqlSession.selectList(NAME + ".newItem", vo);
+	}
+
+	@Override
+	public List<ProductsVO> mGenderList(String pgender) throws Exception {
+		return sqlSession.selectList(NAME + ".mGenderList", pgender);
+	}
+
+	@Override
+	public List<ProductsVO> mPkindList(String pkind) throws Exception {
+		return sqlSession.selectList(NAME + ".mPkindList", pkind);
 	}
 }
