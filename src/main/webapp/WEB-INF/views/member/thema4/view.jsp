@@ -264,7 +264,7 @@
 	var adminid = "${view[0].adminid}";
 	
 	$("#cart").on("click",function(){
-		ccnt = $("#").val();
+		ccnt = $("#qty").val();
 		var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
 		if(ccnt==null || color==null || size==null){
  	     	swal({
