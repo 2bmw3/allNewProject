@@ -99,14 +99,36 @@
                         <div class="col-md-7 no-padding">
                             <div class="aa-promo-right">
                             
-                            <!-- 하나 끝! -->
-<%--                             <c:forEach items="${index}" var="vo" varStatus="status"> --%>
+<%--                             <c:forEach items="${indexCategory}" var="vo" varStatus="status"> --%>
+                                <div class="aa-single-promo-right">
+                                    <div class="aa-promo-banner"> 
+                                        <img src="/resources/themes/thema1/img/promo-banner-1.jpg" alt="img">
+                                        <div class="aa-prom-content">
+                                            <h4 style='text-align: center;'><a href="/member/thema1/topList?shopname=기린샵&pkind=상의&pageNum=1">Top</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="aa-single-promo-right">
+                                    <div class="aa-promo-banner"> 
+                                        <img src="/resources/themes/thema1/img/promo-banner-2.jpg" alt="img">
+                                        <div class="aa-prom-content">
+                                            <h4 style='text-align: center;'><a href="/member/thema1/bottomList?shopname=기린샵&pkind=하의&pageNum=1">bottom</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="aa-single-promo-right">
                                     <div class="aa-promo-banner"> 
                                         <img src="/resources/themes/thema1/img/promo-banner-3.jpg" alt="img">
                                         <div class="aa-prom-content">
-                                            <span>10% Off</span>
-                                            <h4 style='text-align: center;'><a href="#">Outer</a></h4>
+                                            <h4 style='text-align: center;'><a href="/member/thema1/footWeareAccList?shopname=기린샵&pkind=신발%20및%20악세사리&pageNum=1">Acc</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="aa-single-promo-right">
+                                    <div class="aa-promo-banner"> 
+                                        <img src="/resources/themes/thema1/img/promo-banner-4.jpg" alt="img">
+                                        <div class="aa-prom-content">
+                                            <h4 style='text-align: center;'><a href="/member/thema1/outerList?shopname=기린샵&pkind=아우터&pageNum=1">Outer</a></h4>
                                         </div>
                                     </div>
                                 </div>

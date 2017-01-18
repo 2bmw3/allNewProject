@@ -93,7 +93,7 @@ public class MemberController {
 		for (int i = 0; i < newItemSize; i++) {
 			viewList.add((i + hitItemSize), newItem.get(i));
 		}
-
+		
 		model.addAttribute("viewList", viewList);
 		model.addAttribute("hitItem", hitItem);
 		model.addAttribute("newItem", newItem);
