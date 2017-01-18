@@ -72,4 +72,10 @@ public interface ProductsDAO {
 
 	// pkindList
 	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception;
+
+	//인기상품
+	public List<ProductsVO> hitItem(AdminVO vo) throws Exception;
+
+	//최신상품
+	public List<ProductsVO> newItem(AdminVO vo) throws Exception;
 }
