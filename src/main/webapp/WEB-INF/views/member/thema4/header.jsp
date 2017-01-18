@@ -79,9 +79,9 @@
             <!-- top links -->
             <div class="headerlinkmenu col-lg-8 col-md-7 col-sm-7 col-xs-6">
               <div class="links">
-                <div class="myaccount"><a title="My Account" href="login"><i class="fa fa-user"></i><span class="hidden-xs">My Account</span></a></div>
-                <div class="cart"><a title="My Cart" href="cart"><i class="glyphicon glyphicon-shopping-cart "></i><span class="hidden-xs">Cart</span></a></div>
-                <div class="login"><a href="login"><i class="fa fa-unlock-alt"></i><span class="hidden-xs">Log In</span></a></div>
+                <div class="myaccount"><a title="My Account" href="/member/login"><i class="fa fa-user"></i><span class="hidden-xs">My Account</span></a></div>
+                <div class="cart"><a title="My Cart" href="cart?shopname=${param.shopname}"><i class="glyphicon glyphicon-shopping-cart "></i><span class="hidden-xs">Cart</span></a></div>
+                <div class="login"><a href="/member/login"><i class="fa fa-unlock-alt"></i><span class="hidden-xs">Log In</span></a></div>
               </div>
             </div>
           </div>
@@ -91,7 +91,7 @@
         <div class="row">
           <div class="col-sm-3 col-xs-12 col-md-6"> 
             <!-- Header Logo -->
-            <div class="logo"><a title="e-commerce" href="index"><img alt="e-commerce" src="/resources/themes/thema4//images/logo-black.png"></a> </div>
+            <div class="logo"><a title="e-commerce" href="index?shopname=${param.shopname}"><img alt="e-commerce" src="/resources/themes/thema4//images/logo-black.png"></a> </div>
             <!-- End Header Logo --> 
           </div>
           <!-- top cart -->
@@ -103,7 +103,6 @@
   
   <!-- Navbar -->
   <nav>
-    <div class="stick-logo"><a title="e-commerce" href="list"><img alt="logo" src="/resources/themes/thema4//images/stick-logo.png"></a> </div>
     <div class="container">
       <div class="row">
         <div class="mtmegamenu">

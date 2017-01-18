@@ -45,8 +45,12 @@
         var mega_menu = '0';
         
         /* ]]> */
-        </script> 
-
+$(".pagination").on("click", "li", function(event) {
+    event.preventDefault();
+    $("#pageInput").val($(this).val());
+    $("#pageNumForm").submit();
+ });
+</script>
 <!-- jquery.mobile-menu js --> 
 <script type="text/javascript" src="/resources/themes/thema4/js/mobile-menu.js"></script>
 <!-- jquery.waypoints js --> 
