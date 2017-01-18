@@ -54,15 +54,15 @@
 			</h1>
 			<p class="title title--sub">Smart Auto-Filtering for your shots.</p>
 		</div>
-		<div style="margin-left: 5%;">
+		<div style="margin-left: 3.5%;">
 			<figure class="pic10 camera" style="width: 300px; height: 200px;">
 
 			<a href='#' id="myBtn" class='btn-example'> <i
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> <figcaption>Search Camera</figcaption> </figure>
 		</div>
-		<div style="margin-top: -14.5%;margin-left: 85%;">
-			<figure class="pic10 camera" style="width: 150px; height: 150px;">
+		<div style="margin-left: 85%;">
+			<figure class="pic10 camera" style="width: 150px; height: 150px; margin-top: -97%;">
 
 			<a href='/member/list'> <i
 				class="fa fa-list" style="font-size: 150px;"></i>
