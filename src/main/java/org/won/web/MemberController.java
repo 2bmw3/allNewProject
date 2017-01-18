@@ -232,23 +232,9 @@ public class MemberController {
 		AdminVO vo = new AdminVO();
 		vo.setAdminid(adminid);
 		vo.setLimitnum(8);
-		List<ProductsVO> viewList = new ArrayList<ProductsVO>();
-		List<ProductsVO> hitItem = pservice.hitItem(vo);
-		List<ProductsVO> newItem = pservice.newItem(vo);
-
-		int hitItemSize = hitItem.size();
-		int newItemSize = newItem.size();
-
-		for (int i = 0; i < hitItemSize; i++) {
-			viewList.add(i, hitItem.get(i));
-		}
-		for (int i = 0; i < newItemSize; i++) {
-			viewList.add((i + hitItemSize), newItem.get(i));
-		}
-		
-		model.addAttribute("viewList", viewList);
-		model.addAttribute("hitItem", hitItem);
-		model.addAttribute("newItem", newItem);
+				
+		model.addAttribute("hitItem", pservice.hitItem(vo));
+		model.addAttribute("newItem", pservice.newItem(vo));
 	}
 
 	// 전체 리스트
