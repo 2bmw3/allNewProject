@@ -89,7 +89,7 @@
  var storageRef = storage.ref();
  </script>
  <script>
- //cart 삭제
+ //cart 삭제d
  $(".remove").on('click', function(){
 	var cno = $(this)[0].childNodes[1].value;
 	$.ajax({
