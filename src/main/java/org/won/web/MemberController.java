@@ -353,7 +353,14 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema2/cart")
-	public void thema2Cart() {
+	public void thema2Cart(String shopname, Model model) throws Exception {
+		
+		CartVO vo = new CartVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+
+		model.addAttribute("cart", oservice.cartList(vo));
+		
 	}
 
 	@GetMapping("/thema2/order")

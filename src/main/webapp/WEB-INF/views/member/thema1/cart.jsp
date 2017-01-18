@@ -89,18 +89,16 @@
  var storageRef = storage.ref();
  </script>
  <script>
- //cart 삭제d
+ //cart 삭제
  $(".remove").on('click', function(){
 	var cno = $(this)[0].childNodes[1].value;
 	$.ajax({
         url : "/member/cartDelete",
         data : {"cno":cno},
         dataType : "JSON",
-        type : "post",
-        complete : function() {
-        	$(".cartList").remove();
-        }
+        type : "post"
 	});		
+        $(this)[0].parentNode.parentNode.remove();
  });
  //수량 계산
  $(".cartList").on("click",function(){
@@ -108,7 +106,6 @@
 	var price =  $(this)[0].childNodes[9].childNodes[1].value;
 	var total = count*price;
  	$(this)[0].childNodes[11].innerHTML = "￦ "+ total;
- 	console.log($(".total"));
  	var totalP = 0;
  	for(var i =0; i<$(".cartList").length; i++){
  		var priceTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[1].value);
