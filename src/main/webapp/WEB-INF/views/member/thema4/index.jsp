@@ -127,7 +127,7 @@
 							<a href="view?shopname=${param.shopname}&pno=${newItem[5].pno}">Quick view!</a>
 						</div>
 					</div>
-				</div><!-- End Product Box -->
+				</div><!-- End Product Box! -->
 		</div>
         <!-- End Product Box Area -->
 <%@include file="footer.jsp"%>
