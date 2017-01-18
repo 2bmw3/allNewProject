@@ -51,6 +51,8 @@
 <link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/home7.css" media="all">
 <!-- jquery-ui.min CSS  -->
 <link rel="stylesheet" href="/resources/themes/thema4/css/jquery-ui.css">
+<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
+<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 
  
 <!-- mobile menu -->
