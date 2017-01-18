@@ -45,6 +45,8 @@ public interface ProductsDAO {
 	public int searchTotal(SearchVO search) throws Exception;
 
 	public int total(String adminid) throws Exception;
+	
+	public int pkindTotal(ProductsVO vo) throws Exception;
 
 	public List<ProductsVO> lastPnoRead() throws Exception;
 

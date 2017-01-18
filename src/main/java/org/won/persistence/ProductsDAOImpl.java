@@ -95,6 +95,11 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public int total(String adminid) throws Exception {
 		return sqlSession.selectOne(NAME + ".total", adminid);
 	}
+	
+	@Override
+	public int pkindTotal(ProductsVO vo) throws Exception {
+		return sqlSession.selectOne(NAME + ".pkindTotal", vo);
+	}
 
 	@Override
 	public int searchTotal(SearchVO search) throws Exception {

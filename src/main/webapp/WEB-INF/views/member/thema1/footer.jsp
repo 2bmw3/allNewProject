@@ -127,6 +127,13 @@
 			});
 	});
 
+	
+	$(".pagination").on("click", "li", function(event) {
+	    event.preventDefault();
+	    $("#pageInput").val($(this).val());
+	    $("#pageNumForm").submit();
+	 });
+
 
 </script>
 
