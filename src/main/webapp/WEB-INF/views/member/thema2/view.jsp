@@ -107,15 +107,18 @@
 		$(".colorInfo").on("click",function(event){
 			$(".colorInfo").css("border-width","1px");
 			$(this).css("border-width","5px");
+			
 			var color = $(this).attr("name");
 			var pno = ${view[0].pno};
-			
+			var formData = {"pno":pno, "picolor":color};
+			console.log(formData);
 		    $.ajax({      
-		        type:"POST",  
-		        url:url,      
-		        data:params,      
-		        success:function(args){   
-		            $("#result").html(args);      
+		    	url: "/member/infoSize", 
+		        data: formData, 
+		        dataType: "json",
+		        type:"get",
+		        success:function(data){   
+		            console.log("=========");      
 		        }
 		    });  
 			
