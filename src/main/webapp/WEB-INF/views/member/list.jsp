@@ -13,14 +13,14 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="icon" type="image/png"
-	href="/resources/allList/img/small-logo-01.png">
+	href="/resources/member/allList/img/small-logo-01.png">
 <link
 	href='http://fonts.googleapis.com/css?family=Roboto:400,900,900italic,700italic,700,500italic,400italic,500,300italic,300'
 	rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Pacifico'
 	rel='stylesheet' type='text/css'>
 <link
-	href='${pageContext.request.contextPath}/resources/allList/css/allliststyle.css'
+	href='/resources/member/css/liststyle.css'
 	rel='stylesheet' type='text/css'>
 
 
@@ -40,7 +40,7 @@
 		<div id="main-header" class="object">
 			<div class="logo">
 				<img
-					src="/resources/allList/img/logo-burst.png"
+					src="/resources/member/allList/img/logo-burst.png"
 					alt="logo platz" height="38" width="90">
 			</div>
 			<div id="main_tip_search">
@@ -76,32 +76,32 @@
 			<div id="wrapper-bouton-icon">
 				<div id="bouton-ai">
 					<img
-						src="/resources/allList/img/icon-ai.svg"
+						src="/resources/member/allList/img/icon-ai.svg"
 						alt="illustrator" title="Illustrator" height="28" width="28">
 				</div>
 				<div id="bouton-psd">
 					<img
-						src="/resources/allList/img/icon-psd.svg"
+						src="/resources/member/allList/img/icon-psd.svg"
 						alt="photoshop" title="Photoshop" height="28" width="28">
 				</div>
 				<div id="bouton-theme">
 					<img
-						src="/resources/allList/img/icon-themes.svg"
+						src="/resources/member/allList/img/icon-themes.svg"
 						alt="theme" title="Theme" height="28" width="28">
 				</div>
 				<div id="bouton-font">
 					<img
-						src="/resources/allList/img/icon-font.svg"
+						src="/resources/member/allList/img/icon-font.svg"
 						alt="font" title="Font" height="28" width="28">
 				</div>
 				<div id="bouton-photo">
 					<img
-						src="/resources/allList/img/icon-photo.svg"
+						src="/resources/member/allList/img/icon-photo.svg"
 						alt="photo" title="Photo" height="28" width="28">
 				</div>
 				<div id="bouton-premium">
 					<img
-						src="/resources/allList/img/icon-premium.svg"
+						src="/resources/member/allList/img/icon-premium.svg"
 						alt="premium" title="Premium" height="28" width="28">
 				</div>
 			</div>
@@ -171,7 +171,7 @@
 
 				<section class="work"> <figure class="white"> <a
 					href="details.html"> <img
-					src="/resources/allList/img/psd-4.jpg"
+					src="/resources/member/allList/img/psd-4.jpg"
 					alt="" />
 					<dl>
 						<dt>Wordpress theme</dt>
@@ -182,12 +182,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Wordpress theme</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/font-1.jpg"
+					src="/resources/member/allList/img/font-1.jpg"
 					alt="" />
 					<dl>
 						<dt>Free font</dt>
@@ -197,12 +197,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="img/icon-font.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-font.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Free font</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/psd-1.jpg"
+					src="/resources/member/allList/img/psd-1.jpg"
 					alt="" />
 					<dl>
 						<dt>PSD Goodies</dt>
@@ -212,12 +212,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">PSD Goodies</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/psd-2.jpg"
+					src="/resources/member/allList/img/psd-2.jpg"
 					alt="" />
 					<dl>
 						<dt>PSD Goodies</dt>
@@ -227,12 +227,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">PSD Goodies</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/ai-1.jpg"
+					src="/resources/member/allList/img/ai-1.jpg"
 					alt="" />
 					<dl>
 						<dt>Illustrator freebies</dt>
@@ -242,12 +242,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-ai.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-ai.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Illustrator Freebies</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/theme-2.jpg"
+					src="/resources/member/allList/img/theme-2.jpg"
 					alt="" />
 					<dl>
 						<dt>Html theme</dt>
@@ -258,12 +258,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-themes.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-themes.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Html theme</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/psd-3.jpg"
+					src="/resources/member/allList/img/psd-3.jpg"
 					alt="" />
 					<dl>
 						<dt>PSD goodies</dt>
@@ -273,12 +273,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">PSD Goodies</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/font-2.jpg"
+					src="/resources/member/allList/img/font-2.jpg"
 					alt="" />
 					<dl>
 						<dt>Free font</dt>
@@ -288,12 +288,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-font.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-font.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Free font</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/font-3.jpg"
+					src="/resources/member/allList/img/font-3.jpg"
 					alt="" />
 					<dl>
 						<dt>Wordpress theme</dt>
@@ -304,12 +304,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-font.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-font.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Wordpress theme</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/ai-2.jpg"
+					src="/resources/member/allList/img/ai-2.jpg"
 					alt="" />
 					<dl>
 						<dt>Illustrator icons</dt>
@@ -319,12 +319,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-ai.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-ai.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Illustrator icons</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/icons-1.jpg"
+					src="/resources/member/allList/img/icons-1.jpg"
 					alt="" />
 					<dl>
 						<dt>PSD icons</dt>
@@ -334,12 +334,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">PSD icons</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/ui-1.jpg"
+					src="/resources/member/allList/img/ui-1.jpg"
 					alt="" />
 					<dl>
 						<dt>UI design</dt>
@@ -349,12 +349,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-premium.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-premium.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Premium ui</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/font-5.jpg"
+					src="/resources/member/allList/img/font-5.jpg"
 					alt="" />
 					<dl>
 						<dt>Free font</dt>
@@ -364,12 +364,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-font.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-font.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Free font</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/theme-2.jpg"
+					src="/resources/member/allList/img/theme-2.jpg"
 					alt="" />
 					<dl>
 						<dt>Html theme</dt>
@@ -380,12 +380,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-themes.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-themes.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Html theme</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/psd-5.jpg"
+					src="/resources/member/allList/img/psd-5.jpg"
 					alt="" />
 					<dl>
 						<dt>PSD mockup</dt>
@@ -395,12 +395,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">PSD mockup</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/icons-3.jpg"
+					src="/resources/member/allList/img/icons-3.jpg"
 					alt="" />
 					<dl>
 						<dt>PSD icons</dt>
@@ -410,12 +410,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-psd.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-psd.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">PSD icons</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/font-4.jpg"
+					src="/resources/member/allList/img/font-4.jpg"
 					alt="" />
 					<dl>
 						<dt>Free font</dt>
@@ -426,12 +426,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-font.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-font.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Free font</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/theme-3.jpg"
+					src="/resources/member/allList/img/theme-3.jpg"
 					alt="" />
 					<dl>
 						<dt>HTML theme</dt>
@@ -442,12 +442,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-themes.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-themes.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">HTML theme</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/font-6.jpg"
+					src="/resources/member/allList/img/font-6.jpg"
 					alt="" />
 					<dl>
 						<dt>Free font</dt>
@@ -457,12 +457,12 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-font.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-font.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">Free font</div>
 				</div>
 				</figure> <figure class="white"> <a href="#"> <img
-					src="/resources/allList/img/theme-4.jpg"
+					src="/resources/member/allList/img/theme-4.jpg"
 					alt="" />
 					<dl>
 						<dt>HTML theme</dt>
@@ -473,7 +473,7 @@
 				</a>
 				<div id="wrapper-part-info">
 					<div class="part-info-image">
-						<img src="/resources/allList/img/icon-themes.svg" alt="" width="28" height="28" />
+						<img src="/resources/member/allList/img/icon-themes.svg" alt="" width="28" height="28" />
 					</div>
 					<div id="part-info">HTML theme</div>
 				</div>
@@ -577,19 +577,19 @@
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/jquery.scrollTo.min.js"></script>
+		src="/resources/member/allList/js/jquery.scrollTo.min.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/jquery.localScroll.min.js"></script>
+		src="/resources/member/allList/js/jquery.localScroll.min.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/jquery-animate-css-rotate-scale.js"></script>
+		src="/resources/member/allList/js/jquery-animate-css-rotate-scale.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/fastclick.min.js"></script>
+		src="/resources/member/allList/js/fastclick.min.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/jquery.animate-colors-min.js"></script>
+		src="/resources/member/allList/js/jquery.animate-colors-min.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/jquery.animate-shadow-min.js"></script>
+		src="/resources/member/allList/js/jquery.animate-shadow-min.js"></script>
 	<script type="text/javascript"
-		src="${pageContext.request.contextPath}/resources/allList/js/alllistmain.js"></script>
+		src="/resources/member/allList/js/alllistmain.js"></script>
 	<script>
 		/* PRELOADER */
 
@@ -616,26 +616,26 @@
 				var img19 = new Image();
 				var img20 = new Image();
 
-				img1.src = "/resources/allList/img/psd-4.jpg";
-				img2.src = "/resources/allList/img/font-1.jpg";
-				img3.src = "/resources/allList/img/psd-1.jpg";
-				img4.src = "/resources/allList/img/psd-2.jpg";
-				img5.src = "/resources/allList/img/ai-1.jpg";
-				img6.src = "/resources/allList/img/theme-2.jpg";
-				img7.src = "/resources/allList/img/psd-3.jpg";
-				img8.src = "/resources/allList/img/font-2.jpg";
-				img9.src = "/resources/allList/img/font-3.jpg";
-				img10.src = "/resources/allList/img/ai-2.jpg";
-				img11.src = "/resources/allList/img/icons-1.jpg";
-				img12.src = "/resources/allList/img/ui-1.jpg";
-				img13.src = "/resources/allList/img/font-5.jpg";
-				img14.src = "/resources/allList/img/theme-2.jpg";
-				img15.src = "/resources/allList/img/psd-5.jpg";
-				img16.src = "/resources/allList/img/icons-3.jpg";
-				img17.src = "/resources/allList/img/font-4.jpg";
-				img18.src = "/resources/allList/img/theme-3.jpg";
-				img19.src = "/resources/allList/img/font-6.jpg";
-				img20.src = "/resources/allList/img/theme-4.jpg";
+				img1.src = "/resources/member/allList/img/psd-4.jpg";
+				img2.src = "/resources/member/allList/img/font-1.jpg";
+				img3.src = "/resources/member/allList/img/psd-1.jpg";
+				img4.src = "/resources/member/allList/img/psd-2.jpg";
+				img5.src = "/resources/member/allList/img/ai-1.jpg";
+				img6.src = "/resources/member/allList/img/theme-2.jpg";
+				img7.src = "/resources/member/allList/img/psd-3.jpg";
+				img8.src = "/resources/member/allList/img/font-2.jpg";
+				img9.src = "/resources/member/allList/img/font-3.jpg";
+				img10.src = "/resources/member/allList/img/ai-2.jpg";
+				img11.src = "/resources/member/allList/img/icons-1.jpg";
+				img12.src = "/resources/member/allList/img/ui-1.jpg";
+				img13.src = "/resources/member/allList/img/font-5.jpg";
+				img14.src = "/resources/member/allList/img/theme-2.jpg";
+				img15.src = "/resources/member/allList/img/psd-5.jpg";
+				img16.src = "/resources/member/allList/img/icons-3.jpg";
+				img17.src = "/resources/member/allList/img/font-4.jpg";
+				img18.src = "/resources/member/allList/img/theme-3.jpg";
+				img19.src = "/resources/member/allList/img/font-6.jpg";
+				img20.src = "/resources/member/allList/img/theme-4.jpg";
 			}
 		}
 		function addLoadEvent(func) {
