@@ -29,12 +29,6 @@
                   </select>
                 </form>
                 <form action="" class="aa-show-form">
-<!--                   <label for="">Show</label> -->
-<!--                   <select name=""> -->
-<!--                     <option value="1" selected="12">12</option> -->
-<!--                     <option value="2">24</option> -->
-<!--                     <option value="3">36</option> -->
-<!--                   </select> -->
                   <input type='text' placeholder='search' class='search'/>
                   <button type="submit" class='aa-filter-btn search' style='width: 80px;'>submit </button>
                 </form>
@@ -73,41 +67,6 @@
           </ul>
 
 	           
-             <!-- pageNum  Start -->
-			<c:if test="${total>9}">
-				<div class="pagination-area" style="margin-left: 230px; margin-top: -180px;">
-					<form id='pageNumForm' method="get" action='${actionName}'>
-						<input id='pageInput' type='hidden' name='pageNum'> 
-						<input type='hidden' name='sType' value='${sType}'> 
-						<input type='hidden' name='keyword' value='${keyword}'>
-					</form>
-					<ul class="pagination">
-						<!— 이전 페이지가 있을 경우 —>
-						<c:set var="currentPage">${page.currentPage}</c:set>
-						<c:if test="${page.prevPage==1}">
-							<li value='${page.minimumPage-1}'>
-								<a href="" data-toggle="tab">
-									<i class="fa fa-angle-double-left"></i>
-								</a>
-							</li>
-						</c:if>
-						<c:forEach begin="${minimumPage}" end="${page.maxmumPage-1}" step="1" varStatus="status">
-							<li value='${status.count}'>
-							<a href="" <c:if test="${status.count == currentPage}">class="active"</c:if> data-toggle="tab">${status.count}</a></li>
-						</c:forEach>
-						<!— 다음 페이지가 있을 경우 —>
-						<c:if test="${page.nextPage==1}">
-							<li value='${page.maxmumPage+1}'>
-								<a href="" data-toggle="tab">
-									<i class="fa fa-angle-double-right"></i>
-								</a>
-							</li>
-						</c:if>
-					</ul>
-				</div>
-			</c:if>
-			<!— pageNum  End—>
-              
               <!-- quick view modal -->                  
               <div class="modal fade" id="quick-view-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -196,30 +155,43 @@
             </div>
             
             
-            
-            <div class="aa-product-catg-pagination">
-              <nav>
-                <ul class="pagination">
-                  <li>
-                    <a href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                    </a>
-                  </li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li>
-                    <a href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
           </div>
         </div>
+        
+            <!-- pageNum  Start -->
+		<c:if test="${total>9}">
+			<div class="pagination-area" style="margin-left: 300px; margin-top: 20px;">
+				<form id='pageNumForm' method="get" action='${actionName}'>
+					<input type='hidden' name='shopname' value='${param.shopname}'> 
+					<input type='hidden' name='pkind' value='${param.pkind}'>
+					<input id='pageInput' type='hidden' name='pageNum'> 
+				</form>
+				<ul class="pagination">
+					<!— 이전 페이지가 있을 경우 —>
+					<c:set var="currentPage">${page.currentPage}</c:set>
+					<c:if test="${page.prevPage==1}">
+						<li value='${page.minimumPage-1}'>
+							<a href="" data-toggle="tab">
+								<i class="fa fa-angle-double-left"></i>
+							</a>
+						</li>
+					</c:if>
+					<c:forEach begin="${minimumPage}" end="${page.maxmumPage-1}" step="1" varStatus="status">
+						<li value='${status.count}'>
+						<a href="" <c:if test="${status.count == currentPage}">class="active"</c:if> data-toggle="tab">${status.count}</a></li>
+					</c:forEach>
+					<!— 다음 페이지가 있을 경우 —>
+					<c:if test="${page.nextPage==1}">
+						<li value='${page.maxmumPage+1}'>
+							<a href="" data-toggle="tab">
+								<i class="fa fa-angle-double-right"></i>
+							</a>
+						</li>
+					</c:if>
+				</ul>
+			</div>
+		</c:if>
+		<!— pageNum  End—>
         <div class="col-lg-3 col-md-3 col-sm-4 col-md-pull-9">
           <aside class="aa-sidebar">
            

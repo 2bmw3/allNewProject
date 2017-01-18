@@ -37,7 +37,9 @@ public interface ProductsService {
 	public int searchTotal(SearchVO search) throws Exception;
 
 	public int total(String adminid) throws Exception;
-
+	
+	public int pkindTotal(ProductsVO vo) throws Exception;
+	
 	public void containDelete() throws Exception;
 
 	public List<ProductsVO> updateProductsRead(int pno) throws Exception;
@@ -58,4 +60,11 @@ public interface ProductsService {
 	
 	//pkindList
 	public List<ProductsVO> pkindList(ProductsVO vo) throws Exception;
+	
+	//인기상품
+	public List<ProductsVO> hitItem(AdminVO vo) throws Exception;
+
+	//최신상품
+	public List<ProductsVO> newItem(AdminVO vo) throws Exception;
+
 }
