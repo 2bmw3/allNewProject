@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.won.domain.CartVO;
 import org.won.domain.ProductsVO;
+import org.won.service.AdminService;
 import org.won.service.BoardService;
 import org.won.service.MemberService;
 import org.won.service.OrderService;
@@ -31,6 +32,8 @@ public class MemberController {
 	private OrderService oservice;
 	@Inject
 	private MemberService mservice;
+	@Inject
+	private AdminService aservice;
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private CookieUtil cookieUtil = new CookieUtil();
@@ -67,12 +70,13 @@ public class MemberController {
 
 	// thema1 start
 	@GetMapping("/thema1/index")
-	public void thema1Index(String adminid) {
+	public void thema1Index() {
 
 	}
 
 	@GetMapping("/thema1/topList")
-	public void thema1topList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+	public void thema1topList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
 		int totalData = pservice.total(adminid);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
@@ -90,7 +94,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/bottomList")
-	public void thema1bottomList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+	public void thema1bottomList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
 		int totalData = pservice.total(adminid);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
@@ -107,7 +112,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/outerList")
-	public void thema1outerList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+	public void thema1outerList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
 		int totalData = pservice.total(adminid);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
@@ -124,7 +130,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/footWeareAccList")
-	public void thema1footWeareAccList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+	public void thema1footWeareAccList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
 		int totalData = pservice.total(adminid);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
@@ -141,7 +148,8 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/etcList")
-	public void thema1etcList(int pageNum, Model model, String adminid, String pkind) throws Exception {
+	public void thema1etcList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
 		int totalData = pservice.total(adminid);
 		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();

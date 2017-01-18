@@ -64,7 +64,7 @@
                         <ul class="aa-head-top-nav-right">
                            <li><a href="faq">F.A.Q</a></li>
                            <li><a href="account">My Account</a></li>
-                           <li><a href="cart?adminid=${param.adminid}">My Cart</a></li>
+                           <li><a href="cart?shopname=${param.shopname}">My Cart</a></li>
                            <li><a href="checkout">Checkout</a></li>
                            <li><a href="/member/login">Login</a></li>
                             <li><a href="/member/register">Join Us</a></li>
@@ -86,7 +86,7 @@
                      <!-- logo  -->
                      <div class="aa-logo">
                         <!-- Text based logo -->
-                        <a href="/member/thema1/index?adminid=${param.adminid}"> <span
+                        <a href="/member/thema1/index?shopname=${param.shopname}"> <span
                            class="fa fa-shopping-cart"></span>
                            <p>
                               sm<strong>Shop</strong> <span>Your Shopping Partner</span>
@@ -121,11 +121,11 @@
 						<!-- Left nav -->
 						<ul class="nav navbar-nav">
 							<li><a href="/member/index">Home</a></li>
-							<li><a href="topList?adminid=${param.adminid}&pkind=상의&pageNum=1">TOP</a></li>
-							<li><a href="bottomList?adminid=${param.adminid}&pkind=하의&pageNum=1">BOTTOM</a></li>
-							<li><a href="outerList?adminid=${param.adminid}&pkind=아우터&pageNum=1">OUTER</a></li>
-							<li><a href="footWeareAccList?adminid=${param.adminid}&pkind=신발 및 악세사리&pageNum=1">FOOTWEARE & ACC</a></li>
-							<li><a href="etcList?adminid=${param.adminid}&pkind=기타&pageNum=1">ETC</a></li>
+							<li><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">TOP</a></li>
+							<li><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">BOTTOM</a></li>
+							<li><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">OUTER</a></li>
+							<li><a href="footWeareAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">FOOTWEARE & ACC</a></li>
+							<li><a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1">ETC</a></li>
 							<li><a href="#">SEARCH <span class="caret"></span></a>
 								<ul class="dropdown-menu" style='width: 0;'>
 									<li style='float: left;'>
