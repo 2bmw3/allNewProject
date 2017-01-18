@@ -442,6 +442,7 @@
 	
 	// 색상 클릭시 해당 색상의 사이즈 별로 출력
 	$(".colorInfo").on("click",function(event){
+		size = null;
 		$(".colorInfo").css("border-width","1px");
 		$(this).css("border-width","5px");
 		
