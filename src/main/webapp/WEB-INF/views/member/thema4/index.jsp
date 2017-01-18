@@ -9,19 +9,14 @@
 <%@include file="header.jsp"%>
 
 <body class="cms-index-index cms-home-page home-7">
-  <!--
-        Home Slider
-        ==================================== -->
+  <!-- Home Slider -->
 		
 		<section id="home-slider">
             <div id="slider" class="sl-slider-wrapper">
 
 				<div class="sl-slider">
-				
 					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
-
 						<div class="bg-img bg-img-1"></div>
-
 						<div class="slide-caption">
                             <div class="caption-content">
                                 <h2 class="animated fadeInDown">FASHION & DESIGN  Women's</h2>
@@ -31,24 +26,8 @@
                         </div>
 						
 					</div>
-
 				</div><!-- /sl-slider -->
 
-               
-                <nav id="nav-arrows" class="nav-arrows">
-                    <span class="nav-arrow-prev">Previous</span>
-                    <span class="nav-arrow-next">Next</span>
-                </nav>
-               
-                
-                <div id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
-                    <a href="javascript:;" class="sl-prev">
-                        <i class="fa fa-angle-left fa-3x"></i>
-                    </a>
-                    <a href="javascript:;" class="sl-next">
-                        <i class="fa fa-angle-right fa-3x"></i>
-                    </a>
-                </div>
                 
 
 				<div id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
@@ -60,10 +39,9 @@
 			</div><!-- /slider-wrapper -->
 		</section>
 		
-        <!--
-        End Home SliderEnd
-        ==================================== -->  
-<!-- Product Box Area -->
+    <!-- End Home SliderEnd -->  
+        
+	<!-- Product Box Area -->
 		
         
         <div class="product-box-area">
@@ -73,78 +51,80 @@
 					<!-- Single Product Box -->
 					<div class="single-product-box">
 						<div class="product-box-img">
-							<a href="list"><img src="/resources/themes/thema4//images/men.jpg" alt="product"></a>							
+							<a href="list">
+							<img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[0].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164"
+							 alt="product" ></a>							
 						</div>
 						<div class="product-box-content">				
-							<h2>Menâs Wear</h2>
-							<p>Metric is not over with fashion fever week! </p>
-							<a href="list">shop now</a>
+							<h2>${newItem[0].pname}</h2>
+							<p>￦${newItem[0].price}</p>
+							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[0].pno}">Quick view!</a>
 						</div>
 					</div>
+					
 					<!-- Single Product Box -->
 					<div class="single-product-box single-product-box-two">
 						<div class="product-box-content">				
-							<h2>Womenâs Wear</h2>
-							<p>The Most Popular Store 2015/2016</p>
-							<a href="list">let's shop now!</a>
+							<h2>${newItem[1].pname}</h2>
+							<p>￦${newItem[1].price}</p>
+							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[1].pno}">Quick view!</a>
 						</div>
 						<div class="product-box-img">
-							<a href="list"><img src="/resources/themes/thema4//images/women.jpg" alt="product"></a>							
+							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[1].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" ></a>							
 						</div>
 					</div>
 					<!-- Single Product Box -->
 					<div class="single-product-box single-product-box-three">
 						<div class="product-box-img">
-							<a href="list"><img src="/resources/themes/thema4//images/camerea.jpg" alt="product"></a>							
+							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[2].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product" ></a>							
 						</div>
 						<div class="product-box-content">				
-							<h2>Electronic</h2>
-							<p>the New & Exiting 2016 Collection </p>
-							<a href="list">View All</a>
+							<h2>${newItem[2].pname}</h2>
+							<p>￦${newItem[2].price}</p>
+							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[2].pno}">Quick view!</a>
 						</div>
 					</div>
-                    
-                    
-                    
 				</div><!-- End Product Box -->
-              
-	
 		</div>
-  <div class="product-box-area">
-	
+ 	 <div class="product-box-area">
 				<!-- Product Box -->
 				<div class="product-box">
 					<!-- Single Product Box -->
 					<div class="single-product-box">
 						<div class="product-box-img">
-							<a href="list"><img src="/resources/themes/thema4//images/shoes.jpg" alt="product"></a>							
+							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[3].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product"></a>							
 						</div>
 						<div class="product-box-content">				
-							<h2>CASUAL SHOES</h2>
-							<p>Allen casual shoes collection 2016 </p>
-							<a href="list">shop now</a>
+							<h2>${newItem[3].pname}</h2>
+							<p>￦${newItem[3].price}</p>
+							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[3].pno}">Quick view!</a>
 						</div>
 					</div>
 					<!-- Single Product Box -->
 					<div class="single-product-box single-product-box-two">
 						<div class="product-box-content">				
-							<h2>BEAUTIFUL & FRESH</h2>
-							<p>Get more jewelry accessories from Allen spring jewelry Collection 2016</p>
-							<a href="list">let's shop now!</a>
+							<h2>${newItem[4].pname}</h2>
+							<p>￦${newItem[4].price}</p>
+							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[4].pno}">Quick view!</a>
 						</div>
 						<div class="product-box-img">
-							<a href="list"><img src="/resources/themes/thema4//images/women-f.jpg" alt="product"></a>							
+							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[4].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product"></a>							
 						</div>
 					</div>
 					<!-- Single Product Box -->
 					<div class="single-product-box single-product-box-three">
 						<div class="product-box-img">
-							<a href="list"><img src="/resources/themes/thema4//images/handbags.jpg" alt="product"></a>							
+							<a href="list"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${newItem[5].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+							alt="product"></a>							
 						</div>
 						<div class="product-box-content">				
-							<h2>Handbags & Wallets</h2>
-							<p>the New & Exiting 2016 Collection </p>
-							<a href="list">View All</a>
+							<h2>${newItem[5].pname}</h2>
+							<p>￦${newItem[5].price}</p>
+							<a href="thema4/view?shopname=${param.shopname}&pno=${newItem[5].pno}">Quick view!</a>
 						</div>
 					</div>
 				</div><!-- End Product Box -->

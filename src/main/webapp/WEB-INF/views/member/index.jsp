@@ -58,9 +58,7 @@
 			<figure class="pic10 camera" style="margin-left:3.5%;">
 			<a href='#' id="myBtn" class='btn-example'> <i
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
-			</a> <figcaption>Search Camera</figcaption> </figure>
-		<!--  -->
-			<figure class="pic9 camera" style="margin-left:85%; margin-top:-12%">
+			</a> <figcaption>Search Camera</figcaption> 
 			<a href='/member/list'> <i
 				class="fa fa-list" style="font-size: 150px;"></i>
 			</a> <figcaption>All List</figcaption> </figure>

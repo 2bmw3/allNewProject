@@ -665,8 +665,13 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema4/index")
-	public void thema4Index() {
+	public void thema4Index(String shopname, Model model) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		AdminVO vo = new AdminVO();
+		vo.setAdminid(adminid);
+		vo.setLimitnum(6);
 
+		model.addAttribute("newItem", pservice.newItem(vo));
 	}
 	// thema4 end
 
