@@ -17,4 +17,6 @@ public interface OrderDAO {
 
    public List<CartVO> cartList(CartVO vo) throws Exception;
    
+   public void deleteCart(int cno) throws Exception;
+   
 }

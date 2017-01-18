@@ -117,5 +117,8 @@
 	tbl_cart.pino and userid = #{userid} and pifo.shopname = #{shopname}
 	</select>
 
+	<select id="cartDelete">
+			delete from tbl_cart where cno = #{cno}
+	</select>
 
 </mapper>

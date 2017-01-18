@@ -46,4 +46,11 @@ public class OrderServiceImpl implements OrderService {
 		return dao.cartList(vo);
 	}
 
+	@Override
+	public void deleteCart(int cno) throws Exception {
+		
+		dao.deleteCart(cno);
+		
+	}
+
 }

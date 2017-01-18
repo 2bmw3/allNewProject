@@ -50,4 +50,10 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.selectList(NAME + ".cartList", vo);
 	}
 
+	@Override
+	public void deleteCart(int cno) throws Exception {
+		sqlSession.delete(NAME+".cartDelete",cno);
+		
+	}
+
 }

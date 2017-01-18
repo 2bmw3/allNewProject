@@ -1,7 +1,5 @@
 package org.won.web;
 
-import java.net.URLEncoder;
-
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -9,7 +7,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.won.domain.CartVO;
 import org.won.domain.ProductsVO;
 import org.won.service.AdminService;
@@ -279,5 +279,11 @@ public class MemberController {
 
 	}
 	// thema4 end
+	
+	@PostMapping("/cartDelete")
+	public @ResponseBody void productsDelete(int pno) throws Exception {
+		System.out.println("cccccccpno="+pno);
+		
+	} 
 
 }
