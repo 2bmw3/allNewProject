@@ -316,13 +316,13 @@ ul.uli li {
 					  	     			title: "해당 상품을 카트에 추가 하였습니다.",
 					  	     	 		text: "",
 					  	     			type: "success",
-					  	     			timer: 1500,
+					  	     			timer: 1000,
 					  	     			showConfirmButton: false
 					  	     		});
 						        }
 						    }); 
 						    //ajax end
-					  }, 1000);
+					  }, 500);
 					});
 
 			}//End else
