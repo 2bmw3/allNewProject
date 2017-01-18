@@ -120,7 +120,8 @@
 					<div class="navbar-collapse collapse">
 						<!-- Left nav -->
 						<ul class="nav navbar-nav">
-							<li><a href="/member/index">Home</a></li>
+							<li><a href="/member/index">Main</a></li>
+							<li><a href="index?shopname=${param.shopname}">Home</a></li>
 							<li><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">TOP</a></li>
 							<li><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">BOTTOM</a></li>
 							<li><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">OUTER</a></li>
