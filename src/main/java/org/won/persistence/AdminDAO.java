@@ -28,4 +28,7 @@ public interface AdminDAO {
 	
 	//질문 알림
 	public List<QuestionVO> latter(String adminid) throws Exception;
+	
+	// 가게이름으로 adminid 가져오기
+	public String getAdminId(String shopname) throws Exception;
 }

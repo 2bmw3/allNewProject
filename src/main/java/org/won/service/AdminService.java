@@ -27,4 +27,7 @@ public interface AdminService {
 	public String idCheck(String adminid) throws Exception;
 	//알림 확인
 	public List<QuestionVO> latter(String adminid) throws Exception;
+	
+	// shoname으로 adminid 가져오기
+	public String getAdminId(String shopname) throws Exception;
 }

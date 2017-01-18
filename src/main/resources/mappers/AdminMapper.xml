@@ -53,5 +53,9 @@
 		order by qno
 		desc
 	</select>
+	
+	<select id="getAdminId" resultType="String">
+		select adminid from tbl_admin where shopname = #{shopname}
+	</select>
 
 </mapper>

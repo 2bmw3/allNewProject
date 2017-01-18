@@ -67,4 +67,9 @@ public class AdminServiceImpl implements AdminService {
 	public List<QuestionVO> latter(String adminid) throws Exception {
 		return dao.latter(adminid);
 	}
+
+	@Override
+	public String getAdminId(String shopname) throws Exception {
+		return dao.getAdminId(shopname);
+	}
 }

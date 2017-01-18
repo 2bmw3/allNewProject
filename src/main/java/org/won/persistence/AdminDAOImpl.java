@@ -75,4 +75,9 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlSession.selectList(NAME + ".latter", adminid);
 	}
 
+	@Override
+	public String getAdminId(String shopname) throws Exception {
+		return sqlSession.selectOne(NAME + ".getAdminId" , shopname);
+	}
+
 }
