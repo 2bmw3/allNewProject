@@ -85,7 +85,7 @@
 	
  var storage = firebase.storage();
 
- // Create a storage reference from our storage service
+ // Create a storage reference from our storage servic
  var storageRef = storage.ref();
  </script>
  <script>
