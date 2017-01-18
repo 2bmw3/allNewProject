@@ -3,7 +3,7 @@ package org.won.domain;
 public class CartVO {
 	
 	private int cno, pino, ccnt;
-	private String userid, ptitlephoto, pname, pisize, picolor, price,adminid;
+	private String userid, ptitlephoto, pname, pisize, picolor, price,shopname;
 
 	public int getCno() {
 		return cno;
@@ -77,20 +77,22 @@ public class CartVO {
 		this.price = price;
 	}
 
-	public String getAdminid() {
-		return adminid;
+	public String getShopname() {
+		return shopname;
 	}
 
-	public void setAdminid(String adminid) {
-		this.adminid = adminid;
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
 	}
 
 	@Override
 	public String toString() {
 		return "CartVO [cno=" + cno + ", pino=" + pino + ", ccnt=" + ccnt + ", userid=" + userid + ", ptitlephoto="
 				+ ptitlephoto + ", pname=" + pname + ", pisize=" + pisize + ", picolor=" + picolor + ", price=" + price
-				+ ", adminid=" + adminid + "]";
+				+ ", shopname=" + shopname + "]";
 	}
+
+
 
 	
 

@@ -106,12 +106,15 @@
 	</select>
 
 	<select id="cartList" resultType="CartVO">
-        select
-		cno,tbl_cart.pino,picolor,pisize,ccnt,ptitlephoto,pname,price, product.adminid from
-		(select tbl_pinfo.pno,pino,picolor,pisize,pistock,ptitlephoto,pname,price,adminid from
-		tbl_products,tbl_pinfo where tbl_products.pno = tbl_pinfo.pno)
-		as product,tbl_cart
-		where product.pino = tbl_cart.pino and userid = #{userid} and product.adminid = #{adminid}
+	select
+	cno,ccnt,tbl_cart.pino,adminid,tbl_cart.shopname,ptitlephoto,price,pname,pisize,picolor
+	from
+	(select pino,adminid,shopname,ptitlephoto,price,pname,pisize,picolor from
+	(select tbl_admin.adminid,shopname,pno,ptitlephoto,price,pname from
+	tbl_admin,tbl_products
+	where tbl_admin.adminid = tbl_products.adminid) as product,tbl_pinfo
+	where tbl_pinfo.pno = product.pno) as pifo,tbl_cart where pifo.pino =
+	tbl_cart.pino and userid = #{userid} and pifo.shopname = #{shopname}
 	</select>
 
 

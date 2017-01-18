@@ -175,10 +175,10 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/cart")
-	public void thema1Cart(String adminid, Model model) throws Exception {
+	public void thema1Cart(String shopname, Model model) throws Exception {
 
 		CartVO vo = new CartVO();
-		vo.setAdminid(adminid);
+		vo.setShopname(shopname);
 		vo.setUserid("test");
 
 		model.addAttribute("cart", oservice.cartList(vo));
