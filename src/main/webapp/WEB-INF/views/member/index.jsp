@@ -75,7 +75,6 @@
 			</c:forEach>
 		</ul>
 
-		<!-- The Modal -->
 		<div id="myModal" class="modal" style="margin-top: -8%;">
 			<!-- Modal content -->
 			<div class="modal-content" style="width: 40%; height: 98%;">
