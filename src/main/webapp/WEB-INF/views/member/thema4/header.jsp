@@ -62,11 +62,11 @@
   <ul>
   	<li><a href="/member/index">Main</a></li>
     <li><a href="index?shopname=${param.shopname}" class="home1">Home</a></li>
-	<li><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">Top</a></li>
-    <li><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">Bottom</a></li>
-    <li><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">Outer</a></li>
-    <li><a href="shoesAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">Shoes & Acc</a></li>
-    <li><a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1">Etc</a></li>
+	<li><a href="categoryList?shopname=${param.shopname}&pkind=상의&pageNum=1">Top</a></li>
+    <li><a href="categoryList?shopname=${param.shopname}&pkind=하의&pageNum=1">Bottom</a></li>
+    <li><a href="categoryList?shopname=${param.shopname}&pkind=아우터&pageNum=1">Outer</a></li>
+    <li><a href="categoryList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">Shoes & Acc</a></li>
+    <li><a href="categoryList?shopname=${param.shopname}&pkind=기타&pageNum=1">Etc</a></li>
   </ul>
 </div>
 <!-- end mobile menu -->
