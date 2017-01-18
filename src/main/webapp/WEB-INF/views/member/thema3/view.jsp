@@ -57,21 +57,23 @@ ul.uli li {
 				<div id="myCarousel" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
-						<li id="li" data-target="#myCarousel" data-slide-to="0"
-							class="active"></li>
-						<li id="li" data-target="#myCarousel" data-slide-to="1"></li>
-						<li id="li" data-target="#myCarousel" data-slide-to="2"></li>
-						<li id="li" data-target="#myCarousel" data-slide-to="3"></li>
+						<c:forEach items="${view}" var="vo" varStatus="status">
+							<li id="li" data-target="#myCarousel" data-slide-to="${status}"></li>
+						</c:forEach>
 					</ol>
+					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-							<img
-								src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
+							<img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 						</div>
 
-<!-- 						<div class="item"> -->
-<%-- 								${view[0].pcontent} --%>
-<!-- 						</div> -->
+						  
+							<c:forEach items="${view}" var="vo" varStatus="status">
+								<div class="item">
+									<img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" />
+								</div>
+							</c:forEach>
+						
 
 						<div class="col-sm-offset-1" style="float: left">
 							<a class="left" href="#myCarousel" role="button"
@@ -96,40 +98,35 @@ ul.uli li {
 					<b>Kind:</b> ${view[0].pkind}
 				</p>
 				<p>
-					<b>Price:</b> &nbsp;￦ ${view[0].price }
+					<b>Price:</b> &nbsp;${view[0].price }원
 				</p>
 				<p>
 					<b>Color:</b> &nbsp;
 					<c:forEach items="${infoColor}" var="vo" varStatus="status">
-						<image
-							style="border-width : 1px; margin-top:1%; border-style : solid;"
-							src='/resources/admin/images/color_info/${vo.picolor}.jpg'
-							class='colorInfo' id='${vo.picolor}' />
+						<image style="border-width : 1px; margin-top:1%; border-style : solid; border-width : 1px;"
+								src='/resources/admin/images/color_info/${vo.picolor}.jpg'
+								class='colorInfo' name='${vo.picolor}' />
 					</c:forEach>
 				</p>
 				<p>
-					<b>Size:</b> &nbsp; <select>
-						<option></option>
-						<option>S</option>
-						<option>M</option>
-						<option>L</option>
-						<option>XL</option>
+					<b>Size:</b> &nbsp; 
+					<select class="size">
+						<option>색상을 선택해 주세요</option>
 					</select>
 				</p>
 				<p>
-					<b>Quantity:</b> &nbsp; <input type="number" name="quantity"
-						min="1" max="10" style="width: 47px; height: 23px;">
+					<b>Quantity:</b> &nbsp; 
+					<input type="number" id="quantity" value='1' name="quantity" min="1" max="10" style="width: 47px; height: 23px;">
 				</p>
 				</section>
 
 				<hr>
-				<input type="submit" id="submit" class="btn btn-primary"
-					value="Add Cart" style="width: 100%"> <input type="submit"
-					id="submit" class="btn btn-primary" value="Order"
-					style="width: 100%;">
+				<input type="submit" id="cart" class="btn btn-primary" value="Add Cart" style="width: 100%"> 
+				<input type="submit" class="btn btn-primary" value="Order" style="width: 100%;">
 			</div>
 		</div>
-		<br>
+		
+
 		<div role="tabpanel">
 			<!-- Nav tabs -->
 			<ul class="nav nav-tabs" role="tablist">
@@ -144,11 +141,13 @@ ul.uli li {
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="description">
-					<br>
+					
+
 					<div class="col-md-12 col-md-offset-2 ">${view[0].pcontent}</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="qna">
-					<br>
+					
+
 					<div class="col-md-12 ">
 						<ul class="unit">
 							<li class="li" style='margin-right: 10%'><b>NO</b></li>
@@ -187,13 +186,17 @@ ul.uli li {
 								<input type="password" placeholder="Password">
 							</div>
 						</div>
-						<br> <input type="text" name="rcontent"
-							style="height: 200px; width: 100%;"> <br> <br>
+						
+ <input type="text" name="rcontent"
+							style="height: 200px; width: 100%;"> 
+ 
+
 						<input type="submit" class="btn btn-primary" value="Submit">
 					</form>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="review">
-					<br>
+					
+
 					<div class="col-md-12 ">
 						<ul class="unit">
 							<li class="li" style="margin-right: 45%;"><b>Content</b></li>
@@ -227,8 +230,11 @@ ul.uli li {
 								for="mark_0_3" style="color: pink">★★★★</label>&nbsp; <input
 								type="radio" id="mark_0_4" name="rgrade" checked="checked"
 								value="5"> <label for="mark_0_4" style="color: pink">★★★★★</label>
-							<br> <input type="text" name="rcontent"
-								style="height: 200px; width: 100%;"> <br> <br>
+							
+ <input type="text" name="rcontent"
+								style="height: 200px; width: 100%;"> 
+ 
+
 							<input type="submit" class="btn btn-primary" value="Submit">
 						</form>
 					</div>
@@ -240,6 +246,94 @@ ul.uli li {
 <%@include file="footer.jsp"%>
 <script>
 	$(document).ready(function() {
+		var ccnt = null;
+		var color = null;
+		var pno = ${view[0].pno};
+		var size = null;
+		var adminid = "${view[0].adminid}";
+		
+		
+		
+		// 색상 클릭시 해당 색상의 사이즈 별로 출력
+		$(".colorInfo").on("click",function(event){
+			$(".colorInfo").css("border-width","1px");
+			$(this).css("border-width","5px");
+			
+			color = $(this).attr("name");
+			var formData = {"pno":pno, "picolor":color};
+			var str="";
+		    $.ajax({      
+		    	url: "/member/infoSize", 
+		        data: formData, 
+		        dataType: "json",
+		        type:"get",
+		        success:function(data){   
+		        	$(".size").empty() ;
+		        	str += "<option>--</option>";
+		            $.each(data, function(index) {
+		                str += "<option>" + data[index].pisize + "</option>";
+		            });
+		            $(".size").append(str);
+		        }
+		    });  
+		});//end
+		
+		
+		
+		
+		
+		
+		$("#cart").on("click",function(){
+			ccnt = $("#quantity").val();
+			size = $(".size").val();
+			var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+			if(ccnt==null || color==null || size==null){
+     	     	swal({
+  	     			title: "상품 상세 정보를 선택해주세요.",
+  	     	 		text: "",
+  	     			type: "error",
+  	     			timer: 1500,
+  	     			showConfirmButton: false
+  	     		});
+			}else{
+				swal({
+					  title: "카트에 추가 하시겠습니까?",
+					  text: "",
+					  type: "info",
+					  showCancelButton: true,
+					  closeOnConfirm: false,
+					  showLoaderOnConfirm: true,
+					},
+					function(){
+					  setTimeout(function(){
+						    $.ajax({      
+						    	url: "/member/cartAdd", 
+						        data: formData, 
+						        dataType: "json",
+						        type:"post",
+						        complete:function(){  
+					     	     	swal({
+					  	     			title: "해당 상품을 카드에 추가 하였습니다.",
+					  	     	 		text: "",
+					  	     			type: "success",
+					  	     			timer: 1500,
+					  	     			showConfirmButton: false
+					  	     		});
+						        }
+						    }); 
+						    //ajax end
+					  }, 1000);
+					});
+
+			}//End else
+		});//end 
+		
+		
+		
+		
+		
+		
+		
 		// Activate Carousel
 		$("#myCarousel").carousel();
 

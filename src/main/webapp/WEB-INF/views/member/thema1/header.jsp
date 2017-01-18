@@ -31,6 +31,7 @@
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 	<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="//code.jquery.com/jquery.min.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

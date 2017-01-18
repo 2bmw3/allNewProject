@@ -103,31 +103,7 @@
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet" />
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 
-<script>
-
-	$('#addCart').on('click', function(){
-		
-		swal({
-			  title: "Are you sure?",
-			  text: "You will not be able to recover this imaginary file!",
-			  type: "info",
-			  showCancelButton: true,
-			  confirmButtonColor: "#970001",
-			  confirmButtonText: "Yes, delete it!",
-			  cancelButtonText: "No, cancel plx!",
-			  closeOnConfirm: false,
-			  closeOnCancel: false
-			},
-			function(isConfirm){
-			  if (isConfirm) {
-			    swal("Deleted!", "Your imaginary file has been deleted.", "success");
-			  } else {
-			    swal("Cancelled", "Your imaginary file is safe :)", "error");
-			  }
-			});
-	});
-
-	
+<script>	
 	$(".pagination").on("click", "li", function(event) {
 	    event.preventDefault();
 	    $("#pageInput").val($(this).val());
