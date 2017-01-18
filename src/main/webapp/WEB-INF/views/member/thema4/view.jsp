@@ -15,16 +15,14 @@
 		<div class="main-container col2-right-layout">
 			<div class="container">
 				<div class="row">
-					<div class="col-main col-sm-9">
+					<div class="col-main col-sm-12">
 						<div class="product-view-area">
 							<div
 								class="product-big-image col-xs-12 col-sm-9 col-lg-5 col-md-5">
 								<div class="large-image">
-									<a class="cloud-zoom" id="magni_img"
-										data-big="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
-										rel="useWrapper: false, adjustY:0, adjustX:20"> <img
+									<a class="cloud-zoom" id="magni_img"> <img
 										style="width: 500px; height: 500px;"
-										src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" /></a>
+										src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" /></a>
 								</div>
 								<div class="flexslider flexslider-thumb">
 									<ul class="previews-list slides">
