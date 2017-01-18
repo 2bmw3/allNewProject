@@ -118,7 +118,7 @@ ul.pagination li a:hover:not (.active ) {
 										<li><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">Top</a></li>
 										<li><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">Bottom</a></li>
 										<li><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">Outer</a></li>
-										<li><a href="shoesList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">Shoes & Acc</a></li>
+										<li><a href="shoesAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">Shoes & Acc</a></li>
 										<li><a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1">Etc</a></li>
 									</ul></li>
 								<li><a href="order?shopname=${param.shopname}">Order</a></li>
