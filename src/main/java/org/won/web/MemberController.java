@@ -44,6 +44,7 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private CookieUtil cookieUtil = new CookieUtil();
 
+	//void good
 	@GetMapping("/index")
 	public void index(Model model) throws Exception {
 		model.addAttribute("indexList", mservice.indexList());

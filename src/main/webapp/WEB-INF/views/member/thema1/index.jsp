@@ -312,7 +312,7 @@
  										<span class="aa-badge aa-hot" href="#">NEW</span>
                                     </li>
                                    </c:forEach>
-                              	<!--최근상품 끝 -->
+                              	<!--최근상품 끝임-->
 
                                 </ul>
                                 <a class="aa-browse-btn" href="#">Browse all Product <span
