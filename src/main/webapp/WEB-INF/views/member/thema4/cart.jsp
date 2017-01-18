@@ -21,27 +21,28 @@
               <div class="table-responsive">
                 <table class="table table-bordered cart_summary">
                   <tbody>
-                    <tr>
-                      <td class="cart_product"><a href="#"><img src="/resources/themes/thema4/images/products/img01.jpg" alt="Product"></a></td>
-                      <td class="cart_description"><p class="product-name"><a href="#">Ipsums Dolors Untra </a></p>
-                        <small><a href="#">Color : Red</a></small><br>
-                        <small><a href="#">Size : M</a></small></td>
+                   <c:forEach items="${cart}" var="vo">
+                    <tr class="cartList">
+                      <td class="cart_product"><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></td>
+                      <td class="cart_description"><p class="product-name"><a href="#">${vo.pname}</a></p>
+                        <small><a href="#">Color :  ${vo.picolor}</a></small><br>
+                        <small><a href="#">Size :${vo.pisize}</a></small></td>
                       <td class="availability in-stock"><span class="label">In stock</span></td>
-                      <td class="price"><span>$49.88</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="1"></td>
-                      <td class="price"><span>$49.88</span></td>
-                      <td class="action"><a href="#"><i class="icon-close"></i></a></td>
+                      <td class="price"><span>￦  ${vo.price}</span></td>
+                      <td class="qty"><input class="form-control input-sm" type="text" value="${vo.ccnt}"><input type="hidden"  value='${vo.price}'></td>
+                      <td class="price"><span>￦  ${vo.price * vo.ccnt}</span></td>
+                      <td class="action"><a class="remove"href="#"><i class="icon-close"></i><input type="hidden"  value = '${vo.cno}'  id="cno"></a></td>
                     </tr>
+                    </c:forEach>
                   </tbody>
                   <tfoot>
+                  <c:set var = "sum" value = "0" />
+		            <c:forEach items="${cart}" var="vo">
+		            <c:set var= "sum" value="${sum +vo.price * vo.ccnt}"/> 
+		          </c:forEach>
                     <tr>
-                      <td colspan="2" rowspan="2"></td>
-                      <td colspan="3">Total products (tax incl.)</td>
-                      <td colspan="2">$237.88 </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3"><strong>Total</strong></td>
-                      <td colspan="2"><strong>$237.88 </strong></td>
+                      <td colspan="5"><strong>Total</strong></td>
+                      <td colspan="2" class="total"><strong>￦ <c:out value="${sum}"/></strong></td>
                     </tr>
                   </tfoot>
                 </table>
@@ -53,5 +54,43 @@
       </div>
     </div>
   </section>
+   <script>
+   //cart 삭제
+   $(".remove").on('click', function(){
+  	var cno = $(this)[0].childNodes[1].value;
+  	$.ajax({
+          url : "/member/cartDelete",
+          data : {"cno":cno},
+          dataType : "JSON",
+          type : "post"
+  	});		
+          $(this)[0].parentNode.parentNode.remove();
+       	var totalP = 0;
+       	for(var i =0; i<$(".cartList").length; i++){
+       		var priceTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[1].value);
+       		var countTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[0].value);
+       		totalP += priceTotal*countTotal;	
+       	}
+       	
+       	$(".total")[0].innerHTML= "<strong>￦ " + totalP+"</strong>";
+   });
+   //수량 계산
+   $(".cartList").on("click",function(){
+  	var count = $(this)[0].childNodes[9].childNodes[0].value;
+  	var price =  $(this)[0].childNodes[9].childNodes[1].value;
+  	var total = count*price;
+   	$(this)[0].childNodes[11].innerHTML = "<span>￦ "+ total+"</span>";
+   	console.log($(".cartList"));
+   	var totalP = 0;
+   	for(var i =0; i<$(".cartList").length; i++){
+   		var priceTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[1].value);
+   		var countTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[0].value);
+   		totalP += priceTotal*countTotal;	
+   	}
+   	
+   	$(".total")[0].innerHTML= "<strong>￦ " + totalP+"</strong>";
+   });
+ 
+ </script>
 
 <%@include file="footer.jsp"%>
