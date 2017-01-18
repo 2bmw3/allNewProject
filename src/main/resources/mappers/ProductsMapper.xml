@@ -244,7 +244,7 @@
 
 	<select id="mTotalList" resultType="ProductsVO">
 		select pno, pname, pgender,
-		pkind, pregdate, ptitlephoto, price, shopname
+		pkind, pregdate, ptitlephoto, price, shopname, thema
 		from(
 		select * from
 		tbl_products) products, tbl_admin where
