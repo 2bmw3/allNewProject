@@ -100,7 +100,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "topList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -120,7 +120,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "bottomList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -140,7 +140,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "outerList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -160,7 +160,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "footWeareAccList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -257,7 +257,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "topList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -277,7 +277,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "bottomList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -297,12 +297,12 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "outerList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
 
-	@GetMapping("/thema2/shoseAccList")
+	@GetMapping("/thema2/shoesAccList")
 	public void thema2shoseAccList(int pageNum, Model model, String shopname, String pkind) throws Exception {
 		String adminid = aservice.getAdminId(shopname);
 		ProductsVO vo = new ProductsVO();
@@ -317,7 +317,7 @@ public class MemberController {
 
 		model.addAttribute("list", pservice.pkindList(vo));
 		model.addAttribute("page", pageing);
-		model.addAttribute("actionName", "etcList");
+		model.addAttribute("actionName", "shoesAccList");
 		model.addAttribute("total", totalData);
 		model.addAttribute("pageNum", pageNum);
 	}
@@ -357,6 +357,9 @@ public class MemberController {
 	}
 	// thema2 end
 
+	
+	
+	
 	// thema3 start
 	@GetMapping("/thema3/index")
 	public void thema3Index() {
@@ -364,9 +367,127 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema3/list")
-	public void thema3List() {
+	public void thema3List(int pageNum, Model model, String shopname) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		int totalData = pservice.total(adminid);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+		ProductsVO vo = new ProductsVO();
+
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+
+		model.addAttribute("list", pservice.list(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "list");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+	
+	@GetMapping("/thema3/topList")
+	public void thema3topList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "topList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 	}
 
+
+	@GetMapping("/thema3/bottomList")
+	public void thema3bottomList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "bottomList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	
+	@GetMapping("/thema3/outerList")
+	public void thema3outerList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "outerList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	@GetMapping("/thema3/shoesAccList")
+	public void thema3shoseAccList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "shoesAccList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	@GetMapping("/thema3/etcList")
+	public void thema3etcList(int pageNum, Model model, String shopname, String pkind) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
+		vo.setAdminid(adminid);
+		vo.setPkind(pkind);
+
+		int totalData = pservice.pkindTotal(vo);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
+
+
+		model.addAttribute("list", pservice.pkindList(vo));
+		model.addAttribute("page", pageing);
+		model.addAttribute("actionName", "etcList");
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
+	}
+
+	
+	
 	@GetMapping("/thema3/view")
 	public void thema3View(int pno, Model model) throws Exception {
 		model.addAttribute("view", pservice.read(pno));

@@ -45,7 +45,7 @@
 				<c:forEach items="${list}" var="vo">
 	                <li>
 	                  <figure>
-	                    <a class="aa-product-img" href="view?pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}">
+	                    <a class="aa-product-img" href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}">
 	                    	<img style = 'width:100%;height:300px;'src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="polo shirt img"></a>
 	                    <a class="aa-add-card-btn"href="#"><span class="fa fa-shopping-cart"></span>Add To Cart</a>
 	                    <figcaption>
@@ -159,39 +159,39 @@
         </div>
         
             <!-- pageNum  Start -->
-			<c:if test="${total>9}">
-				<div class="pagination-area" style="margin-left: 230px; margin-top: -180px;">
-					<form id='pageNumForm' method="get" action='${actionName}'>
-						<input type='hidden' name='shopname' value='${param.shopname}'> 
-						<input type='hidden' name='pkind' value='${param.pkind}'>
-						<input id='pageInput' type='hidden' name='pageNum'> 
-					</form>
-					<ul class="pagination">
-						<!— 이전 페이지가 있을 경우 —>
-						<c:set var="currentPage">${page.currentPage}</c:set>
-						<c:if test="${page.prevPage==1}">
-							<li value='${page.minimumPage-1}'>
-								<a href="" data-toggle="tab">
-									<i class="fa fa-angle-double-left"></i>
-								</a>
-							</li>
-						</c:if>
-						<c:forEach begin="${minimumPage}" end="${page.maxmumPage-1}" step="1" varStatus="status">
-							<li value='${status.count}'>
-							<a href="" <c:if test="${status.count == currentPage}">class="active"</c:if> data-toggle="tab">${status.count}</a></li>
-						</c:forEach>
-						<!— 다음 페이지가 있을 경우 —>
-						<c:if test="${page.nextPage==1}">
-							<li value='${page.maxmumPage+1}'>
-								<a href="" data-toggle="tab">
-									<i class="fa fa-angle-double-right"></i>
-								</a>
-							</li>
-						</c:if>
-					</ul>
-				</div>
-			</c:if>
-			<!— pageNum  End—>
+		<c:if test="${total>9}">
+			<div class="pagination-area" style="margin-left: 300px; margin-top: 20px;">
+				<form id='pageNumForm' method="get" action='${actionName}'>
+					<input type='hidden' name='shopname' value='${param.shopname}'> 
+					<input type='hidden' name='pkind' value='${param.pkind}'>
+					<input id='pageInput' type='hidden' name='pageNum'> 
+				</form>
+				<ul class="pagination">
+					<!— 이전 페이지가 있을 경우 —>
+					<c:set var="currentPage">${page.currentPage}</c:set>
+					<c:if test="${page.prevPage==1}">
+						<li value='${page.minimumPage-1}'>
+							<a href="" data-toggle="tab">
+								<i class="fa fa-angle-double-left"></i>
+							</a>
+						</li>
+					</c:if>
+					<c:forEach begin="${minimumPage}" end="${page.maxmumPage-1}" step="1" varStatus="status">
+						<li value='${status.count}'>
+						<a href="" <c:if test="${status.count == currentPage}">class="active"</c:if> data-toggle="tab">${status.count}</a></li>
+					</c:forEach>
+					<!— 다음 페이지가 있을 경우 —>
+					<c:if test="${page.nextPage==1}">
+						<li value='${page.maxmumPage+1}'>
+							<a href="" data-toggle="tab">
+								<i class="fa fa-angle-double-right"></i>
+							</a>
+						</li>
+					</c:if>
+				</ul>
+			</div>
+		</c:if>
+		<!— pageNum  End—>
         <div class="col-lg-3 col-md-3 col-sm-4 col-md-pull-9">
           <aside class="aa-sidebar">
            

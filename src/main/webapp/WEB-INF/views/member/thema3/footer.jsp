@@ -10,7 +10,13 @@
         <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
     </div>
 </footer>
-
+<script>
+$(".pagination").on("click", "li", function(event) {
+    event.preventDefault();
+    $("#pageInput").val($(this).val());
+    $("#pageNumForm").submit();
+ });
+</script>
 <!-- jQuery -->
 <script src="/resources/themes/thema3/assets/js/jquery.min.js"></script>
 <!-- jQuery Easing -->

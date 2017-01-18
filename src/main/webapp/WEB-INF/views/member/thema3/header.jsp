@@ -57,7 +57,47 @@
 <!-- FOR IE9 below -->
 
 <script src="/resources/themes/thema3/assets/js/respond.min.js"></script>
+<style>
+ul.pagination {
+	display: table;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
 
+ul.pagination li {
+	display: inline;
+}
+
+ul.pagination li a {
+	color: black;
+	float: left;
+	padding: 8px 16px;
+	text-decoration: none;
+	transition: background-color .3s;
+	border: 1px solid #ddd;
+}
+
+.pagination li:first-child a {
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+}
+
+.pagination li:last-child a {
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+ul.pagination li a.active {
+	background-color: lightpink;
+	color: white;
+	border: 1px solid lightpink;
+}
+
+ul.pagination li a:hover:not (.active ) {
+	background-color: #ddd;
+}
+</style>
 <head>
 <div class="fh5co-loader"></div>
 
@@ -71,18 +111,18 @@
 						<div class="col-sm-7 text-left menu-1">
 							<ul>
 								<li><a href="/member/index">Main</a></li>
-								<li><a href="index">Home</a></li>
+								<li><a href="index?shopname=${param.shopname}">Home</a></li>
 								<li class="has-dropdown"><a> Products</a>
 									<ul class="dropdown">
-										<li><a href="list">All</a></li>
-										<li><a href="#">Top</a></li>
-										<li><a href="#">Bottom</a></li>
-										<li><a href="#">Outer</a></li>
-										<li><a href="#">Shoes & Acc</a></li>
-										<li><a href="#">Etc</a></li>
+										<li><a href="list?shopname=${param.shopname}&pkind=전체&pageNum=1">All</a></li>
+										<li><a href="topList?shopname=${param.shopname}&pkind=상의&pageNum=1">Top</a></li>
+										<li><a href="bottomList?shopname=${param.shopname}&pkind=하의&pageNum=1">Bottom</a></li>
+										<li><a href="outerList?shopname=${param.shopname}&pkind=아우터&pageNum=1">Outer</a></li>
+										<li><a href="shoesAccList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">Shoes & Acc</a></li>
+										<li><a href="etcList?shopname=${param.shopname}&pkind=기타&pageNum=1">Etc</a></li>
 									</ul></li>
-								<li><a href="order">Order</a></li>
-								<li><a href="cart">cart</a></li>
+								<li><a href="order?shopname=${param.shopname}">Order</a></li>
+								<li><a href="cart?shopname=${param.shopname}">cart</a></li>
 							</ul>
 						</div>
 						<div class="col-sm-5">
