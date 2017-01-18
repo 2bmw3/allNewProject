@@ -81,7 +81,7 @@ figure.pic9 {
 
 figure.pic10 {
     -webkit-transform: rotate(0deg);
-    z-index: 100;
+    z-index: 1;
 }
 
 figure.pic11 {
@@ -90,9 +90,7 @@ figure.pic11 {
 }
 
 #background figure:hover {
-    box-shadow: 5px 10px 100px black;
     -webkit-transform: scale(1.1, 1.1);
-    z-index: 1000;
 }
 /* The Modal (background) */
 .modal {
@@ -100,8 +98,6 @@ figure.pic11 {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
