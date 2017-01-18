@@ -282,7 +282,7 @@ public class MemberController {
 	
 	@PostMapping("/cartDelete")
 	public @ResponseBody void cartDelete(int cno) throws Exception {
-		
+		System.out.println(cno);
 		oservice.cartDelete(cno);
 	} 
 
