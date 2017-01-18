@@ -200,4 +200,9 @@ public class ProductsDAOImpl implements ProductsDAO {
 	public List<ProductsVO> mPkindList(String pkind) throws Exception {
 		return sqlSession.selectList(NAME + ".mPkindList", pkind);
 	}
+
+	@Override
+	public List<ProductsVO> mTotalList() throws Exception {
+		return sqlSession.selectList(NAME + ".mTotalList");
+	}
 }

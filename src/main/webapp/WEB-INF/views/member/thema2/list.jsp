@@ -44,10 +44,9 @@
 							<c:forEach items="${list}" var="vo">
 								<div class="col-md-4 product-left single-left">
 									<div class="p-one simpleCart_shelfItem" >
-										<a href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}"> 
+										<a href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}""> 
 										<img 
-											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" 
-											alt="" />
+											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
 											<div class="mask mask1">
 												<span class="fa fa-search"> Quick view</span>
 											</div>

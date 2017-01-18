@@ -5,8 +5,16 @@ import java.util.Date;
 public class ProductsVO {
 
 	private int pno, sellcnt, price, pino, page;
-	private String pname, pgender, adminid, pkind, ptitlephoto, pcontent, pphoto;
+	private String pname, pgender, adminid, pkind, ptitlephoto, pcontent, pphoto, shopname;
 	private Date pregdate;
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
 
 	public int getPno() {
 		return pno;
@@ -96,6 +104,14 @@ public class ProductsVO {
 		this.pphoto = pphoto;
 	}
 
+	public String getShopname() {
+		return shopname;
+	}
+
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
+	}
+
 	public Date getPregdate() {
 		return pregdate;
 	}
@@ -108,16 +124,10 @@ public class ProductsVO {
 	public String toString() {
 		return "ProductsVO [pno=" + pno + ", sellcnt=" + sellcnt + ", price=" + price + ", pino=" + pino + ", page="
 				+ page + ", pname=" + pname + ", pgender=" + pgender + ", adminid=" + adminid + ", pkind=" + pkind
-				+ ", ptitlephoto=" + ptitlephoto + ", pcontent=" + pcontent + ", pphoto=" + pphoto + ", pregdate="
-				+ pregdate + "]";
+				+ ", ptitlephoto=" + ptitlephoto + ", pcontent=" + pcontent + ", pphoto=" + pphoto + ", shopname="
+				+ shopname + ", pregdate=" + pregdate + "]";
 	}
-
-	public int getPage() {
-		return page;
-	}
-
-	public void setPage(int page) {
-		this.page = page;
-	}
+	
+	
 
 }

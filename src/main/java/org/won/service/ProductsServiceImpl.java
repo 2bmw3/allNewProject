@@ -255,4 +255,9 @@ public class ProductsServiceImpl implements ProductsService {
 	public List<ProductsVO> mPkindList(String pkind) throws Exception {
 		return dao.mPkindList(pkind);
 	}
+
+	@Override
+	public List<ProductsVO> mTotalList() throws Exception {
+		return dao.mTotalList();
+	}
 }

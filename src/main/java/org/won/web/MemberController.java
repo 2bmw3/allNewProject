@@ -49,8 +49,50 @@ public class MemberController {
 	}
 
 	@GetMapping("/list")
-	public void list()throws Exception{
-		
+	public void list(Model model) throws Exception {
+
+		model.addAttribute("list", pservice.mTotalList());
+	}
+	@GetMapping("/maleList")
+	public void maleList(Model model, String pgender) throws Exception {
+
+		model.addAttribute("list", pservice.mGenderList(pgender));
+	}
+
+	@GetMapping("/femaleList")
+	public void femaleList(Model model, String pgender) throws Exception {
+
+		model.addAttribute("list", pservice.mGenderList(pgender));
+	}
+
+	@GetMapping("/topList")
+	public void topList(Model model, String pkind) throws Exception {
+
+		model.addAttribute("list", pservice.mPkindList(pkind));
+	}
+
+	@GetMapping("/bottomList")
+	public void bottomList(Model model, String pkind) throws Exception {
+
+		model.addAttribute("list", pservice.mPkindList(pkind));
+	}
+
+	@GetMapping("/outerList")
+	public void outerList(Model model, String pkind) throws Exception {
+
+		model.addAttribute("list", pservice.mPkindList(pkind));
+	}
+
+	@GetMapping("/footAccList")
+	public void footAccList(Model model, String pkind) throws Exception {
+
+		model.addAttribute("list", pservice.mPkindList(pkind));
+	}
+
+	@GetMapping("/etcList")
+	public void etcList(Model model, String pkind) throws Exception {
+
+		model.addAttribute("list", pservice.mPkindList(pkind));
 	}
 
 	// thema1 start
@@ -73,7 +115,7 @@ public class MemberController {
 		for (int i = 0; i < newItemSize; i++) {
 			viewList.add((i + hitItemSize), newItem.get(i));
 		}
-		
+
 		model.addAttribute("viewList", viewList);
 		model.addAttribute("hitItem", hitItem);
 		model.addAttribute("newItem", newItem);
@@ -213,7 +255,7 @@ public class MemberController {
 		AdminVO vo = new AdminVO();
 		vo.setAdminid(adminid);
 		vo.setLimitnum(8);
-				
+
 		model.addAttribute("hitItem", pservice.hitItem(vo));
 		model.addAttribute("newItem", pservice.newItem(vo));
 	}
@@ -337,16 +379,17 @@ public class MemberController {
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("infoColor", pservice.infoColor(pno));
 	}
-	//cart
+
+	// cart
 	@GetMapping("/thema2/cart")
 	public void thema2Cart(String shopname, Model model) throws Exception {
-		
+
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
 		vo.setUserid("test");
 
 		model.addAttribute("cart", oservice.cartList(vo));
-		
+
 	}
 
 	@GetMapping("/thema2/order")
