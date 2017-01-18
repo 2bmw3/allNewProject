@@ -64,7 +64,13 @@
 			<a href='#' id="myBtn" class='btn-example'> <i
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> <figcaption>Search Camera</figcaption> </figure>
-<!--  -->
+		</div>
+		<div style="margin-top: -15%;margin-left: 85%;">
+			<figure class="pic10 camera" style="width: 300px; height: 200px">
+
+			<a href='/member/list'> <i
+				class="fa fa-list" style="font-size: 150px;"></i>
+			</a> <figcaption>All List</figcaption> </figure>
 		</div>
 		<section class="page page--static">
 		<div class="page__title" style="margin-top: -20%;">
