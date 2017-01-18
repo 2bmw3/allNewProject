@@ -42,14 +42,15 @@
             <div class="col-md-6 banner-bottom-left">
                 <div class="bnr-one">
                     <div class="bnr-left">
-                        <h1><a href="#">Duis dictum</a></h1>
-                        <p>Nulla tempus facilisis purus at.</p>
+                        <h1>${hitItem[0].pname}</h1>
+                        <p>￦${hitItem[0].price}</p>
                         <div class="b-btn">
-                            <a href="#">SHOP NOW</a>
+                            <a href="/member/thema2/view?shopname=${param.shopname}&pno=${hitItem[0].pno}">SHOP NOW</a>
                         </div>
                     </div>
                     <div class="bnr-right">
-                        <a href="#"><img src="/resources/themes/thema2/images/b-1.jpg" alt=""/></a>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${hitItem[0].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+                        alt="" style="width: 100%; height: 100%;"/>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -57,14 +58,15 @@
             <div class="col-md-6 banner-bottom-right">
                 <div class="bnr-two">
                     <div class="bnr-left">
-                        <h2><a href="#">Phasellus nunc</a></h2>
-                        <p>Nulla tempus facilisis purus at.</p>
+                        <h1>${hitItem[1].pname}</h1>
+                        <p>￦${hitItem[2].price}</p>
                         <div class="b-btn">
-                            <a href="#">SHOP NOW</a>
+                            <a href="/member/thema2/view?shopname=${param.shopname}&pno=${hitItem[1].pno}">SHOP NOW</a>
                         </div>
                     </div>
                     <div class="bnr-right">
-                        <a href="#"><img src="/resources/themes/thema2/images/b-2.jpg" alt=""/></a>
+                       <img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${hitItem[1].ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164" 
+                       alt="" style="width: 100%; height: 100%;"/>
                     </div>
                     <div class="clearfix"></div>
                 </div>
@@ -78,122 +80,21 @@
 <!--start-shoes-->
 <div class="shoes">
     <div class="container">
+    <hr/>
+    <h2 style="text-align: center;">- New Item -</h2>
         <div class="product-one">
+      	  <c:forEach items="${newItem}" var="vo">
             <div class="col-md-3 product-left">
                 <div class="p-one simpleCart_shelfItem">
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-1.png" alt=""/>
-                        <div class="mask">
-                           <span class="fa fa-search"> Quick view</span>
-                        </div>
+                    <a href="/member/thema2/view?shopname=${param.shopname}&pno=${vo.pno}">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=5efdca0d-caa2-4c84-b3d8-23683e4f3164"
+                         alt="" style='min-height:200px;max-height: 200px;'/>
                     </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
+                    <h5>${vo.pname}</h5>
+                    <p><span class=" item_price">￦${vo.price}</span></p>
                 </div>
             </div>
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-2.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-3.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-13.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="product-one">
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-5.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-6.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-7.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="col-md-3 product-left">
-                <div class="p-one simpleCart_shelfItem">
-
-                    <a href="#">
-                        <img src="/resources/themes/thema2/images/shoes-8.png" alt=""/>
-                        <div class="mask">
-                            <span class="fa fa-search"> Quick view</span>>
-                        </div>
-                    </a>
-                    <h4>Aenean placerat</h4>
-                    <p><a class="item_add" href="#"><i></i> <span class=" item_price">$329</span></a></p>
-
-                </div>
-            </div>
-            <div class="clearfix"></div>
+       	  </c:forEach>
         </div>
     </div>
 </div>

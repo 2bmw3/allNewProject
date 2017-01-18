@@ -43,7 +43,6 @@ public class MemberController {
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
 	private CookieUtil cookieUtil = new CookieUtil();
 
-	// void good
 	@GetMapping("/index")
 	public void index(Model model) throws Exception {
 		model.addAttribute("indexList", mservice.indexList());
@@ -228,8 +227,14 @@ public class MemberController {
 
 	// thema2 start
 	@GetMapping("/thema2/index")
-	public void thema2Index(String adminid) {
-
+	public void thema2Index(String shopname, Model model) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		AdminVO vo = new AdminVO();
+		vo.setAdminid(adminid);
+		vo.setLimitnum(8);
+				
+		model.addAttribute("hitItem", pservice.hitItem(vo));
+		model.addAttribute("newItem", pservice.newItem(vo));
 	}
 
 	// 전체 리스트
