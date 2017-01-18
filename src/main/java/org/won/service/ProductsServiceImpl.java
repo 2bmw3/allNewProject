@@ -116,6 +116,11 @@ public class ProductsServiceImpl implements ProductsService {
 	public int total(String adminid) throws Exception {
 		return dao.total(adminid);
 	}
+	
+	@Override
+	public int pkindTotal(ProductsVO vo) throws Exception {
+		return dao.pkindTotal(vo);
+	}
 
 	@Override
 	public int searchTotal(SearchVO search) throws Exception {

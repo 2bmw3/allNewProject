@@ -37,7 +37,9 @@ public interface ProductsService {
 	public int searchTotal(SearchVO search) throws Exception;
 
 	public int total(String adminid) throws Exception;
-
+	
+	public int pkindTotal(ProductsVO vo) throws Exception;
+	
 	public void containDelete() throws Exception;
 
 	public List<ProductsVO> updateProductsRead(int pno) throws Exception;
