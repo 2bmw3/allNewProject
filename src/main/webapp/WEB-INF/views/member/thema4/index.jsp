@@ -34,12 +34,12 @@
 
 				</div><!-- /sl-slider -->
 
-                <!-- 
+               
                 <nav id="nav-arrows" class="nav-arrows">
                     <span class="nav-arrow-prev">Previous</span>
                     <span class="nav-arrow-next">Next</span>
                 </nav>
-                -->
+               
                 
                 <div id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
                     <a href="javascript:;" class="sl-prev">
