@@ -313,7 +313,7 @@ ul.uli li {
 						        type:"post",
 						        complete:function(){  
 					     	     	swal({
-					  	     			title: "해당 상품을 카드에 추가 하였습니다.",
+					  	     			title: "해당 상품을 카트에 추가 하였습니다.",
 					  	     	 		text: "",
 					  	     			type: "success",
 					  	     			timer: 1500,
