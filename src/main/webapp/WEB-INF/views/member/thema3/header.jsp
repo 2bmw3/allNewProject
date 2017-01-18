@@ -51,7 +51,8 @@
 <!-- Theme style  -->
 <link rel="stylesheet"
 	href="/resources/themes/thema3/assets/css/style.css">
-
+<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
+<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <!-- Modernizr JS -->
 <script src="/resources/themes/thema3/assets/js/modernizr-2.6.2.min.js"></script>
 <!-- FOR IE9 below -->

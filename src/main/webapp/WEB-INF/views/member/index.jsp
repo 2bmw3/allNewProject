@@ -53,18 +53,28 @@
 		</div>
 		</section>
 		<div class="title-wrap">
-			<h1 class="title title--main"></h1>
-			<p class="title title--sub"></p>
+			<h1 class="title title--main">
+				OH<em>!</em>SNAP
+			</h1>
+			<p class="title title--sub">Smart Auto-Filtering for your shots.</p>
 		</div>
 		<div style="margin-left: 5%;">
 			<figure class="pic10 camera" style="width: 300px; height: 200px">
-			
+
 			<a href='#' id="myBtn" class='btn-example'> <i
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> <figcaption>Search Camera</figcaption> </figure>
-			
+
 		</div>
 		<section class="page page--static">
+		<div class="page__title" style="margin-top: -20%;">
+			<h2 class="page__title-main">Polaroid Stack to Grid Intro
+				Animation</h2>
+			<p class="page__title-sub">
+				Recreating the effect seen on the <a
+					href="http://www.takeitapp.co/en">takeit</a> website
+			</p>
+		</div>
 		<ul class="grid">
 			<c:forEach items="${indexList}" var="vo" varStatus="status">
 				<li class="grid__item" style="width: 200px; height: 200px;"><figure
