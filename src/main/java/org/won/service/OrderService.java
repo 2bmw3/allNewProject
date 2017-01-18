@@ -17,5 +17,5 @@ public interface OrderService {
    
    public List<CartVO> cartList(CartVO vo) throws Exception;
    
-   public void deleteCart(int cno) throws Exception;
+   public void cartDelete(int cno) throws Exception;
 }

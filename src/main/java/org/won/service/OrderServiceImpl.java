@@ -47,9 +47,9 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void deleteCart(int cno) throws Exception {
+	public void cartDelete(int cno) throws Exception {
 		
-		dao.deleteCart(cno);
+		dao.cartDelete(cno);
 		
 	}
 
