@@ -292,13 +292,13 @@
 				  	     			title: "해당 상품을 카트에 추가 하였습니다.",
 				  	     	 		text: "",
 				  	     			type: "success",
-				  	     			timer: 1500,
+				  	     			timer: 1000,
 				  	     			showConfirmButton: false
 				  	     		});
 					        }
 					    }); 
 					    //ajax end
-				  }, 1000);
+				  }, 500);
 				});
 
 		}//End else
@@ -315,6 +315,7 @@
 	
 	// 색상 클릭시 해당 색상의 사이즈 별로 출력
 	$(".colorInfo").on("click",function(event){
+		size = null;
 		$(".colorInfo").css("border-width","1px");
 		$(this).css("border-width","5px");
 		

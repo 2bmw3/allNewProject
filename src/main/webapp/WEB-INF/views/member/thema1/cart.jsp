@@ -71,24 +71,6 @@
  </section>
  <!-- / Cart view section -->
  <script>
- /* firebase script */
- var config = {
-    apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
-    authDomain : "project-26bd6.firebaseapp.com",
-    databaseURL : "https://project-26bd6.firebaseio.com",
-    storageBucket : "project-26bd6.appspot.com",
-    messagingSenderId : "544848311496"
- };
- firebase.initializeApp(config);
-
- // Get a reference to the storage service, which is used to create
-	
- var storage = firebase.storage();
-
- // Create a storage reference from our storage servic
- var storageRef = storage.ref();
- </script>
- <script>
  //cart 삭제
  $(".remove").on('click', function(){
 	var cno = $(this)[0].childNodes[1].value;
