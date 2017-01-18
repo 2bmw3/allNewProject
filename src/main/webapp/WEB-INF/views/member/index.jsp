@@ -23,10 +23,6 @@
 	href="/resources/member/css/demo.css" />
 <link rel="stylesheet" type="text/css"
 	href="/resources/member/css/component.css" />
-<link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive'
-	rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive'
-	rel='stylesheet' type='text/css'>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css"
@@ -65,8 +61,8 @@
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> <figcaption>Search Camera</figcaption> </figure>
 		</div>
-		<div style="margin-top: -15%;margin-left: 85%;">
-			<figure class="pic10 camera" style="width: 300px; height: 200px">
+		<div style="margin-top: -14.5%;margin-left: 85%;">
+			<figure class="pic10 camera" style="width: 150px; height: 150px">
 
 			<a href='/member/list'> <i
 				class="fa fa-list" style="font-size: 150px;"></i>
