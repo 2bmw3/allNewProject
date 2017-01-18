@@ -62,10 +62,9 @@
                   <div class="aa-header-top-area">
                      <div class="aa-header-top-right">
                         <ul class="aa-head-top-nav-right">
-                           <li><a href="faq">F.A.Q</a></li>
-                           <li><a href="account">My Account</a></li>
+                           <li><a href="faq?shopname=${param.shopname}">F.A.Q</a></li>
                            <li><a href="cart?shopname=${param.shopname}">My Cart</a></li>
-                           <li><a href="checkout">Checkout</a></li>
+                           <li><a href="checkout?shopname=${param.shopname}">Checkout</a></li>
                            <li><a href="/member/login">Login</a></li>
                             <li><a href="/member/register">Join Us</a></li>
                         </ul>
