@@ -102,7 +102,7 @@
 
 			<div id="main-container-image">
 				<section class="work"> 
-<!-- 메롱들 -->
+
 				<!-- 하나 시작 --> 
 				<c:if test="${'[null]' ne list}">
 					<c:forEach items="${list}" var="vo">
