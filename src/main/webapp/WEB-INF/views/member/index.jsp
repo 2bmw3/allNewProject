@@ -49,25 +49,22 @@
 		</div>
 		</section>
 		<div class="title-wrap">
-			<h1 class="title title--main">
+			<h3 class="title title--main">
 				OH<em>!</em>SNAP
-			</h1>
+			</h3>
 			<p class="title title--sub">Smart Auto-Filtering for your shots.</p>
 		</div>
-		<div style="margin-left: 3.5%;">
-			<figure class="pic10 camera" style="width: 300px; height: 200px;">
-
+		
+			<figure class="pic10 camera" style="margin-left:3.5%;">
 			<a href='#' id="myBtn" class='btn-example'> <i
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> <figcaption>Search Camera</figcaption> </figure>
-		</div>
-		<div style="margin-left: 85%;">
-			<figure class="pic10 camera" style="width: 150px; height: 150px; margin-top: -97%;">
-
+		
+			<figure class="pic9 camera" style="margin-left:85%; margin-top:-12%">
 			<a href='/member/list'> <i
 				class="fa fa-list" style="font-size: 150px;"></i>
 			</a> <figcaption>All List</figcaption> </figure>
-		</div>
+		
 		<section class="page page--static">
 		<div class="page__title" style="margin-top: -20%;">
 			<h2 class="page__title-main">Polaroid Stack to Grid Intro
