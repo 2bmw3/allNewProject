@@ -28,7 +28,7 @@
                <ul class="cart-header">
                   <li class="ring-in"><a href="#"><img style="width:50%;" src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></li>
                   <li><span>${vo.pname} / ${vo.picolor} / ${vo.pisize}</span></li>
-                  <li><span>￦ ${vo.price}</span></li>
+                  <li><span>￦ ${vo.price}<input type="hidden" value="${vo.price}"></span></li>
                   <li><span>${vo.ccnt}</span></li>
                   <li  class="ring-in"><a class="remove"href="#"><img src="/resources/themes/thema2/images/close-1.png" style="margin:13%;"><input type="hidden"  value = '${vo.cno}'  id="cno"></a></li>
                   <div class="clearfix"></div>
@@ -65,15 +65,21 @@
 $(".remove").on('click', function(){
 	var cno = $(this)[0].childNodes[1].value;
 	$.ajax({
-        url : "/member/catDelete",
+        url : "/member/cartDelete",
         data : {"cno":cno},
         dataType : "JSON",
         type : "post"
 	});	
 	$(this)[0].parentNode.parentNode.remove();
+ 	var totalP = 0;
+ 	for(var i =0; i<$(".cart-header").length; i++){
+ 		var priceTotal = parseInt($(".cart-header")[i].childNodes[7].childNodes[0].childNodes[1].value);
+ 		var countTotal = parseInt($(".cart-header")[i].childNodes[9].childNodes[0].childNodes[0].nodeValue);
+ 		totalP += priceTotal*countTotal;
+ 	}
+ 	
+ 	$(".total")[0].innerHTML= "<h4>￦ " + totalP+"</h4>";
  });
 
-
- 
 </script>
 </html>
