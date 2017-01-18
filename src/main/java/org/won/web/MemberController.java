@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.won.domain.AdminVO;
 import org.won.domain.CartVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
@@ -44,9 +45,8 @@ public class MemberController {
 	private CookieUtil cookieUtil = new CookieUtil();
 
 	@GetMapping("/index")
-	public String index(Model model) throws Exception {
+	public void index(Model model) throws Exception {
 		model.addAttribute("indexList", mservice.indexList());
-		return "/member/index";
 	}
 
 	@GetMapping("/view")
@@ -75,8 +75,13 @@ public class MemberController {
 
 	// thema1 start
 	@GetMapping("/thema1/index")
-	public void thema1Index() {
-
+	public void thema1Index(String shopname, Model model)throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		AdminVO vo = new AdminVO();
+		vo.setAdminid(adminid);
+		vo.setLimitnum(8);
+		model.addAttribute("hitItem", pservice.hitItem(vo));
+		model.addAttribute("newItem", pservice.newItem(vo));
 	}
 
 	@GetMapping("/thema1/topList")
