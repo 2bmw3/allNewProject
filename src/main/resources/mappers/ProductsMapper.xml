@@ -191,5 +191,14 @@
     select thema,(select shoplogo from bit88.tbl_products where pno=#{pno}) shoplogo from bit88.tbl_admin
 	where adminid = (select adminid from bit88.tbl_products where pno=#{pno})
    </select>
+   
+   <select id="hitItem" parameterType="AdminVO" resultType="ProductsVO">
+  	select *  from  (select * from tbl_products where adminid=#{adminid} limit 0, #{limitnum}) t order by sellcnt desc
+   </select>
+   
+   <select id="newItem" parameterType="AdminVO" resultType="ProductsVO">
+  	select *  from  (select * from tbl_products where adminid=#{adminid} limit 0, #{limitnum}) t order by pregdate desc
+   </select>
+   
 
 </mapper>

@@ -1,5 +1,7 @@
 package org.won.web;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.won.domain.CartVO;
+import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
 import org.won.service.AdminService;
 import org.won.service.BoardService;
@@ -19,6 +22,8 @@ import org.won.service.OrderService;
 import org.won.service.ProductsService;
 import org.won.util.CookieUtil;
 import org.won.util.PageingUtil;
+
+import com.google.gson.Gson;
 
 @RequestMapping("/member/*")
 @Controller
@@ -285,5 +290,13 @@ public class MemberController {
 		System.out.println(cno);
 		oservice.cartDelete(cno);
 	} 
+	
+	@GetMapping("/infoSize")
+	public @ResponseBody List<PinfoVO> infoSize(PinfoVO vo) throws Exception{
+		List<PinfoVO> list = pservice.infoSize(vo);
+		Gson gson = new Gson();
+		System.out.println("hello");
+		return list;
+	}
 
 }
