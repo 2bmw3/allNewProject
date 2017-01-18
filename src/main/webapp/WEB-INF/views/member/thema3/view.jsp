@@ -261,7 +261,7 @@ ul.uli li {
 		$(".item4").click(function() {
 			$("#myCarousel").carousel(3);
 		});
-
+//
 		// Enable Carousel Controls
 		$(".left").click(function() {
 			$("#myCarousel").carousel("prev");
