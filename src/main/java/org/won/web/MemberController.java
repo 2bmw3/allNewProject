@@ -48,28 +48,9 @@ public class MemberController {
 		model.addAttribute("indexList", mservice.indexList());
 	}
 
-	@GetMapping("/view")
-	public void view() {
-	}
-
-	@GetMapping("/login")
-	public void login() {
-	}
-
-	@GetMapping("/brand")
-	public void brand() {
-	}
-
-	@GetMapping("/man_products")
-	public void man_products() {
-	}
-
-	@GetMapping("/woman_products")
-	public void woman_products() {
-	}
-
-	@GetMapping("/order")
-	public void order() {
+	@GetMapping("/list")
+	public void list()throws Exception{
+		
 	}
 
 	// thema1 start
