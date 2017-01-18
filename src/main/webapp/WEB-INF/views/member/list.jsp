@@ -106,7 +106,7 @@
 				<!-- 하나 시작 --> 
 				<c:if test="${'[null]' ne list}">
 					<c:forEach items="${list}" var="vo">
-						<figure class="white" style='min-height: 400px; max-height: 400px;'> 
+						<figure class="white" style='min-height: 430px; max-height: 430px;'> 
 						<a href="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}" onclick="window.open(this.href); self.location.href='list';"> 
 						<img style='max-width: 300px;min-height:300px;max-height: 300px;'
 							src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
@@ -117,7 +117,7 @@
 						</a>
 						<div id="wrapper-part-info">
 							<div id="part-info">￦${vo.price}</div>
-							<div id="part-info">${vo.pname}</div>
+							<div id="part-info"><a style='font-size: small;'>${vo.pname}</a></div>
 						</div>
 						</figure>
 

@@ -71,23 +71,23 @@
 					<div id="fleche-nav-3"></div>
 				</div>
 				<div id="wrapper-title-4">
-					<a href="categoryList?pkind=상의"><div class="oldies object">Top</div></a>
+					<a href="topList?pkind=상의"><div class="oldies object">Top</div></a>
 					<div id="fleche-nav-4"></div>
 				</div>
 				<div id="wrapper-title-5">
-					<a href="categoryList?pkind=하의"><div class="oldies object">Bottom</div></a>
+					<a href="bottomList?pkind=하의"><div class="oldies object">Bottom</div></a>
 					<div id="fleche-nav-5"></div>
 				</div>
 				<div id="wrapper-title-6">
-					<a href="categoryList?pkind=아우터"><div class="oldies object">Outer</div></a>
+					<a href="outerList?pkind=아우터"><div class="oldies object">Outer</div></a>
 					<div id="fleche-nav-6"></div>
 				</div>
 				<div id="wrapper-title-7">
-					<a href="categoryList?pkind=신발 및 악세사리"><div class="oldies object">Foot & Acc</div></a>
+					<a href="footAccList?pkind=신발 및 악세사리"><div class="oldies object">Foot & Acc</div></a>
 					<div id="fleche-nav-7"></div>
 				</div>
 				<div id="wrapper-title-8">
-					<a href="categoryList?pkind=기타"><div class="oldies object">Etc</div></a>
+					<a href="etcList?pkind=기타"><div class="oldies object">Etc</div></a>
 					<div id="fleche-nav-8"></div>
 				</div>
 			</div>
@@ -106,8 +106,8 @@
 				<!-- 하나 시작 --> 
 				<c:if test="${'[null]' ne list}">
 					<c:forEach items="${list}" var="vo">
-						<figure class="white" style='min-height: 400px; max-height: 400px;'> 
-						<a href="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}" onclick="window.open(this.href); self.location.href='genderList?pgender=${param.pgender}';"> 
+						<figure class="white" style='min-height: 430px; max-height: 430px;'> 
+						<a href="thema${vo.thema}/view?shopname=${vo.shopname}&pno=${vo.pno}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}" onclick="window.open(this.href); self.location.href='list';"> 
 						<img style='max-width: 300px;min-height:300px;max-height: 300px;'
 							src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
 							<dl>
@@ -117,7 +117,7 @@
 						</a>
 						<div id="wrapper-part-info">
 							<div id="part-info">￦${vo.price}</div>
-							<div id="part-info">${vo.pname}</div>
+							<div id="part-info"><a style='font-size: small;'>${vo.pname}</a></div>
 						</div>
 						</figure>
 
