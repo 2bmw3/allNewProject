@@ -399,8 +399,13 @@ public class MemberController {
 
 	// thema3 start
 	@GetMapping("/thema3/index")
-	public void thema3Index() {
-
+	public void thema3Index(String shopname, Model model) throws Exception {
+		String adminid = aservice.getAdminId(shopname);
+		AdminVO vo = new AdminVO();
+		vo.setAdminid(adminid);
+		vo.setLimitnum(6);
+				
+		model.addAttribute("hitItem", pservice.hitItem(vo));
 	}
 
 	@GetMapping("/thema3/list")
@@ -530,8 +535,15 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema3/cart")
-	public void thema3Cart() {
+	public void thema3Cart(String shopname, Model model) throws Exception {
+
+		CartVO vo = new CartVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+
+		model.addAttribute("cart", oservice.cartList(vo));
 	}
+
 	// thema3 end
 
 	// thema4 strat
@@ -631,8 +643,13 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema4/cart")
-	public void thema4Cart() {
+	public void thema4Cart(String shopname, Model model) throws Exception {
 
+		CartVO vo = new CartVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+
+		model.addAttribute("cart", oservice.cartList(vo));
 	}
 
 	// thema4 view

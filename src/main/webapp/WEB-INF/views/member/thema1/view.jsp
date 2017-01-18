@@ -57,40 +57,44 @@
 							</div>
 						</div>
 						<!-- Modal view content -->
-						<div class="col-md-7 col-sm-7 col-xs-12">
-							<div class="aa-product-view-content">
-								<div class="product-information">
+						<div class="col-md-7 col-sm-7 col-xs-12" >
+							<div class="aa-product-view-content" style="margin-left:10%;">
+								<div class="product-information" >
 
 									<!--/product-information-->
-									<h2>${view[0].pname}</h2>
-									<p>${view[0].pgender}</p>
-									<p>￦${view[0].price}</p>
-									<p>
-										<b>종류:</b> ${view[0].pkind}
-									</p>
-									<p>
-										<b>판매량:</b> ${view[0].sellcnt}
-									</p>
-								</div>
-								<h4>Size</h4>
-								<div class="aa-prod-view-size">
-									<a href="#">S</a> <a href="#">M</a> <a href="#">L</a> <a
-										href="#">XL</a>
+										<h2>${view[0].pname}</h2>
+										<p>
+											<b>GENDER :</b> ${view[0].pgender}
+										</p>
+										<p>
+											<b>KIND :</b> ${view[0].pkind}
+										</p>
+										<p>
+											<b>SALES RATE :</b> ${view[0].sellcnt}
+										</p>
+										<p>
+											<b>PRICE :</b> ${view[0].price}
+										</p>
 								</div>
 								<h4>Color</h4>
 								<c:forEach items="${infoColor}" var="vo" varStatus="status">
 									<image style="border-width : 1px; margin-top:1%; border-style : solid;"
 										src='/resources/admin/images/color_info/${vo.picolor}.jpg'
-										class='colorInfo' id='${vo.picolor}' />
+										class='colorInfo' name ='${vo.picolor}' />
 								</c:forEach>
+								<h4>Size</h4>
+								<div class="aa-prod-view-size size">
+									<h5>&nbsp;&nbsp;&nbsp;색상을 선택 해주세요</h5>
+								</div>
+								&nbsp;
 								<div class="input-group col-md-3">
 									<span class="input-group-btn">
 										<button type="button" class="btn btn-danger btn-number"
 											data-type="minus" data-field="quant[2]">
 											<span class="glyphicon glyphicon-minus"></span>
 										</button>
-									</span> <input type="text" name="quant[2]"
-										class="form-control input-number" value="1" min="1" max="100">
+									</span> <input type="text" name="quant[2]" id="quantity"
+										class="form-control input-number" value="1" min="1" max="10">
 									<span class="input-group-btn">
 										<button type="button" class="btn btn-success btn-number"
 											data-type="plus" data-field="quant[2]">
@@ -99,7 +103,7 @@
 									</span>
 								</div>
 								<div class="aa-prod-view-bottom">
-									<a class="aa-add-to-cart-btn" href="#" id='addCart'>Add To
+									<a class="aa-add-to-cart-btn" href="#" id='cart'>Add To
 										Cart</a>
 								</div>
 							</div>
@@ -374,6 +378,92 @@
 </div>
 </section>
 <!— / product category —>
+
+	<script>
+	
+	var ccnt = null;
+	var color = null;
+	var pno = ${view[0].pno};
+	var size = null;
+	var adminid = "${view[0].adminid}";
+	
+	$("#cart").on("click",function(){
+		ccnt = $("#quantity").val();
+		var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+		if(ccnt==null || color==null || size==null){
+ 	     	swal({
+	     			title: "상품 상세 정보를 선택해주세요.",
+	     	 		text: "",
+	     			type: "error",
+	     			timer: 1500,
+	     			showConfirmButton: false
+	     		});
+		}else{
+			swal({
+				  title: "카트에 추가 하시겠습니까?",
+				  text: "",
+				  type: "info",
+				  showCancelButton: true,
+				  closeOnConfirm: false,
+				  showLoaderOnConfirm: true,
+				},
+				function(){
+				  setTimeout(function(){
+					    $.ajax({      
+					    	url: "/member/cartAdd", 
+					        data: formData, 
+					        dataType: "json",
+					        type:"post",
+					        complete:function(){   
+				     	     	swal({
+				  	     			title: "해당 상품을 카드에 추가 하였습니다.",
+				  	     	 		text: "",
+				  	     			type: "success",
+				  	     			timer: 1500,
+				  	     			showConfirmButton: false
+				  	     		});
+					        }
+					    }); 
+					    //ajax end
+				  }, 1000);
+				});
+
+		}//End else
+	});
+	
+	//사이즈 체크시 값 담기
+	$(document).on("click",".pisize",function(){
+		var thisSize = $(this); 
+		size = thisSize.attr('name');
+		$(".pisize").css("background-color","");
+		thisSize.css("background-color","#922C2C");
+	});
+
+	
+	// 색상 클릭시 해당 색상의 사이즈 별로 출력
+	$(".colorInfo").on("click",function(event){
+		$(".colorInfo").css("border-width","1px");
+		$(this).css("border-width","5px");
+		
+		color = $(this).attr("name");
+		var formData = {"pno":pno, "picolor":color};
+		var str="";
+	    $.ajax({      
+	    	url: "/member/infoSize", 
+	        data: formData, 
+	        dataType: "json",
+	        type:"get",
+	        success:function(data){   
+	        	$(".size").empty() ;
+	            $.each(data, function(index) {
+	                str += "<button style='padding: 5px 10px;' class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button>";
+	            });
+	            $(".size").append(str);
+	        }
+	    });  
+	});
+	</script>
+
 
 <%@include file="footer.jsp"%>
 

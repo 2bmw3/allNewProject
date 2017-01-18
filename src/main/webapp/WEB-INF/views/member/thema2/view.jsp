@@ -183,7 +183,7 @@
 		        success:function(data){   
 		        	$(".size").empty() ;
 		            $.each(data, function(index) {
-		                str += "<li><button class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button></li>";
+		                str += "<li><button style='padding: 5px 10px;' class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button></li>";
 		            });
 		            $(".size").append(str);
 		        }

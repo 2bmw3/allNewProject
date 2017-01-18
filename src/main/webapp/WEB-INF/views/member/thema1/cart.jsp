@@ -99,6 +99,14 @@
         type : "post"
 	});		
         $(this)[0].parentNode.parentNode.remove();
+     	var totalP = 0;
+     	for(var i =0; i<$(".cartList").length; i++){
+     		var priceTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[1].value);
+     		var countTotal = parseInt($(".cartList")[i].childNodes[9].childNodes[0].value);
+     		totalP += priceTotal*countTotal;	
+     	}
+     	
+     	$(".total")[0].innerHTML= "￦ " + totalP;
  });
  //수량 계산
  $(".cartList").on("click",function(){

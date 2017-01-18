@@ -11,6 +11,8 @@
 <link href='https://fonts.googleapis.com/css?family=Poppins:400,300,500,600,700' rel='stylesheet' type='text/css'>
 <!-- CSS Style -->
 <!-- Bootstrap CSS -->
+<!-- font-awesome & simple line icons CSS -->
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all">
 <link rel="stylesheet" type="text/css" href="/resources/themes/thema4/css/bootstrap.min.css">
 
 <!-- font-awesome & simple line icons CSS -->
@@ -53,7 +55,7 @@
 <link rel="stylesheet" href="/resources/themes/thema4/css/jquery-ui.css">
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
-
+<script src="//code.jquery.com/jquery.min.js"></script>
  
 <!-- mobile menu -->
 <div id="mobile-menu">

@@ -11,21 +11,18 @@
 
 <body class="product-page">
 	
-		<!-- Main Container -->
+		<!-- Main Containerd -->
 		<div class="main-container col2-right-layout">
 			<div class="container">
 				<div class="row">
-					<div class="col-main col-sm-9">
+					<div class="col-main col-sm-12">
 						<div class="product-view-area">
 							<div
 								class="product-big-image col-xs-12 col-sm-9 col-lg-5 col-md-5">
 								<div class="large-image">
-									<a class="cloud-zoom" id="magni_img"
-										data-big="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
-										data-overlay="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
-										rel="useWrapper: false, adjustY:0, adjustX:20"> <img
+									<a class="cloud-zoom" id="magni_img"> <img
 										style="width: 500px; height: 500px;"
-										src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" /></a>
+										src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" /></a>
 								</div>
 								<div class="flexslider flexslider-thumb">
 									<ul class="previews-list slides">
@@ -41,7 +38,7 @@
 												href='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
 												class='cloud-zoom-gallery'
 												rel="useZoom: 'magni_img', smallImage: 'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e' "><img
-													src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
+													style="width: 75px; height: 75px;"src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e"
 													alt="Thumbnail 2" /></a></li>
 											<c:if test="${status.count == viewtotal}">
 											</c:if>
@@ -57,16 +54,20 @@
 								<div class="product-details-area">
 									<div class="product-name">
 										<h2>${view[0].pname}</h2>
-										<p>${view[0].pgender}</p>
 										<p>
-											<b>종류:</b> ${view[0].pkind}
+											<b>GENDER :</b> ${view[0].pgender}
 										</p>
 										<p>
-											<b>판매량:</b> ${view[0].sellcnt}
+											<b>KIND :</b> ${view[0].pkind}
+										</p>
+										<p>
+											<b>SALES RATE :</b> ${view[0].sellcnt}
 										</p>
 									</div>
 									<div class="price-box">
-										<p>￦${view[0].price}</p>
+										<p>
+											<b>PRICE : </b>${view[0].price}원
+										</p>
 									</div>
 									<div class="product-color-size-area">
 										<div class="color-area">
@@ -74,16 +75,14 @@
 											<c:forEach items="${infoColor}" var="vo" varStatus="status">
 												<image style="border-width : 1px; margin-top:1%; border-style : solid;"
 													src='/resources/admin/images/color_info/${vo.picolor}.jpg'
-													class='colorInfo' id='${vo.picolor}' />
+													class='colorInfo' name='${vo.picolor}'></image>
 											</c:forEach>
 										</div>
 										<div class="size-area">
 											<h2 class="saider-bar-title">Size</h2>
-											<div class="size">
-												<ul>
-													<c:forEach items="${infoSize}" var="vo" varStatus="status">
-														<li><a href="#">${vo.pisize}</a></li>
-													</c:forEach>
+											<div>
+												<ul class="size">
+													<li>색상을 선택 해주세요</li>
 												</ul>
 											</div>
 										</div>
@@ -98,8 +97,7 @@
 														class="dec qtybutton">
 														<i class="fa fa-minus">&nbsp;</i>
 													</div>
-													<input type="text" class="qty" title="Qty" value="1"
-														maxlength="12" id="qty" name="qty">
+													<input type="text" class="qty" title="Qty" value="1" maxlength="12" id="qty" name="qty">
 													<div
 														onClick="var result = document.getElementById('qty'); var qty = result.value; if( !isNaN( qty )) result.value++;return false;"
 														class="inc qtybutton">
@@ -107,7 +105,7 @@
 													</div>
 												</div>
 											</div>
-											<button class="button pro-add-to-cart" title="Add to Cart"
+											<button class="button pro-add-to-cart" id="cart" title="Add to Cart"
 												type="button">
 												<span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
 											</button>
@@ -254,4 +252,88 @@
 			</div>
 		</div>
 	</div>
+	<script>
+	
+	var ccnt = null;
+	var color = null;
+	var pno = ${view[0].pno};
+	var size = null;
+	var adminid = "${view[0].adminid}";
+	
+	$("#cart").on("click",function(){
+		ccnt = $("#qty").val();
+		var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+		if(ccnt==null || color==null || size==null){
+ 	     	swal({
+	     			title: "상품 상세 정보를 선택해주세요.",
+	     	 		text: "",
+	     			type: "error",
+	     			timer: 1500,
+	     			showConfirmButton: false
+	     		});
+		}else{
+			swal({
+				  title: "카트에 추가 하시겠습니까?",
+				  text: "",
+				  type: "info",
+				  showCancelButton: true,
+				  closeOnConfirm: false,
+				  showLoaderOnConfirm: true,
+				},
+				function(){
+				  setTimeout(function(){
+					    $.ajax({      
+					    	url: "/member/cartAdd", 
+					        data: formData, 
+					        dataType: "json",
+					        type:"post",
+					        complete:function(){   
+				     	     	swal({
+				  	     			title: "해당 상품을 카드에 추가 하였습니다.",
+				  	     	 		text: "",
+				  	     			type: "success",
+				  	     			timer: 1500,
+				  	     			showConfirmButton: false
+				  	     		});
+					        }
+					    }); 
+					    //ajax end
+				  }, 1000);
+				});
+
+		}//End else
+	});
+	
+	//사이즈 체크시 값 담기
+	$(document).on("click",".pisize",function(){
+		var thisSize = $(this); 
+		size = thisSize.attr('name');
+		$(".pisize").css("background-color","");
+		thisSize.css("background-color","#922C2C");
+	});
+
+	
+	// 색상 클릭시 해당 색상의 사이즈 별로 출력
+	$(".colorInfo").on("click",function(event){
+		$(".colorInfo").css("border-width","1px");
+		$(this).css("border-width","5px");
+		
+		color = $(this).attr("name");
+		var formData = {"pno":pno, "picolor":color};
+		var str="";
+	    $.ajax({      
+	    	url: "/member/infoSize", 
+	        data: formData, 
+	        dataType: "json",
+	        type:"get",
+	        success:function(data){   
+	        	$(".size").empty() ;
+	            $.each(data, function(index) {
+	                str += "<li><button style='padding: 5px 10px;' class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button></li>";
+	            });
+	            $(".size").append(str);
+	        }
+	    });  
+	});
+	</script>
 	<%@include file="footer.jsp"%>
