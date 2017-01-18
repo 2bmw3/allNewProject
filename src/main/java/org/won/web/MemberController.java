@@ -281,9 +281,9 @@ public class MemberController {
 	// thema4 end
 	
 	@PostMapping("/cartDelete")
-	public @ResponseBody void productsDelete(int pno) throws Exception {
-		System.out.println("cccccccpno="+pno);
+	public @ResponseBody void cartDelete(int cno) throws Exception {
 		
+		oservice.cartDelete(cno);
 	} 
 
 }
