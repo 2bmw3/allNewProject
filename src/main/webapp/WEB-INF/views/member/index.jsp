@@ -22,7 +22,7 @@
 	
 	<c:forEach items="${indexList}" var="vo" varStatus="status">
 		<figure class="pic${status.count }"> 
-			<a href="thema${vo.thema}/index?adminid=${vo.adminid}"> 
+			<a href="thema${vo.thema}/index?adminid=${vo.shopname}"> 
 				<img src="${vo.titleimg}" />
 			</a> 
 			<figcaption>${vo.shopname}</figcaption> 
