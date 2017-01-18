@@ -80,8 +80,8 @@ figure.pic9 {
 }
 
 figure.pic10 {
-    -webkit-transform: rotate(2deg);
-    z-index: 1;
+    -webkit-transform: rotate(0deg);
+    z-index: 100;
 }
 
 figure.pic11 {
@@ -92,7 +92,7 @@ figure.pic11 {
 #background figure:hover {
     box-shadow: 5px 10px 100px black;
     -webkit-transform: scale(1.1, 1.1);
-    z-index: 20;
+    z-index: 1000;
 }
 /* The Modal (background) */
 .modal {
@@ -147,7 +147,6 @@ figure.pic11 {
 .close:focus {
     color: #000;
     text-decoration: none;
-    cursor: pointer;
 }
 
 .modal-header {

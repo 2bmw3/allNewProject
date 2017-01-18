@@ -66,17 +66,13 @@ ul.uli li {
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 						<div class="item active">
-
 							<img
 								src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${view[0].ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 						</div>
 
-						<div class="item">
-							<c:forEach items="${view}" var="vo" varStatus="status">
-								<img
-									src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.pphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" />
-							</c:forEach>
-						</div>
+<!-- 						<div class="item"> -->
+<%-- 								${view[0].pcontent} --%>
+<!-- 						</div> -->
 
 						<div class="col-sm-offset-1" style="float: left">
 							<a class="left" href="#myCarousel" role="button"
