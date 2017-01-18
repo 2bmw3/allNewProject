@@ -64,7 +64,7 @@
 			<a href='#' id="myBtn" class='btn-example'> <i
 				class="fa fa-camera-retro" style="font-size: 150px;"></i>
 			</a> <figcaption>Search Camera</figcaption> </figure>
-
+<!--  -->
 		</div>
 		<section class="page page--static">
 		<div class="page__title" style="margin-top: -20%;">
