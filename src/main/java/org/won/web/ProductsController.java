@@ -1,21 +1,12 @@
 package org.won.web;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.DatatypeConverter;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -23,13 +14,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.won.domain.AdminVO;
 import org.won.domain.ParamVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.PphotosVO;
 import org.won.domain.ProductsVO;
+import org.won.domain.QuestionVO;
 import org.won.service.EditorService;
+import org.won.service.MemberService;
 import org.won.service.ProductsService;
 import org.won.util.CookieUtil;
 
@@ -45,6 +37,9 @@ public class ProductsController {
 
 	@Inject
 	private EditorService eservice;
+	
+	@Inject
+	private MemberService mservice;
 
 	private CookieUtil cookieUtil = new CookieUtil();
 
@@ -107,11 +102,6 @@ public class ProductsController {
 		return fileNames;
 	}
 
-	@GetMapping("/test")
-	public void test() {
-
-	}
-
 	@GetMapping("/themaGet")
 	public @ResponseBody AdminVO themaGet(int pno) throws Exception{
 		AdminVO adminVO = new AdminVO();
@@ -130,6 +120,19 @@ public class ProductsController {
 			adminVO.setThema(str);
 		}
 		return adminVO;
+	}
+	
+	@GetMapping("/questionWrite")
+	public @ResponseBody String questionWrite(String  qwriter, String qpw, String qcontent, String pno )throws Exception{
+		QuestionVO vo = new QuestionVO();
+		int pnoInt = Integer.parseInt(pno);
+		vo.setPno(pnoInt);
+		vo.setQwriter(qwriter);
+		vo.setQpw(qpw);
+		vo.setQcontent(qcontent);
+		
+		String result = mservice.questionWrite(vo);
+		return result;
 	}
 
 	

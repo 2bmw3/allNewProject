@@ -26,4 +26,9 @@
 		select adminid, thema, titleimg, shopname from tbl_admin where titleimg is not null
 	</select>
 
+	<insert id="questionWrite" parameterType="QuestionVO">
+		insert into tbl_question (pno, qcontent, qwriter, qregdate, qpw)
+		values(#{pno}, #{qcontent}, #{qwriter}, now(), #{qpw})
+	</insert>
+
 </mapper>
