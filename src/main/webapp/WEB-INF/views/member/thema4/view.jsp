@@ -132,6 +132,7 @@
 										</div>
 									</div>
 								</div>
+								
 								<div id="reviews" class="tab-pane fade">
 									<div class="col-sm-5 col-lg-5 col-md-5">
 										<div class="reviews-content-left">
@@ -206,44 +207,51 @@
 								</div>
 								<div class="tab-pane fade" id="product_tags">
 									<h2>QnA</h2>
-									<ul>
-										<li><p>QnA page</p></li>
-									</ul>
-									<form action="" class="aa-review-form">
-										<div class="form-group">
-											<label for="qContent">Question</label>
-											<textarea class="form-control" rows="3" id="qContent"
-												style='max-width: 100%;'></textarea>
-										</div>
-										<div class="form-group">
-											<label for="qName">Name</label> <input type="text"
-												class="form-control" id="qName" placeholder="Name">
-										</div>
-										<div class="form-group">
-											<label for="qPassword">Password</label> <input
-												type="password" class="form-control" id="qPassword"
-												maxLength='4' placeholder="password(max length : 4)">
-										</div>
-										<button type="submit" class="btn btn-default aa-review-submit"
-											id='qBtn'>Submit</button>
-										<c:forEach items="${qna}" var="qvo">
-											<!-- QnA 1개 -->
-											<div class="col-sm-10 showQnA">
-												<ul style="background-color: white;">
-													<li><h3>${qvo.qwriter}</h3>
-														<h6>${qvo.qregdate}</h6></li>
-													<li id='c${qvo.qno}'><h5>${qvo.qcontent}</h5></li>
-													<c:forEach items="${answer}" var="avo">
+							
+										<!--  QnA start -->
+										  <div class="panel-group" id="accordion" style="margin-top: 2%;">
+										   <c:forEach items="${qna}" var="qvo">		    
+										    <div class="panel panel-default">
+										      <div class="panel-heading">
+										        <h4 class="panel-title">
+										          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${qvo.qno}">
+										          	<i class="fa fa-lock" >  비공개 글입니다</i></a>
+										        </h4>
+										      </div>
+										      <div id="collapse${qvo.qno}" class="panel-collapse collapse">
+										        <div class="panel-body">
+										        	<input type="text" id='questionPwcheck' maxlength="4" 
+										        	placeholder='비밀번호를 입력해주세요' style="width: 70%;">
+										        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
+										        	<input type="hidden" value="${qvo.qcontent}">
+										        	
+									        		<c:forEach items="${answer}" var="avo">
 														<c:if test="${qvo.qno == avo.qno }">
-															<li><i class="material-icons">subdirectory_arrow_right</i>
-																RE : ${avo.acontent}</li>
+									        			<input type="hidden" value="${avo.acontent}">
 														</c:if>
 													</c:forEach>
-
-												</ul>
+													
+											        </div>
+											        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
+											      </div>
+											    </div>
+											   </c:forEach>
+											  </div>
+											  <!-- QnA end --> 
+											  
 											</div>
-										</c:forEach>
-									</form>
+												
+											<div class="row">
+												<div class="col-sm-6">
+												<input type="text" id='qwriter' name='qwriter' placeholder="Writer">
+												</div>
+												<div class="col-sm-3">
+												<input type="password" id='qpw' name='qpw' placeholder="Password" maxlength="4">
+												</div>
+											</div>
+											<textarea id='qcontent' name="qcontent" 
+											style="height: 100px; width:100%; border-radius:0px;" placeholder='질문을 입력해주세요'></textarea>
+											<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
 								</div>
 							</div>
 						</div>
@@ -252,89 +260,149 @@
 			</div>
 		</div>
 	</div>
-	<script>
-	
-	var ccnt = null;
-	var color = null;
-	var pno = ${view[0].pno};
-	var size = null;
-	var adminid = "${view[0].adminid}";
-	
-	$("#cart").on("click",function(){
-		ccnt = $("#qty").val();
-		var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
-		if(ccnt==null || color==null || size==null){
- 	     	swal({
-	     			title: "상품 상세 정보를 선택해주세요.",
-	     	 		text: "",
-	     			type: "error",
-	     			timer: 1500,
-	     			showConfirmButton: false
-	     		});
-		}else{
-			swal({
-				  title: "카트에 추가 하시겠습니까?",
-				  text: "",
-				  type: "info",
-				  showCancelButton: true,
-				  closeOnConfirm: false,
-				  showLoaderOnConfirm: true,
-				},
-				function(){
-				  setTimeout(function(){
-					    $.ajax({      
-					    	url: "/member/cartAdd", 
-					        data: formData, 
-					        dataType: "json",
-					        type:"post",
-					        complete:function(){   
-				     	     	swal({
-				  	     			title: "해당 상품을 카트에 추가 하였습니다.",
-				  	     	 		text: "",
-				  	     			type: "success",
-				  	     			timer: 1000,
-				  	     			showConfirmButton: false
-				  	     		});
-					        }
-					    }); 
-					    //ajax end
-				  }, 500);
-				});
+<script>
 
-		}//End else
-	});
-	
-	//사이즈 체크시 값 담기
-	$(document).on("click",".pisize",function(){
-		var thisSize = $(this); 
-		size = thisSize.attr('name');
-		$(".pisize").css("background-color","");
-		thisSize.css("background-color","#922C2C");
-	});
+var ccnt = null;
+var color = null;
+var pno = ${view[0].pno};
+var size = null;
+var adminid = "${view[0].adminid}";
 
+$("#cart").on("click",function(){
+	ccnt = $("#qty").val();
+	var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+	if(ccnt==null || color==null || size==null){
+	     	swal({
+     			title: "상품 상세 정보를 선택해주세요.",
+     	 		text: "",
+     			type: "error",
+     			timer: 1500,
+     			showConfirmButton: false
+     		});
+	}else{
+		swal({
+			  title: "카트에 추가 하시겠습니까?",
+			  text: "",
+			  type: "info",
+			  showCancelButton: true,
+			  closeOnConfirm: false,
+			  showLoaderOnConfirm: true,
+			},
+			function(){
+			  setTimeout(function(){
+				    $.ajax({      
+				    	url: "/member/cartAdd", 
+				        data: formData, 
+				        dataType: "json",
+				        type:"post",
+				        complete:function(){   
+			     	     	swal({
+			  	     			title: "해당 상품을 카트에 추가 하였습니다.",
+			  	     	 		text: "",
+			  	     			type: "success",
+			  	     			timer: 1000,
+			  	     			showConfirmButton: false
+			  	     		});
+				        }
+				    }); 
+				    //ajax end
+			  }, 500);
+			});
+
+	}//End else
+});
+
+//사이즈 체크시 값 담기
+$(document).on("click",".pisize",function(){
+	var thisSize = $(this); 
+	size = thisSize.attr('name');
+	$(".pisize").css("background-color","");
+	thisSize.css("background-color","#922C2C");
+});
+
+
+// 색상 클릭시 해당 색상의 사이즈 별로 출력
+$(".colorInfo").on("click",function(event){
+	size = null;
+	$(".colorInfo").css("border-width","1px");
+	$(this).css("border-width","5px");
 	
-	// 색상 클릭시 해당 색상의 사이즈 별로 출력
-	$(".colorInfo").on("click",function(event){
-		size = null;
-		$(".colorInfo").css("border-width","1px");
-		$(this).css("border-width","5px");
-		
-		color = $(this).attr("name");
-		var formData = {"pno":pno, "picolor":color};
-		var str="";
-	    $.ajax({      
-	    	url: "/member/infoSize", 
-	        data: formData, 
-	        dataType: "json",
-	        type:"get",
-	        success:function(data){   
-	        	$(".size").empty() ;
-	            $.each(data, function(index) {
-	                str += "<li><button style='padding: 5px 10px;' class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button></li>";
-	            });
-	            $(".size").append(str);
-	        }
-	    });  
-	});
-	</script>
-	<%@include file="footer.jsp"%>
+	color = $(this).attr("name");
+	var formData = {"pno":pno, "picolor":color};
+	var str="";
+    $.ajax({      
+    	url: "/member/infoSize", 
+        data: formData, 
+        dataType: "json",
+        type:"get",
+        success:function(data){   
+        	$(".size").empty() ;
+            $.each(data, function(index) {
+                str += "<li><button style='padding: 5px 10px;' class='pisize' name = '"+ data[index].pisize +"'>" + (data[index].pisize) + "</button></li>";
+            });
+            $(".size").append(str);
+        }
+    });  
+});
+
+
+//질문 등록
+$("#qsubmit").on("click",function(){
+	
+	var qwriter = $("#qwriter").val();
+	var qpw = $("#qpw").val();
+	var qcontent = $("#qcontent").val();
+	var question = {"qwriter" : qwriter, "qpw" : qpw , "qcontent" : qcontent , "pno" : pno };
+	
+	$.ajax({
+		url : "/questionWrite",
+		data : question,
+		dataType : 'text',
+		type : "post",
+		success : function(result) {
+			var splitResult = result.split("#");
+			swal("질문이 성공적으로 등록되었습니다!","","success");
+			var str =  "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'>"
+						+"<a data-toggle='collapse' data-parent='#accordion' href='#collapse"
+						+splitResult[1]+"'><i class='fa fa-lock' >  비공개 글입니다</i></a>"
+						+"</h4></div><div id='collapse"
+						+splitResult[1]+"' class='panel-collapse collapse'><div class='panel-body'><input type='text' id='questionPwcheck' maxlength='4' placeholder='비밀번호를 입력해주세요' style='width: 70%;'>"
+						+"<input id='questionPwcheckBtn' type='submit' class='btn btn-primary' value='확인' name='"
+						+splitResult[1]+"'><input type='hidden' value='"+qcontent+"'></div><div class='panel-footer'>"+qwriter+" / "+splitResult[0]+"</div></div></div>"
+			$("#accordion").prepend(str);
+		}// end success
+	});// end ajax
+});// end question submit
+
+// 질문 비밀번호 체크
+$(document).on('click', "#questionPwcheckBtn" , function(event){
+	var qpwCheckBtn = $(this)[0];
+	var qno = qpwCheckBtn.name;
+	var inputPw = qpwCheckBtn.previousElementSibling.value;
+	var qcontent = qpwCheckBtn.nextElementSibling.value;
+	var pwCheck = {"qpw":inputPw, "qno":qno};
+	
+	$.ajax({
+		url : "/questionPwCheck",
+		data : pwCheck,
+		dataType : 'text',
+		type : "post",
+		success : function(result) {
+			console.log(result);
+			var splitResult = result.split("#");
+			if(splitResult[0] == "F"){
+				swal("비밀번호가 틀립니다!","","error");
+				$("#questionPwcheck").val("");
+			}else if (splitResult[1] == "null"){						
+				var str = "<h3>"+qcontent+"</h3>";
+				qpwCheckBtn.parentElement.innerHTML = str;						
+			}else{
+				var str = "<h3>"+qcontent+"</h3>"+"<hr/><b>Re: "+splitResult[1]+"</b>";
+				qpwCheckBtn.parentElement.innerHTML = str;
+			}
+		}// end success
+	});// end ajax
+});// end questionPw check;
+
+</script>
+<%@include file="footer.jsp"%>

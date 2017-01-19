@@ -56,6 +56,7 @@
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//code.jquery.com/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
  
 <!-- mobile menu -->
 <div id="mobile-menu">

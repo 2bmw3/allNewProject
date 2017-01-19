@@ -146,8 +146,9 @@ ul.uli li {
 				<div role="tabpanel" class="tab-pane" id="qna">
 					
 
-					<div class="col-md-12 ">
+				<div class="col-md-12 ">
 						
+				<!--  QnA start -->
 				  <div class="panel-group" id="accordion" style="margin-top: 2%;">
 				    		
 				   <c:forEach items="${qna}" var="qvo">		    
@@ -171,15 +172,16 @@ ul.uli li {
 									</c:if>
 								</c:forEach>
 								
-				        </div>
-				        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
-				      </div>
-				    </div>
-				   </c:forEach>
-				    
-				  </div> 
-				<hr>
-			</div>
+						        </div>
+						        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
+						      </div>
+						    </div>
+						   </c:forEach>
+						    
+						  </div>
+						  <!-- QnA end --> 
+						<hr>
+					</div>
 					
 				<div class="row">
 					<div class="col-sm-6">
