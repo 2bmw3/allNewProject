@@ -63,12 +63,12 @@
                 <div class="col-md-12">
                   <div class="aa-header-top-area">
                      <div class="aa-header-top-right">
-                        <ul class="aa-head-top-nav-right">
+                        <ul class="aa-head-top-nav-right hHeader">
                            <li><a href="faq?shopname=${param.shopname}">F.A.Q</a></li>
-                           <li><a href="cart?shopname=${param.shopname}">My Cart</a></li>
-                           <li><a href="checkout?shopname=${param.shopname}">Checkout</a></li>
-                           <li><a href="/member/login">Login</a></li>
-                            <li><a href="/member/register">Join Us</a></li>
+                           <li><a href="#" id='hCart'>My Cart</a></li>
+                           <li><a href="#" id="hOrder">Order</a></li>
+                           <li><a href="/member/register">Join Us</a></li>
+                           <li id='hLogin'><a href="/member/login" >Login</a></li>
                         </ul>
                      </div>
                   </div>
@@ -145,3 +145,79 @@
 			</div>
 		</div>
 	</section>
+	
+	<script>
+	
+	
+	var userid = null;
+	//시작 하자 마자 쿠키값을 확인
+	(function exe() {
+		userid = getCookie('userid');
+		if(userid != ''){
+			$("#hLogin").detach();
+			$(".hHeader").append("<li id='hLogout'><a href='#' >Logout</a></li>");
+		}else{}
+	}());
+
+	
+	$("#hLogout").on("click", function(){
+		swal({
+			  title: "로그아웃 하시겠습니까?",
+			  text: "",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: "Yes",
+			},
+			function(){
+				setCookie("username", '', -1);
+				$("#hLogout").detach();
+				$(".hHeader").append("<li id='hLogin'><a href='/member/login'>Login</a></li>");
+			});
+	});
+	
+	$("#hCart").on("click",function(){
+		if(userid != ''){
+			location.href="cart?shopname=${param.shopname}";
+		}else{
+            swal({
+                title: "로그인을 해주세요.",
+                text: "",
+                type: "error",
+                timer: 1000,
+                showConfirmButton: false
+            });    
+		}
+	});
+	
+	$("#hOrder").on("click",function(){
+		if(userid != ''){
+			location.href="order?shopname=${param.shopname}";
+		}else{
+            swal({
+                title: "로그인을 해주세요.",
+                text: "",
+                type: "error",
+                timer: 1000,
+                showConfirmButton: false
+            });    
+		}
+	});
+	
+	
+	// 쿠키값가져오기
+	function getCookie(name){
+		name = new RegExp(name + '=([^;]*)');
+		return name.test(document.cookie) ? unescape(RegExp.$1) : '';
+	};
+	
+	// 쿠키 설정 (쿠키값 삭세 할 떄 사용)
+    function setCookie(cName, cValue, cDay){
+	        var expire = new Date();
+	        expire.setDate(expire.getDate() + cDay);
+			// 한글 깨짐을 막기위해 escape(cValue)를 
+	        cookies = cName + '=' + escape(cValue) + '; path=/ '; 
+	        if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+	        document.cookie = cookies;
+	    }
+	</script>

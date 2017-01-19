@@ -6,33 +6,36 @@
 
 	<security:http auto-config="true" use-expressions="false">
 		<security:form-login login-page="/login"
-			login-processing-url="/login" authentication-failure-handler-ref="LoginFailHandler"
+			login-processing-url="/login" 
+			authentication-failure-handler-ref="LoginFailHandler"
 			authentication-success-handler-ref="LoginSuccessHandler" />
 
 		<security:session-management>
-			<security:concurrency-control
-				max-sessions="1" expired-url="/login" />
+			<security:concurrency-control max-sessions="1" expired-url="/login" />
 		</security:session-management>
 
 		<security:logout delete-cookies="username,SPRING_SECURITY_REMEMBER_ME_COOKIE"
 			invalidate-session="true" logout-url="/logout" />
 
-		<security:intercept-url pattern="/admin/**"
-			access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/admin/**" access="ROLE_ADMIN" />
 
 		<security:csrf disabled="true" />
 		<security:remember-me key="wmoskey" token-validity-seconds="2419200" />
 	</security:http>
+	
+
 
 	<security:authentication-manager>
 		<security:authentication-provider>
 			<security:jdbc-user-service
 				data-source-ref="dataSource"
 				users-by-username-query="select * from (
-									select adminid username, adminpw password, true enable from tbl_admin) as id where id.username = ?"
+							select adminid username, adminpw password, true enable from tbl_admin union
+							select userid username,userpw password,true enable  from tbl_member) as id where id.username = ?"
 				authorities-by-username-query="
                select * from (
-					select adminid username, 'ROLE_ADMIN' authority from tbl_admin) as id where id.username = ?" />
+				select adminid username, 'ROLE_ADMIN' authority from tbl_admin union
+				select userid username, 'ROLE_MEMBER' authority from tbl_member) as id where id.username = ?" />
 			<security:password-encoder ref="bcryptEncoder" />
 		</security:authentication-provider>
 	</security:authentication-manager>

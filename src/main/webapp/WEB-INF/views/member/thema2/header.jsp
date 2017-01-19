@@ -39,9 +39,11 @@ function hideURLbar() {
 <link href="/resources/themes/thema2/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
 <script type="text/javascript" src="/resources/themes/thema2/js/memenu.js"></script>
 <script>
-	$(document).ready(function () {
+ 
+	/* $(document).ready(function () { */
 	    $(".memenu").memenu();
-	});
+	/* }); */ 
+
 </script>
 <!--top-header-->
 <div class="top-header">
@@ -59,18 +61,95 @@ function hideURLbar() {
 <div class="header-bottom">
     <div class="container">
         <div class="top-nav">
-            <ul class="memenu skyblue">
+            <ul class="memenu skyblue hHeader">
                 <li class="active"><a href="/member/index">Main</a></li>
                 <li class="active"><a href="index?shopname=${param.shopname}">Home</a></li>
                 <li class="grid"><a href="list?shopname=${param.shopname}&pkind=전체&pageNum=1">Products</a></li>
                 <li class="grid"><a href="#">PhotoSearch</a></li>
-                <li class="grid"><a href="order?shopname=${param.shopname}">Order</a></li>
-                <li class="grid"><a href="cart?shopname=${param.shopname}">Cart</a></li>
-                   <li class="grid"><a href="/member/login">Login</a></li>
-                      <li class="grid"><a href="/member/register">Join Us</a></li>
+                <li class="grid"><a href="#" id='hOrder'>Order</a></li>
+                <li class="grid"><a href="#" id='hCart'>Cart</a></li>
+                   
+                <li class="grid"><a href="/member/register">Join Us</a></li>
+                <li id="hLogin" class="grid"><a href="/member/login">Login</a></li>
             </ul>
         </div>
         <div class="clearfix"></div>
     </div>
 </div>
 <!--bottom-header-->
+
+
+<script>
+	var userid = null;
+	//시작 하자 마자 쿠키값을 확인
+	(function exe() {
+		userid = getCookie('username');
+		if(userid != ''){
+			$("#hLogin").detach();
+			$(".hHeader").append(" <li id='hLogout' class='grid'><a href='#'>Logout</a></li>");
+		}else{}
+	}());
+
+	
+	$("#hLogout").on("click", function(){
+		swal({
+			  title: "로그아웃 하시겠습니까?",
+			  text: "",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: "Yes",
+			},
+			function(){
+				setCookie("username", '', -1);
+				$("#hLogout").detach();
+				$(".hHeader").append(" <li id='#hLogin' class='grid'><a href='/member/login'>Login</a></li>");
+			});
+	});
+	
+	$("#hCart").on("click",function(){
+		console.log("sksk");
+		if(userid != ''){
+			location.href="cart?shopname=${param.shopname}";
+		}else{
+            swal({
+                title: "로그인을 해주세요.",
+                text: "",
+                type: "error",
+                timer: 700,
+                showConfirmButton: false
+            });    
+		}
+	});
+	
+	$("#hOrder").on("click",function(){
+		if(userid != ''){
+			location.href="order?shopname=${param.shopname}";
+		}else{
+            swal({
+                title: "로그인을 해주세요.",
+                text: "",
+                type: "error",
+                timer: 700,
+                showConfirmButton: false
+            });    
+		}
+	});
+	
+	
+	// 쿠키값가져오기
+	function getCookie(name){
+		name = new RegExp(name + '=([^;]*)');
+		return name.test(document.cookie) ? unescape(RegExp.$1) : '';
+	};
+	
+	// 쿠키 설정 (쿠키값 삭세 할 떄 사용)
+    function setCookie(cName, cValue, cDay){
+	        var expire = new Date();
+	        expire.setDate(expire.getDate() + cDay);
+			// 한글 깨짐을 막기위해 escape(cValue)를 
+	        cookies = cName + '=' + escape(cValue) + '; path=/ '; 
+	        if(typeof cDay != 'undefined') cookies += ';expires=' + expire.toGMTString() + ';';
+	        document.cookie = cookies;
+	    }
+	</script>

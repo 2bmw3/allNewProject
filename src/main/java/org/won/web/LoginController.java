@@ -60,6 +60,11 @@ public class LoginController {
 	public void login(Model model) {
 
 	}
+	
+	@GetMapping("/member/login")
+	public void memberLogin(Model model) {
+
+	}
 
 	// 아이디 중복 체크
 	@GetMapping("/idCheck")

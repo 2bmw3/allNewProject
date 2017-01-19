@@ -7,8 +7,7 @@
 
 <title>Log-in</title>
 
-<link rel='stylesheet'
-	href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+<link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
 
 <link rel="stylesheet" href="/resources/admin/login/css/style.css"
 	media="screen" type="text/css" />
