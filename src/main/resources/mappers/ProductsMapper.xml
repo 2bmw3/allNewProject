@@ -7,7 +7,7 @@
 <mapper namespace="org.won.dao.ProductsMapper">
 
 
-	<!--admin search! -->
+	<!--admin search -->
 	<sql id="search">
 		<if test="sType eq 's'.toString()">
 			pisize like #{keyword}
