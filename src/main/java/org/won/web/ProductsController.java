@@ -19,6 +19,8 @@ import org.won.domain.ParamVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.PphotosVO;
 import org.won.domain.ProductsVO;
+import org.won.domain.ReviewVO;
+import org.won.service.BoardService;
 import org.won.domain.QuestionVO;
 import org.won.service.EditorService;
 import org.won.service.MemberService;
@@ -36,6 +38,9 @@ public class ProductsController {
 	private ProductsService service;
 
 	@Inject
+	private BoardService bservice;
+
+	@Inject
 	private EditorService eservice;
 	
 	@Inject
@@ -46,7 +51,7 @@ public class ProductsController {
 	// 상품 삭제
 	@PostMapping("/productsDelete")
 	public @ResponseBody void productsDelete(int pno) throws Exception {
-		System.out.println("cccccccpno="+pno);
+		System.out.println("cccccccpno=" + pno);
 		service.delete(pno);
 	}
 
@@ -103,19 +108,18 @@ public class ProductsController {
 	}
 
 	@GetMapping("/themaGet")
-	public @ResponseBody AdminVO themaGet(int pno) throws Exception{
+	public @ResponseBody AdminVO themaGet(int pno) throws Exception {
 		AdminVO adminVO = new AdminVO();
 		String shoplogo = null;
 		String str = null;
-		try{
+		try {
 			adminVO = service.themaGet(pno);
 			shoplogo = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F"
-					+ adminVO.getShoplogo()
-					+ "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e";
-			str = "http://localhost:8081/member/thema"+ adminVO.getThema() +"/view?pno="+ pno;
+					+ adminVO.getShoplogo() + "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e";
+			str = "http://localhost:8081/member/thema" + adminVO.getThema() + "/view?pno=" + pno;
 			adminVO.setShoplogo(shoplogo);
 			adminVO.setThema(str);
-		}catch(Exception e){
+		} catch (Exception e) {
 			str = "fail";
 			adminVO.setThema(str);
 		}
@@ -128,6 +132,13 @@ public class ProductsController {
 		return service.question(vo.getPno()).get(0).getQregdate();
 	}
 
-	
+	@PostMapping("/review")
+	public @ResponseBody String review(ReviewVO rvo) throws Exception {
+		rvo.setUserid("test user");
+		bservice.rCreate(rvo);
+		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString();
+		logger.info(date);
+		return date;
+	}
 
 }
