@@ -373,6 +373,7 @@ ul.uli li {
 			var qcontent = $("#qcontent").val();
 			var question = {"qwriter" : qwriter, "qpw" : qpw , "qcontent" : qcontent , "pno" : pno };
 			
+			//주석맨
 			$.ajax({
 				url : "/questionWrite",
 				data : question,
