@@ -177,84 +177,64 @@
 									<li>
 										<div class="media">
 											<div class="media-left">
-												<a href="#"> <img class="media-object"
+												<img class="media-object"
 													src="/resources/themes/thema1/img/women/girl-1.png"
 													alt="girl image">
-												</a>
 											</div>
 											<div class="media-body">
+											<h4 id='emptyReview'>리뷰가 아직 없어요 ㅠㅠ 리뷰를 남겨주세요!</h4>
 												<c:forEach items="${review}" var="rvo">
+												
+												<div id = 'showReview'>
 													<!-- review display -->
-													<div class="col-sm-10 showReview">
-														<ul style="background-color: white;">
+													<div class='col-sm-10 showReview'>
+														<ul style='background-color: white;'>
 															<li><h3>${rvo.userid}(${rvo.rgrade}점)</h3></li>
 															<li><h5>${rvo.rcontent}</h5>
 																<h5>${rvo.rregdate}</h5></li>
+																
+															<li>
+															<img class = 'reviewImg' 
+															src=
+															'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+															 style = 'width:100px; height100px;'></li>
 															<br>
 														</ul>
 													</div>
 													<!-- review display end-->
+												</div>
 												</c:forEach>
 											</div>
 										</div>
 									</li>
 								</ul>
-								<h4>Add a review</h4>
-								<div class="aa-your-rating">
-									<!--                      <p>Your Rating</p> -->
-									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-									<!--                      <a href="#"><span class="fa fa-star-o"></span></a> -->
-									<input type="radio" id="mark_0_0" name="score_1" value="1">
-									<span class="fa fa-star" style='color: #ff6600;'></span>&nbsp;
-									<input type="radio" id="mark_0_1" name="score_1" value="2">
-									<span class="fa fa-star" style='color: #ff6600;'></span> <span
-										class="fa fa-star" style='color: #ff6600;'></span>&nbsp; <input
-										type="radio" id="mark_0_2" name="score_1" value="3"> <span
-										class="fa fa-star" style='color: #ff6600;'></span> <span
-										class="fa fa-star" style='color: #ff6600;'></span> <span
-										class="fa fa-star" style='color: #ff6600;'></span>&nbsp; <input
-										type="radio" id="mark_0_3" name="score_1" value="4"> <span
-										class="fa fa-star" style='color: #ff6600;'></span> <span
-										class="fa fa-star" style='color: #ff6600;'></span> <span
-										class="fa fa-star" style='color: #ff6600;'></span> <span
-										class="fa fa-star" style='color: #ff6600;'></span>&nbsp; <input
-										type="radio" id="mark_0_4" name="score_1" checked="checked"
-										value="5"> <span class="fa fa-star"
-										style='color: #ff6600;'></span> <span class="fa fa-star"
-										style='color: #ff6600;'></span> <span class="fa fa-star"
-										style='color: #ff6600;'></span> <span class="fa fa-star"
-										style='color: #ff6600;'></span> <span class="fa fa-star"
-										style='color: #ff6600;'></span>&nbsp;
+								<div id = 'rate'class="aa-your-rating">
+									
 								</div>
 								<!-- review form -->
 								<form action="" class="aa-review-form">
 									<div class="form-group">
-										<label for="message">Your Review</label>
-										<textarea class="form-control" rows="3" id="message"></textarea>
+										<span class="star-input" >
+										  <span class="input">
+										    <input type="radio" name="star-input" id="p2" value="1"><label for="p2">1</label>
+										    <input type="radio" name="star-input" id="p4" value="2"><label for="p4">2</label>
+										    <input type="radio" name="star-input" id="p6" value="3"><label for="p6">3</label>
+										    <input type="radio" name="star-input" id="p8" value="4"><label for="p8">4</label>
+										    <input type="radio" name="star-input" id="p10" value="5"><label for="p10">5</label>
+										
+										  </span>
+										  <output for="star-input" ><b>0</b>점</output>
+										</span>
+										<textarea class="form-control" rows="3" id="reContent"></textarea>
+										<input type='hidden' id='rePhoto' name = 'rphoto'> 
+										<input type='file' id = 'photoFile'/>
 									</div>
-									<div class="form-group">
-										<label for="name">Name</label> <input type="text"
-											class="form-control" id="name" placeholder="Name">
-									</div>
-									<div class="form-group">
-										<label for="email">Email</label> <input type="email"
-											class="form-control" id="email"
-											placeholder="example@gmail.com">
-									</div>
-									<button type="submit" class="btn btn-default aa-review-submit">Submit</button>
+									<button class="btn btn-default aa-review-submit" id = 'reviewBtn'>Submit</button>
 								</form>
 							</div>
 						</div>
 					</div>
 				</div>
-
-
-
-
-
 
 
 				<!-- Related product -->
@@ -377,8 +357,8 @@
 	</div>
 </div>
 </section>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
 <!— / product category —>
-
 	<script>
 	
 	var ccnt = null;
@@ -386,6 +366,82 @@
 	var pno = ${view[0].pno};
 	var size = null;
 	var adminid = "${view[0].adminid}";
+	var emptyReview = $('#emptyReview');
+	var userid = "test user";
+		
+	if($('.showReview').length > 0){
+		emptyReview.hide();
+	};
+	
+	/* for firebase upload */
+	var config = {
+		apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
+		authDomain : "project-26bd6.firebaseapp.com",
+		databaseURL : "https://project-26bd6.firebaseio.com",
+		storageBucket : "project-26bd6.appspot.com",
+		messagingSenderId : "544848311496"
+	};
+
+	firebase.initializeApp(config);
+	var storage = firebase.storage();
+	var storageRef = storage.ref();
+	/* for firebase upload */
+	
+	//uuid create
+	function guid() {
+		function s4() { 
+			return ((1 + Math.random()) * 0x10000 | 0).toString(16)
+					.substring(1);
+		}
+		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
+				+ s4() + s4();
+	}// end uuid create
+	
+	
+	/* 리뷰 버튼 이벤트 시작  */ 
+	$('#reviewBtn').on('click', function () {
+		event.preventDefault();
+		var rcontent = $('#reContent')[0].value;
+		var rphoto = $('#rePhoto');
+		var rgrade = $('[name="star-input"]:checked').val();
+		var file= $("#photoFile")[0].files[0];
+		var uuidFileName = guid() + "_" + file.name;
+		
+		rphoto.val(uuidFileName);
+		
+		var upload = storage.ref().child("review/" +uuidFileName);
+        
+		
+		var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
+		
+		
+		 $.ajax({      
+		    	url: "/review", 
+		        data: formData, 
+		        dataType: "text",
+		        type:"post",
+		        success:function(date){
+		        	var uploadTask = upload.put(file);
+
+		            uploadTask.on('state_changed', function(snapshot){
+		            }, function(error) {
+		            }, function() {
+		                var downloadURL = uploadTask.snapshot.downloadURL;
+			        	emptyReview.hide();
+		 				$('.media-body').prepend("<div class='col-sm-10 showReview'><ul style='background-color: white;'><li><h3>"+
+		 					userid + "(" + rgrade + "점)</h3></li><li><h5>"+
+		        			rcontent + "</h5><h5>"+date+"</h5></li><li><img src='"+downloadURL+"' style = 'width:100px; height100px;'></li><br></ul></div>");
+		            });
+ 				
+		            $('#reContent').val("");
+		            $("#photoFile").val("");
+	        	}
+		    }); 
+		    //ajax end
+	});
+	/* 리뷰 버튼 이벤트 끝! */
+	
+	
 	
 	$("#cart").on("click",function(){
 		ccnt = $("#quantity").val();

@@ -1,21 +1,12 @@
 package org.won.web;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
-import javax.imageio.ImageIO;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
-import javax.xml.bind.DatatypeConverter;
 
-import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -23,12 +14,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
 import org.won.domain.AdminVO;
 import org.won.domain.ParamVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.PphotosVO;
 import org.won.domain.ProductsVO;
+import org.won.domain.ReviewVO;
+import org.won.service.BoardService;
 import org.won.service.EditorService;
 import org.won.service.ProductsService;
 import org.won.util.CookieUtil;
@@ -44,6 +36,9 @@ public class ProductsController {
 	private ProductsService service;
 
 	@Inject
+	private BoardService bservice;
+
+	@Inject
 	private EditorService eservice;
 
 	private CookieUtil cookieUtil = new CookieUtil();
@@ -51,7 +46,7 @@ public class ProductsController {
 	// 상품 삭제
 	@PostMapping("/productsDelete")
 	public @ResponseBody void productsDelete(int pno) throws Exception {
-		System.out.println("cccccccpno="+pno);
+		System.out.println("cccccccpno=" + pno);
 		service.delete(pno);
 	}
 
@@ -113,25 +108,31 @@ public class ProductsController {
 	}
 
 	@GetMapping("/themaGet")
-	public @ResponseBody AdminVO themaGet(int pno) throws Exception{
+	public @ResponseBody AdminVO themaGet(int pno) throws Exception {
 		AdminVO adminVO = new AdminVO();
 		String shoplogo = null;
 		String str = null;
-		try{
+		try {
 			adminVO = service.themaGet(pno);
 			shoplogo = "https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/shoplogo%2F"
-					+ adminVO.getShoplogo()
-					+ "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e";
-			str = "http://localhost:8081/member/thema"+ adminVO.getThema() +"/view?pno="+ pno;
+					+ adminVO.getShoplogo() + "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e";
+			str = "http://localhost:8081/member/thema" + adminVO.getThema() + "/view?pno=" + pno;
 			adminVO.setShoplogo(shoplogo);
 			adminVO.setThema(str);
-		}catch(Exception e){
+		} catch (Exception e) {
 			str = "fail";
 			adminVO.setThema(str);
 		}
 		return adminVO;
 	}
 
-	
+	@PostMapping("/review")
+	public @ResponseBody String review(ReviewVO rvo) throws Exception {
+		rvo.setUserid("test user");
+		bservice.rCreate(rvo);
+		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString();
+		logger.info(date);
+		return date;
+	}
 
 }
