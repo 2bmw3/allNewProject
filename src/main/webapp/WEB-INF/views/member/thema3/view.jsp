@@ -412,7 +412,6 @@ ul.uli li {
 						$("#questionPwcheck").val("");
 					}else{						
 						var str = "<h3>"+qcontent+"</h3>";
-						swal("비밀번호가 일치합니다!","","success");
 						qpwCheckBtn.parentElement.innerHTML = str;						
 					}
 				}// end success
