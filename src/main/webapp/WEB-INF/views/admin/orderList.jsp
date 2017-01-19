@@ -29,8 +29,8 @@
                      <div class="col-md-1">${vo.picolor}</div>
                      <div class="col-md-1">${vo.uname}</div>
                      <div class="col-md-1">${vo.ocnt}</div>
-                     <div class="col-md-2">${vo.uaddress}</div>
-                     <div class="col-md-1">￦${vo.price}</div>
+                     <div class="col-md-2">${vo.oaddress}</div>
+                     <div class="col-md-1">￦${vo.price * vo.ocnt}</div>
                      <div class="col-md-1">
                         <c:set var="name" value="${vo.ostatus}" />
                         <c:choose>

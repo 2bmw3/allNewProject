@@ -7,157 +7,170 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class OrderVO {
 
-   private int ono, pino, ocnt, price, odno, page;
-   private String userid, shopname, ptitlephoto, pname, pisize, picolor, uname, uaddress, ostatus, adminid;
-   private Date orderDate;
+	private int ono, pino, ocnt, price, odno, page, pno;
+	private String userid, shopname, ptitlephoto, ophonenumber, oaddress, pname, pisize, picolor, uname, ostatus,
+			adminid;
+	private Date orderDate;
 
-   
-   
-   public int getPage() {
-      return page;
-   }
+	public int getOno() {
+		return ono;
+	}
 
-   public void setPage(int page) {
-      this.page = page;
-   }
+	public void setOno(int ono) {
+		this.ono = ono;
+	}
 
-   public int getOno() {
-      return ono;
-   }
+	public int getPino() {
+		return pino;
+	}
 
-   public void setOno(int ono) {
-      this.ono = ono;
-   }
+	public void setPino(int pino) {
+		this.pino = pino;
+	}
 
-   public int getPino() {
-      return pino;
-   }
+	public int getOcnt() {
+		return ocnt;
+	}
 
-   public void setPino(int pino) {
-      this.pino = pino;
-   }
+	public void setOcnt(int ocnt) {
+		this.ocnt = ocnt;
+	}
 
-   public int getOcnt() {
-      return ocnt;
-   }
+	public int getPrice() {
+		return price;
+	}
 
-   public void setOcnt(int ocnt) {
-      this.ocnt = ocnt;
-   }
+	public void setPrice(int price) {
+		this.price = price;
+	}
 
-   public int getPrice() {
-      return price;
-   }
+	public int getOdno() {
+		return odno;
+	}
 
-   public void setPrice(int price) {
-      this.price = price;
-   }
+	public void setOdno(int odno) {
+		this.odno = odno;
+	}
 
-   public int getOdno() {
-      return odno;
-   }
+	public int getPage() {
+		return page;
+	}
 
-   public void setOdno(int odno) {
-      this.odno = odno;
-   }
+	public void setPage(int page) {
+		this.page = page;
+	}
 
-   public String getUserid() {
-      return userid;
-   }
+	public int getPno() {
+		return pno;
+	}
 
-   public void setUserid(String userid) {
-      this.userid = userid;
-   }
+	public void setPno(int pno) {
+		this.pno = pno;
+	}
 
-   public String getShopname() {
-      return shopname;
-   }
+	public String getUserid() {
+		return userid;
+	}
 
-   public void setShopname(String shopname) {
-      this.shopname = shopname;
-   }
+	public void setUserid(String userid) {
+		this.userid = userid;
+	}
 
-   public String getPtitlephoto() {
-      return ptitlephoto;
-   }
+	public String getShopname() {
+		return shopname;
+	}
 
-   public void setPtitlephoto(String ptitlephoto) {
-      this.ptitlephoto = ptitlephoto;
-   }
+	public void setShopname(String shopname) {
+		this.shopname = shopname;
+	}
 
-   public String getPname() {
-      return pname;
-   }
+	public String getPtitlephoto() {
+		return ptitlephoto;
+	}
 
-   public void setPname(String pname) {
-      this.pname = pname;
-   }
+	public void setPtitlephoto(String ptitlephoto) {
+		this.ptitlephoto = ptitlephoto;
+	}
 
-   public String getPisize() {
-      return pisize;
-   }
+	public String getOphonenumber() {
+		return ophonenumber;
+	}
 
-   public void setPisize(String pisize) {
-      this.pisize = pisize;
-   }
+	public void setOphonenumber(String ophonenumber) {
+		this.ophonenumber = ophonenumber;
+	}
 
-   public String getPicolor() {
-      return picolor;
-   }
+	public String getOaddress() {
+		return oaddress;
+	}
 
-   public void setPicolor(String picolor) {
-      this.picolor = picolor;
-   }
+	public void setOaddress(String oaddress) {
+		this.oaddress = oaddress;
+	}
 
-   public String getUname() {
-      return uname;
-   }
+	public String getPname() {
+		return pname;
+	}
 
-   public void setUname(String uname) {
-      this.uname = uname;
-   }
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
 
-   public String getUaddress() {
-      return uaddress;
-   }
+	public String getPisize() {
+		return pisize;
+	}
 
-   public void setUaddress(String uaddress) {
-      this.uaddress = uaddress;
-   }
+	public void setPisize(String pisize) {
+		this.pisize = pisize;
+	}
 
-   public String getOstatus() {
-      return ostatus;
-   }
+	public String getPicolor() {
+		return picolor;
+	}
 
-   public void setOstatus(String ostatus) {
-      this.ostatus = ostatus;
-   }
+	public void setPicolor(String picolor) {
+		this.picolor = picolor;
+	}
 
-   public Date getOrderDate() {
-      return orderDate;
-   }
+	public String getUname() {
+		return uname;
+	}
 
-   public void setOrderDate(Date orderDate) {
-      this.orderDate = orderDate;
-   }
+	public void setUname(String uname) {
+		this.uname = uname;
+	}
 
-   public String getAdminid() {
-      return adminid;
-   }
+	public String getOstatus() {
+		return ostatus;
+	}
 
-   public void setAdminid(String adminid) {
-      this.adminid = adminid;
-   }
+	public void setOstatus(String ostatus) {
+		this.ostatus = ostatus;
+	}
 
-   @Override
-   public String toString() {
-      return "OrderVO [ono=" + ono + ", pino=" + pino + ", ocnt=" + ocnt + ", price=" + price + ", odno=" + odno
-            + ", page=" + page + ", userid=" + userid + ", shopname=" + shopname + ", ptitlephoto=" + ptitlephoto
-            + ", pname=" + pname + ", pisize=" + pisize + ", picolor=" + picolor + ", uname=" + uname
-            + ", uaddress=" + uaddress + ", ostatus=" + ostatus + ", adminid=" + adminid + ", orderDate="
-            + orderDate + "]";
-   }
+	public String getAdminid() {
+		return adminid;
+	}
 
+	public void setAdminid(String adminid) {
+		this.adminid = adminid;
+	}
 
+	public Date getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(Date orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	@Override
+	public String toString() {
+		return "OrderVO [ono=" + ono + ", pino=" + pino + ", ocnt=" + ocnt + ", price=" + price + ", odno=" + odno
+				+ ", page=" + page + ", pno=" + pno + ", userid=" + userid + ", shopname=" + shopname + ", ptitlephoto="
+				+ ptitlephoto + ", ophonenumber=" + ophonenumber + ", oaddress=" + oaddress + ", pname=" + pname
+				+ ", pisize=" + pisize + ", picolor=" + picolor + ", uname=" + uname + ", ostatus=" + ostatus
+				+ ", adminid=" + adminid + ", orderDate=" + orderDate + "]";
+	}
 
 }
