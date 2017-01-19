@@ -110,7 +110,9 @@
 	</delete>
 
 	<select id="question" resultType="QuestionVO">
-		select qwriter, qno, pno, date_format(qregdate,'%Y/%m/%d')qregdate, qcontent, qstatus from tbl_question where pno = #{pno}
+		select qwriter, qno, pno, 
+		date_format(qregdate,'%Y/%m/%d/%H:%i:%s')qregdate, qcontent, qstatus 
+		from tbl_question where pno = #{pno} order by qno desc
 	</select>
 
 	<insert id="answer" parameterType="AnswerVO">

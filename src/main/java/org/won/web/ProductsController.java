@@ -122,17 +122,10 @@ public class ProductsController {
 		return adminVO;
 	}
 	
-	@GetMapping("/questionWrite")
-	public @ResponseBody String questionWrite(String  qwriter, String qpw, String qcontent, String pno )throws Exception{
-		QuestionVO vo = new QuestionVO();
-		int pnoInt = Integer.parseInt(pno);
-		vo.setPno(pnoInt);
-		vo.setQwriter(qwriter);
-		vo.setQpw(qpw);
-		vo.setQcontent(qcontent);
-		
+	@PostMapping("/questionWrite")
+	public @ResponseBody String questionWrite(QuestionVO vo)throws Exception{
 		String result = mservice.questionWrite(vo);
-		return result;
+		return service.question(vo.getPno()).get(0).getQregdate();
 	}
 
 	

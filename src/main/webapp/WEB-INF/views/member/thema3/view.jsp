@@ -141,23 +141,15 @@ ul.uli li {
 			<!-- Tab panes -->
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane active" id="description">
-					
-
 					<div class="col-md-12 col-md-offset-2 ">${view[0].pcontent}</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="qna">
 					
 
 					<div class="col-md-12 ">
-						<ul class="unit">
-							<li class="li" style='margin-right: 10%'><b>NO</b></li>
-							<li class="li" style="margin-right: 30%;"><b>Question</b></li>
-							<li class="li" style="margin-right: 15%"><b>Writer</b></li>
-							<li class="li"><b>Date</b></li>
-							<div class="clearfix"></div>
-						</ul>
-						<ul class="unit">
-							<c:forEach items="${qna}" var="qvo">
+						
+<!-- 						<ul class="unit"> -->
+<%-- 							<c:forEach items="${qna}" var="qvo"> --%>
 <!-- 								QnA 1개 -->
 <!-- 								<div class="col-sm-10 showQnA"> -->
 <!-- 									<ul style="background-color: white;"> -->
@@ -172,13 +164,35 @@ ul.uli li {
 <%-- 										</c:forEach> --%>
 <!-- 									</ul> -->
 <!-- 								</div> -->
-							<li class="li" style='margin-right: 10%'><b>${qvo.qno}</b></li>
-							<li class="li" style="margin-right: 30%;"><b>${qvo.qcontent}</b></li>
-							<li class="li" style="margin-right: 15%"><b>${qvo.qwriter}</b></li>
-							<li class="li"><b>${qvo.qregdate}</b></li>
+<%-- 							<li class="li" style='margin-right: 10%;'><b>${qvo.qno}</b></li> --%>
+<%-- 							<li class="li" style="margin-right: 30%;"><b>${qvo.qcontent}</b></li> --%>
+<%-- 							<li class="li" style="margin-right: 15%;"><b>${qvo.qwriter}</b></li> --%>
+<%-- 							<li class="li"><b>${qvo.qregdate}</b></li> --%>
 
-							</c:forEach>
-						</ul>
+<%-- 							</c:forEach> --%>
+<!-- 						</ul> -->
+				  <div class="panel-group" id="accordion" style="margin-top: 2%;">
+				    		
+				   <c:forEach items="${qna}" var="qvo">		    
+				    <div class="panel panel-default">
+				      <div class="panel-heading">
+				        <h4 class="panel-title">
+				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${qvo.qno}">
+				          	<i class="fa fa-lock" >  비공개 글입니다</i></a>
+				          	${qvo.qno}
+				        </h4>
+				      </div>
+				      <div id="collapse${qvo.qno}" class="panel-collapse collapse">
+				        <div id='qcontent' class="panel-body">
+				        	<input type="text" id='questionPwcheck' placeholder='비밀번호를 입력해주세요' style="width: 70%;">
+				        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
+				        </div>
+				        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
+				      </div>
+				    </div>
+				   </c:forEach>
+				    
+				  </div> 
 						<hr>
 					</div>
 					
@@ -190,12 +204,11 @@ ul.uli li {
 								<input type="password" id='qpw' name='qpw' placeholder="Password" maxlength="4">
 							</div>
 						</div>
-  					<textarea id='qcontent' name="qcontent" style="height: 100px; width:100%;"></textarea>
+  					<textarea id='qcontent' name="qcontent" style="height: 100px; width:100%;" placeholder='질문을 입력해주세요'></textarea>
 					<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
 					
 				</div>
 				<div role="tabpanel" class="tab-pane" id="review">
-					
 
 					<div class="col-md-12 ">
 						<ul class="unit">
@@ -205,6 +218,7 @@ ul.uli li {
 							<li class="li"><b>Rate</b></li>
 							<div class="clearfix"></div>
 						</ul>
+						
 						<ul class="uli">
 							<c:forEach items="${review}" var="rvo">
 								<div class="col-sm-10 showReview">
@@ -217,6 +231,7 @@ ul.uli li {
 							</c:forEach>
 						</ul>
 						<hr>
+						
 						<form>
 							<input type="hidden" name="userid"> <input type='file'
 								id="rphoto" name="rphoto" /> <input type="radio" id="mark_0_0"
@@ -356,17 +371,15 @@ ul.uli li {
 			var qpw = $("#qpw").val();
 			var qcontent = $("#qcontent").val();
 			
-			var question = "qwriter=" + qwriter + "&qpw=" + qpw + "&qcontent="+ qcontent + "&pno=" + pno;
+			var question = {"qwriter" : qwriter, "qpw" : qpw , "qcontent" : qcontent , "pno" : pno };
 			
 			$.ajax({
 				url : "/questionWrite",
 				data : question,
 				dataType : 'text',
-				type : "get",
-				contentType : false,
-				processData : false,
+				type : "post",
 				success : function(result) {
-					swal("질문이 등록되었습니다!","","success");
+					swal("질문이 성공적으로 등록되었습니다!","","");
 				}// end success
 			});// end ajax
 		});// end question submit
