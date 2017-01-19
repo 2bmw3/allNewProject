@@ -387,7 +387,7 @@ ul.uli li {
 								+"</h4></div><div id='collapse"
 								+splitResult[1]+"' class='panel-collapse collapse'><div class='panel-body'><input type='text' id='questionPwcheck' maxlength='4' placeholder='비밀번호를 입력해주세요' style='width: 70%;'>"
 								+"<input id='questionPwcheckBtn' type='submit' class='btn btn-primary' value='확인' name='"
-								+splitResult[1]+"'><input type='hidden' value='"+qcontent+"'></div><div class='panel-footer'>"+qwriter+" / "+splitResult[1]+"</div></div></div>"
+								+splitResult[1]+"'><input type='hidden' value='"+qcontent+"'></div><div class='panel-footer'>"+qwriter+" / "+splitResult[0]+"</div></div></div>"
 					$("#accordion").prepend(str);
 				}// end success
 			});// end ajax
