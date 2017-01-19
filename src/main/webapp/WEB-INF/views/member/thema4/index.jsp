@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <%@include file="header.jsp"%>
-
+<!--  -->
 <body class="cms-index-index cms-home-page home-7">
   <!-- Home Slider -->
 		
