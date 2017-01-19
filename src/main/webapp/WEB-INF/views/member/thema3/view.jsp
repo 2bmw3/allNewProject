@@ -179,36 +179,37 @@ ul.uli li {
 				        <h4 class="panel-title">
 				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${qvo.qno}">
 				          	<i class="fa fa-lock" >  비공개 글입니다</i></a>
-				          	${qvo.qno}
 				        </h4>
 				      </div>
 				      <div id="collapse${qvo.qno}" class="panel-collapse collapse">
-				        <div id='qcontent' class="panel-body">
-				        	<input type="text" id='questionPwcheck' placeholder='비밀번호를 입력해주세요' style="width: 70%;">
+				        <div class="panel-body">
+				        	<input type="text" id='questionPwcheck' maxlength="4" 
+				        	placeholder='비밀번호를 입력해주세요' style="width: 70%;">
 				        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
+				        	<input type="hidden" value="${qvo.qcontent}">
 				        </div>
 				        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
 				      </div>
 				    </div>
 				   </c:forEach>
-				   <!-- wow -->
 				    
 				  </div> 
-						<hr>
+				<hr>
+			</div>
+					
+				<div class="row">
+					<div class="col-sm-6">
+						<input type="text" id='qwriter' name='qwriter' placeholder="Writer">
 					</div>
-					
-						<div class="row">
-							<div class="col-sm-6">
-								<input type="text" id='qwriter' name='qwriter' placeholder="Writer">
-							</div>
-							<div class="col-sm-3">
-								<input type="password" id='qpw' name='qpw' placeholder="Password" maxlength="4">
-							</div>
-						</div>
-  					<textarea id='qcontent' name="qcontent" style="height: 100px; width:100%;" placeholder='질문을 입력해주세요'></textarea>
-					<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
-					
+					<div class="col-sm-3">
+						<input type="password" id='qpw' name='qpw' placeholder="Password" maxlength="4">
+					</div>
 				</div>
+					<textarea id='qcontent' name="qcontent" 
+					style="height: 100px; width:100%;" placeholder='질문을 입력해주세요'></textarea>
+			<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
+				
+			</div>
 				<div role="tabpanel" class="tab-pane" id="review">
 
 					<div class="col-md-12 ">
@@ -293,7 +294,6 @@ ul.uli li {
 		});//end
 		
 		
-		
 		$("#cart").on("click",function(){
 			ccnt = $("#quantity").val();
 			size = $(".size").val();
@@ -371,7 +371,6 @@ ul.uli li {
 			var qwriter = $("#qwriter").val();
 			var qpw = $("#qpw").val();
 			var qcontent = $("#qcontent").val();
-			
 			var question = {"qwriter" : qwriter, "qpw" : qpw , "qcontent" : qcontent , "pno" : pno };
 			
 			$.ajax({
@@ -380,10 +379,44 @@ ul.uli li {
 				dataType : 'text',
 				type : "post",
 				success : function(result) {
-					swal("질문이 성공적으로 등록되었습니다!","","");
+					var splitResult = result.split("#");
+					swal("질문이 성공적으로 등록되었습니다!","","success");
+					var str =  "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'>"
+								+"<a data-toggle='collapse' data-parent='#accordion' href='#collapse"
+								+splitResult[1]+"'><i class='fa fa-lock' >  비공개 글입니다</i></a>"
+								+"</h4></div><div id='collapse"
+								+splitResult[1]+"' class='panel-collapse collapse'><div class='panel-body'><input type='text' id='questionPwcheck' maxlength='4' placeholder='비밀번호를 입력해주세요' style='width: 70%;'>"
+								+"<input id='questionPwcheckBtn' type='submit' class='btn btn-primary' value='확인' name='"
+								+splitResult[1]+"'><input type='hidden' value='"+qcontent+"'></div><div class='panel-footer'>"+qwriter+" / "+splitResult[1]+"</div></div></div>"
+					$("#accordion").prepend(str);
 				}// end success
 			});// end ajax
 		});// end question submit
+		
+		$(document).on('click', "#questionPwcheckBtn" , function(event){
+			var qpwCheckBtn = $(this)[0];
+			var qno = qpwCheckBtn.name;
+			var inputPw = qpwCheckBtn.previousElementSibling.value;
+			var qcontent = qpwCheckBtn.nextElementSibling.value;
+			var pwCheck = {"qpw":inputPw, "qno":qno};
+			
+			$.ajax({
+				url : "/questionPwCheck",
+				data : pwCheck,
+				dataType : 'text',
+				type : "post",
+				success : function(result) {
+					if(result == "F"){
+						swal("비밀번호가 틀립니다!","","error");
+						$("#questionPwcheck").val("");
+					}else{						
+						var str = "<h3>"+qcontent+"</h3>";
+						swal("비밀번호가 일치합니다!","","success");
+						qpwCheckBtn.parentElement.innerHTML = str;						
+					}
+				}// end success
+			});// end ajax
+		});
 		
 	});
 </script>

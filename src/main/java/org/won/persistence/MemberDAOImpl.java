@@ -38,4 +38,9 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.insert(NAME + ".questionWrite",vo);
 	}
 
+	@Override
+	public String questionPwCheck(int qno) throws Exception {
+		return sqlSession.selectOne(NAME + ".questionPwCheck", qno);
+	}
+
 }
