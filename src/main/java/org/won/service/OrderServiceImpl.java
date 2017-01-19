@@ -64,7 +64,14 @@ public class OrderServiceImpl implements OrderService {
 	@Transactional
 	public void memberOrderWrite(OrderVO vo) throws Exception {
 		dao.memberOrderWrite(vo);
-		dao.memberOrderWriteDetail(vo);
+		for (int i = 0; i < vo.getList().size(); i++) {
+
+
+
+				dao.memberOrderWriteDetail(vo.getList().get(i));
+			
+		}
+	
 		
 	}
 

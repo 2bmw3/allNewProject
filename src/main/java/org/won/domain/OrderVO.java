@@ -1,6 +1,7 @@
 package org.won.domain;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ public class OrderVO {
 	private String userid, shopname, ptitlephoto, ophonenumber, oaddress, pname, pisize, picolor, uname, ostatus,
 			adminid;
 	private Date orderDate;
+	private List<OrderVO> list;
 
 	public int getOno() {
 		return ono;
@@ -164,13 +166,21 @@ public class OrderVO {
 		this.orderDate = orderDate;
 	}
 
+	public List<OrderVO> getList() {
+		return list;
+	}
+
+	public void setList(List<OrderVO> list) {
+		this.list = list;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderVO [ono=" + ono + ", pino=" + pino + ", ocnt=" + ocnt + ", price=" + price + ", odno=" + odno
 				+ ", page=" + page + ", pno=" + pno + ", userid=" + userid + ", shopname=" + shopname + ", ptitlephoto="
 				+ ptitlephoto + ", ophonenumber=" + ophonenumber + ", oaddress=" + oaddress + ", pname=" + pname
 				+ ", pisize=" + pisize + ", picolor=" + picolor + ", uname=" + uname + ", ostatus=" + ostatus
-				+ ", adminid=" + adminid + ", orderDate=" + orderDate + "]";
+				+ ", adminid=" + adminid + ", orderDate=" + orderDate + ", list=" + list + "]";
 	}
 
 }

@@ -98,15 +98,12 @@
 	</select>
 
 	<select id="cartList" resultType="CartVO">
-	select
-	cno,ccnt,tbl_cart.pino,adminid,tbl_cart.shopname,ptitlephoto,price,pname,pisize,picolor
-	from
-	(select pino,adminid,shopname,ptitlephoto,price,pname,pisize,picolor from
-	(select tbl_admin.adminid,shopname,pno,ptitlephoto,price,pname from
-	tbl_admin,tbl_products
-	where tbl_admin.adminid = tbl_products.adminid) as product,tbl_pinfo
-	where tbl_pinfo.pno = product.pno) as pifo,tbl_cart where pifo.pino =
-	tbl_cart.pino and userid = #{userid} and pifo.shopname = #{shopname}
+      select adminid,tbl_cart.shopname,pno,ptitlephoto,price,pname,tbl_cart.pino, cno,ccnt,pisize,picolor from
+      (select adminid,shopname,tbl_pinfo.pno,ptitlephoto,price,pname,pino,pisize,picolor from
+      (select tbl_admin.adminid,shopname,pno,ptitlephoto,price,pname from tbl_admin,tbl_products 
+		where tbl_admin.adminid = tbl_products.adminid)
+        as product,tbl_pinfo where tbl_pinfo.pno = product.pno)
+        as pifo,tbl_cart where pifo.pino = tbl_cart.pino  and userid = #{userid} and pifo.shopname = #{shopname};
 	</select>
 
 	<select id="cartDelete">
@@ -126,7 +123,8 @@
       ,(select uaddress from tbl_member where userid = #{userid}))
 	</insert>
 	<insert id="memberOrderWriteDetail" parameterType="OrderVO">
-		insert into tbl_orderdetail(ono,pino,ocnt,shopname) value (LAST_INSERT_ID(),(select pino from bit88.tbl_pinfo where pno=#{pno} and picolor = #{picolor} and pisize = #{pisize}),
+		insert into tbl_orderdetail(ono,pino,ocnt,shopname) value ((select max(ono) from
+		tbl_order order by ono desc),(select pino from bit88.tbl_pinfo where pno=#{pno} and picolor = #{picolor} and pisize = #{pisize}),
 		#{ocnt}, (select shopname from bit88.tbl_admin where adminid = #{adminid}))
 	</insert>
 	

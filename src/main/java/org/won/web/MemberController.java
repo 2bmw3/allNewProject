@@ -339,6 +339,15 @@ public class MemberController {
 
 		model.addAttribute("newItem", pservice.newItem(vo));
 	}
+	@GetMapping("/thema4/cart")
+	public void thema4Cart(String shopname, Model model) throws Exception {
+
+		CartVO vo = new CartVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+
+		model.addAttribute("cart", oservice.cartList(vo));
+	}
 	// thema4 end
 
 	// cart
@@ -363,6 +372,13 @@ public class MemberController {
 	@PostMapping("/orderWrite")
 	public void orderWrite(OrderVO vo,String userid) throws Exception {
 		vo.setUserid("test");
+		if(vo.getList() == null){
+			List<OrderVO> ovo = new ArrayList<>();
+			ovo.add(0, vo);
+			vo.setList(ovo);
+		
+		}
+
 		oservice.memberOrderWrite(vo);
 	}
 
