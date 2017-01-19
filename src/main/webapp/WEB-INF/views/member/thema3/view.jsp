@@ -148,29 +148,6 @@ ul.uli li {
 
 					<div class="col-md-12 ">
 						
-<!-- 						<ul class="unit"> -->
-<%-- 							<c:forEach items="${qna}" var="qvo"> --%>
-<!-- 								QnA 1개 -->
-<!-- 								<div class="col-sm-10 showQnA"> -->
-<!-- 									<ul style="background-color: white;"> -->
-<%-- 										<li><h3>${qvo.qwriter}</h3> --%>
-<%-- 											<h6>${qvo.qregdate}</h6></li> --%>
-<%-- 										<li id='c${qvo.qno}'><h5>${qvo.qcontent}</h5></li> --%>
-<%-- 										<c:forEach items="${answer}" var="avo"> --%>
-<%-- 											<c:if test="${qvo.qno == avo.qno }"> --%>
-<!-- 												<li><i class="material-icons">subdirectory_arrow_right</i> -->
-<%-- 													RE : ${avo.acontent}</li> --%>
-<%-- 											</c:if> --%>
-<%-- 										</c:forEach> --%>
-<!-- 									</ul> -->
-<!-- 								</div> -->
-<%-- 							<li class="li" style='margin-right: 10%;'><b>${qvo.qno}</b></li> --%>
-<%-- 							<li class="li" style="margin-right: 30%;"><b>${qvo.qcontent}</b></li> --%>
-<%-- 							<li class="li" style="margin-right: 15%;"><b>${qvo.qwriter}</b></li> --%>
-<%-- 							<li class="li"><b>${qvo.qregdate}</b></li> --%>
-
-<%-- 							</c:forEach> --%>
-<!-- 						</ul> -->
 				  <div class="panel-group" id="accordion" style="margin-top: 2%;">
 				    		
 				   <c:forEach items="${qna}" var="qvo">		    
@@ -187,6 +164,13 @@ ul.uli li {
 				        	placeholder='비밀번호를 입력해주세요' style="width: 70%;">
 				        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
 				        	<input type="hidden" value="${qvo.qcontent}">
+				        	
+				        		<c:forEach items="${answer}" var="avo">
+									<c:if test="${qvo.qno == avo.qno }">
+				        			<input type="hidden" value="${avo.acontent}">
+									</c:if>
+								</c:forEach>
+								
 				        </div>
 				        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
 				      </div>
@@ -373,7 +357,6 @@ ul.uli li {
 			var qcontent = $("#qcontent").val();
 			var question = {"qwriter" : qwriter, "qpw" : qpw , "qcontent" : qcontent , "pno" : pno };
 			
-			//주석맨
 			$.ajax({
 				url : "/questionWrite",
 				data : question,
@@ -407,12 +390,17 @@ ul.uli li {
 				dataType : 'text',
 				type : "post",
 				success : function(result) {
-					if(result == "F"){
+					console.log(result);
+					var splitResult = result.split("#");
+					if(splitResult[0] == "F"){
 						swal("비밀번호가 틀립니다!","","error");
 						$("#questionPwcheck").val("");
-					}else{						
+					}else if (splitResult[1] == "null"){						
 						var str = "<h3>"+qcontent+"</h3>";
 						qpwCheckBtn.parentElement.innerHTML = str;						
+					}else{
+						var str = "<h3>"+qcontent+"</h3>"+"<hr/><b>Re: "+splitResult[1]+"</b>";
+						qpwCheckBtn.parentElement.innerHTML = str;
 					}
 				}// end success
 			});// end ajax

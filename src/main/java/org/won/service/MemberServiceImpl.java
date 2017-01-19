@@ -38,4 +38,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.questionPwCheck(qno);
 	}
 
+	@Override
+	public String answerOne(int qno) throws Exception {
+		return dao.answerOne(qno);
+	}
+
 }

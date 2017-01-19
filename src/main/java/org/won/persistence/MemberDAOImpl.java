@@ -43,4 +43,9 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(NAME + ".questionPwCheck", qno);
 	}
 
+	@Override
+	public String answerOne(int qno) throws Exception {
+		return sqlSession.selectOne(NAME + ".answerOne", qno);
+	}
+
 }
