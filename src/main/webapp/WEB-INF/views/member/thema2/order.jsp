@@ -14,12 +14,12 @@
 <style>
 ul.unit li {
     display: inline-block;
-    width: 16%;
+    width: 15%;
     float: left;
 }
 ul.cart-header li{
     display: inline-block;
-    width: 15%;
+    width: 14%;
     float: left;
 }
 
@@ -40,7 +40,7 @@ ul.cart-header li{
 						<div class="clearfix"></div>
 					</ul>
 				<c:forEach items="${order}" var="vo">
-               	<ul class="cart-header">
+               	<ul class="cart-header" id="${vo.odno}">
                   <li class="ring-in"><a href="#"><img style="width:50%;" src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></li>
                   <li><span>${vo.pname} / ${vo.picolor} / ${vo.pisize}</span></li>
                   <li><span>￦ ${vo.price}</span></li>
@@ -61,6 +61,9 @@ ul.cart-header li{
                               <i class="material-icons">home</i>
                            </c:when>
                         </c:choose></span></li>
+                         <li><span><input type="hidden" value='${vo.odno}' id="odno"> <a
+                         id="out" style="cursor: pointer">Arrival of goods</a></span></li>
+                         
                   <div class="clearfix"></div>
                </ul>             
                </c:forEach>
@@ -88,6 +91,32 @@ ul.cart-header li{
 		<div class="clearfix"></div>
 	</div>
 </div> -->
+<script>
+$(document).on("click",'#out', function() {
+    swal({
+       title : "잘받으셨나요?",
+       text : "기다리기 힘드셨죠",
+       type : "warning",
+       showCancelButton : true,
+       confirmButtonColor : "#8CD4F5",
+       confirmButtonText : "만족",
+       cancelButtonText : "취소",
+       closeOnConfirm : false
+    }, function() {
+       swal("감사합니다", "자주 만나요", "success");
+       var odno = $("#odno").val();
+
+       $.ajax({
+          url : "/member/memberOrderAction",
+          data : "odno=" + odno,
+          dataType : "JSON",
+          type : "post",
+          complete : $("#" + odno).detach()
+
+       });//end  Ajax
+    });
+ });
+</script>
 
 <%@include file="footer.jsp"%>
 </body>

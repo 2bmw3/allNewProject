@@ -37,27 +37,27 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public List<OrderVO> adminOrderMoreList(OrderVO vo) throws Exception {
-		
+
 		return dao.adminOrderMoreList(vo);
 	}
 
 	@Override
 	public List<CartVO> cartList(CartVO vo) throws Exception {
-		
+
 		return dao.cartList(vo);
 	}
 
 	@Override
 	public void cartDelete(int cno) throws Exception {
-		
+
 		dao.cartDelete(cno);
-		
+
 	}
 
 	@Override
 	public void cartAdd(CartVO vo) throws Exception {
 		dao.cartAdd(vo);
-		
+
 	}
 
 	@Override
@@ -66,19 +66,27 @@ public class OrderServiceImpl implements OrderService {
 		dao.memberOrderWrite(vo);
 		for (int i = 0; i < vo.getList().size(); i++) {
 
+			dao.memberOrderWriteDetail(vo.getList().get(i));
+			if (vo.getList().get(i).getCno() != 0) {
 
+				dao.cartDelete(vo.getList().get(i).getCno());
+			}
 
-				dao.memberOrderWriteDetail(vo.getList().get(i));
-			
 		}
-	
-		
+
 	}
 
 	@Override
 	public List<OrderVO> memberOrderList(OrderVO vo) throws Exception {
-		
+
 		return dao.memberOrderList(vo);
+	}
+
+	@Override
+	public void memberOrderUpdate(int odno) throws Exception {
+		
+		dao.memberOrderUpdate(odno);
+		
 	}
 
 }
