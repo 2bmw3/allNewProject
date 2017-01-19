@@ -20,4 +20,9 @@ public class BoardDAOImpl implements BoardDAO {
 		
 	}
 
+	@Override
+	public void rCreate(ReviewVO vo) throws Exception {
+		sqlSession.insert(NAME + ".rCreate", vo);
+	}
+
 }

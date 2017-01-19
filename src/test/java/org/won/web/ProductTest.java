@@ -19,6 +19,19 @@ public class ProductTest {
 
 	@Inject
 	private OrderService service;
+	
+	@Test
+	public void order() throws Exception{
+		OrderVO vo = new OrderVO();
+		
+		vo.setPno(390);
+		vo.setPisize("F");
+		vo.setPicolor("etc");
+		vo.setOcnt(124);
+		vo.setShopname("기린샵");
+		vo.setUserid("test");
+		service.memberOrderWrite(vo);
+	}
 
 
 }

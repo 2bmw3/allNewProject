@@ -93,8 +93,13 @@
 
 	<select id="review" resultType="ReviewVO">
 		select * from tbl_review where
-		pno = #{pno}
+		pno = #{pno} order by rregdate desc
 	</select>
+
+	<insert id="rCreate" parameterType="ReviewVO">
+		insert into tbl_review(pno, userid, rcontent, rphoto, rgrade)
+		value(#{pno}, #{userid}, #{rcontent}, #{rphoto}, #{rgrade})
+	</insert>
 
 	<delete id="productsDelete">
 		delete from tbl_products where pno =
@@ -110,7 +115,9 @@
 	</delete>
 
 	<select id="question" resultType="QuestionVO">
-		select qwriter, qno, pno, date_format(qregdate,'%Y/%m/%d')qregdate, qcontent, qstatus from tbl_question where pno = #{pno}
+		select qwriter, qno, pno, 
+		date_format(qregdate,'%Y/%m/%d/%H:%i:%s')qregdate, qcontent, qstatus 
+		from tbl_question where pno = #{pno} order by qno desc
 	</select>
 
 	<insert id="answer" parameterType="AnswerVO">

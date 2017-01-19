@@ -76,7 +76,12 @@
 	</div>
 	<!-- /.modal-dialog -->
 </div>
-</body>
+
+ 
+<!-- 새로 추가한 것들 -->
+<script src="/resources/member/js/rate.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<!-- 구                 분 -->
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->

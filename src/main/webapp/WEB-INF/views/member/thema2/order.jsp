@@ -5,12 +5,25 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <title>Insert title here</title>
 
 </head>
 <body>
 <%@include file="header.jsp"%>
+<style>
+ul.unit li {
+    display: inline-block;
+    width: 16%;
+    float: left;
+}
+ul.cart-header li{
+    display: inline-block;
+    width: 15%;
+    float: left;
+}
 
+</style>
 <div class="ckeckout">
 	<div class="container">
 		<div class="ckeckout-top">
@@ -21,46 +34,43 @@
 						<li><span>Item</span></li>
 						<li><span>Product Name</span></li>
 						<li><span>Unit Price</span></li>
-						<li><span>Stock Status</span></li>
+						<li><span>Quantity</span></li>
+						<li><span>Total</span></li>
+						<li><span>Delivery</span></li>
 						<div class="clearfix"></div>
 					</ul>
-
-					<ul class="cart-header">
-						<li class="ring-in"><a href="#"><img
-								src="/resources/themes/thema2/images/s-1.jpg"
-								class="img-responsive" alt=""></a></li>
-						<li><span>Woo Dress</span></li>
-						<li><span>$ 290.00</span></li>
-						<li><span>In Stock</span></li>
-						<div class="clearfix"></div>
-					</ul>
-
-					<ul class=" cart-header1">
-						<li class="ring-in"><a href="#"><img
-								src="/resources/themes/thema2/images/s-2.jpg"
-								class="img-responsive" alt=""></a></li>
-						<li><span>Elliot Shoes</span></li>
-						<li><span>$ 300.00</span></li>
-						<li><span>In Stock</span></li>
-						<div class="clearfix"></div>
-					</ul>
-
-					<ul class="cart-header2">
-						<li class="ring-in"><a href="#"><img
-								src="/resources/themes/thema2/images/s-4.jpg"
-								class="img-responsive" alt=""></a></li>
-						<li><span>Woo Dress</span></li>
-						<li><span>$ 360.00</span></li>
-						<li><span>In Stock</span></li>
-						<div class="clearfix"></div>
-					</ul>
+				<c:forEach items="${order}" var="vo">
+               	<ul class="cart-header">
+                  <li class="ring-in"><a href="#"><img style="width:50%;" src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></li>
+                  <li><span>${vo.pname} / ${vo.picolor} / ${vo.pisize}</span></li>
+                  <li><span>￦ ${vo.price}</span></li>
+                  <li><span>${vo.ocnt}</span></li>
+                   <li><span>￦ ${vo.ocnt * vo.price}</span></li>
+                  <li><span><c:set var="name" value="${vo.ostatus}" />
+                        <c:choose>
+                           <c:when test="${name eq 0}">
+                              <i class="material-icons">local_atm</i>
+                           </c:when>
+                           <c:when test="${name eq 1}">
+                              <i class="material-icons">local_atm</i>
+                           </c:when>
+                           <c:when test="${name eq 2}">
+                              <i class="material-icons">local_shipping</i>
+                           </c:when>
+                           <c:when test="${name eq 3}">
+                              <i class="material-icons">home</i>
+                           </c:when>
+                        </c:choose></span></li>
+                  <div class="clearfix"></div>
+               </ul>             
+               </c:forEach>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="container">
+<!-- <div class="container">
 	<div class="contact-bottom">
 		<div class="col-md-6 contact-left">
 			<form>
@@ -77,7 +87,7 @@
 		</div>
 		<div class="clearfix"></div>
 	</div>
-</div>
+</div> -->
 
 <%@include file="footer.jsp"%>
 </body>

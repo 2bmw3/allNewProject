@@ -21,19 +21,27 @@
                   <li ><span>Item</span></li>
                   <li><span>Product Name</span></li>
                   <li><span>Unit Price</span></li>
-                  <li><span>Stock Status</span></li>
+                  <li><span>Quantity</span></li>
                   <div class="clearfix"></div>
                </ul>
-                 <c:forEach items="${cart}" var="vo">
+               <form action="/member/orderWrite" method="post" id="cartOrder">
+                 <c:forEach items="${cart}" var="vo" varStatus="i">
                <ul class="cart-header">
                   <li class="ring-in"><a href="#"><img style="width:50%;" src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></li>
                   <li><span>${vo.pname} / ${vo.picolor} / ${vo.pisize}</span></li>
                   <li><span>￦ ${vo.price}<input type="hidden" value="${vo.price}"></span></li>
-                  <li><span>${vo.ccnt}</span></li>
+                  <li><span id="ccnt">${vo.ccnt}</span></li>
                   <li  class="ring-in"><a class="remove"href="#"><img src="/resources/themes/thema2/images/close-1.png" style="margin:13%;"><input type="hidden"  value = '${vo.cno}'  id="cno"></a></li>
                   <div class="clearfix"></div>
-               </ul>             
+               </ul>
+               
+               	<input type="hidden" name="list[${i.index}].pno" value="${vo.pno}">
+               	<input type="hidden" name="list[${i.index}].picolor" value="${vo.picolor}">   
+               	<input type="hidden" name="list[${i.index}].pisize" value="${vo.pisize}" >
+               	<input type="hidden" name="list[${i.index}].ocnt" value="${vo.ccnt}">
+               	<input type="hidden" name="list[${i.index}].adminid" value="${vo.adminid}">
                </c:forEach>
+               </form>
                 <div>
                <h3>Cart Totals</h3>
                <table style='max-width: 100%;'>
@@ -80,6 +88,9 @@ $(".remove").on('click', function(){
  	
  	$(".total")[0].innerHTML= "<h4>￦ " + totalP+"</h4>";
  });
-
+$("#order").on("click",function(){
+	$("#cartOrder").submit();
+	location.href='order?shopname=${param.shopname}';
+});
 </script>
 </html>

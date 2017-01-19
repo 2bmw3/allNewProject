@@ -8,6 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Daily Shop | Home</title>
 
+    <!-- 새로 추가한 것들  -->
+	<link href="/resources/member/css/rate.css" rel="stylesheet" >
+    <!-- 구                 분  -->
+    
     <!-- Font awesome -->
     <link href="/resources/themes/thema1/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->

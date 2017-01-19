@@ -12,9 +12,15 @@ import org.won.persistence.BoardDAO;
 public class BoardServiceImpl implements BoardService {
 	@Inject
 	private BoardDAO dao;
+
 	@Override
 	public List<ReviewVO> reviewRead(int pno) throws Exception {
 		return dao.reviewRead(pno);
+	}
+
+	@Override
+	public void rCreate(ReviewVO vo) throws Exception {
+		dao.rCreate(vo);
 	}
 
 }
