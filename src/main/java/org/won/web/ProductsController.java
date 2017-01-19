@@ -128,8 +128,22 @@ public class ProductsController {
 	
 	@PostMapping("/questionWrite")
 	public @ResponseBody String questionWrite(QuestionVO vo)throws Exception{
-		String result = mservice.questionWrite(vo);
-		return service.question(vo.getPno()).get(0).getQregdate();
+		mservice.questionWrite(vo);
+		String result = service.question(vo.getPno()).get(0).getQregdate()
+				+"#"+service.question(vo.getPno()).get(0).getQno();
+		
+		return result;
+	}
+	
+	@PostMapping("/questionPwCheck")
+	public @ResponseBody String questionPwCheck(int qno, String qpw)throws Exception{
+		String result = "F";
+		String originQpw = mservice.questionPwCheck(qno);
+		
+		if(originQpw.equals(qpw)){
+			result = "T";
+		}
+		return result;
 	}
 
 	@PostMapping("/review")

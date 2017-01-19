@@ -15,4 +15,6 @@ public interface MemberService {
 	//질문 등록
 	public String questionWrite(QuestionVO vo) throws Exception;
 
+	//질문 pw check
+	public String questionPwCheck(int qno) throws Exception;
 }
