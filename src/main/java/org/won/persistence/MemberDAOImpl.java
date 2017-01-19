@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.won.domain.AdminVO;
 import org.won.domain.MemberVO;
+import org.won.domain.QuestionVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO {
@@ -30,6 +31,11 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public List<AdminVO> indexList() throws Exception {
 		return sqlSession.selectList(NAME + ".indexList" );
+	}
+
+	@Override
+	public void questionWrite(QuestionVO vo) throws Exception {
+		sqlSession.insert(NAME + ".questionWrite",vo);
 	}
 
 }

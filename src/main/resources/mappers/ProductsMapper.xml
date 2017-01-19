@@ -115,8 +115,7 @@
 	</delete>
 
 	<select id="question" resultType="QuestionVO">
-		select * from tbl_question
-		where pno=#{pno}
+		select qwriter, qno, pno, date_format(qregdate,'%Y/%m/%d')qregdate, qcontent, qstatus from tbl_question where pno = #{pno}
 	</select>
 
 	<insert id="answer" parameterType="AnswerVO">

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.won.domain.CartVO;
 import org.won.domain.OrderVO;
 import org.won.persistence.OrderDAO;
@@ -57,6 +58,20 @@ public class OrderServiceImpl implements OrderService {
 	public void cartAdd(CartVO vo) throws Exception {
 		dao.cartAdd(vo);
 		
+	}
+
+	@Override
+	@Transactional
+	public void memberOrderWrite(OrderVO vo) throws Exception {
+		dao.memberOrderWrite(vo);
+		dao.memberOrderWriteDetail(vo);
+		
+	}
+
+	@Override
+	public List<OrderVO> memberOrderList(OrderVO vo) throws Exception {
+		
+		return dao.memberOrderList(vo);
 	}
 
 }

@@ -62,4 +62,21 @@ public class OrderDAOImpl implements OrderDAO {
 		
 	}
 
+	@Override
+	public void memberOrderWrite(OrderVO vo) throws Exception {
+		sqlSession.insert(NAME+".memberOrderWrite",vo);
+	}
+
+	@Override
+	public void memberOrderWriteDetail(OrderVO vo) throws Exception {
+		sqlSession.insert(NAME+".memberOrderWriteDetail",vo);
+		
+	}
+
+	@Override
+	public List<OrderVO> memberOrderList(OrderVO vo) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(NAME+".memberOrderList",vo);
+	}
+
 }

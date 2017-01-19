@@ -156,43 +156,43 @@ ul.uli li {
 							<li class="li"><b>Date</b></li>
 							<div class="clearfix"></div>
 						</ul>
-						<ul class="uli">
+						<ul class="unit">
 							<c:forEach items="${qna}" var="qvo">
-								<!-- QnA 1개 -->
-								<div class="col-sm-10 showQnA">
-									<ul style="background-color: white;">
-										<li><h3>${qvo.qwriter}</h3>
-											<h6>${qvo.qregdate}</h6></li>
-										<li id='c${qvo.qno}'><h5>${qvo.qcontent}</h5></li>
-										<c:forEach items="${answer}" var="avo">
-											<c:if test="${qvo.qno == avo.qno }">
-												<li><i class="material-icons">subdirectory_arrow_right</i>
-													RE : ${avo.acontent}</li>
-											</c:if>
-										</c:forEach>
+<!-- 								QnA 1개 -->
+<!-- 								<div class="col-sm-10 showQnA"> -->
+<!-- 									<ul style="background-color: white;"> -->
+<%-- 										<li><h3>${qvo.qwriter}</h3> --%>
+<%-- 											<h6>${qvo.qregdate}</h6></li> --%>
+<%-- 										<li id='c${qvo.qno}'><h5>${qvo.qcontent}</h5></li> --%>
+<%-- 										<c:forEach items="${answer}" var="avo"> --%>
+<%-- 											<c:if test="${qvo.qno == avo.qno }"> --%>
+<!-- 												<li><i class="material-icons">subdirectory_arrow_right</i> -->
+<%-- 													RE : ${avo.acontent}</li> --%>
+<%-- 											</c:if> --%>
+<%-- 										</c:forEach> --%>
+<!-- 									</ul> -->
+<!-- 								</div> -->
+							<li class="li" style='margin-right: 10%'><b>${qvo.qno}</b></li>
+							<li class="li" style="margin-right: 30%;"><b>${qvo.qcontent}</b></li>
+							<li class="li" style="margin-right: 15%"><b>${qvo.qwriter}</b></li>
+							<li class="li"><b>${qvo.qregdate}</b></li>
 
-									</ul>
-								</div>
 							</c:forEach>
 						</ul>
 						<hr>
 					</div>
-					<form>
+					
 						<div class="row">
-							<div class="col-sm-3">
-								<input type="text" placeholder="Writer">
+							<div class="col-sm-6">
+								<input type="text" id='qwriter' name='qwriter' placeholder="Writer">
 							</div>
 							<div class="col-sm-3">
-								<input type="password" placeholder="Password">
+								<input type="password" id='qpw' name='qpw' placeholder="Password" maxlength="4">
 							</div>
 						</div>
-						
- <input type="text" name="rcontent"
-							style="height: 200px; width: 100%;"> 
- 
-
-						<input type="submit" class="btn btn-primary" value="Submit">
-					</form>
+  					<textarea id='qcontent' name="qcontent" style="height: 100px; width:100%;"></textarea>
+					<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
+					
 				</div>
 				<div role="tabpanel" class="tab-pane" id="review">
 					
@@ -231,10 +231,8 @@ ul.uli li {
 								type="radio" id="mark_0_4" name="rgrade" checked="checked"
 								value="5"> <label for="mark_0_4" style="color: pink">★★★★★</label>
 							
- <input type="text" name="rcontent"
-								style="height: 200px; width: 100%;"> 
+ 				<input type="text" name="rcontent" style="height: 200px; width: 100%;"> 
  
-
 							<input type="submit" class="btn btn-primary" value="Submit">
 						</form>
 					</div>
@@ -277,9 +275,6 @@ ul.uli li {
 		        }
 		    });  
 		});//end
-		
-		
-		
 		
 		
 		
@@ -329,11 +324,6 @@ ul.uli li {
 		});//end 
 		
 		
-		
-		
-		
-		
-		
 		// Activate Carousel
 		$("#myCarousel").carousel();
 
@@ -350,7 +340,7 @@ ul.uli li {
 		$(".item4").click(function() {
 			$("#myCarousel").carousel(3);
 		});
-//
+
 		// Enable Carousel Controls
 		$(".left").click(function() {
 			$("#myCarousel").carousel("prev");
@@ -358,6 +348,29 @@ ul.uli li {
 		$(".right").click(function() {
 			$("#myCarousel").carousel("next");
 		});
+		
+		
+		$("#qsubmit").on("click",function(){
+			
+			var qwriter = $("#qwriter").val();
+			var qpw = $("#qpw").val();
+			var qcontent = $("#qcontent").val();
+			
+			var question = "qwriter=" + qwriter + "&qpw=" + qpw + "&qcontent="+ qcontent + "&pno=" + pno;
+			
+			$.ajax({
+				url : "/questionWrite",
+				data : question,
+				dataType : 'text',
+				type : "get",
+				contentType : false,
+				processData : false,
+				success : function(result) {
+					swal("질문이 등록되었습니다!","","success");
+				}// end success
+			});// end ajax
+		});// end question submit
+		
 	});
 </script>
 

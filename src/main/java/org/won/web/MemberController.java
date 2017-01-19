@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.won.domain.AdminVO;
 import org.won.domain.CartVO;
+import org.won.domain.OrderVO;
 import org.won.domain.PinfoVO;
 import org.won.domain.ProductsVO;
 import org.won.service.AdminService;
@@ -200,6 +201,7 @@ public class MemberController {
 	public void thema2View(int pno, Model model) throws Exception {
 		model.addAttribute("view", pservice.read(pno));
 		model.addAttribute("infoColor", pservice.infoColor(pno));
+	
 	}
 
 	// cart
@@ -215,7 +217,13 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema2/order")
-	public void thema2Order() {
+	public void thema2Order(String shopname, Model model) throws Exception {
+		
+		OrderVO vo = new OrderVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+		
+		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 	// thema2 end
 
@@ -351,6 +359,11 @@ public class MemberController {
 	public @ResponseBody List<PinfoVO> infoSize(PinfoVO vo) throws Exception {
 		List<PinfoVO> list = pservice.infoSize(vo);
 		return list;
+	}
+	@PostMapping("/orderWrite")
+	public void orderWrite(OrderVO vo,String userid) throws Exception {
+		vo.setUserid("test");
+		oservice.memberOrderWrite(vo);
 	}
 
 }

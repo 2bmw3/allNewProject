@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 import org.won.domain.AdminVO;
 import org.won.domain.MemberVO;
+import org.won.domain.QuestionVO;
 import org.won.persistence.MemberDAO;
 
 @Service
@@ -24,6 +25,12 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public List<AdminVO> indexList() throws Exception {
 		return dao.indexList();
+	}
+
+	@Override
+	public String questionWrite(QuestionVO vo) throws Exception {
+		dao.questionWrite(vo);
+		return "success";
 	}
 
 }

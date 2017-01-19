@@ -21,7 +21,9 @@ import org.won.domain.PphotosVO;
 import org.won.domain.ProductsVO;
 import org.won.domain.ReviewVO;
 import org.won.service.BoardService;
+import org.won.domain.QuestionVO;
 import org.won.service.EditorService;
+import org.won.service.MemberService;
 import org.won.service.ProductsService;
 import org.won.util.CookieUtil;
 
@@ -40,6 +42,9 @@ public class ProductsController {
 
 	@Inject
 	private EditorService eservice;
+	
+	@Inject
+	private MemberService mservice;
 
 	private CookieUtil cookieUtil = new CookieUtil();
 
@@ -102,11 +107,6 @@ public class ProductsController {
 		return fileNames;
 	}
 
-	@GetMapping("/test")
-	public void test() {
-
-	}
-
 	@GetMapping("/themaGet")
 	public @ResponseBody AdminVO themaGet(int pno) throws Exception {
 		AdminVO adminVO = new AdminVO();
@@ -124,6 +124,19 @@ public class ProductsController {
 			adminVO.setThema(str);
 		}
 		return adminVO;
+	}
+	
+	@GetMapping("/questionWrite")
+	public @ResponseBody String questionWrite(String  qwriter, String qpw, String qcontent, String pno )throws Exception{
+		QuestionVO vo = new QuestionVO();
+		int pnoInt = Integer.parseInt(pno);
+		vo.setPno(pnoInt);
+		vo.setQwriter(qwriter);
+		vo.setQpw(qpw);
+		vo.setQcontent(qcontent);
+		
+		String result = mservice.questionWrite(vo);
+		return result;
 	}
 
 	@PostMapping("/review")

@@ -21,4 +21,10 @@ public interface OrderDAO {
    
    public void cartAdd(CartVO vo) throws Exception;
    
+   public void memberOrderWrite(OrderVO vo) throws Exception;
+   
+   public void memberOrderWriteDetail(OrderVO vo) throws Exception;
+   
+   public List<OrderVO> memberOrderList(OrderVO vo) throws Exception;   
+   
 }

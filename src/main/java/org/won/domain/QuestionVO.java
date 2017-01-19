@@ -1,11 +1,8 @@
 package org.won.domain;
 
-import java.util.Date;
-
 public class QuestionVO {
 	private int qno, pno;
-	private String qcontent, qwriter, qpw, qstatus, ptitlephoto, pname;
-	private Date qregdate;
+	private String qcontent, qwriter, qpw, qstatus, ptitlephoto, pname, qregdate;
 
 	public int getQno() {
 		return qno;
@@ -71,11 +68,11 @@ public class QuestionVO {
 		this.pname = pname;
 	}
 
-	public Date getQregdate() {
+	public String getQregdate() {
 		return qregdate;
 	}
 
-	public void setQregdate(Date qregdate) {
+	public void setQregdate(String qregdate) {
 		this.qregdate = qregdate;
 	}
 

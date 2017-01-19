@@ -21,7 +21,7 @@
                   <li ><span>Item</span></li>
                   <li><span>Product Name</span></li>
                   <li><span>Unit Price</span></li>
-                  <li><span>Stock Status</span></li>
+                  <li><span>Quantity</span></li>
                   <div class="clearfix"></div>
                </ul>
                  <c:forEach items="${cart}" var="vo">
