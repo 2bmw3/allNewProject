@@ -12,7 +12,7 @@ public interface MemberService {
 	
 	public List<AdminVO> indexList() throws Exception;
 	
-	//질문 등록
+	//질문 등록데스
 	public String questionWrite(QuestionVO vo) throws Exception;
 
 	//질문 pw check
