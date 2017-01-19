@@ -156,7 +156,7 @@
 	var userid = null;
 	//시작 하자 마자 쿠키값을 확인
 	(function exe() {
-		userid = getCookie('userid');
+		userid = getCookie('username');
 		if(userid != ''){
 			$("#hLogin").detach();
 			$(".hHeader").append("<li id='hLogout'><a href='#' >Logout</a></li>");

@@ -66,7 +66,7 @@ public class LoginController {
 
 	}
 
-	// /아이디 중복 체크
+	// 아이디 중복 체크
 	@GetMapping("/idCheck")
 	public @ResponseBody String idCheck(String adminid) throws Exception {
 		return service.idCheck(adminid);
