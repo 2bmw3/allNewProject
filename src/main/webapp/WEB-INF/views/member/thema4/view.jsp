@@ -141,9 +141,10 @@
                         </div>
                      </div>
 
-                     <div id="reviews" class="tab-pane fade">
                      <!-- reviews start -->
+                     <div id="reviews" class="tab-pane fade">
                         <div class="panel-group" id="accordion" style="margin-top: 2%;">
+                        <div id="reviewList">
 						   <c:forEach items="${review}" var="rvo">		    
 						    <div class="panel panel-default">
 						      <div class="panel-heading">
@@ -163,6 +164,7 @@
 						      </div>
 						    </div>
 						   </c:forEach>
+						   </div>
 						  </div>
                         <div class="col-sm-7 col-lg-7 col-md-7">
                            <div class="reviews-content-right">
@@ -492,43 +494,53 @@ $('#reviewBtn').on('click', function () {
 	/* 리뷰 버튼 이벤트 시작  */ 
 
    event.preventDefault();
-   var rcontent = $('#reContent')[0].value;
-   var rphoto = $('#rePhoto');
-   var rgrade = $('[name="star-input"]:checked').val();
-   var file= $("#photoFile")[0].files[0];
-   var uuidFileName = guid() + "_" + file.name;
-   
-   rphoto.val(uuidFileName);
-   
-   var upload = storage.ref().child("review/" +uuidFileName);
-    
-   
-   var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
-   
-   
-    $.ajax({      
-          url: "/review", 
-           data: formData, 
-           dataType: "text",
-           type:"post",
-           success:function(date){
-              var uploadTask = upload.put(file);
-
-               uploadTask.on('state_changed', function(snapshot){
-               }, function(error) {
-               }, function() {
-                   var downloadURL = uploadTask.snapshot.downloadURL;
-                 emptyReview.hide();
-                $('.review-ratting').prepend("<div class='reviews-content-left' style='margin-top: 1%; background-color: white;'><img class='reviewImg' src='"+downloadURL+"' style = 'width:100px; height:100px;'><strong style='margin-left: 5%;'>ID : "+
-                   userid + "(" + rgrade + "점)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+
-                    rcontent + "</strong></div>");
-               });
-            
-               $('#reContent').val("");
-               $("#photoFile").val("");
-           }
-       }); 
-       //ajax end
+         var rcontent = $('#reContent')[0].value;
+         var rphoto = $('#rePhoto');
+         var rgrade = $('[name="star-input"]:checked').val();
+         var file= $("#photoFile")[0].files[0];
+         var uuidFileName = guid() + "_" + file.name;
+         
+         rphoto.val(uuidFileName);
+         
+         var upload = storage.ref().child("review/" +uuidFileName);
+          
+         
+         var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
+         
+         $.ajax({      
+		    	url: "/review", 
+		        data: formData, 
+		        dataType: "text",
+		        type:"post",
+		        success:function(data){
+		        	var uploadTask = upload.put(file);
+					var rno = data.split("#")[0];
+					var date = data.split("#")[1];
+					
+					
+		        	uploadTask.on('state_changed', function(snapshot){
+		            }, function(error) {
+		            }, function() {
+		                var downloadURL = uploadTask.snapshot.downloadURL;
+			        	emptyReview.hide();
+			        	
+			        	var writeStr = "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#collapse"
+							        	+rno+"'>ID : "
+							        	+userid+" ("
+							        	+rgrade+"점)</a></h4></div><div id='collapse"
+							        	+rno+"' class='panel-collapse collapse'><div class='panel-body'><img class='reviewImg' src='"
+							        	+downloadURL+"'style='width: 100px; height: 100px' /><strong style='margin-left: 5%'>"
+							        	+rcontent+"</strong></div><div class='panel-footer'>"
+							        	+date+"</div></div></div>";
+			        	
+		 				$('#reviewList').prepend(writeStr);
+		            });
+				
+		            $('#reContent').val("");
+		            $("#photoFile").val("");
+	        	}
+		    }); 
+		    //ajax end
 });
 /* 리뷰 버튼 이벤트 끝! */
 

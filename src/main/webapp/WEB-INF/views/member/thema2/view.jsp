@@ -428,7 +428,7 @@
          }// end uuid create
 
 
-         /* 리뷰 버튼 이벤트 시작  */ 
+       /* 리뷰 버튼 이벤트 시작  */ 
       $('#reviewBtn').on('click', function () {
          event.preventDefault();
          var rcontent = $('#reContent')[0].value;
@@ -443,9 +443,6 @@
           
          
          var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
-         
-         
-         console.log($('#reviewList'));
          
          $.ajax({      
 		    	url: "/review", 
