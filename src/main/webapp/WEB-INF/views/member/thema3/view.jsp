@@ -291,7 +291,7 @@ ul.uli {
 			rphoto.val(uuidFileName);
 			
 			console.log("클릭했당");
-			
+			//ss
 			var upload = storage.ref().child("review/" +uuidFileName);
 	        
 			
