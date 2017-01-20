@@ -1,6 +1,9 @@
 package org.won.web;
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,22 +65,23 @@ public class LoginController {
 	}
 	
 	@GetMapping("/member/login")
-	public void memberLogin(Model model) {
+	public void memberLogin(HttpServletRequest request, Model model) {
 
 	}
 	
 	@PostMapping("/member/loginAction")
-	public @ResponseBody String loginAction(MemberVO vo) throws Exception{
-		String str = "";
-		
-			vo = mservice.login(vo);	
-			System.out.println(vo);
-			if(vo.getUserid() == null){
-				str = "fail";
-			}else{
-				str = "success";
-			}
-			System.out.println(str);
+	public @ResponseBody String loginAction(MemberVO vo,HttpServletResponse response) throws Exception{
+		String str = "fail";
+		String userid = vo.getUserid();
+		vo = mservice.login(vo);
+		if(vo != null){
+			str = "success";
+			Cookie cookie = new Cookie("userid", userid);
+		    cookie.setMaxAge(60*60*24*365);            
+		    cookie.setPath("/");                        
+		    response.addCookie(cookie);                
+		}
+		System.out.println(str);
 		return str;
 	}
 

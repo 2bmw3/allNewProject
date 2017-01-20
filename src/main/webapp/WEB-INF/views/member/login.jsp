@@ -6,7 +6,10 @@
 <meta charset="UTF-8">
 <title>Calm breeze login screen</title>
 <link rel="stylesheet" href="/resources/member/css/loginStyle.css">
+<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
+<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="//code.jquery.com/jquery.min.js"></script>
 <style>
 #video { 
      position: absolute;
@@ -27,9 +30,9 @@
         <h2>Welcome</h2>
 
         <form class="form">
-            <input type="text" placeholder="Username">
-            <input type="password" placeholder="Password">
-            <button type="submit" id="login-button">Login</button>
+            <input id='userid' type="text" placeholder="Username">
+            <input id='userpw' type="password" placeholder="Password">
+            <button id="login-button">Login</button>
         </form>
     </div>
 </div>
@@ -37,5 +40,36 @@
       <source src="/resources/member/video/sm.mp4">
 </video>
 </body>
-<script src="/resources/member/js/loginJs.js"></script>
+<script>
+console.log("${param.url}");
+$("#login-button").on("click",function(){
+	event.preventDefault();
+	
+	//ahffk
+	var userid = $("#userid").val();
+	var userpw = $("#userpw").val();
+	 formData = {"userid":userid, "userpw":userpw};
+    $.ajax({      
+    	url: "/member/loginAction", 
+        data: formData, 
+        type:"post",
+        dataType: "text",
+       	success: function(data){   
+       			console.log("----");
+        		if(data=="success"){
+        			 /* location.href="${param.url}";  */
+        			location.href="index"; 
+        		}else{
+	     	     	swal({
+	  	     			title: "정보가 일치 하지 않습니다.",
+	  	     	 		text: "다시 시도해주세요",
+	  	     			type: "error",
+	  	     			timer: 1000,
+	  	     			showConfirmButton: false
+	  	     		});
+        		}
+        }
+    }); 
+});
+</script>
 </html>

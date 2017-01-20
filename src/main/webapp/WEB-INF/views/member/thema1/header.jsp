@@ -152,11 +152,13 @@
 	
 	<script>
 	
+	var url = document.location.href; 
+	$("#hLogin").children().attr("href", "/member/login?url="+url);
 	
 	var userid = null;
 	//시작 하자 마자 쿠키값을 확인
 	(function exe() {
-		userid = getCookie('username');
+		userid = getCookie('userid');
 		if(userid != ''){
 			$("#hLogin").detach();
 			$(".hHeader").append("<li id='hLogout'><a href='#' >Logout</a></li>");
@@ -176,7 +178,7 @@
 			function(){
 				setCookie("username", '', -1);
 				$("#hLogout").detach();
-				$(".hHeader").append("<li id='hLogin'><a href='/member/login'>Login</a></li>");
+				$(".hHeader").append("<li id='hLogin'><a href='/member/login?url="+url+"'>Login</a></li>");
 			});
 	});
 	

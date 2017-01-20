@@ -163,10 +163,13 @@
 <!-- Modernizer Script for old Browsers -->
 
 <script>
+	var url = document.location.href; 
+	$("#hLogin").children().attr("href", "/member/login?url="+url);
+
 	var userid = null;
 	//시작 하자 마자 쿠키값을 확인
 	(function exe() {
-		userid = getCookie('username');
+		userid = getCookie('userid');
 		if(userid != ''){
 			$("#hLogin").detach();
 			$(".hHeader").append("<div id='hLogout' class='login'><a href='#'><i class='fa fa-unlock-alt'></i><span class='hidden-xs'>Log Out</span></a></div>");
@@ -186,7 +189,7 @@
 			function(){
 				setCookie("username", '', -1);
 				$("#hLogout").detach();
-				$(".hHeader").append(" <div id='hLogin' class='login'><a href='/member/login'><i class='fa fa-unlock-alt'></i><span class='hidden-xs'>Log In</span></a></div>");
+				$(".hHeader").append(" <div id='hLogin' class='login'><a href='/member/login?url="+url+"'><i class='fa fa-unlock-alt'></i><span class='hidden-xs'>Log In</span></a></div>");
 			});
 	});
 	

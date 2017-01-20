@@ -16,4 +16,17 @@ public class CookieUtil {
 		}
 		return username;
 	}//end String end
+	
+	public String cookieUtil(HttpServletRequest request, String key) {
+		Cookie[] cook = request.getCookies();
+		String username = null;
+		for(int i =0; i<cook.length; i++){
+			if(-1 != cook[i].getName().indexOf(key)){
+				username = cook[i].getValue();
+				break;
+			}
+			
+		}
+		return username;
+	}//end String end
 }
