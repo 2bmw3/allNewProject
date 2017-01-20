@@ -168,74 +168,74 @@
 				</div>
 					
 
-						<!-- review start -->
-						<div class="tab-pane fade " id="review">
-							<div class="aa-product-review-area">
-								<ul class="aa-review-nav">
-									<li>
-										<div class="media">
-											<h4 id='emptyReview'>리뷰가 아직 없어요 ㅠㅠ 리뷰를 남겨주세요!</h4>
-												<div class="col-md-10">
-													<div class="tab-pane active in fade" id="review">
-														<div class="panel-group addReview" id="accordion">
-															<c:forEach items="${review}" var="rvo">
-												
-															<!-- review display -->
-															<div class="panel panel-default">
-																<div class="panel-heading showReview">
-																	<a data-toggle="collapse" data-parent="#accordion" href="#faq-sub${rvo.rno}">
-																		<h4 class="panel-title">
-																		${rvo.userid} &nbsp;&nbsp; ${rvo.rgrade}
-																			 <span class="pull-right">
-																			${rvo.rregdate}
-																			</span>
-																		</h4>
-																	</a>
+				<!-- review start -->
+				<div class="tab-pane fade " id="review">
+					<div class="aa-product-review-area">
+						<ul class="aa-review-nav">
+							<li>
+								<div class="media">
+									<h4 id='emptyReview'>리뷰가 아직 없어요 ㅠㅠ 리뷰를 남겨주세요!</h4>
+										<div class="col-md-12">
+											<div class="tab-pane active in fade" id="review">
+												<div class="panel-group addReview" id="accordion">
+													<c:forEach items="${review}" var="rvo">
+										
+													<!-- review display -->
+													<div class="panel panel-default">
+														<div class="panel-heading showReview">
+															<a data-toggle="collapse" data-parent="#accordion" href="#faq-sub${rvo.rno}">
+																<h4 class="panel-title">
+																${rvo.userid}님의 리뷰 &nbsp;&nbsp; (${rvo.rgrade})점
+																	 <span class="pull-right">
+																	${rvo.rregdate}
+																	</span>
+																</h4>
+															</a>
+														</div>
+														<div id="faq-sub${rvo.rno}" class="panel-collapse collapse">
+															<div class="panel-body">
+															<h4>${rvo.rcontent}</h4>
+																<img class = 'reviewImg' 
+																src=
+																'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F
+																${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+																 style = 'width:300px; height:300px;'>
 																</div>
-																<div id="faq-sub${rvo.rno}" class="panel-collapse collapse">
-																	<div class="panel-body">
-																	<h4>${rvo.rcontent}</h4>
-																		<img class = 'reviewImg' 
-																		src=
-																		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F
-																		${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
-																		 style = 'width:300px; height:300px;'>
-																		</div>
-																</div>
-															</div>
-															<!-- review display end-->
-														</c:forEach>
-																
 														</div>
 													</div>
+													<!-- review display end-->
+												</c:forEach>
+														
 												</div>
+											</div>
 										</div>
-									</li>
-								</ul>
-								<!-- review form -->
-								<form action="" class="aa-review-form">
-									<div class="form-group">
-										<span class="star-input" >
-										  <span class="input">
-										    <input type="radio" name="star-input" id="p2" value="1"><label for="p2">1</label>
-										    <input type="radio" name="star-input" id="p4" value="2"><label for="p4">2</label>
-										    <input type="radio" name="star-input" id="p6" value="3"><label for="p6">3</label>
-										    <input type="radio" name="star-input" id="p8" value="4"><label for="p8">4</label>
-										    <input type="radio" name="star-input" id="p10" value="5"><label for="p10">5</label>
-										
-										  </span>
-										  <output for="star-input" ><b>0</b>점</output>
-										</span>
-										<textarea class="form-control" rows="3" id="reContent"></textarea>
-										<input type='hidden' id='rePhoto' name = 'rphoto'> 
-										<input type='file' id = 'photoFile'/>
-									</div>
-									<button class="btn btn-default aa-review-submit" id = 'reviewBtn'>Submit</button>
-								</form>
+								</div>
+							</li>
+						</ul>
+						<!-- review form -->
+						<form action="" class="aa-review-form">
+							<div class="form-group">
+								<span class="star-input" >
+								  <span class="input">
+								    <input type="radio" name="star-input" id="p2" value="1"><label for="p2">1</label>
+								    <input type="radio" name="star-input" id="p4" value="2"><label for="p4">2</label>
+								    <input type="radio" name="star-input" id="p6" value="3"><label for="p6">3</label>
+								    <input type="radio" name="star-input" id="p8" value="4"><label for="p8">4</label>
+								    <input type="radio" name="star-input" id="p10" value="5"><label for="p10">5</label>
+								
+								  </span>
+								  <output for="star-input" ><b>0</b>점</output>
+								</span>
+								<textarea class="form-control" rows="3" id="reContent"></textarea>
+								<input type='hidden' id='rePhoto' name = 'rphoto'> 
+								<input type='file' id = 'photoFile'/>
 							</div>
-						</div>
+							<button class="btn btn-default aa-review-submit" id = 'reviewBtn'>Submit</button>
+						</form>
 					</div>
 				</div>
+			</div>
+		</div>
 
 
 				<!-- Related product -->
@@ -439,15 +439,17 @@
 		            }, function() {
 		                var downloadURL = uploadTask.snapshot.downloadURL;
 			        	emptyReview.hide();
-		 				$('.addReview').prepend("<div class='panel panel-default'><div class='panel-heading showReview'>"
-		 						+ "<a data-toggle='collapse' data-parent='#accordion' href='#faq-sub"
-		 						+ rno + "'><h4 class='panel-title'>"
-		 						+ userid + "&nbsp;&nbsp;" + rgrade + "<span class='pull-right'>"
-		 						+ date + "</span></h4></a></div><div id='faq-sub"
-		 						+ rno + " class='panel-collapse collapse'><div class='panel-body'><h4>"
-		 						+ rcontent + "</h4><img class = 'reviewImg' src='"
-		 						+ downloadURL + "'style = 'width:300px; height:300px;'></div></div></div>");
-		 				console.log($('#faq-sub'+rno));
+		 				
+		 				var writeStr = "<div class='panel panel-default'><div class='panel-heading'>"
+		 					+"<a data-toggle='collapse' data-parent='#accordion' href='#faq-sub"
+				        	+rno+"'><h4 class='panel-title'> "
+				        	+userid+"님의 리뷰&nbsp;&nbsp;("
+				        	+rgrade+")점<span class='pull-right'>"+date+"</span></h4></a></div><div id='faq-sub"
+				        	+rno+"' class='panel-collapse collapse'><div class='panel-body'><h4>"
+				        	+rcontent+"</h4><img class='reviewImg' src='"
+				        	+downloadURL+"'style='width: 300px; height: 300px' /></strong></div></div></div></div>";
+        	
+						$('.addReview').prepend(writeStr);
 		            });
  				
 		            $('#reContent').val("");
