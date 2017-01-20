@@ -157,7 +157,7 @@ public class ProductsController {
 		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString();
 		String result = rno + date;
 		logger.info("result... : " + result);
-		// 스플릿해서 써
+		// 스플릿해서
 		return result;
 	}
 
