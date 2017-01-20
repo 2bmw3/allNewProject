@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 import org.won.domain.AdminVO;
+import org.won.domain.AnswerVO;
 import org.won.domain.MemberVO;
 import org.won.domain.QuestionVO;
 
@@ -44,8 +45,8 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	@Override
-	public String answerOne(int qno) throws Exception {
-		return sqlSession.selectOne(NAME + ".answerOne", qno);
+	public List<String> answerList(int qno) throws Exception {
+		return sqlSession.selectList(NAME + ".answerList", qno);
 	}
 
 	@Override

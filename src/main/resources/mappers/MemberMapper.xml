@@ -35,7 +35,7 @@
 		select qpw from tbl_question where qno = #{qno}
 	</select>
 	
-	<select id="answerOne" resultType="String">
+	<select id="answerList" resultType="String">
 		select acontent from tbl_answer where qno = #{qno}
 	</select>
 	

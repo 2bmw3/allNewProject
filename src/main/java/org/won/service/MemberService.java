@@ -3,6 +3,7 @@ package org.won.service;
 import java.util.List;
 
 import org.won.domain.AdminVO;
+import org.won.domain.AnswerVO;
 import org.won.domain.MemberVO;
 import org.won.domain.QuestionVO;
 
@@ -18,8 +19,8 @@ public interface MemberService {
 	// 질문 pw check
 	public String questionPwCheck(int qno) throws Exception;
 
-	// 답변 1개 가져오기
-	public String answerOne(int qno) throws Exception;
+	// 답변 여러개 가져오기
+	public List<String> answerList(int qno) throws Exception;
 	
 	public MemberVO login(MemberVO vo) throws Exception;
 }

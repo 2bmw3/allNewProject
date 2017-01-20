@@ -572,8 +572,8 @@
 			dataType : 'text',
 			type : "post",
 			success : function(result) {
-				console.log(result);
 				var splitResult = result.split("#");
+				
 				if(splitResult[0] == "F"){
 					swal("비밀번호가 틀립니다!","","error");
 					$("#questionPwcheck").val("");
@@ -581,8 +581,12 @@
 					var str = "<h3>"+qcontent+"</h3>";
 					qpwCheckBtn.parentElement.innerHTML = str;						
 				}else{
-					var str = "<h3>"+qcontent+"</h3>"+"<hr/><b>Re: "+splitResult[1]+"</b>";
-					qpwCheckBtn.parentElement.innerHTML = str;
+					var qcontentStr = "<h3>"+qcontent+"</h3>"
+					var str = "";
+					for(var i = 1; i<splitResult.length-1; i++){
+						str += "<hr/><b>Re: "+splitResult[i]+"</b>";
+					}
+					qpwCheckBtn.parentElement.innerHTML = (qcontentStr + str);
 				}
 			}// end success
 		});// end ajax

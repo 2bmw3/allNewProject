@@ -42,7 +42,7 @@ public class ProductsController {
 
 	@Inject
 	private EditorService eservice;
-	
+
 	@Inject
 	private MemberService mservice;
 
@@ -125,30 +125,34 @@ public class ProductsController {
 		}
 		return adminVO;
 	}
-	
+
 	@PostMapping("/questionWrite")
-	public @ResponseBody String questionWrite(QuestionVO vo)throws Exception{
+	public @ResponseBody String questionWrite(QuestionVO vo) throws Exception {
 		mservice.questionWrite(vo);
-		String result = service.question(vo.getPno()).get(0).getQregdate()
-				+"#"+service.question(vo.getPno()).get(0).getQno();
-		
+		String result = service.question(vo.getPno()).get(0).getQregdate() + "#"
+				+ service.question(vo.getPno()).get(0).getQno();
+
 		return result;
 	}
 
 	@PostMapping(value = "/questionPwCheck", produces = "application/text; charset=utf8")
-	public @ResponseBody String questionPwCheck(int qno, String qpw)throws Exception{
-		String result = "F#"+mservice.answerOne(qno);
+	public @ResponseBody String questionPwCheck(int qno, String qpw) throws Exception {
+		List<String> answerList = mservice.answerList(qno);
 		String originQpw = mservice.questionPwCheck(qno);
-		
-		if(originQpw.equals(qpw)){
-			result = "T#"+mservice.answerOne(qno);;
+
+		String result = "F#";
+		if (originQpw.equals(qpw)) {
+			result = "T#";
+			for (int i = 0; i < answerList.size(); i++) {
+				result += mservice.answerList(qno).get(i) + "#";
+			}
 		}
 		return result;
 	}
 
 	@PostMapping("/review")
 	public @ResponseBody String review(ReviewVO rvo) throws Exception {
-		logger.info("rvo : " + rvo.toString());		
+		logger.info("rvo : " + rvo.toString());
 		rvo.setUserid("test user");
 		bservice.rCreate(rvo);
 		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString();
