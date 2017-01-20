@@ -172,7 +172,7 @@ ul.pagination li a:hover:not (.active ) {
 			  confirmButtonText: "Yes",
 			},
 			function(){
-				setCookie("username", '', -1);
+				setCookie("userid", '', -1);
 				$("#hLogout").detach();
 				$(".hHeader").append(" <li id='hLogin'><a href='/member/login?url="+url+"'><i class='material-icons'>lock</i> LOGIN</a></li>");
 			});

@@ -41,7 +41,10 @@
 </video>
 </body>
 <script>
-console.log("${param.url}");
+
+var url = document.location.href.split("?"); 
+var URL = url[1].split("url=")[1]+ "?" + url[2];
+
 $("#login-button").on("click",function(){
 	event.preventDefault();
 	
@@ -57,8 +60,7 @@ $("#login-button").on("click",function(){
        	success: function(data){   
        			console.log("----");
         		if(data=="success"){
-        			 /* location.href="${param.url}";  */
-        			location.href="index"; 
+        			location.href=URL; 
         		}else{
 	     	     	swal({
 	  	     			title: "정보가 일치 하지 않습니다.",

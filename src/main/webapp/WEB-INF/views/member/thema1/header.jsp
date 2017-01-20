@@ -182,7 +182,7 @@
 			  confirmButtonText: "Yes",
 			},
 			function(){
-				setCookie("username", '', -1);
+				setCookie("userid", '', -1);
 				$("#hLogout").detach();
 				$(".hHeader").append("<li id='hLogin'><a href='/member/login?url="+url+"'>Login</a></li>");
 			});
