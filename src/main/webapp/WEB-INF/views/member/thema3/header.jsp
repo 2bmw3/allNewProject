@@ -13,6 +13,11 @@
 	content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
 <meta name="author" content="freehtml5.co" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <!-- 새로 추가한 것들  -->
+	<link href="/resources/member/css/rate.css" rel="stylesheet" >
+<!-- 구                 분  -->
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
 	rel="stylesheet">
 <link
