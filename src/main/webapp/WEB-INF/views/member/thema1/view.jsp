@@ -153,10 +153,7 @@
 					   </c:forEach>
 					  </div>
 					  <!-- QnA end --> 
-					  
-					</div>
-						
-					<div class="row">
+					  <div class="row">
 						<div class="col-sm-6">
 						<input type="text" id='qwriter' name='qwriter' placeholder="Writer">
 						</div>
@@ -167,8 +164,8 @@
 					<textarea id='qcontent' name="qcontent" 
 					style="height: 100px; width:100%;" placeholder='질문을 입력해주세요'></textarea>
 					<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
-
-
+				</div>
+					
 
 						<!-- review start -->
 						<div class="tab-pane fade " id="review">
@@ -176,11 +173,6 @@
 								<ul class="aa-review-nav">
 									<li>
 										<div class="media">
-											<div class="media-left">
-												<img class="media-object"
-													src="/resources/themes/thema1/img/women/girl-1.png"
-													alt="girl image">
-											</div>
 											<div class="media-body">
 											<h4 id='emptyReview'>리뷰가 아직 없어요 ㅠㅠ 리뷰를 남겨주세요!</h4>
 												<c:forEach items="${review}" var="rvo">

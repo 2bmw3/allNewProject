@@ -239,9 +239,7 @@
                                     </c:forEach>
                                    </div>
                                    <!-- QnA end --> 
-                                   
-                                 </div>
-                                    
+                                      
                                  <div class="row">
                                     <div class="col-sm-6">
                                     <input type="text" id='qwriter' name='qwriter' placeholder="Writer">
@@ -253,6 +251,8 @@
                                  <textarea id='qcontent' name="qcontent" 
                                  style="height: 100px; width:100%; border-radius:0px;" placeholder='질문을 입력해주세요'></textarea>
                                  <input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
+                                 </div>
+                                 
                         </div>
                      </div>
                   </div>
