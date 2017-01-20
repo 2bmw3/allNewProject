@@ -113,6 +113,10 @@
                                  title="Add to Cart" type="button">
                                  <span><i class="fa fa-shopping-cart"></i> Add to Cart</span>
                               </button>
+                                <button class="button pro-add-to-cart" id="order"
+                                 title="Add to Cart" type="button">
+                                 <span><i class="fa fa-shopping-cart"></i> Check Out</span>
+                              </button>
                            </form>
                         </div>
                      </div>
@@ -300,13 +304,54 @@ $("#cart").on("click",function(){
                 //ajax end
            }, 500);
          });
-var ccnt = null;
-var color = null;
-var pno = ${view[0].pno};
-var size = null;
-var adminid = "${view[0].adminid}";
 
    }//End else
+});
+$("#order").on("click",function(){
+	ccnt = $("#qty").val();
+	var shopname = "${param.shopname}";
+	var formData = {"ocnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid,"shopname":shopname};
+	console.log(formData);
+	if(ccnt==null || color==null || size==null){
+	     	swal({
+   			title: "상품 상세 정보를 선택해주세요.",
+   	 		text: "",
+   			type: "error",
+   			timer: 1500,
+   			showConfirmButton: false
+   		});
+	}else{
+		swal({
+			  title: "주문 하시겠습니까?",
+			  text: "",
+			  type: "info",
+			  showCancelButton: true,
+			  closeOnConfirm: false,
+			  showLoaderOnConfirm: true,
+			},
+			function(){
+			  setTimeout(function(){
+				    $.ajax({      
+				    	url: "/member/orderWrite", 
+				        data: formData, 
+				        dataType: "json",
+				        type:"post",
+				        complete:function(){   
+			     	     	swal({
+			  	     			title: "결제되었습니다",
+			  	     	 		text: "",
+			  	     			type: "success",
+			  	     			timer: 1000,
+			  	     			showConfirmButton: false
+			  	     		});
+			     	     location.href='order?shopname=${param.shopname}';
+				        }
+				    }); 
+				    //ajax end
+			  }, 500);
+			});
+
+	}//End else
 });
 
 //사이즈 체크시 값 담기

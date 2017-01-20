@@ -121,7 +121,7 @@ ul.uli {
 
 				<hr>
 				<input type="submit" id="cart" class="btn btn-primary" value="Add Cart" style="width: 100%"> 
-				<input type="submit" class="btn btn-primary" value="Order" style="width: 100%;">
+				<input type="submit" id="order"class="btn btn-primary" value="Order" style="width: 100%;">
 			</div>
 		</div>
 		
@@ -393,6 +393,53 @@ ul.uli {
 
 			}//End else
 		});//end 
+		$("#order").on("click",function(){
+			ccnt = $("#quantity").val();
+			var shopname = "${param.shopname}";
+			size = $(".size").val();
+			var formData = {"ocnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid,"shopname":shopname};
+			console.log(formData);
+			if(ccnt==null || color==null || size==null){
+     	     	swal({
+  	     			title: "상품 상세 정보를 선택해주세요.",
+  	     	 		text: "",
+  	     			type: "error",
+  	     			timer: 1500,
+  	     			showConfirmButton: false
+  	     		});
+			}else{
+				swal({
+					  title: "주문 하시겠습니까?",
+					  text: "",
+					  type: "info",
+					  showCancelButton: true,
+					  closeOnConfirm: false,
+					  showLoaderOnConfirm: true,
+					},
+					function(){
+					  setTimeout(function(){
+						    $.ajax({      
+						    	url: "/member/orderWrite", 
+						        data: formData, 
+						        dataType: "json",
+						        type:"post",
+						        complete:function(){   
+					     	     	swal({
+					  	     			title: "결제되었습니다",
+					  	     	 		text: "",
+					  	     			type: "success",
+					  	     			timer: 1000,
+					  	     			showConfirmButton: false
+					  	     		});
+					     	     location.href='order?shopname=${param.shopname}';
+						        }
+						    }); 
+						    //ajax end
+					  }, 500);
+					});
+ 
+			}//End else
+		});
 		
 		
 		// Activate Carousel
