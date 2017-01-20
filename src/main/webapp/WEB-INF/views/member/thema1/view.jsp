@@ -176,39 +176,38 @@
 										<div class="media">
 											<h4 id='emptyReview'>리뷰가 아직 없어요 ㅠㅠ 리뷰를 남겨주세요!</h4>
 												<div class="col-md-10">
-														<div class="tab-pane active in fade" id="review">
-															<div class="panel-group" id="accordion">
-															
-																<c:forEach items="${review}" var="rvo">
-													
-																<!-- review display -->
-																<div class="panel panel-default">
-																	<div class="panel-heading show">
-																		<a data-toggle="collapse" data-parent="#accordion" href="#faq-sub${rvo.rno}">
-																			<h4 class="panel-title">
-																			${rvo.userid}
-																				 <span class="pull-right">
-																				${rvo.rregdate}
-																				</span>
-																			</h4>
-																		</a>
-																	</div>
-																	<div id="faq-sub${rvo.rno}" class="panel-collapse collapse">
-																		<div class="panel-body">
-																		<h4>${rvo.rcontent}</h4>
-																			<img class = 'reviewImg' 
-																			src=
-																			'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F
-																			${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
-																			 style = 'width:300px; height:300px;'>
-																			</div>
-																	</div>
+													<div class="tab-pane active in fade" id="review">
+														<div class="panel-group addReview" id="accordion">
+															<c:forEach items="${review}" var="rvo">
+												
+															<!-- review display -->
+															<div class="panel panel-default">
+																<div class="panel-heading showReview">
+																	<a data-toggle="collapse" data-parent="#accordion" href="#faq-sub${rvo.rno}">
+																		<h4 class="panel-title">
+																		${rvo.userid} &nbsp;&nbsp; ${rvo.rgrade}
+																			 <span class="pull-right">
+																			${rvo.rregdate}
+																			</span>
+																		</h4>
+																	</a>
 																</div>
-																<!-- review display end-->
-															</c:forEach>
-																	
+																<div id="faq-sub${rvo.rno}" class="panel-collapse collapse">
+																	<div class="panel-body">
+																	<h4>${rvo.rcontent}</h4>
+																		<img class = 'reviewImg' 
+																		src=
+																		'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F
+																		${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+																		 style = 'width:300px; height:300px;'>
+																		</div>
+																</div>
 															</div>
+															<!-- review display end-->
+														</c:forEach>
+																
 														</div>
+													</div>
 												</div>
 										</div>
 									</li>
@@ -369,7 +368,7 @@
 	var size = null;
 	var adminid = "${view[0].adminid}";
 	var emptyReview = $('#emptyReview');
-	var userid = "test user";
+	var userid = "testUser";
 		
 	console.log($('.showReview').length);
 	if($('.showReview').length > 0){
@@ -429,17 +428,26 @@
 		        data: formData, 
 		        dataType: "text",
 		        type:"post",
-		        success:function(date){
+		        success:function(data){
 		        	var uploadTask = upload.put(file);
-
-		            uploadTask.on('state_changed', function(snapshot){
+					var rno = data.split("#")[0];
+					var date = data.split("#")[1];
+					
+					
+		        	uploadTask.on('state_changed', function(snapshot){
 		            }, function(error) {
 		            }, function() {
 		                var downloadURL = uploadTask.snapshot.downloadURL;
 			        	emptyReview.hide();
-		 				$('.show').prepend("<div class='col-sm-10 showReview'><ul style='background-color: white;'><li><h3>"+
-		 					userid + "(" + rgrade + "점)</h3></li><li><h5>"+
-		        			rcontent + "</h5><h5>"+date+"</h5></li><li><img src='"+downloadURL+"' style = 'width:100px; height100px;'></li><br></ul></div>");
+		 				$('.addReview').prepend("<div class='panel panel-default'><div class='panel-heading showReview'>"
+		 						+ "<a data-toggle='collapse' data-parent='#accordion' href='#faq-sub"
+		 						+ rno + "'><h4 class='panel-title'>"
+		 						+ userid + "&nbsp;&nbsp;" + rgrade + "<span class='pull-right'>"
+		 						+ date + "</span></h4></a></div><div id='faq-sub"
+		 						+ rno + " class='panel-collapse collapse'><div class='panel-body'><h4>"
+		 						+ rcontent + "</h4><img class = 'reviewImg' src='"
+		 						+ downloadURL + "'style = 'width:300px; height:300px;'></div></div></div>");
+		 				console.log($('#faq-sub'+rno));
 		            });
  				
 		            $('#reContent').val("");
