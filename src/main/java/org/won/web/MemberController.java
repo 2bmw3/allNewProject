@@ -399,9 +399,9 @@ public class MemberController {
 		List<PinfoVO> list = pservice.infoSize(vo);
 		return list;
 	}
-	@PostMapping(value="/orderWrite",produces = "application/text; charset=utf8")
+	@PostMapping("/orderWrite")
 	public String orderWrite(OrderVO vo,String userid) throws Exception {
-		
+		logger.info("ssssssssssssssssssssssssssssssssss"+vo);
 		AdminVO themaNum = pservice.themaGet(vo.getPno());
 		vo.setUserid("test");
 		if(vo.getList() == null){

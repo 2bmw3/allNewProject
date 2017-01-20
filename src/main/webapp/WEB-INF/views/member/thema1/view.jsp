@@ -105,6 +105,7 @@
 								<div class="aa-prod-view-bottom">
 									<a class="aa-add-to-cart-btn" href="#" id='cart'>Add To
 										Cart</a>
+										<a class="aa-add-to-cart-btn" href="#" id='order'>Check Out</a>
 								</div>
 							</div>
 						</div>
@@ -438,6 +439,7 @@
 	$("#cart").on("click",function(){
 		ccnt = $("#quantity").val();
 		var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+		
 		if(ccnt==null || color==null || size==null){
  	     	swal({
 	     			title: "상품 상세 정보를 선택해주세요.",
@@ -478,6 +480,55 @@
 
 		}//End else
 	});
+	//order
+		$("#order").on("click",function(){
+			ccnt = $("#quantity").val();
+			var shopname = "${param.shopname}";
+			var formData = {"ocnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid,"shopname":shopname};
+			console.log(formData);
+			if(ccnt==null || color==null || size==null){
+     	     	swal({
+  	     			title: "상품 상세 정보를 선택해주세요.",
+  	     	 		text: "",
+  	     			type: "error",
+  	     			timer: 1500,
+  	     			showConfirmButton: false
+  	     		});
+			}else{
+				swal({
+					  title: "주문 하시겠습니까?",
+					  text: "",
+					  type: "info",
+					  showCancelButton: true,
+					  closeOnConfirm: false,
+					  showLoaderOnConfirm: true,
+					},
+					function(){
+					  setTimeout(function(){
+						    $.ajax({      
+						    	url: "/member/orderWrite", 
+						        data: formData, 
+						        dataType: "json",
+						        type:"post",
+						        complete:function(){   
+					     	     	swal({
+					  	     			title: "결제되었습니다",
+					  	     	 		text: "",
+					  	     			type: "success",
+					  	     			timer: 1000,
+					  	     			showConfirmButton: false
+					  	     		});
+					     	     location.href='order?shopname=${param.shopname}';
+						        }
+						    }); 
+						    //ajax end
+					  }, 500);
+					});
+ 
+			}//End else
+		});
+	
+	
 	
 	//사이즈 체크시 값 담기
 	$(document).on("click",".pisize",function(){

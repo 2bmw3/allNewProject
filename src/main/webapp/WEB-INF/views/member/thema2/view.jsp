@@ -72,6 +72,7 @@
 								<div class="clearfix"></div>
 								<div class="single-but item_add">
 									<input type="submit" id='cart' value="Add to cart" />
+									
 									 <input type="submit" id='order' value="Order now" />
 								</div>
 							</div>
@@ -203,7 +204,9 @@
 		
 		$("#order").on("click",function(){
 			ccnt = $("#quantity").val();
-			var formData = {"ocnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
+			var shopname = "${param.shopname}";
+			var formData = {"ocnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid,"shopname":shopname};
+			console.log(formData);
 			if(ccnt==null || color==null || size==null){
      	     	swal({
   	     			title: "상품 상세 정보를 선택해주세요.",
@@ -236,7 +239,7 @@
 					  	     			timer: 1000,
 					  	     			showConfirmButton: false
 					  	     		});
-					     	     	location.href='order?shopname=${param.shopname}';
+					     	     location.href='order?shopname=${param.shopname}';
 						        }
 						    }); 
 						    //ajax end
