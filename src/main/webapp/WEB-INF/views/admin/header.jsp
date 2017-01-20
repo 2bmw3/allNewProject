@@ -56,8 +56,8 @@
 
         <ul class="nav navbar-top-links navbar-right">
             <li>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-envelope fa-fw"></i>
+                <a class="dropdown-toggle member" href="">
+                    <i class="fa fa-window-restore"></i>
                 </a>
                 <!-- /.dropdown-messages -->
             </li>

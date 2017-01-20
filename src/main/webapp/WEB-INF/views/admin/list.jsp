@@ -106,7 +106,7 @@
 	
 	<!-- pageNum  Start -->
 	<c:if test="${total>9}">
-		<div class="pagination-area" style="margin-left: 230px; margin-top: -180px;">
+		<div class="pagination-area" style="margin-left: 55%; margin-top: -180px;">
 			<form id='pageNumForm' method="get" action='${actionName}'>
 				<input id='pageInput' type='hidden' name='pageNum'> 
 				<input type='hidden' name='sType' value='${sType}'> 

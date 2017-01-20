@@ -104,7 +104,7 @@ ${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 		</div>
 		<c:if test="${total>9}">
 			<div class="pagination-area"
-				style="margin-left: 230px; margin-top: -180px;">
+				style="margin-left: 55%; margin-top: -180px;">
 				<form id='pageNumForm' method="get" action='categoryList'>
 					<input id='pageInput' type='hidden' name='page'> <input
 						type='hidden' name='pkind' value='${pkind}'>

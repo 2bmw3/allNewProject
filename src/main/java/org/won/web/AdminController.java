@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.view.RedirectView;
+import org.won.domain.AdminVO;
 import org.won.domain.AnswerVO;
 import org.won.domain.OrderVO;
 import org.won.domain.ParamVO;
@@ -294,5 +295,9 @@ public class AdminController {
 		model.addAttribute("sizeCnt", sizeList);
 		
 	}
-
+	
+	@PostMapping("/shopName")
+	public @ResponseBody String shopName(String adminid) throws Exception{
+		return service.shopTotal(adminid).get(0).getShopname();
+	}
 }

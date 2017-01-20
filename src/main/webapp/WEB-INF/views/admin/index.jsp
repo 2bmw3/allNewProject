@@ -257,5 +257,4 @@
 
     </div>
     <!-- /#wrapper -->
-
 <%@include file="footer.jsp"%>
