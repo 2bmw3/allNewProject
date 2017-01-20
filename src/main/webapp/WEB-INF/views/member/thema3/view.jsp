@@ -9,14 +9,14 @@ ul {
 	list-style: none;
 	margin-bottom: 5%;
 }
-.showReview{
-	border: 1px solid #ccc;
- 	padding: 10px;
-}
+/* .showReview{ */
+/* 	border: 1px solid #ccc; */
+/*  	padding: 10px; */
+/* } */
 
-.showReview h4{
-	padding-top: 10px;
-}
+/* .showReview h4{ */
+/* 	padding-top: 10px; */
+/* } */
 
 #li {
 	display: inline-block;

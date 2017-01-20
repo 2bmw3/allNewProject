@@ -8,33 +8,31 @@
 			</p>
 		</div>
 	</div>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			/*
-			 var defaults = {
-			 containerID: 'toTop', // fading element id
-			 containerHoverID: 'toTopHover', // fading element hover id
-			 scrollSpeed: 1200,
-			 easingType: 'linear'
-			 };
-			 */
+<script type="text/javascript">
+	$(window).load(function() {
+		
+		 var defaults = {
+		 containerID: 'toTop', // fading element id
+		 containerHoverID: 'toTopHover', // fading element hover id
+		 scrollSpeed: 1200,
+		 easingType: 'linear'
+		 };
 
-			$().UItoTop({
-				easingType : 'easeOutQuart'
-			});
-
+		$().UItoTop({
+			easingType : 'easeOutQuart'
 		});
-		
-		
-		$(".pagination").on("click", "li", function(event) {
-		    event.preventDefault();
-		    $("#pageInput").val($(this).val());
-		    $("#pageNumForm").submit();
-		 });
 
-	</script>
-	<a href="#home" id="toTop" class="scroll" style="display: block;">
-		<span id="toTopHover" style="opacity: 1;"> </span>
-	</a>
+	});
+	
+	$(".pagination").on("click", "li", function(event) {
+	    event.preventDefault();
+	    $("#pageInput").val($(this).val());
+	    $("#pageNumForm").submit();
+	 });
+
+</script>
+<a href="#home" id="toTop" class="scroll" style="display: block;">
+	<span id="toTopHover" style="opacity: 1;"> </span>
+</a>
 </div>
 <!--end-footer-text-->

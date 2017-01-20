@@ -77,7 +77,6 @@
 </div>
 <!--end-banner-bottom-->
 
-<!--start-shoes-->
 <div class="shoes">
     <div class="container">
     <hr/>
@@ -98,8 +97,6 @@
         </div>
     </div>
 </div>
-<!--end-shoes-->
-
 
 <%@include file="footer.jsp"%>
 </body>

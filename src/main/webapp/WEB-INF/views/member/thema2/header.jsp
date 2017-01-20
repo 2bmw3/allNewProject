@@ -15,7 +15,6 @@ function hideURLbar() {
     window.scrollTo(0, 1);
 } </script>
 <!--fonts-->
-
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Alegreya+Sans+SC:100,300,400,500,700,800,900,100italic,300italic,400italic,500italic,700italic,800italic,900italic'
@@ -39,11 +38,9 @@ function hideURLbar() {
 <link href="/resources/themes/thema2/css/memenu.css" rel="stylesheet" type="text/css" media="all"/>
 <script type="text/javascript" src="/resources/themes/thema2/js/memenu.js"></script>
 <script>
- 
-	/* $(document).ready(function () { */
-	    $(".memenu").memenu();
-	/* }); */ 
-
+ $(document).ready(function () { 
+    $(".memenu").memenu();
+});  
 </script>
 <!--top-header-->
 <div class="top-header">
@@ -63,7 +60,7 @@ function hideURLbar() {
         <div class="top-nav">
             <ul class="memenu skyblue hHeader">
                 <li class="active"><a href="/member/index">Main</a></li>
-                <li class="active"><a href="index?shopname=${param.shopname}">Home</a></li>
+                <li class="grid"><a href="index?shopname=${param.shopname}">Home</a></li>
                 <li class="grid"><a href="list?shopname=${param.shopname}&pkind=전체&pageNum=1">Products</a></li>
                 <li class="grid"><a href="#">PhotoSearch</a></li>
                 <li class="grid"><a href="#" id='hOrder'>Order</a></li>
