@@ -5,7 +5,6 @@ $(".member").on("click",function(){
             url : "shopName",
             data : "adminid=" + username,
             dataType : "text",
-            async: false,
             type : "post",
             success : function(data) {
             	window.open('/member/thema1/index?shopname='+ data, '_blank'); 
