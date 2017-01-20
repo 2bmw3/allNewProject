@@ -416,74 +416,79 @@ $("#qsubmit").on("click",function(){
    });// end ajax
 });// end question submit
 
-// 질문 비밀번호 체크
+//질문 비밀번호 체크
 $(document).on('click', "#questionPwcheckBtn" , function(event){
-   var qpwCheckBtn = $(this)[0];
-   var qno = qpwCheckBtn.name;
-   var inputPw = qpwCheckBtn.previousElementSibling.value;
-   var qcontent = qpwCheckBtn.nextElementSibling.value;
-   var pwCheck = {"qpw":inputPw, "qno":qno};
-   
-   $.ajax({
-      url : "/questionPwCheck",
-      data : pwCheck,
-      dataType : 'text',
-      type : "post",
-      success : function(result) {
-         console.log(result);
-         var splitResult = result.split("#");
-         if(splitResult[0] == "F"){
-            swal("비밀번호가 틀립니다!","","error");
-            $("#questionPwcheck").val("");
-         }else if (splitResult[1] == "null"){                  
-            var str = "<h3>"+qcontent+"</h3>";
-            qpwCheckBtn.parentElement.innerHTML = str;                  
-         }else{
-            var str = "<h3>"+qcontent+"</h3>"+"<hr/><b>Re: "+splitResult[1]+"</b>";
-            qpwCheckBtn.parentElement.innerHTML = str;
-         }
-      }// end success
-   });// end ajax
+	var qpwCheckBtn = $(this)[0];
+	var qno = qpwCheckBtn.name;
+	var inputPw = qpwCheckBtn.previousElementSibling.value;
+	var qcontent = qpwCheckBtn.nextElementSibling.value;
+	var pwCheck = {"qpw":inputPw, "qno":qno};
+	
+	$.ajax({
+		url : "/questionPwCheck",
+		data : pwCheck,
+		dataType : 'text',
+		type : "post",
+		success : function(result) {
+			var splitResult = result.split("#");
+			
+			if(splitResult[0] == "F"){
+				swal("비밀번호가 틀립니다!","","error");
+				$("#questionPwcheck").val("");
+			}else if (splitResult[1] == "null"){						
+				var str = "<h3>"+qcontent+"</h3>";
+				qpwCheckBtn.parentElement.innerHTML = str;						
+			}else{
+				var qcontentStr = "<h3>"+qcontent+"</h3>"
+				var str = "";
+				for(var i = 1; i<splitResult.length-1; i++){
+					str += "<hr/><b>Re: "+splitResult[i]+"</b>";
+				}
+				qpwCheckBtn.parentElement.innerHTML = (qcontentStr + str);
+			}
+		}// end success
+	});// end ajax
 });// end questionPw check;
+
 $('#reviewBtn').on('click', function () {
-var ccnt = null;
-var color = null;
-var pno = ${view[0].pno};
-var size = null;
-var adminid = "${view[0].adminid}";
-var emptyReview = $('#emptyReview');
-var userid = "test user";
-   
-if($('.showReview').length > 0){
-   emptyReview.hide();
-};
+	var ccnt = null;
+	var color = null;
+	var pno = ${view[0].pno};
+	var size = null;
+	var adminid = "${view[0].adminid}";
+	var emptyReview = $('#emptyReview');
+	var userid = "test user";
+	   
+	if($('.showReview').length > 0){
+	   emptyReview.hide();
+	};
+	
+	/* for firebase upload */
+	var config = {
+	   apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
+	   authDomain : "project-26bd6.firebaseapp.com",
+	   databaseURL : "https://project-26bd6.firebaseio.com",
+	   storageBucket : "project-26bd6.appspot.com",
+	   messagingSenderId : "544848311496"
+	};
+	
+	firebase.initializeApp(config);
+	var storage = firebase.storage();
+	var storageRef = storage.ref();
+	/* for firebase upload */
+	
+	//uuid create
+	function guid() {
+	   function s4() { 
+	      return ((1 + Math.random()) * 0x10000 | 0).toString(16)
+	            .substring(1);
+	   }
+	   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
+	         + s4() + s4();
+	}// end uuid create
 
-/* for firebase upload */
-var config = {
-   apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
-   authDomain : "project-26bd6.firebaseapp.com",
-   databaseURL : "https://project-26bd6.firebaseio.com",
-   storageBucket : "project-26bd6.appspot.com",
-   messagingSenderId : "544848311496"
-};
 
-firebase.initializeApp(config);
-var storage = firebase.storage();
-var storageRef = storage.ref();
-/* for firebase upload */
-
-//uuid create
-function guid() {
-   function s4() { 
-      return ((1 + Math.random()) * 0x10000 | 0).toString(16)
-            .substring(1);
-   }
-   return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
-         + s4() + s4();
-}// end uuid create
-
-
-/* 리뷰 버튼 이벤트 시작  */ 
+	/* 리뷰 버튼 이벤트 시작  */ 
 
    event.preventDefault();
    var rcontent = $('#reContent')[0].value;
