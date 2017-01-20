@@ -92,7 +92,7 @@
 	</select>
 
 	<select id="review" resultType="ReviewVO">
-		select date_format(rregdate,'%Y/%m/%d')rregdate,rno,rgrade,userid,rcontent,rphoto from tbl_review where
+		select date_format(rregdate,'%Y/%m/%d%H:%i:%s')rregdate,rno,rgrade,userid,rcontent,rphoto from tbl_review where
 		pno = #{pno} order by rregdate desc
 	</select>
 
