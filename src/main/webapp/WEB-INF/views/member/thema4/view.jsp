@@ -268,6 +268,7 @@ var pno = ${view[0].pno};
 var size = null;
 var adminid = "${view[0].adminid}";
 
+
 $("#cart").on("click",function(){
    ccnt = $("#qty").val();
    var formData = {"ccnt":ccnt,"pno":pno,"picolor":color,"pisize":size,"adminid":adminid};
@@ -308,6 +309,11 @@ $("#cart").on("click",function(){
                 //ajax end
            }, 500);
          });
+var ccnt = null;
+var color = null;
+var pno = ${view[0].pno};
+var size = null;
+var adminid = "${view[0].adminid}";
 
    }//End else
 });

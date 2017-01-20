@@ -134,14 +134,14 @@ public class ProductsController {
 		
 		return result;
 	}
-	
-	@PostMapping("/questionPwCheck")
+
+	@PostMapping(value = "/questionPwCheck", produces = "application/text; charset=utf8")
 	public @ResponseBody String questionPwCheck(int qno, String qpw)throws Exception{
-		String result = "F";
+		String result = "F#"+mservice.answerOne(qno);
 		String originQpw = mservice.questionPwCheck(qno);
 		
 		if(originQpw.equals(qpw)){
-			result = "T";
+			result = "T#"+mservice.answerOne(qno);;
 		}
 		return result;
 	}

@@ -27,4 +27,6 @@ public interface OrderService {
 	public void memberOrderWrite(OrderVO vo) throws Exception;
 	
 	public List<OrderVO> memberOrderList(OrderVO vo) throws Exception;
+	
+	public void memberOrderUpdate(int odno) throws Exception;
 }

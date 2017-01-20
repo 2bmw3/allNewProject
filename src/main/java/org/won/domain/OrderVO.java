@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class OrderVO {
 
-	private int ono, pino, ocnt, price, odno, page, pno;
+	private int ono, pino, ocnt, price, odno, page, pno,cno;
 	private String userid, shopname, ptitlephoto, ophonenumber, oaddress, pname, pisize, picolor, uname, ostatus,
 			adminid;
 	private Date orderDate;
@@ -173,14 +173,25 @@ public class OrderVO {
 	public void setList(List<OrderVO> list) {
 		this.list = list;
 	}
+	
+
+	public int getCno() {
+		return cno;
+	}
+
+	public void setCno(int cno) {
+		this.cno = cno;
+	}
 
 	@Override
 	public String toString() {
 		return "OrderVO [ono=" + ono + ", pino=" + pino + ", ocnt=" + ocnt + ", price=" + price + ", odno=" + odno
-				+ ", page=" + page + ", pno=" + pno + ", userid=" + userid + ", shopname=" + shopname + ", ptitlephoto="
-				+ ptitlephoto + ", ophonenumber=" + ophonenumber + ", oaddress=" + oaddress + ", pname=" + pname
-				+ ", pisize=" + pisize + ", picolor=" + picolor + ", uname=" + uname + ", ostatus=" + ostatus
-				+ ", adminid=" + adminid + ", orderDate=" + orderDate + ", list=" + list + "]";
+				+ ", page=" + page + ", pno=" + pno + ", cno=" + cno + ", userid=" + userid + ", shopname=" + shopname
+				+ ", ptitlephoto=" + ptitlephoto + ", ophonenumber=" + ophonenumber + ", oaddress=" + oaddress
+				+ ", pname=" + pname + ", pisize=" + pisize + ", picolor=" + picolor + ", uname=" + uname + ", ostatus="
+				+ ostatus + ", adminid=" + adminid + ", orderDate=" + orderDate + ", list=" + list + "]";
 	}
+
+
 
 }

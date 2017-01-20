@@ -9,7 +9,7 @@
 
 	<select id="adminOrderView" resultType="OrderVO">
 		select
-		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname,oaddress
 		from
 		(
 		select ono,pino,userid,
@@ -40,10 +40,17 @@
 		#{odno}
 
 	</update>
+		<update id="memberOrderUpdate">
+		update tbl_orderdetail
+		set ostatus = 3
+		where odno =
+		#{odno}
+
+	</update>
 
 	<select id="adminOrderList" resultType="OrderVO">
 	select
-		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname,oaddress
 		from
 		(
 		select ono,pino,userid,
@@ -71,7 +78,7 @@
 
 	<select id="adminOrderMoreList" resultType="OrderVO">
 			select
-		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname
+		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname,oaddress
 		from
 		(
 		select ono,pino,userid,
@@ -93,8 +100,7 @@
 		a.pno =tbl_products.pno and adminid = #{adminid}) a,tbl_member
 		where
 		a.userid = tbl_member.userid order by ono desc
-		ORDER BY ono DESC LIMIT #{page} , 5
-
+		LIMIT #{page} , 5
 	</select>
 
 	<select id="cartList" resultType="CartVO">
@@ -145,7 +151,8 @@
 		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
 		tbl_orderdetail.ocnt,
 		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
-		where tbl_orderdetail.ono = tbl_order.ono and userid = #{userid} and shopname = #{shopname})a,tbl_pinfo
+		where tbl_orderdetail.ono = tbl_order.ono and userid = #{userid} and shopname = #{shopname}
+		 and ostatus =0 or ostatus =1 or ostatus =2 )a,tbl_pinfo
 		where a.pino = tbl_pinfo.pino )a ,tbl_products
 		where
 		a.pno =tbl_products.pno) a,tbl_member

@@ -354,7 +354,7 @@ public class MemberController {
 	@PostMapping("/cartDelete")
 	public @ResponseBody void cartDelete(int cno) throws Exception {
 
-		System.out.println(cno);
+		
 		oservice.cartDelete(cno);
 	}
 
@@ -370,7 +370,9 @@ public class MemberController {
 		return list;
 	}
 	@PostMapping("/orderWrite")
-	public void orderWrite(OrderVO vo,String userid) throws Exception {
+	public String orderWrite(OrderVO vo,String userid) throws Exception {
+		
+		AdminVO themaNum = pservice.themaGet(vo.getPno());
 		vo.setUserid("test");
 		if(vo.getList() == null){
 			List<OrderVO> ovo = new ArrayList<>();
@@ -378,8 +380,14 @@ public class MemberController {
 			vo.setList(ovo);
 		
 		}
-
+	
 		oservice.memberOrderWrite(vo);
+		
+		return "redirect:thema"+themaNum.getThema()+"/order?shopname="+vo.getShopname();
+	}
+	@PostMapping("/memberOrderAction")
+	public void memberOrderAction(int odno) throws Exception {
+		oservice.memberOrderUpdate(odno);
 	}
 
 }

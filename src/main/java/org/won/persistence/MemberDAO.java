@@ -18,4 +18,6 @@ public interface MemberDAO {
 	//질문 pw check
 	public String questionPwCheck(int qno) throws Exception;
 	
+	//답변 1개 가져오기
+	public String answerOne(int qno)throws Exception;
 }

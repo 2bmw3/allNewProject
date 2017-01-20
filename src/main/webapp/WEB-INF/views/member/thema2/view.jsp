@@ -107,6 +107,7 @@
 	var size = null;
 	var adminid = "${view[0].adminid}";
 	
+	
 		$(window).load(function() {
 			$('.flexslider').flexslider({
 				animation : "slide",

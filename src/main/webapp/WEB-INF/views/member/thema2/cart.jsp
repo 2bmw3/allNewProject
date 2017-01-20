@@ -31,7 +31,7 @@
                   <li><span>${vo.pname} / ${vo.picolor} / ${vo.pisize}</span></li>
                   <li><span>￦ ${vo.price}<input type="hidden" value="${vo.price}"></span></li>
                   <li><span id="ccnt">${vo.ccnt}</span></li>
-                  <li  class="ring-in"><a class="remove"href="#"><img src="/resources/themes/thema2/images/close-1.png" style="margin:13%;"><input type="hidden"  value = '${vo.cno}'  id="cno"></a></li>
+                  <li  class="ring-in"><a class="remove"href="#"><img src="/resources/themes/thema2/images/close-1.png" style="margin:13%;"><input type="hidden" name="list[${i.index}].cno"  value = '${vo.cno}'  id="cno"></a></li>
                   <div class="clearfix"></div>
                </ul>
                
@@ -40,7 +40,10 @@
                	<input type="hidden" name="list[${i.index}].pisize" value="${vo.pisize}" >
                	<input type="hidden" name="list[${i.index}].ocnt" value="${vo.ccnt}">
                	<input type="hidden" name="list[${i.index}].adminid" value="${vo.adminid}">
+               	
                </c:forEach>
+               <input type="hidden" name="shopname" value="${cart[0].shopname}">
+               <input type="hidden" name="pno" value="${cart[0].pno}">
                </form>
                 <div>
                <h3>Cart Totals</h3>
@@ -90,7 +93,6 @@ $(".remove").on('click', function(){
  });
 $("#order").on("click",function(){
 	$("#cartOrder").submit();
-	location.href='order?shopname=${param.shopname}';
 });
 </script>
 </html>

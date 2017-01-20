@@ -79,4 +79,10 @@ public class OrderDAOImpl implements OrderDAO {
 		return sqlSession.selectList(NAME+".memberOrderList",vo);
 	}
 
+	@Override
+	public void memberOrderUpdate(int odno) throws Exception {
+		// TODO Auto-generated method stub
+		sqlSession.update(NAME + ".memberOrderUpdate", odno);
+	}
+
 }
