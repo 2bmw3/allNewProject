@@ -15,7 +15,7 @@
     <!-- Font awesome -->
     <link href="/resources/themes/thema1/css/font-awesome.css" rel="stylesheet">
     <!-- Bootstrap -->
-    <link href="/resources/themes/thema1/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- SmartMenus jQuery Bootstrap Addon CSS -->
     <link href="/resources/themes/thema1/css/jquery.smartmenus.bootstrap.css" rel="stylesheet">
     <!-- Product view slider -->
@@ -36,6 +36,12 @@
 	<link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 	<script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>
 	<script src="//code.jquery.com/jquery.min.js"></script>
+	
+	<!-- 밑에있으면 안됨 -->
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="/resources/themes/thema1/js/bootstrap.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

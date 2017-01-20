@@ -1,10 +1,11 @@
 package org.won.web;
 
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
-
+//s
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -144,6 +145,16 @@ public class MemberController {
 	@GetMapping("/thema1/checkout")
 	public void thema1Checkout() {
 	}
+	
+	@GetMapping("/thema1/order")
+	public void thema1Order(String shopname, Model model) throws Exception {
+		
+		OrderVO vo = new OrderVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+		
+		model.addAttribute("order", oservice.memberOrderList(vo));
+	}
 	// thema1 end!
 
 	// thema2 start
@@ -200,6 +211,9 @@ public class MemberController {
 	@GetMapping("/thema2/view")
 	public void thema2View(int pno, Model model) throws Exception {
 		model.addAttribute("view", pservice.read(pno));
+		model.addAttribute("review", bservice.reviewRead(pno));
+		model.addAttribute("qna", pservice.question(pno));
+		model.addAttribute("answer", pservice.answerRead(pno));
 		model.addAttribute("infoColor", pservice.infoColor(pno));
 	
 	}
@@ -285,7 +299,13 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema3/order")
-	public void thema3VOrder() {
+	public void thema3Order(String shopname, Model model) throws Exception {
+		
+		OrderVO vo = new OrderVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+		
+		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 
 	@GetMapping("/thema3/cart")
@@ -348,6 +368,16 @@ public class MemberController {
 
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
+	
+	@GetMapping("/thema4/order")
+	public void thema4SOrder(String shopname, Model model) throws Exception {
+		
+		OrderVO vo = new OrderVO();
+		vo.setShopname(shopname);
+		vo.setUserid("test");
+		
+		model.addAttribute("order", oservice.memberOrderList(vo));
+	}
 	// thema4 end
 
 	// cart
@@ -369,7 +399,7 @@ public class MemberController {
 		List<PinfoVO> list = pservice.infoSize(vo);
 		return list;
 	}
-	@PostMapping("/orderWrite")
+	@PostMapping(value="/orderWrite",produces = "application/text; charset=utf8")
 	public String orderWrite(OrderVO vo,String userid) throws Exception {
 		
 		AdminVO themaNum = pservice.themaGet(vo.getPno());
@@ -380,10 +410,11 @@ public class MemberController {
 			vo.setList(ovo);
 		
 		}
+		String shopname = URLEncoder.encode(vo.getShopname(), "UTF-8");
 	
 		oservice.memberOrderWrite(vo);
 		
-		return "redirect:thema"+themaNum.getThema()+"/order?shopname="+vo.getShopname();
+		return "redirect:thema"+themaNum.getThema()+"/order?shopname="+shopname;
 	}
 	@PostMapping("/memberOrderAction")
 	public void memberOrderAction(int odno) throws Exception {

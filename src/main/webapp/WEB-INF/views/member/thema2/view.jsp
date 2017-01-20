@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 <script defer src="/resources/themes/thema2/js/jquery.flexslider.js"></script>
 <link rel="stylesheet" href="/resources/themes/thema2/css/flexslider.css" type="text/css" media="screen" />
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="/resources/themes/thema1/js/bootstrap.js"></script>
 <body>
-	<%@include file="header.jsp"%>
+<%@include file="header.jsp"%>
 
 	<div class="single contact">
 		<div class="container">
@@ -77,29 +78,70 @@
 						</div>
 						<div class="clearfix"></div>
 					</div>
-
-					<!-- Editor content view -->
-					${view[0].pcontent}	
+					<!-- nav div start -->
+					 <ul class="nav nav-tabs">
+					    <li class="active"><a data-toggle="tab" href="#detailView">Detail View</a></li>
+					    <li><a data-toggle="tab" href="#qna">QnA</a></li>
+					    <li><a data-toggle="tab" href="#review">Review</a></li>
+					  </ul>
 					
-
-
+					  <div class="tab-content">
+					    <div id="detailView" class="tab-pane fade in active">
+					   		<div class="col-sm-12">${view[0].pcontent}</div>
+					    </div>
+					    
+					    <div id="qna" class="tab-pane fade">
+					    	<h2>QnA</h2>
+							<!--  QnA start -->
+							  <div class="panel-group" id="accordion" style="margin-top: 2%;">
+							   <c:forEach items="${qna}" var="qvo">		    
+							    <div class="panel panel-default">
+							      <div class="panel-heading">
+							        <h4 class="panel-title">
+							          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${qvo.qno}">
+							          	<i class="fa fa-lock" >  비공개 글입니다</i></a>
+							        </h4>
+							      </div>
+							      <div id="collapse${qvo.qno}" class="panel-collapse collapse">
+							        <div class="panel-body">
+							        	<input type="text" id='questionPwcheck' maxlength="4" 
+							        	placeholder='비밀번호를 입력해주세요' style="width: 70%;">
+							        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
+							        	<input type="hidden" value="${qvo.qcontent}">
+							        	
+								        </div>
+								        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
+								      </div>
+								    </div>
+								   </c:forEach>
+								  </div>
+								  <!-- QnA end --> 
+								  <div class="row">
+									<div class="col-sm-6">
+									<input type="text" id='qwriter' name='qwriter' placeholder="Writer">
+									</div>
+									<div class="col-sm-3">
+									<input type="password" id='qpw' name='qpw' placeholder="Password" maxlength="4">
+									</div>
+								</div>
+							<textarea id='qcontent' name="qcontent" 
+							style="height: 100px; width:100%;" placeholder='질문을 입력해주세요'></textarea>
+							<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
+					    </div>
+					    
+					    <div id="review" class="tab-pane fade">
+					      <h3>Review</h3>
+					    </div>
+					  </div>
+				<!-- nav div end -->
 				</div>
-				<div class="clearfix"></div>
-
-			</div>
-			<ul class="unit">
-				<li><a href="#"><span>Review (2)</span></a></li>
-				<li><a href="#"><span>QnA (3)</span></a></li>
-				<div class="clearfix"></div>
-			</ul>
-			
-			
+			<div class="clearfix"></div>
 		</div>
-
 	</div>
+</div>
 
-	<%@include file="footer.jsp"%>
-	<script>	
+<%@include file="footer.jsp"%>
+<script>	
 	
 	var ccnt = null;
 	var color = null;
@@ -238,6 +280,69 @@
 		        }
 		    });  
 		});
+		
+		//질문 등록
+		$("#qsubmit").on("click",function(){
+			
+			var qwriter = $("#qwriter").val();
+			var qpw = $("#qpw").val();
+			var qcontent = $("#qcontent").val();
+			var question = {"qwriter" : qwriter, "qpw" : qpw , "qcontent" : qcontent , "pno" : pno };
+			
+			$.ajax({
+				url : "/questionWrite",
+				data : question,
+				dataType : 'text',
+				type : "post",
+				success : function(result) {
+					var splitResult = result.split("#");
+					swal("질문이 성공적으로 등록되었습니다!","","success");
+					var str =  "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'>"
+								+"<a data-toggle='collapse' data-parent='#accordion' href='#collapse"
+								+splitResult[1]+"'><i class='fa fa-lock' >  비공개 글입니다</i></a>"
+								+"</h4></div><div id='collapse"
+								+splitResult[1]+"' class='panel-collapse collapse'><div class='panel-body'><input type='text' id='questionPwcheck' maxlength='4' placeholder='비밀번호를 입력해주세요' style='width: 70%;'>"
+								+"<input id='questionPwcheckBtn' type='submit' class='btn btn-primary' value='확인' name='"
+								+splitResult[1]+"'><input type='hidden' value='"+qcontent+"'></div><div class='panel-footer'>"+qwriter+" / "+splitResult[0]+"</div></div></div>"
+					$("#accordion").prepend(str);
+				}// end success
+			});// end ajax
+		});// end question submit
+		
+		// 질문 비밀번호 체크
+		$(document).on('click', "#questionPwcheckBtn" , function(event){
+			var qpwCheckBtn = $(this)[0];
+			var qno = qpwCheckBtn.name;
+			var inputPw = qpwCheckBtn.previousElementSibling.value;
+			var qcontent = qpwCheckBtn.nextElementSibling.value;
+			var pwCheck = {"qpw":inputPw, "qno":qno};
+			
+			$.ajax({
+				url : "/questionPwCheck",
+				data : pwCheck,
+				dataType : 'text',
+				type : "post",
+				success : function(result) {
+					var splitResult = result.split("#");
+					
+					if(splitResult[0] == "F"){
+						swal("비밀번호가 틀립니다!","","error");
+						$("#questionPwcheck").val("");
+					}else if (splitResult[1] == "null"){						
+						var str = "<h3>"+qcontent+"</h3>";
+						qpwCheckBtn.parentElement.innerHTML = str;						
+					}else{
+						var qcontentStr = "<h3>"+qcontent+"</h3>"
+						var str = "";
+						for(var i = 1; i<splitResult.length-1; i++){
+							str += "<hr/><b>Re: "+splitResult[i]+"</b>";
+						}
+						qpwCheckBtn.parentElement.innerHTML = (qcontentStr + str);
+					}
+				}// end success
+			});// end ajax
+		});// end questionPw check;
+		
 
-	</script>
+</script>
 </html>

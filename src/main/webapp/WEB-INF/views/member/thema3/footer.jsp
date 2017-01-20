@@ -17,6 +17,10 @@ $(".pagination").on("click", "li", function(event) {
     $("#pageNumForm").submit();
  });
 </script>
+<!-- 새로 추가한 것들 -->
+<script src="/resources/member/js/rate.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<!-- 구                 분 -->
 <!-- jQuery -->
 <script src="/resources/themes/thema3/assets/js/jquery.min.js"></script>
 <!-- jQuery Easing -->
