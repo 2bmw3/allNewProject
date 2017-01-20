@@ -9,13 +9,6 @@
 			<div class="row margin-vert-30">
 				<div class="col-md-12">
 					<h2 class="margin-bottom-20" style='padding-top: 2em;'>F.A.Q.</h2>
-<!-- 					<p>Te lorem dolorum sadipscing vel, has in ullum dicunt, ea eos -->
-<!-- 						appetere placerat probatus. Vis eu movet elaboraret, eu scaevola -->
-<!-- 						tacimates sed, sint laoreet ex pri. Est dicat consetetur ei, quo -->
-<!-- 						mazim debet elitr ad. Vim indoctum expetendis ut, ut nostrud -->
-<!-- 						maluisset est. Ignota nemore cum an, voluptua expetenda dignissim -->
-<!-- 						eu mei. Pellentesque nec eros nulla. Vivamus nec ligula dolor. In -->
-<!-- 						facilisis suscipit gravida. Nunc malesuada.</p> -->
 					<hr class="margin-vert-40">
 					<div class="row">
 						<div class="col-md-8">

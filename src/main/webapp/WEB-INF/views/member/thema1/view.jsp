@@ -134,7 +134,7 @@
 				  <div class="panel-group" id="accordion" style="margin-top: 2%;">
 				   <c:forEach items="${qna}" var="qvo">		    
 				    <div class="panel panel-default">
-				      <div class="panel-heading">
+				      <div class="panel-heading show">
 				        <h4 class="panel-title">
 				          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${qvo.qno}">
 				          	<i class="fa fa-lock" >  비공개 글입니다</i></a>
@@ -174,36 +174,45 @@
 								<ul class="aa-review-nav">
 									<li>
 										<div class="media">
-											<div class="media-body">
 											<h4 id='emptyReview'>리뷰가 아직 없어요 ㅠㅠ 리뷰를 남겨주세요!</h4>
-												<c:forEach items="${review}" var="rvo">
-												
-												<div id = 'showReview'>
-													<!-- review display -->
-													<div class='col-sm-10 showReview'>
-														<ul style='background-color: white;'>
-															<li><h3>${rvo.userid}(${rvo.rgrade}점)</h3></li>
-															<li><h5>${rvo.rcontent}</h5>
-																<h5>${rvo.rregdate}</h5></li>
-																
-															<li>
-															<img class = 'reviewImg' 
-															src=
-															'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
-															 style = 'width:100px; height100px;'></li>
-															<br>
-														</ul>
-													</div>
-													<!-- review display end-->
+												<div class="col-md-10">
+														<div class="tab-pane active in fade" id="review">
+															<div class="panel-group" id="accordion">
+															
+																<c:forEach items="${review}" var="rvo">
+													
+																<!-- review display -->
+																<div class="panel panel-default">
+																	<div class="panel-heading show">
+																		<a data-toggle="collapse" data-parent="#accordion" href="#faq-sub${rvo.rno}">
+																			<h4 class="panel-title">
+																			${rvo.userid}
+																				 <span class="pull-right">
+																				${rvo.rregdate}
+																				</span>
+																			</h4>
+																		</a>
+																	</div>
+																	<div id="faq-sub${rvo.rno}" class="panel-collapse collapse">
+																		<div class="panel-body">
+																		<h4>${rvo.rcontent}</h4>
+																			<img class = 'reviewImg' 
+																			src=
+																			'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F
+																			${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+																			 style = 'width:300px; height:300px;'>
+																			</div>
+																	</div>
+																</div>
+																<!-- review display end-->
+															</c:forEach>
+																	
+															</div>
+														</div>
 												</div>
-												</c:forEach>
-											</div>
 										</div>
 									</li>
 								</ul>
-								<div id = 'rate'class="aa-your-rating">
-									
-								</div>
 								<!-- review form -->
 								<form action="" class="aa-review-form">
 									<div class="form-group">
@@ -362,6 +371,7 @@
 	var emptyReview = $('#emptyReview');
 	var userid = "test user";
 		
+	console.log($('.showReview').length);
 	if($('.showReview').length > 0){
 		emptyReview.hide();
 	};
@@ -391,6 +401,10 @@
 	}// end uuid create
 	
 	
+	$('.panel-heading').on('click', function () {
+		console.log("왜애");
+	});
+	
 	/* 리뷰 버튼 이벤트 시작  */ 
 	$('#reviewBtn').on('click', function () {
 		event.preventDefault();
@@ -402,11 +416,13 @@
 		
 		rphoto.val(uuidFileName);
 		
+		
 		var upload = storage.ref().child("review/" +uuidFileName);
         
 		
 		var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
 		
+		console.log(formData);
 		
 		 $.ajax({      
 		    	url: "/review", 
@@ -421,7 +437,7 @@
 		            }, function() {
 		                var downloadURL = uploadTask.snapshot.downloadURL;
 			        	emptyReview.hide();
-		 				$('.media-body').prepend("<div class='col-sm-10 showReview'><ul style='background-color: white;'><li><h3>"+
+		 				$('.show').prepend("<div class='col-sm-10 showReview'><ul style='background-color: white;'><li><h3>"+
 		 					userid + "(" + rgrade + "점)</h3></li><li><h5>"+
 		        			rcontent + "</h5><h5>"+date+"</h5></li><li><img src='"+downloadURL+"' style = 'width:100px; height100px;'></li><br></ul></div>");
 		            });
