@@ -166,12 +166,6 @@ ul.uli li {
 				        	<input id='questionPwcheckBtn' type="submit" class="btn btn-primary" value="확인" name="${qvo.qno}">
 				        	<input type="hidden" value="${qvo.qcontent}">
 				        	
-				        		<c:forEach items="${answer}" var="avo">
-									<c:if test="${qvo.qno == avo.qno }">
-				        			<input type="hidden" value="${avo.acontent}">
-									</c:if>
-								</c:forEach>
-								
 						        </div>
 						        <div class="panel-footer">${qvo.qwriter} / ${qvo.qregdate}</div>
 						      </div>
