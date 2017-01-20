@@ -139,7 +139,6 @@ public class ProductsController {
 	public @ResponseBody String questionPwCheck(int qno, String qpw) throws Exception {
 		List<String> answerList = mservice.answerList(qno);
 		String originQpw = mservice.questionPwCheck(qno);
-
 		String result = "F#";
 		if (originQpw.equals(qpw)) {
 			result = "T#";

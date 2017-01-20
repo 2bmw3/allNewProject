@@ -7,8 +7,15 @@
 <style>
 ul {
 	list-style: none;
-	margin: 0;
-	padding: 0;
+	margin-bottom: 5%;
+}
+.showReview{
+	border: 1px solid #ccc;
+ 	padding: 10px;
+}
+
+.showReview h4{
+	padding-top: 10px;
 }
 
 #li {
@@ -21,16 +28,6 @@ ul {
 	margin: auto;
 }
 
-ul.unit {
-	background: lavender;
-	padding: 1em;
-}
-
-ul.unit li {
-	display: inline-block;
-	width: 10%;
-	text-align: center;
-}
 
 ul.uli {
 	padding: 1em;
@@ -38,8 +35,10 @@ ul.uli {
 
 ul.uli li {
 	display: inline-block;
-	width: 10%;
+ 	width: 17%; 
+ 	padding-right: 5%; 
 	text-align: center;
+	margin-bottom: 1%;
 }
 </style>
 
@@ -192,22 +191,23 @@ ul.uli li {
 			</div>
 				<div role="tabpanel" class="tab-pane" id="review">
 
-					<div class="col-md-12 ">
-						<ul class="unit">
-							<li class="li" style="margin-right: 45%;"><b>Content</b></li>
-							<li class="li" style="margin-right: 10%"><b>Writer</b></li>
-							<li class="li"><b>Date</b></li>
-							<li class="li"><b>Rate</b></li>
-							<div class="clearfix"></div>
-						</ul>
-						
+					<div class="col-md-12">
+									
 						<ul class="uli">
 							<c:forEach items="${review}" var="rvo">
-								<div class="col-sm-10 showReview">
-									<ul style="background-color: white;">
-										<li><h3>${rvo.userid}(${rvo.rgrade}점)</h3></li>
-										<li><h5>${rvo.rcontent}</h5>
-											<h5>${rvo.rregdate}</h5></li>
+								<div class='col-sm-12 showReivew'>
+									<ul style='background-color: white;'>
+									<div class = 'reviewDiv'>
+										<li><h3>${rvo.userid}</h3></li>
+										<li><h5>${rvo.rcontent}</h5></li>
+										<li><h5>${rvo.rregdate}</h5></li>
+										<li>
+										<img class = 'reviewImg' 
+										src=
+										'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+										 style = 'width:100px; height:100px;'></li>
+										 <li><h4>(${rvo.rgrade}점)</h4></li>
+									</div>
 									</ul>
 								</div>
 							</c:forEach>
@@ -215,22 +215,22 @@ ul.uli li {
 						<hr>
 						
 						<form>
-							<input type="hidden" name="userid"> <input type='file'
-								id="rphoto" name="rphoto" /> <input type="radio" id="mark_0_0"
-								name="rgrade" value="1"> <label for="mark_0_0"
-								style="color: pink">★</label>&nbsp; <input type="radio"
-								id="mark_0_1" name="rgrade" value="2"> <label
-								for="mark_0_1" style="color: pink">★★</label>&nbsp; <input
-								type="radio" id="mark_0_2" name="rgrade" value="3"> <label
-								for="mark_0_2" style="color: pink">★★★</label>&nbsp; <input
-								type="radio" id="mark_0_3" name="rgrade" value="4"> <label
-								for="mark_0_3" style="color: pink">★★★★</label>&nbsp; <input
-								type="radio" id="mark_0_4" name="rgrade" checked="checked"
-								value="5"> <label for="mark_0_4" style="color: pink">★★★★★</label>
+							<span class="star-input" >
+							  <span class="input">
+							    <input type="radio" name="star-input" id="p2" value="1"><label for="p2">1</label>
+							    <input type="radio" name="star-input" id="p4" value="2"><label for="p4">2</label>
+							    <input type="radio" name="star-input" id="p6" value="3"><label for="p6">3</label>
+							    <input type="radio" name="star-input" id="p8" value="4"><label for="p8">4</label>
+							    <input type="radio" name="star-input" id="p10" value="5"><label for="p10">5</label>
 							
- 				<input type="text" name="rcontent" style="height: 200px; width: 100%;"> 
+							  </span>
+							  <output for="star-input" ><b>0</b>점</output>
+							</span>
+							<input type='hidden' id='rePhoto' name = 'rphoto'> 
+							<input type='file' id = 'photoFile'/>
+ 							<textarea class="form-control" rows="3" id="reContent"></textarea>
  
-							<input type="submit" class="btn btn-primary" value="Submit">
+							<input type="submit" class="btn btn-primary" id = 'reviewBtn' value="Submit">
 						</form>
 					</div>
 				</div>
@@ -246,6 +246,83 @@ ul.uli li {
 		var pno = ${view[0].pno};
 		var size = null;
 		var adminid = "${view[0].adminid}";
+		var emptyReview = $('#emptyReview');
+		var userid = "test user";
+		
+			
+		/* for firebase upload */
+		var config = {
+			apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
+			authDomain : "project-26bd6.firebaseapp.com",
+			databaseURL : "https://project-26bd6.firebaseio.com",
+			storageBucket : "project-26bd6.appspot.com",
+			messagingSenderId : "544848311496"
+		};
+
+		firebase.initializeApp(config);
+		var storage = firebase.storage();
+		var storageRef = storage.ref();
+		/* for firebase upload */
+		
+		//uuid create
+		function guid() {
+			function s4() { 
+				return ((1 + Math.random()) * 0x10000 | 0).toString(16)
+						.substring(1);
+			}
+			return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
+					+ s4() + s4();
+		}// end uuid create
+		
+		
+		/* 리뷰 버튼 이벤트 시작  */ 
+		$('#reviewBtn').on('click', function () {
+			event.preventDefault();
+			var rcontent = $('#reContent')[0].value;
+			var rphoto = $('#rePhoto');
+			var rgrade = $('[name="star-input"]:checked').val();
+			var file= $("#photoFile")[0].files[0];
+			var uuidFileName = guid() + "_" + file.name;
+			
+			rphoto.val(uuidFileName);
+			
+			console.log("클릭했당");
+			
+			var upload = storage.ref().child("review/" +uuidFileName);
+	        
+			
+			var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
+			
+			 $.ajax({      
+			    	url: "/review", 
+			        data: formData, 
+			        dataType: "text",
+			        type:"post",
+			        success:function(date){
+			        	console.log(formData);
+			        	console.log("성공했댕 확인해방");
+			        	var uploadTask = upload.put(file);
+
+			            uploadTask.on('state_changed', function(snapshot){
+			            }, function(error) {
+			            }, function() {
+			                var downloadURL = uploadTask.snapshot.downloadURL;
+			 				$('.uli').prepend("<div class='col-sm-12 showReivew'><ul style='background-color: white;'>"
+			 						+ "<div class = 'reviewDiv'><li><h3>"
+			 						+ userid + "</h3></li><li><h5>"
+			 						+ rcontent + "</h5></li><li><h5>"
+			 						+ date + "</h5></li><li><img class = 'reviewImg' "
+			 						+ "src='" + downloadURL + "'style = 'width:100px; height:100px;'></li><li><h4>(" 
+									+rgrade + "점)</h4></li></div></ul></div>");
+			            });
+	 				
+			            $('#reContent').val("");
+			            $("#photoFile").val("");
+		        	}
+			    }); 
+			    //ajax end
+		});
+		/* 리뷰 버튼 이벤트 끝! */
 		
 		
 		

@@ -530,7 +530,7 @@
 		}
 	});
 	
-	//질문 등록
+	//질문 등록!
 	$("#qsubmit").on("click",function(){
 		
 		var qwriter = $("#qwriter").val();
