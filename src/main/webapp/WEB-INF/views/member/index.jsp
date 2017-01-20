@@ -230,8 +230,6 @@
             datatype: 'json',
             data:"pno="+pno,
             success:function(data){
-                console.log("====="+data.shoplogo);
-                console.log("====="+data.thema);
                 if(data.thema!="fail"){
                     swal({
                         title: "해당 상품으로 이동합니다.",
@@ -241,9 +239,11 @@
                         showConfirmButton: false,
                         showLoaderOnConfirm: true,
                     });
+                    console.log(data.thema);
                     setTimeout(() => {
-                        self.location = data.thema;
-                }, 2000);
+                    	location.reload();
+                        window.open(data.thema, '_blank');
+                }, 1500);
                 }else{
                     swal({
                         title: "해당 상품이 존재 하지 않습니다.",
