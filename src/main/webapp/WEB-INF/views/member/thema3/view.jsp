@@ -9,14 +9,10 @@ ul {
 	list-style: none;
 	margin-bottom: 5%;
 }
-.showReview{
-	border: 1px solid #ccc;
- 	padding: 10px;
-}
-
-.showReview h4{
-	padding-top: 10px;
-}
+/* .showReview{ */
+/* 	border: 1px solid #ccc; */
+/*  	padding: 10px; */
+/* } */
 
 #li {
 	display: inline-block;
@@ -33,12 +29,12 @@ ul.uli {
 	padding: 1em;
 }
 
-ul.uli li {
-	display: inline-block;
- 	width: 17%; 
- 	padding-right: 5%; 
-	text-align: center;
-	margin-bottom: 1%;
+ ul.uli li { 
+ 	display: inline-block; 
+  	width: 100%;  
+/*  	padding-right: 5%;  */
+/* 	text-align: center; */
+ 	margin-bottom: 1%;
 }
 </style>
 
@@ -198,21 +194,19 @@ ul.uli li {
 								<div class='col-sm-12 showReivew'>
 									<ul style='background-color: white;'>
 									<div class = 'reviewDiv'>
-										<li><h3>${rvo.userid}</h3></li>
-										<li><h5>${rvo.rcontent}</h5></li>
-										<li><h5>${rvo.rregdate}</h5></li>
+										<li><h3 style='float: left;'>${rvo.userid}</h3><h4>(${rvo.rgrade}점)</h4>
+											<h5 style=''>${rvo.rcontent}</h5><h5>${rvo.rregdate}</h5></li>
 										<li>
 										<img class = 'reviewImg' 
 										src=
 										'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
-										 style = 'width:100px; height:100px;'></li>
-										 <li><h4>(${rvo.rgrade}점)</h4></li>
+										 style = 'width:100px; height:100px; float:right;'></li>
+									 <hr/>
 									</div>
 									</ul>
 								</div>
 							</c:forEach>
 						</ul>
-						<hr>
 						
 						<form>
 							<span class="star-input" >
@@ -308,12 +302,12 @@ ul.uli li {
 			            }, function() {
 			                var downloadURL = uploadTask.snapshot.downloadURL;
 			 				$('.uli').prepend("<div class='col-sm-12 showReivew'><ul style='background-color: white;'>"
-			 						+ "<div class = 'reviewDiv'><li><h3>"
-			 						+ userid + "</h3></li><li><h5>"
-			 						+ rcontent + "</h5></li><li><h5>"
-			 						+ date + "</h5></li><li><img class = 'reviewImg' "
-			 						+ "src='" + downloadURL + "'style = 'width:100px; height:100px;'></li><li><h4>(" 
-									+rgrade + "점)</h4></li></div></ul></div>");
+			 			+ "<div class = 'reviewDiv'><li><h3 style='float: left;'>"
+			 			+ userid + "</h3><h4>(" 
+						+ rgrade + "점)</h4><h5>"
+			 			+ rcontent + "</h5></li><li><h5>"
+			 			+ date + "</h5></li><li><img class = 'reviewImg' "
+			 			+ "src='" + downloadURL + "'style = 'width:100px; height:100px; float:right;'></li> <hr/></div></ul></div>");
 			            });
 	 				
 			            $('#reContent').val("");
