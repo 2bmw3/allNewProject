@@ -15,13 +15,13 @@
     <div class="main container">
       <div class="col-main">
         <div class="cart">
-
           <div class="page-content page-order">
             <div class="order-detail-content">
+            <form action="/member/orderWrite" method="post" id="cartOrder">  
               <div class="table-responsive">
-                <table class="table table-bordered cart_summary">
+                <table class="table table-bordered cart_summary">                              
                   <tbody>
-                   <c:forEach items="${cart}" var="vo">
+					<c:forEach items="${cart}" var="vo" varStatus="i">
                     <tr class="cartList">
                       <td class="cart_product"><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></td>
                       <td class="cart_description"><p class="product-name"><a href="#">${vo.pname}</a></p>
@@ -29,12 +29,18 @@
                         <small><a href="#">Size :${vo.pisize}</a></small></td>
                       <td class="availability in-stock"><span class="label">In stock</span></td>
                       <td class="price"><span>￦  ${vo.price}</span></td>
-                      <td class="qty"><input class="form-control input-sm" type="text" value="${vo.ccnt}"><input type="hidden"  value='${vo.price}'></td>
+                      <td class="qty"><input class="form-control input-sm" type="text" name="list[${i.index}].ocnt"value="${vo.ccnt}"><input type="hidden"  value='${vo.price}'></td>
                       <td class="price"><span>￦  ${vo.price * vo.ccnt}</span></td>
-                      <td class="action"><a class="remove"href="#"><i class="icon-close"></i><input type="hidden"  value = '${vo.cno}'  id="cno"></a></td>
+                      <td class="action"><a class="remove"href="#"><i class="icon-close"></i><input type="hidden" name="list[${i.index}].cno" value = '${vo.cno}'  id="cno"></a></td>
                     </tr>
-                    </c:forEach>
-                  </tbody>
+                 <input type="hidden" name="list[${i.index}].pno" value="${vo.pno}">
+               	<input type="hidden" name="list[${i.index}].picolor" value="${vo.picolor}">   
+               	<input type="hidden" name="list[${i.index}].pisize" value="${vo.pisize}" >
+               	<input type="hidden" name="list[${i.index}].adminid" value="${vo.adminid}">               	
+               </c:forEach>
+               <input type="hidden" name="shopname" value="${cart[0].shopname}">
+               <input type="hidden" name="pno" value="${cart[0].pno}">
+                  </tbody>             
                   <tfoot>
                   <c:set var = "sum" value = "0" />
 		            <c:forEach items="${cart}" var="vo">
@@ -47,7 +53,8 @@
                   </tfoot>
                 </table>
               </div>
-              <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" href="#"><i class="fa fa-check"></i> Proceed to checkout</a> </div>
+                 </form>
+              <div class="cart_navigation"> <a class="continue-btn" href="#"><i class="fa fa-arrow-left"> </i>&nbsp; Continue shopping</a> <a class="checkout-btn" id="order" ><i class="fa fa-check" id="order"></i> Proceed to checkout</a> </div>
             </div>
           </div>
         </div>
@@ -90,6 +97,9 @@
    	
    	$(".total")[0].innerHTML= "<strong>￦ " + totalP+"</strong>";
    });
+   $("#order").on("click",function(){
+		$("#cartOrder").submit();
+	});
  
  </script>
 

@@ -43,7 +43,8 @@
 			<li class="li"><b>Total</b></li>
 			<div class="clearfix"></div>
 		</ul>
-		 <c:forEach items="${cart}" var="vo">
+		   <form action="/member/orderWrite" method="post" id="cartOrder">
+		 <c:forEach items="${cart}" var="vo" varStatus="i">
 		<ul class="uli">
 			<li><img
 				style='width: 100px; height: 100px; margin-right: 10%'
@@ -51,14 +52,22 @@
 			<li  style="width:20%; margin-right: 4%;"><p>${vo.pname}</p>
 				<h5>${vo.pisize} / ${vo.picolor}</h5></li>
 			<li  style="margin-right: 10%"><p>￦  ${vo.price}</p></li>
-			<li  style="margin-right: 10%"><input type="number"
+			<li  style="margin-right: 10%"><input type="number" name="list[${i.index}].ocnt"
 				name="quantity" min="1" max="10" style="width: 100%" value="${vo.ccnt}"><input type="hidden"  value='${vo.price}'></li>
 			<li ><p>￦  ${vo.price * vo.ccnt}</p></li>
-			<li ><a class="remove"href="#"><i class="fa fa-remove" style="color: red"></i><input type="hidden"  value = '${vo.cno}'  id="cno"></a></li>
+			<li ><a class="remove"href="#"><i class="fa fa-remove" style="color: red"></i><input type="hidden" name="list[${i.index}].cno"  value = '${vo.cno}'  id="cno"></a></li>
 			<div class="clearfix"></div>
 		</ul>
+		
 		<hr>
-		</c:forEach>
+		        <input type="hidden" name="list[${i.index}].pno" value="${vo.pno}">
+               	<input type="hidden" name="list[${i.index}].picolor" value="${vo.picolor}">   
+               	<input type="hidden" name="list[${i.index}].pisize" value="${vo.pisize}" >
+               	<input type="hidden" name="list[${i.index}].adminid" value="${vo.adminid}">               	
+               </c:forEach>
+               <input type="hidden" name="shopname" value="${cart[0].shopname}">
+               <input type="hidden" name="pno" value="${cart[0].pno}">
+		</form>
 		<ul class="unit">
 			<li style="margin-right: 24%;"></li>
 			<li style="margin-right: 10%"></li>
@@ -71,7 +80,7 @@
 			<div class="clearfix"></div>
 		</ul>
 		<input type="submit" class="btn btn-primary" value="Order"
-			style="float: right"> <input type="submit"
+			style="float: right"  id="order"> <input type="submit"
 			class="btn btn-primary" value="Continue Shopping"
 			style="float: right">
 </body>
@@ -108,6 +117,9 @@
  		} 
  	$(".total")[0].innerHTML= "<b>￦ " + totalP+"</b>"; 
  });
+ $("#order").on("click",function(){
+		$("#cartOrder").submit();
+	});
  
  
  </script>

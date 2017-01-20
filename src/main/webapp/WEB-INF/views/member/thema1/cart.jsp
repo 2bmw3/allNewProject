@@ -14,7 +14,7 @@
        <div class="col-md-12">
          <div class="cart-view-area">
            <div class="cart-view-table">
-             <form action="">
+            <form action="/member/orderWrite" method="post" id="cartOrder">
                <div class="table-responsive">
                   <table class="table">
                     <thead>
@@ -28,9 +28,9 @@
                       </tr>
                     </thead>
                     <tbody>
-                     <c:forEach items="${cart}" var="vo">
+                       <c:forEach items="${cart}" var="vo" varStatus="i">
                       <tr class="cartList">  		
-                        <td><a class="remove"href="#"><fa class="fa fa-close"></fa><input type="hidden"  value = '${vo.cno}'  id="cno"></a></td>
+                        <td><a class="remove"href="#"><fa class="fa fa-close"></fa><input type="hidden"  name="list[${i.index}].cno"  value = '${vo.cno}'  id="cno"></a></td>
                         
                         <td><a href="#"><img src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="img"></a></td>
                         <td>
@@ -38,10 +38,18 @@
                         	<a> / ${vo.picolor} / ${vo.pisize}</a>
                         </td>
                         <td>￦ ${vo.price}</td>
-                        <td class="ccnt"><input id="count" class="aa-cart-quantity" type="number" value='${vo.ccnt}' min='0'><input type="hidden"  value='${vo.price}'></td>
+                        <td class="ccnt"><input id="count" class="aa-cart-quantity"  name="list[${i.index}].ocnt" type="number" value='${vo.ccnt}' min='0'><input type="hidden"  value='${vo.price}'></td>
                         <td >￦  ${vo.price * vo.ccnt}</td>
+                      </tr>                       	  
+		               	<input type="hidden" name="list[${i.index}].pno" value="${vo.pno}">
+		               	<input type="hidden" name="list[${i.index}].picolor" value="${vo.picolor}">   
+		               	<input type="hidden" name="list[${i.index}].pisize" value="${vo.pisize}" >	       
+		               	<input type="hidden" name="list[${i.index}].adminid" value="${vo.adminid}">              	
+               </c:forEach>
+               			<tr>
+		               <input type="hidden" name="shopname" value="${cart[0].shopname}">
+		               <input type="hidden" name="pno" value="${cart[0].pno}">
                       </tr>
-                      </c:forEach>
                       </tbody>
                   </table>
                 </div>
@@ -61,7 +69,9 @@
                    </tr>
                  </tbody>
                </table>
-               <a href="checkout" class="aa-cart-view-btn">Proced to Checkout</a>
+             <div class="single-but item_add">
+				<button type="submit" class="aa-filter-btn search" id="order" style="width: 200px;">Check Now </button>							
+			</div>
              </div>
            </div>
          </div>
@@ -105,6 +115,9 @@
  	
  	$(".total")[0].innerHTML= "￦ " + totalP;
  });
+ $("#order").on("click",function(){
+		$("#cartOrder").submit();
+	});
  
  
  </script>
