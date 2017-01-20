@@ -42,5 +42,9 @@ public class MemberServiceImpl implements MemberService {
 	public String answerOne(int qno) throws Exception {
 		return dao.answerOne(qno);
 	}
+	
+	public MemberVO login(MemberVO vo) throws Exception {
+		return dao.login(vo);
+	}
 
 }

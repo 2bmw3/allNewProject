@@ -20,4 +20,6 @@ public interface MemberService {
 
 	// 답변 1개 가져오기
 	public String answerOne(int qno) throws Exception;
+	
+	public MemberVO login(MemberVO vo) throws Exception;
 }

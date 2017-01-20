@@ -48,4 +48,8 @@ public class MemberDAOImpl implements MemberDAO {
 		return sqlSession.selectOne(NAME + ".answerOne", qno);
 	}
 
+	@Override
+	public MemberVO login(MemberVO vo) throws Exception {
+		return sqlSession.selectOne(NAME + ".login", vo);
+	}
 }

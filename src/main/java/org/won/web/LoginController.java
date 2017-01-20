@@ -65,6 +65,21 @@ public class LoginController {
 	public void memberLogin(Model model) {
 
 	}
+	
+	@PostMapping("/member/loginAction")
+	public @ResponseBody String loginAction(MemberVO vo) throws Exception{
+		String str = "";
+		
+			vo = mservice.login(vo);	
+			System.out.println(vo);
+			if(vo.getUserid() == null){
+				str = "fail";
+			}else{
+				str = "success";
+			}
+			System.out.println(str);
+		return str;
+	}
 
 	// 아이디 중복 체크
 	@GetMapping("/idCheck")
