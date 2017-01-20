@@ -2,7 +2,7 @@
     <div class="footer-coppyright">
       <div class="container">
         <div class="row">
-          <div class="col-sm-6 col-xs-12 coppyright"> Copyright � 2016 <a href="#"> metric </a>. All Rights Reserved. </div>
+          <div class="col-sm-6 col-xs-12 coppyright"> Copyright © 2016 <a href="#"> metric </a>. All Rights Reserved. </div>
           <div class="social col-sm-6 col-xs-12">
             <ul class="inline-mode">
               <li class="social-network fb"><a title="Connect us on Facebook" target="_blank" href="https://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
@@ -23,7 +23,10 @@
    </div>
    
 <!-- JS --> 
-
+<!-- 새로 추가한 것들 -->
+<script src="/resources/member/js/rate.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
+<!-- 구                 분 -->
 <!-- cookies js --> 
 <script type="text/javascript" src="/resources/themes/thema4/js/cookies.js"></script>
 <!-- jquery js --> 
@@ -32,8 +35,6 @@
 <script type="text/javascript" src="/resources/themes/thema4/js/bootstrap.min.js"></script> 
  <!-- Fullscreen slider -->
 <script type='text/javascript' src="/resources/themes/thema4/js/jquery.slitslider.js"></script>
-<!-- switcher js -->
-<script src="/resources/themes/thema4/js/switcher/js/colorpicker.js"></script>
 <!-- owl.carousel.min js --> 
 <script type="text/javascript" src="/resources/themes/thema4/js/owl.carousel.min.js"></script>
 <!-- bxslider js --> 

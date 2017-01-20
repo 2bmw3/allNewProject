@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<!-- 새로 추가한 것들  -->
+<link href="/resources/member/css/rate.css" rel="stylesheet" >
+<!-- 구                 분  -->
+    
 <!-- Favicon  -->
 <link rel="shortcut icon" type="image/x-icon" href="/resources/themes/thema4/favicon.ico">
 <!-- Google Fonts -->
