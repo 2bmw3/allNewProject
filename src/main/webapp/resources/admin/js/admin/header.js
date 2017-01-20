@@ -1,4 +1,21 @@
-  // 관리자 아이디 값 쿠키에서 찾는 함수
+var username = getCookie('username'); 
+
+$(".member").on("click",function(){
+   $.ajax({
+            url : "shopName",
+            data : "adminid=" + username,
+            dataType : "text",
+            async: false,
+            type : "post",
+            success : function(data) {
+            	window.open('/member/thema1/index?shopname='+ data, '_blank'); 
+            }
+    });
+	
+});
+
+
+// 관리자 아이디 값 쿠키에서 찾는 함수
         function getCookie(cname) {
            var name = cname + "=";
            var cookie = document.cookie.split(';');
@@ -13,7 +30,6 @@
         }
         // 알림 데이터 가져오기
         (function() {
-           var username = getCookie('username');
            $.ajax({
                     url : "latter",
                     data : "adminid=" + username,
