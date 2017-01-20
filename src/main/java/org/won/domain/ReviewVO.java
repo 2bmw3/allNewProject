@@ -4,8 +4,7 @@ import java.util.Date;
 
 public class ReviewVO {
 	private int rno, pno, rgrade;
-	private String userid, rcontent, rphoto;
-	private Date rregdate;
+	private String userid, rcontent, rphoto,rregdate;
 
 	public int getRno() {
 		return rno;
@@ -55,11 +54,11 @@ public class ReviewVO {
 		this.rphoto = rphoto;
 	}
 
-	public Date getRregdate() {
+	public String getRregdate() {
 		return rregdate;
 	}
 
-	public void setRregdate(Date rregdate) {
+	public void setRregdate(String rregdate) {
 		this.rregdate = rregdate;
 	}
 
@@ -68,5 +67,7 @@ public class ReviewVO {
 		return "ReviewVO [rno=" + rno + ", pno=" + pno + ", rgrade=" + rgrade + ", userid=" + userid + ", rcontent="
 				+ rcontent + ", rphoto=" + rphoto + ", rregdate=" + rregdate + "]";
 	}
+
+
 
 }

@@ -143,10 +143,7 @@ ul.uli {
 					<div class="col-md-12 col-md-offset-2 ">${view[0].pcontent}</div>
 				</div>
 				<div role="tabpanel" class="tab-pane" id="qna">
-					
-
-				<div class="col-md-12 ">
-						
+				<div class="col-md-12 ">					
 				<!--  QnA start -->
 				  <div class="panel-group" id="accordion" style="margin-top: 2%;">
 				    		
@@ -190,28 +187,36 @@ ul.uli {
 				
 			</div>
 				<div role="tabpanel" class="tab-pane" id="review">
-
-					<div class="col-md-12">
-									
-						<ul class="uli">
-							<c:forEach items="${review}" var="rvo">
-								<div class='col-sm-12 showReivew'>
-									<ul style='background-color: white;'>
-									<div class = 'reviewDiv'>
-										<li><h3 style='float: left;'>${rvo.userid}</h3><h4>(${rvo.rgrade}점)</h4>
-											<h5 style=''>${rvo.rcontent}</h5><h5>${rvo.rregdate}</h5></li>
-										<li>
-										<img class = 'reviewImg' 
-										src=
-										'https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
-										 style = 'width:100px; height:100px; float:right;'></li>
-									 <hr/>
-									</div>
-									</ul>
-								</div>
-							</c:forEach>
-						</ul>
-						
+					<div class="col-md-12">	
+					  <div class="panel-group" id="accordion" style="margin-top: 2%;">				
+					<c:forEach items="${review}" var="rvo">		    
+				    <div class="panel panel-warning">
+				      <div class="panel-heading">
+				  		<a data-toggle="collapse" data-parent="#accordion" href="#collapse${rvo.rno}">
+				  		<div class="row">
+				  			<div class="col-md-9">				  			
+				          	<b>${rvo.userid}</b>
+				  			</div>
+				  			<div class="col-md-1"><span>${rvo.rgrade}</span></div>
+				  			<div class="col-md-2"><span>${rvo.rregdate}</span></div>
+				  		</div>
+				  		</a>    
+				      </div>				      
+				      <div id="collapse${rvo.rno}" class="panel-collapse collapse">
+				        <div class="panel-body">
+				        	<ul class="uli">
+				        	<li style="width:100%"><img class = 'reviewImg' 
+										src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+										 style = 'width:50%;'>	</li>
+				        	<li><p>${rvo.rcontent}</p></li>
+				        	<div class="clearfix"></div>
+				        	</ul>	
+				        </div>
+						  <div class="panel-footer">In order to be irreplaceable, one must always be different</div>
+						 </div>
+				 	   </div>
+					</c:forEach>						    
+						  </div>
 						<form>
 							<span class="star-input" >
 							  <span class="input">
@@ -232,6 +237,7 @@ ul.uli {
 						</form>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
