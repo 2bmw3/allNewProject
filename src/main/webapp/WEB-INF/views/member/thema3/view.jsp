@@ -188,7 +188,8 @@ ul.uli {
 			</div>
 				<div role="tabpanel" class="tab-pane" id="review">
 					<div class="col-md-12">	
-					  <div class="panel-group" id="accordion" style="margin-top: 2%;">				
+					
+					  <div class="panel-group" id="reviewList" style="margin-top: 2%;" >				
 					<c:forEach items="${review}" var="rvo">		    
 				    <div class="panel panel-warning">
 				      <div class="panel-heading">
@@ -217,6 +218,9 @@ ul.uli {
 				 	   </div>
 					</c:forEach>						    
 						  </div>
+						  
+					
+						  
 						<form>
 							<span class="star-input" >
 							  <span class="input">
@@ -306,29 +310,31 @@ ul.uli {
 			        	console.log(formData);
 			        	console.log("성공했댕 확인해방");
 			        	var uploadTask = upload.put(file);
-
+			        	var splitResult = date.split("#");
 			            uploadTask.on('state_changed', function(snapshot){
 			            }, function(error) {
 			            }, function() {
 			                var downloadURL = uploadTask.snapshot.downloadURL;
-			 				$('.uli').prepend("<div class='col-sm-12 showReivew'><ul style='background-color: white;'>"
-			 			+ "<div class = 'reviewDiv'><li><h3 style='float: left;'>"
-			 			+ userid + "</h3><h4>(" 
-						+ rgrade + "점)</h4><h5>"
-			 			+ rcontent + "</h5></li><li><h5>"
-			 			+ date + "</h5></li><li><img class = 'reviewImg' "
-			 			+ "src='" + downloadURL + "'style = 'width:100px; height:100px; float:right;'></li> <hr/></div></ul></div>");
+			 				$('#reviewList').prepend("<div class='panel panel-warning'><div class='panel-heading'>"
+			 					  	+"<a data-toggle='collapse' data-parent='#accordion' href='#collapse'"+splitResult[0]+">"
+			 					  	+"<div class='row'><div class='col-md-9'><b>"+userid+"</b></div>"
+			 					    +"<div class='col-md-1'><span>"+rgrade+"</span></div>"
+			 					  	+"<div class='col-md-2'><span>"+splitResult[1]+"</span></div></div></a></div>"				      
+			 					    +"<div id='collapse"+splitResult[0]+"class='panel-collapse collapse'><div class='panel-body'>"
+			 					    +"<ul class='uli'><li style='width:100%'><img class = 'reviewImg'" 
+			 						+"src="+downloadURL
+			 						+"style = 'width:50%;'></li><li><p>"+rcontent+"</p></li><div class='clearfix'></div>"
+			 					    +"</ul></div><div class='panel-footer'>In order to be irreplaceable, one must always be different</div>"
+			 						+"</div></div>");
 			            });
-	 				
 			            $('#reContent').val("");
 			            $("#photoFile").val("");
-		        	}
+		        		
+			        }
 			    }); 
 			    //ajax end
 		});
 		/* 리뷰 버튼 이벤트 끝! */
-		
-		
 		
 		// 색상 클릭시 해당 색상의 사이즈 별로 출력
 		$(".colorInfo").on("click",function(event){
