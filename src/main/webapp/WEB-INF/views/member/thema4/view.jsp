@@ -142,28 +142,28 @@
                      </div>
 
                      <div id="reviews" class="tab-pane fade">
-                        <div class="col-sm-12 col-lg-12 col-md-12">
-                           <div class="reviews-content-left">
-                              <h2>Customer Reviews</h2>
-                              <div class="col-md-12 review-ratting">
-                                 <c:forEach items="${review}" var="rvo">
-                                    <div class="reviews-content-left"
-                                       style="margin-top: 1%; background-color: white;">
-                                       <img class='reviewImg'
-                                          src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
-                                          style='width: 100px; height: 100px' /> <strong
-                                          style="margin-left: 5%;">ID :
-                                          ${rvo.userid}(${rvo.rgrade}점)
-                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                          ${rvo.rcontent}</strong>
-
-                                    </div>
-
-                                    
-                                 </c:forEach>
-                              </div>
-                           </div>
-                        </div>
+                     <!-- reviews start -->
+                        <div class="panel-group" id="accordion" style="margin-top: 2%;">
+						   <c:forEach items="${review}" var="rvo">		    
+						    <div class="panel panel-default">
+						      <div class="panel-heading">
+						        <h4 class="panel-title">
+						          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${rvo.rno}">
+						          	ID : ${rvo.userid} (${rvo.rgrade}점)</a>
+						        </h4>
+						      </div>
+						      <div id="collapse${rvo.rno}" class="panel-collapse collapse">
+						        <div class="panel-body">
+						         <img class='reviewImg'
+                                         src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+                                         style='width: 100px; height: 100px' />
+						        	<strong style="margin-left: 5%">${rvo.rcontent}</strong>
+						        </div>
+						        <div class="panel-footer">${rvo.rregdate}</div>
+						      </div>
+						    </div>
+						   </c:forEach>
+						  </div>
                         <div class="col-sm-7 col-lg-7 col-md-7">
                            <div class="reviews-content-right">
                               <h2>Write Your Own Review</h2>
@@ -193,6 +193,7 @@
                            </div>
                         </div>
                      </div>
+                     <!-- review end -->
                      <div class="tab-pane fade" id="product_tags">
                         <h2>QnA</h2>
 

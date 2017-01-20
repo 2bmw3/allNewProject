@@ -14,6 +14,8 @@
 function hideURLbar() {
     window.scrollTo(0, 1);
 } </script>
+ <!-- 새로 추가한 것들  -->
+<link href="/resources/member/css/rate.css" rel="stylesheet" >
 <!--fonts-->
 <link href="http://t4t5.github.io/sweetalert/dist/sweetalert.css" rel="stylesheet">
 <script src="http://t4t5.github.io/sweetalert/dist/sweetalert.min.js"></script>

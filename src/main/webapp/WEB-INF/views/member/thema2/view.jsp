@@ -130,9 +130,61 @@
 							<input id='qsubmit' type="submit" class="btn btn-primary" value="Submit">
 					    </div>
 					    
-					    <div id="review" class="tab-pane fade">
-					      <h3>Review</h3>
-					    </div>
+					      <!-- reviews start -->
+	                     <div id="review" class="tab-pane fade">
+	                        <div class="panel-group" id="accordion" style="margin-top: 2%;">
+	                        	<div id="reviewList">
+							   <c:forEach items="${review}" var="rvo">
+							    <div class="panel panel-default">
+							      <div class="panel-heading">
+							        <h4 class="panel-title">
+							          <a data-toggle="collapse" data-parent="#accordion" href="#collapse${rvo.rno}">
+							          	ID : ${rvo.userid} (${rvo.rgrade}점)</a>
+							        </h4>
+							      </div>
+							      <div id="collapse${rvo.rno}" class="panel-collapse collapse">
+							        <div class="panel-body">
+							         <img class='reviewImg'
+	                                         src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/review%2F${rvo.rphoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'
+	                                         style='width: 100px; height: 100px' />
+							        	<strong style="margin-left: 5%">${rvo.rcontent}</strong>
+							        </div>
+							        <div class="panel-footer">${rvo.rregdate}</div>
+							      </div>
+							    </div>
+							   </c:forEach>
+							   </div>
+							  </div>
+	                        <div class="col-sm-7 col-lg-7 col-md-7">
+	                           <div class="reviews-content-right">
+	                              <h2>Write Your Own Review</h2>
+	                              <form action="" class="aa-review-form">
+	                                 <div class="form-group">
+	                                    <span class="star-input"> <span class="input">
+	                                          <input type="radio" name="star-input" id="p2" value="1"><label
+	                                          for="p2">1</label> <input type="radio" name="star-input"
+	                                          id="p4" value="2"><label for="p4">2</label> <input
+	                                          type="radio" name="star-input" id="p6" value="3"><label
+	                                          for="p6">3</label> <input type="radio" name="star-input"
+	                                          id="p8" value="4"><label for="p8">4</label> <input
+	                                          type="radio" name="star-input" id="p10" value="5"><label
+	                                          for="p10">5</label>
+	
+	                                    </span> <output for="star-input"> <b>0</b>점</output>
+	                                    </span>
+	                                    <textarea class="form-control" rows="3" id="reContent" style="width:95%;"></textarea>
+	                                    <input type='hidden' id='rePhoto' name='rphoto'> <input
+	                                       type='file' id='photoFile' />
+	                                 </div>
+	                                 <button id="reviewBtn" class="button submit"
+	                                    title="Submit Review" type="submit">
+	                                    <span><i class="fa fa-thumbs-up"></i> &nbsp;Review</span>
+	                                 </button>
+	                              </form>
+	                           </div>
+	                        </div>
+	                     </div>
+	                     <!-- review end -->
 					  </div>
 				<!-- nav div end -->
 				</div>
@@ -149,7 +201,8 @@
 	var pno = ${view[0].pno};
 	var size = null;
 	var adminid = "${view[0].adminid}";
-	
+	var emptyReview = $('#emptyReview');
+    var userid = "test user";
 	
 		$(window).load(function() {
 			$('.flexslider').flexslider({
@@ -345,6 +398,93 @@
 				}// end success
 			});// end ajax
 		});// end questionPw check;
+		
+		if($('.showReview').length > 0){
+            emptyReview.hide();
+         };
+         
+         /* for firebase upload */
+         var config = {
+            apiKey : "AIzaSyCCPgBU1lxPq7PVclQyoN5lUX3nFgtXClQ",
+            authDomain : "project-26bd6.firebaseapp.com",
+            databaseURL : "https://project-26bd6.firebaseio.com",
+            storageBucket : "project-26bd6.appspot.com",
+            messagingSenderId : "544848311496"
+         };
+         
+         firebase.initializeApp(config);
+         var storage = firebase.storage();
+         var storageRef = storage.ref();
+         /* for firebase upload */
+         
+         //uuid create
+         function guid() {
+            function s4() { 
+               return ((1 + Math.random()) * 0x10000 | 0).toString(16)
+                     .substring(1);
+            }
+            return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4()
+                  + s4() + s4();
+         }// end uuid create
+
+
+         /* 리뷰 버튼 이벤트 시작  */ 
+      $('#reviewBtn').on('click', function () {
+         event.preventDefault();
+         var rcontent = $('#reContent')[0].value;
+         var rphoto = $('#rePhoto');
+         var rgrade = $('[name="star-input"]:checked').val();
+         var file= $("#photoFile")[0].files[0];
+         var uuidFileName = guid() + "_" + file.name;
+         
+         rphoto.val(uuidFileName);
+         
+         var upload = storage.ref().child("review/" +uuidFileName);
+          
+         
+         var formData = {"rcontent":rcontent, "pno":pno, "userid":userid,"rgrade":rgrade, "rphoto":rphoto.val()};
+         
+         
+         console.log($('#reviewList'));
+         
+         $.ajax({      
+		    	url: "/review", 
+		        data: formData, 
+		        dataType: "text",
+		        type:"post",
+		        success:function(data){
+		        	var uploadTask = upload.put(file);
+					var rno = data.split("#")[0];
+					var date = data.split("#")[1];
+					
+					
+		        	uploadTask.on('state_changed', function(snapshot){
+		            }, function(error) {
+		            }, function() {
+		                var downloadURL = uploadTask.snapshot.downloadURL;
+			        	emptyReview.hide();
+			        	
+			        	var writeStr = "<div class='panel panel-default'><div class='panel-heading'><h4 class='panel-title'><a data-toggle='collapse' data-parent='#accordion' href='#collapse"
+							        	+rno+"'>ID : "
+							        	+userid+" ("
+							        	+rgrade+"점)</a></h4></div><div id='collapse"
+							        	+rno+"' class='panel-collapse collapse'><div class='panel-body'><img class='reviewImg' src='"
+							        	+downloadURL+"'style='width: 100px; height: 100px' /><strong style='margin-left: 5%'>"
+							        	+rcontent+"</strong></div><div class='panel-footer'>"
+							        	+date+"</div></div></div>";
+			        	
+		 				$('#reviewList').prepend(writeStr);
+		            });
+				
+		            $('#reContent').val("");
+		            $("#photoFile").val("");
+	        	}
+		    }); 
+		    //ajax end
+      });
+      /* 리뷰 버튼 이벤트 끝! */
+
+		
 		
 
 </script>
