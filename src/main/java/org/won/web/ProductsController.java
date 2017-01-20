@@ -151,12 +151,12 @@ public class ProductsController {
 
 	@PostMapping("/review")
 	public @ResponseBody String review(ReviewVO rvo) throws Exception {
-		logger.info("rvo : " + rvo.toString());
-		rvo.setUserid("test user");
+		rvo.setUserid("testUser");
 		bservice.rCreate(rvo);
-		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString();
-		logger.info(date);
-		return date;
+		String rno = bservice.reviewRead(rvo.getPno()).get(0).getRno()+"";
+		String date = bservice.reviewRead(rvo.getPno()).get(0).getRregdate().toString() + "#";
+		String result = rno + date;
+		return result;
 	}
 
 }
