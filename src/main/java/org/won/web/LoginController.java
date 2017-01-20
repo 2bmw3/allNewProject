@@ -81,7 +81,6 @@ public class LoginController {
 		    cookie.setPath("/");                        
 		    response.addCookie(cookie);                
 		}
-		System.out.println(str);
 		return str;
 	}
 
