@@ -15,7 +15,7 @@ public class CookieUtil {
 			
 		}
 		return username;
-	}//end String endd
+	}//end String end
 	
 	public String cookieUtil(HttpServletRequest request, String key) {
 		Cookie[] cook = request.getCookies();
