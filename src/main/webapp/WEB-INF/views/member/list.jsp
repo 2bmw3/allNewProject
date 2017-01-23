@@ -22,6 +22,7 @@
 	rel='stylesheet' type='text/css'>
 <link href='/resources/member/css/liststyle.css' rel='stylesheet'
 	type='text/css'>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
 
@@ -56,6 +57,9 @@
 	<div id="wrapper-navbar">
 		<div class="navbar object">
 			<div id="wrapper-sorting">
+				<div id="wrapper-title-0">
+					<a href="index"><div class="top-rated object"><i class="material-icons" style="font-size:36px">home</i></div></a>
+				</div>
 				<div id="wrapper-title-1">
 					<a href="list"><div class="top-rated object">ALL</div></a>
 					<div id="fleche-nav-1"></div>
