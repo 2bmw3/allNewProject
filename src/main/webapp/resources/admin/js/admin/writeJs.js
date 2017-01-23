@@ -197,7 +197,7 @@ $(document).ready( function() {
 
                         var str = "";
                          
-                         str = "<div value=" + fileNames[i] + "style='float: left; width: 30%;padding-bottom: 12px;'>"
+                         str = "<div value='" + fileNames[i] + "'style='float: left; width: 30%;padding-bottom: 12px;'>"
                               + "<img src='https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F"
                               + fileNames[i]
                               + "?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e'style='width:75px; height:75px;'/>&nbsp;&nbsp;<i class='fa fa-times deletephoto' style='font-size:24px'/>"
