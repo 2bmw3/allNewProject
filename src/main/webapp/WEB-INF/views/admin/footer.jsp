@@ -1,4 +1,4 @@
-<script src="/resources/admin/js/admin/header.js"></script>  	 
+<script src="/resources/admin/js/admin/header.js"></script>  	
    <!-- jQuery -->
 <script src="/resources/admin/vendor/jquery/jquery.min.js"></script>
 
