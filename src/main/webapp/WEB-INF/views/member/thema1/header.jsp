@@ -139,12 +139,9 @@
 							<li><a href="categoryList?shopname=${param.shopname}&pkind=신발 및 악세사리&pageNum=1">FOOTWEARE & ACC</a></li>
 							<li><a href="categoryList?shopname=${param.shopname}&pkind=기타&pageNum=1">ETC</a></li>
 							<li><a href="#">SEARCH <span class="caret"></span></a>
-								<ul class="dropdown-menu" style='width: 0;'>
+								<ul class="dropdown-menu" >
 									<li style='float: left;'>
 										<a href="#" class='glyphicon glyphicon-search'></a>
-									</li>
-									<li style='float: left;'>
-										<a href="#" class='glyphicon glyphicon-camera'></a>
 									</li>
 								</ul>
 							</li>
