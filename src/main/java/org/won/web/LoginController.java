@@ -77,7 +77,7 @@ public class LoginController {
 		if(vo != null){
 			str = "success";
 			Cookie cookie = new Cookie("userid", userid);
-		    cookie.setMaxAge(60*60*24*365);            
+		    cookie.setMaxAge(60*60*24*1);            
 		    cookie.setPath("/");                        
 		    response.addCookie(cookie);                
 		}

@@ -13,6 +13,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.DatatypeConverter;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -298,7 +299,9 @@ public class AdminController {
 	
 	@PostMapping("/shopName")
 	public @ResponseBody String shopName(String adminid) throws Exception{
-		String adminShopURL = "/member/thema" + service.shopTotal(adminid).get(0).getThema() + "/index?shopname="+ service.shopTotal(adminid).get(0).getShopname();
+		String shopThema = service.shopTotal(adminid).get(0).getThema();
+		String shopName = URLEncoder.encode(service.shopTotal(adminid).get(0).getShopname(), "UTF-8");
+		String adminShopURL = "/member/thema" + shopThema + "/index?shopname=" + shopName;
 		return adminShopURL;
 	}
 }
