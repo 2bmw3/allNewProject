@@ -9,15 +9,6 @@ ul {
 	list-style: none;
 	margin-bottom: 5%;
 }
-/* .showReview{ */
-/* 	border: 1px solid #ccc; */
-/*  	padding: 10px; */
-/* } */
-
-/* .showReview h4{ */
-/* 	padding-top: 10px; */
-/* } */
-
 #li {
 	display: inline-block;
 }
@@ -188,7 +179,6 @@ ul.uli {
 			</div>
 				<div role="tabpanel" class="tab-pane" id="review">
 					<div class="col-md-12">	
-					
 					  <div class="panel-group" id="reviewList" style="margin-top: 2%;" >				
 					<c:forEach items="${review}" var="rvo">		    
 				    <div class="panel panel-warning">
@@ -218,9 +208,6 @@ ul.uli {
 				 	   </div>
 					</c:forEach>						    
 						  </div>
-						  
-					
-						  
 						<form>
 							<span class="star-input" >
 							  <span class="input">
@@ -335,6 +322,8 @@ ul.uli {
 			    //ajax end
 		});
 		/* 리뷰 버튼 이벤트 끝! */
+		
+		
 		
 		// 색상 클릭시 해당 색상의 사이즈 별로 출력
 		$(".colorInfo").on("click",function(event){
