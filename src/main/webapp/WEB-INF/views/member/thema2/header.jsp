@@ -64,7 +64,6 @@ function hideURLbar() {
                 <li class="active"><a href="/member/index">Main</a></li>
                 <li class="grid"><a href="index?shopname=${param.shopname}">Home</a></li>
                 <li class="grid"><a href="list?shopname=${param.shopname}&pkind=전체&pageNum=1">Products</a></li>
-                <li class="grid"><a href="#">PhotoSearch</a></li>
                 <li class="grid"><a href="#" id='hOrder'>Order</a></li>
                 <li class="grid"><a href="#" id='hCart'>Cart</a></li>
                    
