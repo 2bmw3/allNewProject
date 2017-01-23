@@ -152,7 +152,7 @@
 		tbl_orderdetail.ocnt,
 		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
 		where tbl_orderdetail.ono = tbl_order.ono and userid = #{userid} and shopname = #{shopname}
-		 and ostatus =0 or ostatus =1 or ostatus =2 )a,tbl_pinfo
+		 and ostatus !=3 )a,tbl_pinfo
 		where a.pino = tbl_pinfo.pino )a ,tbl_products
 		where
 		a.pno =tbl_products.pno) a,tbl_member
