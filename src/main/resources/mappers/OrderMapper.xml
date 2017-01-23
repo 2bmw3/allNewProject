@@ -158,7 +158,6 @@
 		a.pno =tbl_products.pno) a,tbl_member
 		where
 		a.userid = tbl_member.userid order by ono desc;
-		
 	</select>
 	
 	
