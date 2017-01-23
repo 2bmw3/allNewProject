@@ -67,7 +67,7 @@
                 	<i onclick="myFunction()" id="dropbtn" class="fa fa-bell fa-fw"></i> 
                 	<span id="count" class="label label-success">0</span>
                 </a>
-                <ul class="dropdown-menu dropdown-messages" id="myDropdown">
+                <ul style="overflow:scroll; width:350px; height:500px;" class="dropdown-menu dropdown-messages" id="myDropdown">
 
                 </ul>
             </li>
