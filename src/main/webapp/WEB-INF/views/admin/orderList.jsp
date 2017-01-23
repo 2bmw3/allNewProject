@@ -18,19 +18,17 @@
             <hr />
             <div id="form" style="padding: 0%; margin: 0%">
                <c:forEach items="${adminOrder}" var="vo">
-                  <div class="row" id="${vo.odno}">
-                     <div class="col-md-1">${vo.ono}</div>
-                     <div class="col-md-1">
+                  <div class="row" id="${vo.odno}" >
+                     <div class="col-md-1" style="padding-right: 0px;">${vo.ono}</div>
+                     <div class="col-md-1" style=" padding-left: 0;">
                         <img style='width: 75px; height: 75px;'
                            src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
                      </div>
-                     <div class="col-md-2">${vo.pname}</div>
-                     <div class="col-md-1">${vo.pisize}</div>
-                     <div class="col-md-1">${vo.picolor}</div>
-                     <div class="col-md-1">${vo.uname}</div>
-                     <div class="col-md-1">${vo.ocnt}</div>
-                     <div class="col-md-2">${vo.oaddress}</div>
-                     <div class="col-md-1">￦${vo.price * vo.ocnt}</div>
+                   <div class="col-md-4" >${vo.pname} / ${vo.pisize}/${vo.picolor} </div>
+                  <div class="col-md-1" >${vo.uname}</div>
+                  <div class="col-md-1">${vo.ocnt}</div>
+                  <div class="col-md-2">${vo.oaddress}</div>
+                  <div class="col-md-1">￦${vo.price * vo.ocnt}</div>
                      <div class="col-md-1">
                         <c:set var="name" value="${vo.ostatus}" />
                         <c:choose>

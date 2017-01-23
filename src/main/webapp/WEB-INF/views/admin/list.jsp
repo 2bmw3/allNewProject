@@ -72,8 +72,6 @@
 					<br> <br>
 					<div class="single-products" style="margin-top: 2%">
 						<div class="productinfo text-center">
-
-
 							<c:if test="${'[null]' ne list}">
 								<c:forEach items="${list}" var="vo">
 
@@ -83,7 +81,7 @@
 											<img style='width: 250px; height: 250px;'
 											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e">
 										</a>
-
+											<span><p>${vo.pname}</p></span>
 										<div>
 											<input type="hidden" value="${vo.pno}"> 
 											<a href="productsUpdate?pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}" class="btn btn-default add-to-cart updateBtn"> 
@@ -95,6 +93,7 @@
 										</div>
 									</div>
 								</c:forEach>
+								<br>
 							</c:if>
 						</div>
 					</div>
