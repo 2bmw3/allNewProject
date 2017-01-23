@@ -110,7 +110,6 @@ function hideURLbar() {
 	});
 	
 	$("#hCart").on("click",function(){
-		console.log("sksk");
 		if(userid != ''){
 			location.href="cart?shopname=${param.shopname}";
 		}else{

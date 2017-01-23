@@ -58,9 +58,12 @@ $("#login-button").on("click",function(){
         type:"post",
         dataType: "text",
        	success: function(data){   
-       			console.log("----");
+       			str = URL;
         		if(data=="success"){
-        			location.href=URL; 
+        			if(url[2]==undefined){
+        				str = "/member/index";
+        			}
+        			location.href = str;		
         		}else{
 	     	     	swal({
 	  	     			title: "정보가 일치 하지 않습니다.",
