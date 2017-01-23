@@ -139,7 +139,6 @@ public class MemberController {
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
 		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
-
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 
