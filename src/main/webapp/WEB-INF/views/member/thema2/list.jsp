@@ -44,9 +44,10 @@
 							<c:forEach items="${list}" var="vo">
 								<div class="col-md-4 product-left single-left">
 									<div class="p-one simpleCart_shelfItem" >
-										<a href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}""> 
+										<a href="view?shopname=${param.shopname}&pno=${vo.pno}&pageNum=${pageNum}&jspName=/${actionName}&sType=${sType}&keyword=${keyword}"> 
 										<img 
-											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt="" />
+											src="https://firebasestorage.googleapis.com/v0/b/project-26bd6.appspot.com/o/products%2F${vo.ptitlephoto}?alt=media&token=42abbd59-4fb8-4db9-8c06-88d563ca1b6e" alt=""
+											style="width: 100%; max-height: 255px;" />
 											<div class="mask mask1">
 												<span class="fa fa-search"> Quick view</span>
 											</div>
@@ -69,14 +70,14 @@
 </div>
  <!-- pageNum  Start -->
 <c:if test="${total>9}">
-	<div class="pagination-area" style="margin-left: 300px; margin-top: 20px;">
+	<div class="pagination-area" style="margin-left: 45%; margin-top: 20px;">
 		<form id='pageNumForm' method="get" action='${actionName}'>
 			<input type='hidden' name='shopname' value='${param.shopname}'> 
 			<input type='hidden' name='pkind' value='${param.pkind}'>
 			<input id='pageInput' type='hidden' name='pageNum'> 
 		</form>
 		<ul class="pagination">
-			<!— 이전 페이지가 있을 경우 —>
+			<!--  이전 페이지가 있을 경우 -->
 			<c:set var="currentPage">${page.currentPage}</c:set>
 			<c:if test="${page.prevPage==1}">
 				<li value='${page.minimumPage-1}'>
@@ -89,7 +90,7 @@
 				<li value='${status.count}'>
 				<a href="" <c:if test="${status.count == currentPage}">class="active"</c:if> data-toggle="tab">${status.count}</a></li>
 			</c:forEach>
-			<!— 다음 페이지가 있을 경우 —>
+			<!--다음 페이지가 있을 경우-->
 			<c:if test="${page.nextPage==1}">
 				<li value='${page.maxmumPage+1}'>
 					<a href="" data-toggle="tab">
@@ -100,7 +101,7 @@
 		</ul>
 	</div>
 </c:if>
-<!— pageNum  End—>
+<!--pageNum  End-->
 <%@include file="footer.jsp"%>
 </body>
 </html>
