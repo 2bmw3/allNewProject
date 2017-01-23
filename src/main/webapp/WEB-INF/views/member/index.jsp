@@ -43,6 +43,25 @@
 	<div class="view">
 		<header class="header"> <nav class="demos"> <a
 			class="demos__item demos__item--current" href="member/index"></a> </nav> </header>
+		<div id="myModal" class="modal" style="margin-top: -8%;">
+			<!-- Modal content -->
+			<div class="modal-content" style="width: 40%; height: 98%;">
+				<div class="modal-header">
+					<span class="close" id="webCamClose">&times;</span>
+					<h2>Please put the card on the camera.</h2>
+				</div>
+
+				<div class="modal-body">
+					<video id="video" width="100%" height="80%" autoplay></video>
+					<canvas id="canvas"></canvas>
+					<br />
+					<div id="ViewTimer"></div>
+				</div>
+				<div class="modal-footer">
+					<h3>won - piece</h3>
+				</div>
+			</div>
+		</div>
 		<section class="page page--mover">
 		<div class="la-square-loader">
 			<div></div>
@@ -81,26 +100,6 @@
 					</a> <figcaption>${vo.shopname}</figcaption> </figure></li>
 			</c:forEach>
 		</ul>
-
-		<div id="myModal" class="modal" style="margin-top: -8%;">
-			<!-- Modal content -->
-			<div class="modal-content" style="width: 40%; height: 98%;">
-				<div class="modal-header">
-					<span class="close" id="webCamClose">&times;</span>
-					<h2>Please put the card on the camera.</h2>
-				</div>
-
-				<div class="modal-body">
-					<video id="video" width="100%" height="80%" autoplay></video>
-					<canvas id="canvas"></canvas>
-					<br />
-					<div id="ViewTimer"></div>
-				</div>
-				<div class="modal-footer">
-					<h3>won - piece</h3>
-				</div>
-			</div>
-		</div>
 		</section>
 		<div>
 			<div class="device">
@@ -116,6 +115,7 @@
 			<!-- Related demos -->
 		</div>
 		<!-- /view -->
+		
 </body>
 <script src="/resources/member/js/classie.js"></script>
 <script src="/resources/member/js/dynamics.min.js"></script>
@@ -168,7 +168,7 @@
         }
     });
 
-    document.getElementById("video").addEventListener("click", function() {
+     document.getElementById("video").addEventListener("click", function() {
         var videoHeight = videoJQ[0].offsetHeight;
         var videoWidth = videoJQ[0].offsetWidth;
 
