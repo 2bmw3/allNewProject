@@ -135,7 +135,7 @@
 	</insert>
 	
 	<select id="memberOrderList" resultType="OrderVO">
-		select
+select
 		ono,pname,pisize,picolor,uname,ocnt,price,ostatus,ptitlephoto,pino,odno,shopname
 		from
 		(
@@ -151,8 +151,7 @@
 		tbl_orderdetail.ostatus,tbl_orderdetail.pino,
 		tbl_orderdetail.ocnt,
 		tbl_order.userid,tbl_orderdetail.odno,tbl_order.oaddress from tbl_orderdetail ,tbl_order
-		where tbl_orderdetail.ono = tbl_order.ono and userid = #{userid} and shopname = #{shopname}
-		 and ostatus !=3 )a,tbl_pinfo
+		where tbl_orderdetail.ono = tbl_order.ono and userid = #{userid} and shopname = #{shopname} and ostatus !=3 order by odno desc)a,tbl_pinfo
 		where a.pino = tbl_pinfo.pino )a ,tbl_products
 		where
 		a.pno =tbl_products.pno) a,tbl_member
