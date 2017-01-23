@@ -221,7 +221,6 @@ public class AdminController {
 	@PostMapping("/productWrite")
 	public RedirectView writeAction(HttpServletRequest request, ProductsVO pvo, PinfoVO ivo, PphotosVO phvo)
 			throws Exception {
-		System.out.println("===============");
 		String username = cookieUtil.cookieUtil(request);
 		pvo.setAdminid(username);
 		pservice.write(pvo, ivo, phvo);
@@ -262,10 +261,14 @@ public class AdminController {
 	
 	//admin card 제작
 	@GetMapping("/cardEdit")
-	public void cardEdit(Model model,HttpServletRequest request) throws Exception {
+	public void cardEdit(int pageNum,Model model,HttpServletRequest request) throws Exception {
+	
 		String username = cookieUtil.cookieUtil(request);
-//		int totalData = pservice.total(username);
+		int totalData = pservice.total(username);
+		PageingUtil pageing = new PageingUtil(totalData, pageNum);
 		ProductsVO vo = new ProductsVO();
+		int page = (pageNum - 1) * 9;
+		vo.setPage(page);
 		int colorCnt = 0;
 		int sizeCnt = 0;
 		List<Integer> colorList = new ArrayList<>();
@@ -273,10 +276,13 @@ public class AdminController {
 		
 		vo.setAdminid(username);
 		model.addAttribute("list", pservice.list(vo));
+		model.addAttribute("page", pageing);
 		model.addAttribute("shoplogo", service.shopTotal(username).get(0).getShoplogo());
 		model.addAttribute("shopname", service.shopTotal(username).get(0).getShopname());
 		model.addAttribute("phonenumber", service.shopTotal(username).get(0).getAphonenumber());
 		model.addAttribute("shopaddress", service.shopTotal(username).get(0).getAaddress());
+		model.addAttribute("total", totalData);
+		model.addAttribute("pageNum", pageNum);
 		
 		
 		for(int i = 0 ; i < pservice.list(vo).size() ; i++){
@@ -285,7 +291,6 @@ public class AdminController {
 			colorCnt = 0;
 			sizeCnt = 0;
 			for(int j = 0 ; j < service.infoEdit(vo).size() ; j++){
-				logger.info("pinfo Color ::::: "+service.infoEdit(vo).get(j).getPicolor());
 				colorCnt += Integer.parseInt(service.infoEdit(vo).get(j).getPicolor());
 				sizeCnt += Integer.parseInt(service.infoEdit(vo).get(j).getPisize());
 			}
