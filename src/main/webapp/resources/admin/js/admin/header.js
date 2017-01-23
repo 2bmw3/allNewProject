@@ -1,6 +1,7 @@
 var username = getCookie('username'); 
 
 $(".member").on("click",function(){
+	event.preventDefault();
    $.ajax({
             url : "shopName",
             data : "adminid=" + username,
