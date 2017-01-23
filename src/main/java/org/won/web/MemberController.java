@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
+
 //s
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -133,11 +135,10 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema1/cart")
-	public void thema1Cart(String shopname, Model model) throws Exception {
-
+	public void thema1Cart(String shopname, Model model,HttpServletRequest request) throws Exception {
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
@@ -147,11 +148,11 @@ public class MemberController {
 	}
 	
 	@GetMapping("/thema1/order")
-	public void thema1Order(String shopname, Model model) throws Exception {
+	public void thema1Order(String shopname, Model model, HttpServletRequest request) throws Exception {
 		
 		OrderVO vo = new OrderVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
@@ -220,22 +221,22 @@ public class MemberController {
 
 	// cart
 	@GetMapping("/thema2/cart")
-	public void thema2Cart(String shopname, Model model) throws Exception {
+	public void thema2Cart(String shopname, Model model,HttpServletRequest request) throws Exception {
 
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 
 		model.addAttribute("cart", oservice.cartList(vo));
 
 	}
 
 	@GetMapping("/thema2/order")
-	public void thema2Order(String shopname, Model model) throws Exception {
+	public void thema2Order(String shopname, Model model,HttpServletRequest request) throws Exception {
 		
 		OrderVO vo = new OrderVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
@@ -299,21 +300,21 @@ public class MemberController {
 	}
 
 	@GetMapping("/thema3/order")
-	public void thema3Order(String shopname, Model model) throws Exception {
+	public void thema3Order(String shopname, Model model, HttpServletRequest request) throws Exception {
 		
 		OrderVO vo = new OrderVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
 
 	@GetMapping("/thema3/cart")
-	public void thema3Cart(String shopname, Model model) throws Exception {
+	public void thema3Cart(String shopname, Model model, HttpServletRequest request) throws Exception {
 
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
@@ -360,21 +361,21 @@ public class MemberController {
 		model.addAttribute("newItem", pservice.newItem(vo));
 	}
 	@GetMapping("/thema4/cart")
-	public void thema4Cart(String shopname, Model model) throws Exception {
+	public void thema4Cart(String shopname, Model model, HttpServletRequest request) throws Exception {
 
 		CartVO vo = new CartVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 
 		model.addAttribute("cart", oservice.cartList(vo));
 	}
 	
 	@GetMapping("/thema4/order")
-	public void thema4SOrder(String shopname, Model model) throws Exception {
+	public void thema4SOrder(String shopname, Model model, HttpServletRequest request) throws Exception {
 		
 		OrderVO vo = new OrderVO();
 		vo.setShopname(shopname);
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		
 		model.addAttribute("order", oservice.memberOrderList(vo));
 	}
@@ -389,8 +390,8 @@ public class MemberController {
 	}
 
 	@PostMapping("/cartAdd")
-	public void cartAdd(CartVO vo) throws Exception {
-		vo.setUserid("test");
+	public void cartAdd(CartVO vo, HttpServletRequest request) throws Exception {
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		oservice.cartAdd(vo);
 	}
 
@@ -400,10 +401,10 @@ public class MemberController {
 		return list;
 	}
 	@PostMapping("/orderWrite")
-	public String orderWrite(OrderVO vo,String userid) throws Exception {
+	public String orderWrite(OrderVO vo,String userid, HttpServletRequest request) throws Exception {
 		logger.info("ssssssssssssssssssssssssssssssssss"+vo);
 		AdminVO themaNum = pservice.themaGet(vo.getPno());
-		vo.setUserid("test");
+		vo.setUserid(cookieUtil.cookieUtil(request,"userid"));
 		if(vo.getList() == null){
 			List<OrderVO> ovo = new ArrayList<>();
 			ovo.add(0, vo);
