@@ -7,7 +7,7 @@ $(".member").on("click",function(){
             dataType : "text",
             type : "post",
             success : function(data) {
-            	window.open('/member/thema1/index?shopname='+ data, '_blank'); 
+            	window.open(data, '_blank'); 
             }
     });
 	

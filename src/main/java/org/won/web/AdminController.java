@@ -298,6 +298,7 @@ public class AdminController {
 	
 	@PostMapping("/shopName")
 	public @ResponseBody String shopName(String adminid) throws Exception{
-		return service.shopTotal(adminid).get(0).getShopname();
+		String adminShopURL = "/member/thema" + service.shopTotal(adminid).get(0).getThema() + "/index?shopname="+ service.shopTotal(adminid).get(0).getShopname();
+		return adminShopURL;
 	}
 }
